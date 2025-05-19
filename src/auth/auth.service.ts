@@ -58,7 +58,7 @@ export class AuthService {
         otp,
         otpExpiry,
         isVerified: false,
-        farm: {
+        farms: {
           create: {
             name: dto.farmName,
             county: dto.county,
