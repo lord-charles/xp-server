@@ -30,14 +30,14 @@ export class RegisterDto {
   @IsNumber()
   farmSize: number;
 
-  @ApiProperty({ 
+  @ApiProperty({
     enum: Ownership,
     description: 'Type of farm ownership'
   })
   @IsEnum(Ownership)
   ownership: Ownership;
 
-  @ApiProperty({ 
+  @ApiProperty({
     type: [String],
     description: 'Types of farming activities',
     example: ['Dairy cattle', 'Poultry', 'Crops']
@@ -60,19 +60,19 @@ export class RegisterDto {
   @IsString()
   lastName: string;
 
-  @ApiProperty({ 
+  @ApiProperty({
     enum: Gender,
     description: 'Gender of the farmer'
   })
   @IsEnum(Gender)
   gender: Gender;
 
-  @ApiProperty({ 
-    description: 'Age group of the farmer',
-    example: '25-34'
+  @ApiProperty({
+    description: 'Date of birth of the farmer',
+    example: '2000-01-01'
   })
   @IsString()
-  ageGroup: string;
+  dob: string;
 
   @ApiProperty({ description: 'County of residence' })
   @IsString()
@@ -84,7 +84,7 @@ export class RegisterDto {
   residenceLocation?: string;
 
   // Professional Information
-  @ApiPropertyOptional({ 
+  @ApiPropertyOptional({
     description: 'Years of farming experience',
     minimum: 0
   })
@@ -92,7 +92,7 @@ export class RegisterDto {
   @IsOptional()
   yearsOfExperience?: number;
 
-  @ApiPropertyOptional({ 
+  @ApiPropertyOptional({
     description: 'Email address',
     example: 'farmer@example.com'
   })
@@ -100,14 +100,14 @@ export class RegisterDto {
   @IsOptional()
   email?: string;
 
-  @ApiProperty({ 
+  @ApiProperty({
     description: 'Phone number',
     example: '+254700000000'
   })
   @IsString()
   phoneNumber: string;
 
-  @ApiPropertyOptional({ 
+  @ApiPropertyOptional({
     description: 'Business contact number',
     example: '+254700000000'
   })
@@ -115,7 +115,7 @@ export class RegisterDto {
   @IsOptional()
   businessNumber?: string;
 
-  @ApiProperty({ 
+  @ApiProperty({
     description: '4-digit PIN',
     minLength: 4,
     maxLength: 4,

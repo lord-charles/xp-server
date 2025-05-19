@@ -40,7 +40,7 @@ export class AuthController {
           middleName: 'Kamau',
           lastName: 'Kariuki',
           gender: 'Male',
-          ageGroup: '35-44',
+          dob: '2000-01-01',
           residenceCounty: 'Kiambu',
           residenceLocation: 'Kikuyu Town',
 

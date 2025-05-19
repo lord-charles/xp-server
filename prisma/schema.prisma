@@ -18,7 +18,7 @@ model User {
   middleName        String?
   lastName          String
   gender            String
-  ageGroup          String
+  dob               String
   residenceCounty   String
   residenceLocation String?
   email             String?  @unique
