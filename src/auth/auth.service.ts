@@ -47,7 +47,7 @@ export class AuthService {
         middleName: dto.middleName,
         lastName: dto.lastName,
         gender: dto.gender,
-        ageGroup: dto.ageGroup,
+        dob: dto.dob,
         residenceCounty: dto.residenceCounty,
         residenceLocation: dto.residenceLocation,
         email: dto.email,

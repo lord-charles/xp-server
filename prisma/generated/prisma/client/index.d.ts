@@ -1016,7 +1016,7 @@ export namespace Prisma {
     middleName: string | null
     lastName: string | null
     gender: string | null
-    ageGroup: string | null
+    dob: string | null
     residenceCounty: string | null
     residenceLocation: string | null
     email: string | null
@@ -1037,7 +1037,7 @@ export namespace Prisma {
     middleName: string | null
     lastName: string | null
     gender: string | null
-    ageGroup: string | null
+    dob: string | null
     residenceCounty: string | null
     residenceLocation: string | null
     email: string | null
@@ -1058,7 +1058,7 @@ export namespace Prisma {
     middleName: number
     lastName: number
     gender: number
-    ageGroup: number
+    dob: number
     residenceCounty: number
     residenceLocation: number
     email: number
@@ -1089,7 +1089,7 @@ export namespace Prisma {
     middleName?: true
     lastName?: true
     gender?: true
-    ageGroup?: true
+    dob?: true
     residenceCounty?: true
     residenceLocation?: true
     email?: true
@@ -1110,7 +1110,7 @@ export namespace Prisma {
     middleName?: true
     lastName?: true
     gender?: true
-    ageGroup?: true
+    dob?: true
     residenceCounty?: true
     residenceLocation?: true
     email?: true
@@ -1131,7 +1131,7 @@ export namespace Prisma {
     middleName?: true
     lastName?: true
     gender?: true
-    ageGroup?: true
+    dob?: true
     residenceCounty?: true
     residenceLocation?: true
     email?: true
@@ -1239,7 +1239,7 @@ export namespace Prisma {
     middleName: string | null
     lastName: string
     gender: string
-    ageGroup: string
+    dob: string
     residenceCounty: string
     residenceLocation: string | null
     email: string | null
@@ -1279,7 +1279,7 @@ export namespace Prisma {
     middleName?: boolean
     lastName?: boolean
     gender?: boolean
-    ageGroup?: boolean
+    dob?: boolean
     residenceCounty?: boolean
     residenceLocation?: boolean
     email?: boolean
@@ -1302,7 +1302,7 @@ export namespace Prisma {
     middleName?: boolean
     lastName?: boolean
     gender?: boolean
-    ageGroup?: boolean
+    dob?: boolean
     residenceCounty?: boolean
     residenceLocation?: boolean
     email?: boolean
@@ -1323,7 +1323,7 @@ export namespace Prisma {
     middleName?: boolean
     lastName?: boolean
     gender?: boolean
-    ageGroup?: boolean
+    dob?: boolean
     residenceCounty?: boolean
     residenceLocation?: boolean
     email?: boolean
@@ -1344,7 +1344,7 @@ export namespace Prisma {
     middleName?: boolean
     lastName?: boolean
     gender?: boolean
-    ageGroup?: boolean
+    dob?: boolean
     residenceCounty?: boolean
     residenceLocation?: boolean
     email?: boolean
@@ -1359,7 +1359,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "middleName" | "lastName" | "gender" | "ageGroup" | "residenceCounty" | "residenceLocation" | "email" | "phoneNumber" | "businessNumber" | "pin" | "yearsOfExperience" | "otp" | "otpExpiry" | "isVerified" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "middleName" | "lastName" | "gender" | "dob" | "residenceCounty" | "residenceLocation" | "email" | "phoneNumber" | "businessNumber" | "pin" | "yearsOfExperience" | "otp" | "otpExpiry" | "isVerified" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     farms?: boolean | User$farmsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -1378,7 +1378,7 @@ export namespace Prisma {
       middleName: string | null
       lastName: string
       gender: string
-      ageGroup: string
+      dob: string
       residenceCounty: string
       residenceLocation: string | null
       email: string | null
@@ -1820,7 +1820,7 @@ export namespace Prisma {
     readonly middleName: FieldRef<"User", 'String'>
     readonly lastName: FieldRef<"User", 'String'>
     readonly gender: FieldRef<"User", 'String'>
-    readonly ageGroup: FieldRef<"User", 'String'>
+    readonly dob: FieldRef<"User", 'String'>
     readonly residenceCounty: FieldRef<"User", 'String'>
     readonly residenceLocation: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
@@ -3436,7 +3436,7 @@ export namespace Prisma {
     middleName: 'middleName',
     lastName: 'lastName',
     gender: 'gender',
-    ageGroup: 'ageGroup',
+    dob: 'dob',
     residenceCounty: 'residenceCounty',
     residenceLocation: 'residenceLocation',
     email: 'email',
@@ -3574,7 +3574,7 @@ export namespace Prisma {
     middleName?: StringNullableFilter<"User"> | string | null
     lastName?: StringFilter<"User"> | string
     gender?: StringFilter<"User"> | string
-    ageGroup?: StringFilter<"User"> | string
+    dob?: StringFilter<"User"> | string
     residenceCounty?: StringFilter<"User"> | string
     residenceLocation?: StringNullableFilter<"User"> | string | null
     email?: StringNullableFilter<"User"> | string | null
@@ -3596,7 +3596,7 @@ export namespace Prisma {
     middleName?: SortOrderInput | SortOrder
     lastName?: SortOrder
     gender?: SortOrder
-    ageGroup?: SortOrder
+    dob?: SortOrder
     residenceCounty?: SortOrder
     residenceLocation?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
@@ -3623,7 +3623,7 @@ export namespace Prisma {
     middleName?: StringNullableFilter<"User"> | string | null
     lastName?: StringFilter<"User"> | string
     gender?: StringFilter<"User"> | string
-    ageGroup?: StringFilter<"User"> | string
+    dob?: StringFilter<"User"> | string
     residenceCounty?: StringFilter<"User"> | string
     residenceLocation?: StringNullableFilter<"User"> | string | null
     businessNumber?: StringNullableFilter<"User"> | string | null
@@ -3643,7 +3643,7 @@ export namespace Prisma {
     middleName?: SortOrderInput | SortOrder
     lastName?: SortOrder
     gender?: SortOrder
-    ageGroup?: SortOrder
+    dob?: SortOrder
     residenceCounty?: SortOrder
     residenceLocation?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
@@ -3672,7 +3672,7 @@ export namespace Prisma {
     middleName?: StringNullableWithAggregatesFilter<"User"> | string | null
     lastName?: StringWithAggregatesFilter<"User"> | string
     gender?: StringWithAggregatesFilter<"User"> | string
-    ageGroup?: StringWithAggregatesFilter<"User"> | string
+    dob?: StringWithAggregatesFilter<"User"> | string
     residenceCounty?: StringWithAggregatesFilter<"User"> | string
     residenceLocation?: StringNullableWithAggregatesFilter<"User"> | string | null
     email?: StringNullableWithAggregatesFilter<"User"> | string | null
@@ -3775,7 +3775,7 @@ export namespace Prisma {
     middleName?: string | null
     lastName: string
     gender: string
-    ageGroup: string
+    dob: string
     residenceCounty: string
     residenceLocation?: string | null
     email?: string | null
@@ -3797,7 +3797,7 @@ export namespace Prisma {
     middleName?: string | null
     lastName: string
     gender: string
-    ageGroup: string
+    dob: string
     residenceCounty: string
     residenceLocation?: string | null
     email?: string | null
@@ -3819,7 +3819,7 @@ export namespace Prisma {
     middleName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
-    ageGroup?: StringFieldUpdateOperationsInput | string
+    dob?: StringFieldUpdateOperationsInput | string
     residenceCounty?: StringFieldUpdateOperationsInput | string
     residenceLocation?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
@@ -3841,7 +3841,7 @@ export namespace Prisma {
     middleName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
-    ageGroup?: StringFieldUpdateOperationsInput | string
+    dob?: StringFieldUpdateOperationsInput | string
     residenceCounty?: StringFieldUpdateOperationsInput | string
     residenceLocation?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
@@ -3863,7 +3863,7 @@ export namespace Prisma {
     middleName?: string | null
     lastName: string
     gender: string
-    ageGroup: string
+    dob: string
     residenceCounty: string
     residenceLocation?: string | null
     email?: string | null
@@ -3884,7 +3884,7 @@ export namespace Prisma {
     middleName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
-    ageGroup?: StringFieldUpdateOperationsInput | string
+    dob?: StringFieldUpdateOperationsInput | string
     residenceCounty?: StringFieldUpdateOperationsInput | string
     residenceLocation?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
@@ -3905,7 +3905,7 @@ export namespace Prisma {
     middleName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
-    ageGroup?: StringFieldUpdateOperationsInput | string
+    dob?: StringFieldUpdateOperationsInput | string
     residenceCounty?: StringFieldUpdateOperationsInput | string
     residenceLocation?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4099,7 +4099,7 @@ export namespace Prisma {
     middleName?: SortOrder
     lastName?: SortOrder
     gender?: SortOrder
-    ageGroup?: SortOrder
+    dob?: SortOrder
     residenceCounty?: SortOrder
     residenceLocation?: SortOrder
     email?: SortOrder
@@ -4124,7 +4124,7 @@ export namespace Prisma {
     middleName?: SortOrder
     lastName?: SortOrder
     gender?: SortOrder
-    ageGroup?: SortOrder
+    dob?: SortOrder
     residenceCounty?: SortOrder
     residenceLocation?: SortOrder
     email?: SortOrder
@@ -4145,7 +4145,7 @@ export namespace Prisma {
     middleName?: SortOrder
     lastName?: SortOrder
     gender?: SortOrder
-    ageGroup?: SortOrder
+    dob?: SortOrder
     residenceCounty?: SortOrder
     residenceLocation?: SortOrder
     email?: SortOrder
@@ -4711,7 +4711,7 @@ export namespace Prisma {
     middleName?: string | null
     lastName: string
     gender: string
-    ageGroup: string
+    dob: string
     residenceCounty: string
     residenceLocation?: string | null
     email?: string | null
@@ -4732,7 +4732,7 @@ export namespace Prisma {
     middleName?: string | null
     lastName: string
     gender: string
-    ageGroup: string
+    dob: string
     residenceCounty: string
     residenceLocation?: string | null
     email?: string | null
@@ -4769,7 +4769,7 @@ export namespace Prisma {
     middleName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
-    ageGroup?: StringFieldUpdateOperationsInput | string
+    dob?: StringFieldUpdateOperationsInput | string
     residenceCounty?: StringFieldUpdateOperationsInput | string
     residenceLocation?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4790,7 +4790,7 @@ export namespace Prisma {
     middleName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
-    ageGroup?: StringFieldUpdateOperationsInput | string
+    dob?: StringFieldUpdateOperationsInput | string
     residenceCounty?: StringFieldUpdateOperationsInput | string
     residenceLocation?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null

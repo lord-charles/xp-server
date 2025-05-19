@@ -126,7 +126,7 @@ exports.Prisma.UserScalarFieldEnum = {
   middleName: 'middleName',
   lastName: 'lastName',
   gender: 'gender',
-  ageGroup: 'ageGroup',
+  dob: 'dob',
   residenceCounty: 'residenceCounty',
   residenceLocation: 'residenceLocation',
   email: 'email',
