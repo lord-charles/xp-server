@@ -22,7 +22,7 @@ export class UpdateUserDto {
   @IsOptional()
   lastName?: string;
 
-  @ApiPropertyOptional({ 
+  @ApiPropertyOptional({
     enum: Gender,
     description: 'Gender of the farmer'
   })
@@ -30,13 +30,13 @@ export class UpdateUserDto {
   @IsOptional()
   gender?: Gender;
 
-  @ApiPropertyOptional({ 
-    description: 'Age group of the farmer',
-    example: '25-34'
+  @ApiPropertyOptional({
+    description: 'Date of birth of the farmer',
+    example: '2000-01-01'
   })
   @IsString()
   @IsOptional()
-  ageGroup?: string;
+  dob?: string;
 
   @ApiPropertyOptional({ description: 'County of residence' })
   @IsString()
@@ -48,7 +48,7 @@ export class UpdateUserDto {
   @IsOptional()
   residenceLocation?: string;
 
-  @ApiPropertyOptional({ 
+  @ApiPropertyOptional({
     description: 'Email address',
     example: 'farmer@example.com'
   })
@@ -56,7 +56,7 @@ export class UpdateUserDto {
   @IsOptional()
   email?: string;
 
-  @ApiPropertyOptional({ 
+  @ApiPropertyOptional({
     description: 'Business contact number',
     example: '+254720123456'
   })
