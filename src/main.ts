@@ -10,18 +10,6 @@ async function bootstrap() {
 
   app.enableCors();
 
-  // Use global validation pipe with strict settings
-  app.useGlobalPipes(
-    new ValidationPipe({
-      whitelist: true, // Strip properties that don't have decorators
-      forbidNonWhitelisted: true, // Throw errors if non-whitelisted values are provided
-      transform: true, // Auto-transform payloads to DTO instances
-      transformOptions: {
-        enableImplicitConversion: true, // Allow implicit conversion of primitive types
-      },
-    }),
-  );
-
   const config = new DocumentBuilder()
     .setTitle('XP Farmer API')
     .setDescription('API documentation for XP Farmer application')
