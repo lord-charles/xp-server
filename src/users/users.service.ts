@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, ConflictException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { UpdateUserDto } from './dto/update-user.dto';
 
@@ -74,16 +74,27 @@ export class UsersService {
       throw new NotFoundException(`User with ID ${id} not found`);
     }
 
-    const updatedUser = await this.prisma.user.update({
-      where: { id },
-      data: updateUserDto,
-      include: {
-        farms: true,
-      },
-    });
-
-    const { pin, ...result } = updatedUser;
-    return result;
+    try {
+      const updatedUser = await this.prisma.user.update({
+        where: { id },
+        data: updateUserDto,
+        include: {
+          farms: true,
+        },
+      });
+      const { pin, ...result } = updatedUser;
+      return result;
+    } catch (error) {
+      if (error.code === 'P2002') {
+        if (error.meta?.target?.includes('email')) {
+          throw new ConflictException('Email is already in use by another user.');
+        }
+        if (error.meta?.target?.includes('phoneNumber')) {
+          throw new ConflictException('Phone number is already in use by another user.');
+        }
+      }
+      throw error;
+    }
   }
 
   async remove(id: string) {
