@@ -388,11 +388,18 @@ exports.Prisma.GoodsInStockScalarFieldEnum = {
   id: 'id',
   inventoryId: 'inventoryId',
   itemName: 'itemName',
+  batchNumber: 'batchNumber',
+  category: 'category',
   sku: 'sku',
   quantity: 'quantity',
+  unit: 'unit',
   currentLocation: 'currentLocation',
   condition: 'condition',
+  purchasePrice: 'purchasePrice',
+  purchaseDate: 'purchaseDate',
+  supplier: 'supplier',
   expirationDate: 'expirationDate',
+  nextInspectionDate: 'nextInspectionDate',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

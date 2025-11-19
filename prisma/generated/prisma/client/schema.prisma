@@ -355,17 +355,24 @@ model Inventory {
 }
 
 model GoodsInStock {
-  id              String    @id @default(cuid())
-  inventoryId     String
-  inventory       Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
-  itemName        String
-  sku             String?
-  quantity        Int
-  currentLocation String
-  condition       String
-  expirationDate  DateTime?
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
+  id                 String    @id @default(cuid())
+  inventoryId        String
+  inventory          Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
+  itemName           String
+  batchNumber        String?
+  category           String?
+  sku                String?
+  quantity           Int
+  unit               String?
+  currentLocation    String
+  condition          String
+  purchasePrice      Float?
+  purchaseDate       DateTime?
+  supplier           String?
+  expirationDate     DateTime?
+  nextInspectionDate DateTime?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
 }
 
 model Machinery {

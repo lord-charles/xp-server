@@ -24988,21 +24988,30 @@ export namespace Prisma {
 
   export type GoodsInStockAvgAggregateOutputType = {
     quantity: number | null
+    purchasePrice: number | null
   }
 
   export type GoodsInStockSumAggregateOutputType = {
     quantity: number | null
+    purchasePrice: number | null
   }
 
   export type GoodsInStockMinAggregateOutputType = {
     id: string | null
     inventoryId: string | null
     itemName: string | null
+    batchNumber: string | null
+    category: string | null
     sku: string | null
     quantity: number | null
+    unit: string | null
     currentLocation: string | null
     condition: string | null
+    purchasePrice: number | null
+    purchaseDate: Date | null
+    supplier: string | null
     expirationDate: Date | null
+    nextInspectionDate: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -25011,11 +25020,18 @@ export namespace Prisma {
     id: string | null
     inventoryId: string | null
     itemName: string | null
+    batchNumber: string | null
+    category: string | null
     sku: string | null
     quantity: number | null
+    unit: string | null
     currentLocation: string | null
     condition: string | null
+    purchasePrice: number | null
+    purchaseDate: Date | null
+    supplier: string | null
     expirationDate: Date | null
+    nextInspectionDate: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -25024,11 +25040,18 @@ export namespace Prisma {
     id: number
     inventoryId: number
     itemName: number
+    batchNumber: number
+    category: number
     sku: number
     quantity: number
+    unit: number
     currentLocation: number
     condition: number
+    purchasePrice: number
+    purchaseDate: number
+    supplier: number
     expirationDate: number
+    nextInspectionDate: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -25037,21 +25060,30 @@ export namespace Prisma {
 
   export type GoodsInStockAvgAggregateInputType = {
     quantity?: true
+    purchasePrice?: true
   }
 
   export type GoodsInStockSumAggregateInputType = {
     quantity?: true
+    purchasePrice?: true
   }
 
   export type GoodsInStockMinAggregateInputType = {
     id?: true
     inventoryId?: true
     itemName?: true
+    batchNumber?: true
+    category?: true
     sku?: true
     quantity?: true
+    unit?: true
     currentLocation?: true
     condition?: true
+    purchasePrice?: true
+    purchaseDate?: true
+    supplier?: true
     expirationDate?: true
+    nextInspectionDate?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -25060,11 +25092,18 @@ export namespace Prisma {
     id?: true
     inventoryId?: true
     itemName?: true
+    batchNumber?: true
+    category?: true
     sku?: true
     quantity?: true
+    unit?: true
     currentLocation?: true
     condition?: true
+    purchasePrice?: true
+    purchaseDate?: true
+    supplier?: true
     expirationDate?: true
+    nextInspectionDate?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -25073,11 +25112,18 @@ export namespace Prisma {
     id?: true
     inventoryId?: true
     itemName?: true
+    batchNumber?: true
+    category?: true
     sku?: true
     quantity?: true
+    unit?: true
     currentLocation?: true
     condition?: true
+    purchasePrice?: true
+    purchaseDate?: true
+    supplier?: true
     expirationDate?: true
+    nextInspectionDate?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -25173,11 +25219,18 @@ export namespace Prisma {
     id: string
     inventoryId: string
     itemName: string
+    batchNumber: string | null
+    category: string | null
     sku: string | null
     quantity: number
+    unit: string | null
     currentLocation: string
     condition: string
+    purchasePrice: number | null
+    purchaseDate: Date | null
+    supplier: string | null
     expirationDate: Date | null
+    nextInspectionDate: Date | null
     createdAt: Date
     updatedAt: Date
     _count: GoodsInStockCountAggregateOutputType | null
@@ -25205,11 +25258,18 @@ export namespace Prisma {
     id?: boolean
     inventoryId?: boolean
     itemName?: boolean
+    batchNumber?: boolean
+    category?: boolean
     sku?: boolean
     quantity?: boolean
+    unit?: boolean
     currentLocation?: boolean
     condition?: boolean
+    purchasePrice?: boolean
+    purchaseDate?: boolean
+    supplier?: boolean
     expirationDate?: boolean
+    nextInspectionDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     inventory?: boolean | InventoryDefaultArgs<ExtArgs>
@@ -25219,11 +25279,18 @@ export namespace Prisma {
     id?: boolean
     inventoryId?: boolean
     itemName?: boolean
+    batchNumber?: boolean
+    category?: boolean
     sku?: boolean
     quantity?: boolean
+    unit?: boolean
     currentLocation?: boolean
     condition?: boolean
+    purchasePrice?: boolean
+    purchaseDate?: boolean
+    supplier?: boolean
     expirationDate?: boolean
+    nextInspectionDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     inventory?: boolean | InventoryDefaultArgs<ExtArgs>
@@ -25233,11 +25300,18 @@ export namespace Prisma {
     id?: boolean
     inventoryId?: boolean
     itemName?: boolean
+    batchNumber?: boolean
+    category?: boolean
     sku?: boolean
     quantity?: boolean
+    unit?: boolean
     currentLocation?: boolean
     condition?: boolean
+    purchasePrice?: boolean
+    purchaseDate?: boolean
+    supplier?: boolean
     expirationDate?: boolean
+    nextInspectionDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     inventory?: boolean | InventoryDefaultArgs<ExtArgs>
@@ -25247,16 +25321,23 @@ export namespace Prisma {
     id?: boolean
     inventoryId?: boolean
     itemName?: boolean
+    batchNumber?: boolean
+    category?: boolean
     sku?: boolean
     quantity?: boolean
+    unit?: boolean
     currentLocation?: boolean
     condition?: boolean
+    purchasePrice?: boolean
+    purchaseDate?: boolean
+    supplier?: boolean
     expirationDate?: boolean
+    nextInspectionDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type GoodsInStockOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "inventoryId" | "itemName" | "sku" | "quantity" | "currentLocation" | "condition" | "expirationDate" | "createdAt" | "updatedAt", ExtArgs["result"]["goodsInStock"]>
+  export type GoodsInStockOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "inventoryId" | "itemName" | "batchNumber" | "category" | "sku" | "quantity" | "unit" | "currentLocation" | "condition" | "purchasePrice" | "purchaseDate" | "supplier" | "expirationDate" | "nextInspectionDate" | "createdAt" | "updatedAt", ExtArgs["result"]["goodsInStock"]>
   export type GoodsInStockInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     inventory?: boolean | InventoryDefaultArgs<ExtArgs>
   }
@@ -25276,11 +25357,18 @@ export namespace Prisma {
       id: string
       inventoryId: string
       itemName: string
+      batchNumber: string | null
+      category: string | null
       sku: string | null
       quantity: number
+      unit: string | null
       currentLocation: string
       condition: string
+      purchasePrice: number | null
+      purchaseDate: Date | null
+      supplier: string | null
       expirationDate: Date | null
+      nextInspectionDate: Date | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["goodsInStock"]>
@@ -25710,11 +25798,18 @@ export namespace Prisma {
     readonly id: FieldRef<"GoodsInStock", 'String'>
     readonly inventoryId: FieldRef<"GoodsInStock", 'String'>
     readonly itemName: FieldRef<"GoodsInStock", 'String'>
+    readonly batchNumber: FieldRef<"GoodsInStock", 'String'>
+    readonly category: FieldRef<"GoodsInStock", 'String'>
     readonly sku: FieldRef<"GoodsInStock", 'String'>
     readonly quantity: FieldRef<"GoodsInStock", 'Int'>
+    readonly unit: FieldRef<"GoodsInStock", 'String'>
     readonly currentLocation: FieldRef<"GoodsInStock", 'String'>
     readonly condition: FieldRef<"GoodsInStock", 'String'>
+    readonly purchasePrice: FieldRef<"GoodsInStock", 'Float'>
+    readonly purchaseDate: FieldRef<"GoodsInStock", 'DateTime'>
+    readonly supplier: FieldRef<"GoodsInStock", 'String'>
     readonly expirationDate: FieldRef<"GoodsInStock", 'DateTime'>
+    readonly nextInspectionDate: FieldRef<"GoodsInStock", 'DateTime'>
     readonly createdAt: FieldRef<"GoodsInStock", 'DateTime'>
     readonly updatedAt: FieldRef<"GoodsInStock", 'DateTime'>
   }
@@ -37939,11 +38034,18 @@ export namespace Prisma {
     id: 'id',
     inventoryId: 'inventoryId',
     itemName: 'itemName',
+    batchNumber: 'batchNumber',
+    category: 'category',
     sku: 'sku',
     quantity: 'quantity',
+    unit: 'unit',
     currentLocation: 'currentLocation',
     condition: 'condition',
+    purchasePrice: 'purchasePrice',
+    purchaseDate: 'purchaseDate',
+    supplier: 'supplier',
     expirationDate: 'expirationDate',
+    nextInspectionDate: 'nextInspectionDate',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -40007,11 +40109,18 @@ export namespace Prisma {
     id?: StringFilter<"GoodsInStock"> | string
     inventoryId?: StringFilter<"GoodsInStock"> | string
     itemName?: StringFilter<"GoodsInStock"> | string
+    batchNumber?: StringNullableFilter<"GoodsInStock"> | string | null
+    category?: StringNullableFilter<"GoodsInStock"> | string | null
     sku?: StringNullableFilter<"GoodsInStock"> | string | null
     quantity?: IntFilter<"GoodsInStock"> | number
+    unit?: StringNullableFilter<"GoodsInStock"> | string | null
     currentLocation?: StringFilter<"GoodsInStock"> | string
     condition?: StringFilter<"GoodsInStock"> | string
+    purchasePrice?: FloatNullableFilter<"GoodsInStock"> | number | null
+    purchaseDate?: DateTimeNullableFilter<"GoodsInStock"> | Date | string | null
+    supplier?: StringNullableFilter<"GoodsInStock"> | string | null
     expirationDate?: DateTimeNullableFilter<"GoodsInStock"> | Date | string | null
+    nextInspectionDate?: DateTimeNullableFilter<"GoodsInStock"> | Date | string | null
     createdAt?: DateTimeFilter<"GoodsInStock"> | Date | string
     updatedAt?: DateTimeFilter<"GoodsInStock"> | Date | string
     inventory?: XOR<InventoryScalarRelationFilter, InventoryWhereInput>
@@ -40021,11 +40130,18 @@ export namespace Prisma {
     id?: SortOrder
     inventoryId?: SortOrder
     itemName?: SortOrder
+    batchNumber?: SortOrderInput | SortOrder
+    category?: SortOrderInput | SortOrder
     sku?: SortOrderInput | SortOrder
     quantity?: SortOrder
+    unit?: SortOrderInput | SortOrder
     currentLocation?: SortOrder
     condition?: SortOrder
+    purchasePrice?: SortOrderInput | SortOrder
+    purchaseDate?: SortOrderInput | SortOrder
+    supplier?: SortOrderInput | SortOrder
     expirationDate?: SortOrderInput | SortOrder
+    nextInspectionDate?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     inventory?: InventoryOrderByWithRelationInput
@@ -40038,11 +40154,18 @@ export namespace Prisma {
     NOT?: GoodsInStockWhereInput | GoodsInStockWhereInput[]
     inventoryId?: StringFilter<"GoodsInStock"> | string
     itemName?: StringFilter<"GoodsInStock"> | string
+    batchNumber?: StringNullableFilter<"GoodsInStock"> | string | null
+    category?: StringNullableFilter<"GoodsInStock"> | string | null
     sku?: StringNullableFilter<"GoodsInStock"> | string | null
     quantity?: IntFilter<"GoodsInStock"> | number
+    unit?: StringNullableFilter<"GoodsInStock"> | string | null
     currentLocation?: StringFilter<"GoodsInStock"> | string
     condition?: StringFilter<"GoodsInStock"> | string
+    purchasePrice?: FloatNullableFilter<"GoodsInStock"> | number | null
+    purchaseDate?: DateTimeNullableFilter<"GoodsInStock"> | Date | string | null
+    supplier?: StringNullableFilter<"GoodsInStock"> | string | null
     expirationDate?: DateTimeNullableFilter<"GoodsInStock"> | Date | string | null
+    nextInspectionDate?: DateTimeNullableFilter<"GoodsInStock"> | Date | string | null
     createdAt?: DateTimeFilter<"GoodsInStock"> | Date | string
     updatedAt?: DateTimeFilter<"GoodsInStock"> | Date | string
     inventory?: XOR<InventoryScalarRelationFilter, InventoryWhereInput>
@@ -40052,11 +40175,18 @@ export namespace Prisma {
     id?: SortOrder
     inventoryId?: SortOrder
     itemName?: SortOrder
+    batchNumber?: SortOrderInput | SortOrder
+    category?: SortOrderInput | SortOrder
     sku?: SortOrderInput | SortOrder
     quantity?: SortOrder
+    unit?: SortOrderInput | SortOrder
     currentLocation?: SortOrder
     condition?: SortOrder
+    purchasePrice?: SortOrderInput | SortOrder
+    purchaseDate?: SortOrderInput | SortOrder
+    supplier?: SortOrderInput | SortOrder
     expirationDate?: SortOrderInput | SortOrder
+    nextInspectionDate?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: GoodsInStockCountOrderByAggregateInput
@@ -40073,11 +40203,18 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"GoodsInStock"> | string
     inventoryId?: StringWithAggregatesFilter<"GoodsInStock"> | string
     itemName?: StringWithAggregatesFilter<"GoodsInStock"> | string
+    batchNumber?: StringNullableWithAggregatesFilter<"GoodsInStock"> | string | null
+    category?: StringNullableWithAggregatesFilter<"GoodsInStock"> | string | null
     sku?: StringNullableWithAggregatesFilter<"GoodsInStock"> | string | null
     quantity?: IntWithAggregatesFilter<"GoodsInStock"> | number
+    unit?: StringNullableWithAggregatesFilter<"GoodsInStock"> | string | null
     currentLocation?: StringWithAggregatesFilter<"GoodsInStock"> | string
     condition?: StringWithAggregatesFilter<"GoodsInStock"> | string
+    purchasePrice?: FloatNullableWithAggregatesFilter<"GoodsInStock"> | number | null
+    purchaseDate?: DateTimeNullableWithAggregatesFilter<"GoodsInStock"> | Date | string | null
+    supplier?: StringNullableWithAggregatesFilter<"GoodsInStock"> | string | null
     expirationDate?: DateTimeNullableWithAggregatesFilter<"GoodsInStock"> | Date | string | null
+    nextInspectionDate?: DateTimeNullableWithAggregatesFilter<"GoodsInStock"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"GoodsInStock"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"GoodsInStock"> | Date | string
   }
@@ -43229,11 +43366,18 @@ export namespace Prisma {
   export type GoodsInStockCreateInput = {
     id?: string
     itemName: string
+    batchNumber?: string | null
+    category?: string | null
     sku?: string | null
     quantity: number
+    unit?: string | null
     currentLocation: string
     condition: string
+    purchasePrice?: number | null
+    purchaseDate?: Date | string | null
+    supplier?: string | null
     expirationDate?: Date | string | null
+    nextInspectionDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     inventory: InventoryCreateNestedOneWithoutGoodsInStockInput
@@ -43243,11 +43387,18 @@ export namespace Prisma {
     id?: string
     inventoryId: string
     itemName: string
+    batchNumber?: string | null
+    category?: string | null
     sku?: string | null
     quantity: number
+    unit?: string | null
     currentLocation: string
     condition: string
+    purchasePrice?: number | null
+    purchaseDate?: Date | string | null
+    supplier?: string | null
     expirationDate?: Date | string | null
+    nextInspectionDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -43255,11 +43406,18 @@ export namespace Prisma {
   export type GoodsInStockUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     itemName?: StringFieldUpdateOperationsInput | string
+    batchNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     sku?: NullableStringFieldUpdateOperationsInput | string | null
     quantity?: IntFieldUpdateOperationsInput | number
+    unit?: NullableStringFieldUpdateOperationsInput | string | null
     currentLocation?: StringFieldUpdateOperationsInput | string
     condition?: StringFieldUpdateOperationsInput | string
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    supplier?: NullableStringFieldUpdateOperationsInput | string | null
     expirationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextInspectionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     inventory?: InventoryUpdateOneRequiredWithoutGoodsInStockNestedInput
@@ -43269,11 +43427,18 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     inventoryId?: StringFieldUpdateOperationsInput | string
     itemName?: StringFieldUpdateOperationsInput | string
+    batchNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     sku?: NullableStringFieldUpdateOperationsInput | string | null
     quantity?: IntFieldUpdateOperationsInput | number
+    unit?: NullableStringFieldUpdateOperationsInput | string | null
     currentLocation?: StringFieldUpdateOperationsInput | string
     condition?: StringFieldUpdateOperationsInput | string
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    supplier?: NullableStringFieldUpdateOperationsInput | string | null
     expirationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextInspectionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -43282,11 +43447,18 @@ export namespace Prisma {
     id?: string
     inventoryId: string
     itemName: string
+    batchNumber?: string | null
+    category?: string | null
     sku?: string | null
     quantity: number
+    unit?: string | null
     currentLocation: string
     condition: string
+    purchasePrice?: number | null
+    purchaseDate?: Date | string | null
+    supplier?: string | null
     expirationDate?: Date | string | null
+    nextInspectionDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -43294,11 +43466,18 @@ export namespace Prisma {
   export type GoodsInStockUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     itemName?: StringFieldUpdateOperationsInput | string
+    batchNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     sku?: NullableStringFieldUpdateOperationsInput | string | null
     quantity?: IntFieldUpdateOperationsInput | number
+    unit?: NullableStringFieldUpdateOperationsInput | string | null
     currentLocation?: StringFieldUpdateOperationsInput | string
     condition?: StringFieldUpdateOperationsInput | string
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    supplier?: NullableStringFieldUpdateOperationsInput | string | null
     expirationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextInspectionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -43307,11 +43486,18 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     inventoryId?: StringFieldUpdateOperationsInput | string
     itemName?: StringFieldUpdateOperationsInput | string
+    batchNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     sku?: NullableStringFieldUpdateOperationsInput | string | null
     quantity?: IntFieldUpdateOperationsInput | number
+    unit?: NullableStringFieldUpdateOperationsInput | string | null
     currentLocation?: StringFieldUpdateOperationsInput | string
     condition?: StringFieldUpdateOperationsInput | string
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    supplier?: NullableStringFieldUpdateOperationsInput | string | null
     expirationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextInspectionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -46064,28 +46250,43 @@ export namespace Prisma {
     id?: SortOrder
     inventoryId?: SortOrder
     itemName?: SortOrder
+    batchNumber?: SortOrder
+    category?: SortOrder
     sku?: SortOrder
     quantity?: SortOrder
+    unit?: SortOrder
     currentLocation?: SortOrder
     condition?: SortOrder
+    purchasePrice?: SortOrder
+    purchaseDate?: SortOrder
+    supplier?: SortOrder
     expirationDate?: SortOrder
+    nextInspectionDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type GoodsInStockAvgOrderByAggregateInput = {
     quantity?: SortOrder
+    purchasePrice?: SortOrder
   }
 
   export type GoodsInStockMaxOrderByAggregateInput = {
     id?: SortOrder
     inventoryId?: SortOrder
     itemName?: SortOrder
+    batchNumber?: SortOrder
+    category?: SortOrder
     sku?: SortOrder
     quantity?: SortOrder
+    unit?: SortOrder
     currentLocation?: SortOrder
     condition?: SortOrder
+    purchasePrice?: SortOrder
+    purchaseDate?: SortOrder
+    supplier?: SortOrder
     expirationDate?: SortOrder
+    nextInspectionDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -46094,17 +46295,25 @@ export namespace Prisma {
     id?: SortOrder
     inventoryId?: SortOrder
     itemName?: SortOrder
+    batchNumber?: SortOrder
+    category?: SortOrder
     sku?: SortOrder
     quantity?: SortOrder
+    unit?: SortOrder
     currentLocation?: SortOrder
     condition?: SortOrder
+    purchasePrice?: SortOrder
+    purchaseDate?: SortOrder
+    supplier?: SortOrder
     expirationDate?: SortOrder
+    nextInspectionDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type GoodsInStockSumOrderByAggregateInput = {
     quantity?: SortOrder
+    purchasePrice?: SortOrder
   }
 
   export type MachineryCountOrderByAggregateInput = {
@@ -54546,11 +54755,18 @@ export namespace Prisma {
   export type GoodsInStockCreateWithoutInventoryInput = {
     id?: string
     itemName: string
+    batchNumber?: string | null
+    category?: string | null
     sku?: string | null
     quantity: number
+    unit?: string | null
     currentLocation: string
     condition: string
+    purchasePrice?: number | null
+    purchaseDate?: Date | string | null
+    supplier?: string | null
     expirationDate?: Date | string | null
+    nextInspectionDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -54558,11 +54774,18 @@ export namespace Prisma {
   export type GoodsInStockUncheckedCreateWithoutInventoryInput = {
     id?: string
     itemName: string
+    batchNumber?: string | null
+    category?: string | null
     sku?: string | null
     quantity: number
+    unit?: string | null
     currentLocation: string
     condition: string
+    purchasePrice?: number | null
+    purchaseDate?: Date | string | null
+    supplier?: string | null
     expirationDate?: Date | string | null
+    nextInspectionDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -54749,11 +54972,18 @@ export namespace Prisma {
     id?: StringFilter<"GoodsInStock"> | string
     inventoryId?: StringFilter<"GoodsInStock"> | string
     itemName?: StringFilter<"GoodsInStock"> | string
+    batchNumber?: StringNullableFilter<"GoodsInStock"> | string | null
+    category?: StringNullableFilter<"GoodsInStock"> | string | null
     sku?: StringNullableFilter<"GoodsInStock"> | string | null
     quantity?: IntFilter<"GoodsInStock"> | number
+    unit?: StringNullableFilter<"GoodsInStock"> | string | null
     currentLocation?: StringFilter<"GoodsInStock"> | string
     condition?: StringFilter<"GoodsInStock"> | string
+    purchasePrice?: FloatNullableFilter<"GoodsInStock"> | number | null
+    purchaseDate?: DateTimeNullableFilter<"GoodsInStock"> | Date | string | null
+    supplier?: StringNullableFilter<"GoodsInStock"> | string | null
     expirationDate?: DateTimeNullableFilter<"GoodsInStock"> | Date | string | null
+    nextInspectionDate?: DateTimeNullableFilter<"GoodsInStock"> | Date | string | null
     createdAt?: DateTimeFilter<"GoodsInStock"> | Date | string
     updatedAt?: DateTimeFilter<"GoodsInStock"> | Date | string
   }
@@ -59702,11 +59932,18 @@ export namespace Prisma {
   export type GoodsInStockCreateManyInventoryInput = {
     id?: string
     itemName: string
+    batchNumber?: string | null
+    category?: string | null
     sku?: string | null
     quantity: number
+    unit?: string | null
     currentLocation: string
     condition: string
+    purchasePrice?: number | null
+    purchaseDate?: Date | string | null
+    supplier?: string | null
     expirationDate?: Date | string | null
+    nextInspectionDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -59749,11 +59986,18 @@ export namespace Prisma {
   export type GoodsInStockUpdateWithoutInventoryInput = {
     id?: StringFieldUpdateOperationsInput | string
     itemName?: StringFieldUpdateOperationsInput | string
+    batchNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     sku?: NullableStringFieldUpdateOperationsInput | string | null
     quantity?: IntFieldUpdateOperationsInput | number
+    unit?: NullableStringFieldUpdateOperationsInput | string | null
     currentLocation?: StringFieldUpdateOperationsInput | string
     condition?: StringFieldUpdateOperationsInput | string
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    supplier?: NullableStringFieldUpdateOperationsInput | string | null
     expirationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextInspectionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -59761,11 +60005,18 @@ export namespace Prisma {
   export type GoodsInStockUncheckedUpdateWithoutInventoryInput = {
     id?: StringFieldUpdateOperationsInput | string
     itemName?: StringFieldUpdateOperationsInput | string
+    batchNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     sku?: NullableStringFieldUpdateOperationsInput | string | null
     quantity?: IntFieldUpdateOperationsInput | number
+    unit?: NullableStringFieldUpdateOperationsInput | string | null
     currentLocation?: StringFieldUpdateOperationsInput | string
     condition?: StringFieldUpdateOperationsInput | string
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    supplier?: NullableStringFieldUpdateOperationsInput | string | null
     expirationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextInspectionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -59773,11 +60024,18 @@ export namespace Prisma {
   export type GoodsInStockUncheckedUpdateManyWithoutInventoryInput = {
     id?: StringFieldUpdateOperationsInput | string
     itemName?: StringFieldUpdateOperationsInput | string
+    batchNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     sku?: NullableStringFieldUpdateOperationsInput | string | null
     quantity?: IntFieldUpdateOperationsInput | number
+    unit?: NullableStringFieldUpdateOperationsInput | string | null
     currentLocation?: StringFieldUpdateOperationsInput | string
     condition?: StringFieldUpdateOperationsInput | string
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    supplier?: NullableStringFieldUpdateOperationsInput | string | null
     expirationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextInspectionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

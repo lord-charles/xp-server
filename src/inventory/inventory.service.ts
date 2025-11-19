@@ -29,9 +29,22 @@ export class InventoryService {
 
     // Create the specific inventory item
     if (goodsInStock) {
+      const {
+        purchaseDate,
+        expirationDate,
+        nextInspectionDate,
+        ...rest
+      } = goodsInStock as any;
+
+      const normalizeDate = (d?: any) =>
+        typeof d === 'string' ? new Date(d) : d;
+
       return this.prisma.goodsInStock.create({
         data: {
-          ...goodsInStock,
+          ...rest,
+          purchaseDate: normalizeDate(purchaseDate),
+          expirationDate: normalizeDate(expirationDate),
+          nextInspectionDate: normalizeDate(nextInspectionDate),
           inventoryId: inventory.id,
         },
       });
