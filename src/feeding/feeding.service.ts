@@ -75,7 +75,6 @@ export class FeedingService {
       customHours: typeof customHours === 'number' ? customHours : Number(customHours) || undefined,
       grazingCost: typeof grazingCost === 'number' ? grazingCost : Number(grazingCost) || undefined,
       timeOfDay: Array.isArray(rest.timeOfDay) ? rest.timeOfDay : [],
-      animalIds: Array.isArray(animalIds) ? animalIds : undefined,
       farm: { connect: { id: farmId } },
       user: { connect: { id: userId } },
       feedDetails: detailsToCreate

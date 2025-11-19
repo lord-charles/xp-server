@@ -103,10 +103,10 @@ export class CreateFeedingDto {
   @IsOptional()
   grazingCost?: number;
 
-  @ApiProperty({ enum: ['Single Animal', 'Group'], example: 'Single Animal' })
+  @ApiPropertyOptional({ enum: ['Single Animal', 'Group'], example: 'Single Animal' })
   @IsEnum(['Single Animal', 'Group'])
-  @IsNotEmpty()
-  programType: string;
+  @IsOptional()
+  programType?: string;
 
   @ApiPropertyOptional({ description: 'Required if programType is Single Animal', example: 'animal_id_123' })
   @IsString()
@@ -145,7 +145,7 @@ export class CreateFeedingDto {
   @IsNotEmpty()
   feedType: string;
 
-  @ApiProperty({
+  @ApiPropertyOptional({
     type: [FeedDetailsDto],
     example: [
       {
@@ -171,12 +171,14 @@ export class CreateFeedingDto {
   @IsArray()
   @ValidateNested({ each: true })
   @Type(() => FeedDetailsDto)
-  feedDetails: FeedDetailsDto[];
+  @IsOptional()
+  feedDetails?: FeedDetailsDto[];
 
-  @ApiProperty({ type: [String], example: ['Morning', 'Evening'] })
+  @ApiPropertyOptional({ type: [String], example: ['Morning', 'Evening'] })
   @IsArray()
   @IsString({ each: true })
-  timeOfDay: string[];
+  @IsOptional()
+  timeOfDay?: string[];
 
   @ApiPropertyOptional({ example: 'Ensure fresh water is always available.' })
   @IsString()
