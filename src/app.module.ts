@@ -13,6 +13,7 @@ import { HealthModule } from './health/health.module';
 import { SalesModule } from './sales/sales.module';
 import { AccountingModule } from './accounting/accounting.module';
 import { AnalyticsModule } from './analytics/analytics.module';
+import { HomeModule } from './home/home.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { AnalyticsModule } from './analytics/analytics.module';
     SalesModule,
     AccountingModule,
     AnalyticsModule,
+    HomeModule,
   ],
   controllers: [],
   providers: [],

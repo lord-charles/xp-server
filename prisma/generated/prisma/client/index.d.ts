@@ -36007,17 +36007,27 @@ export namespace Prisma {
   export type SaleListingAvgAggregateOutputType = {
     weight: number | null
     price: number | null
+    milkYield: number | null
+    homeUseQuantity: number | null
+    saleQuantity: number | null
     quantity: number | null
     pricePerBird: number | null
     saleAmount: number | null
+    marketPrice: number | null
+    salePrice: number | null
   }
 
   export type SaleListingSumAggregateOutputType = {
     weight: number | null
     price: number | null
+    milkYield: number | null
+    homeUseQuantity: number | null
+    saleQuantity: number | null
     quantity: number | null
     pricePerBird: number | null
     saleAmount: number | null
+    marketPrice: number | null
+    salePrice: number | null
   }
 
   export type SaleListingMinAggregateOutputType = {
@@ -36032,10 +36042,18 @@ export namespace Prisma {
     status: string | null
     health: string | null
     lastCheckup: string | null
+    animalId: string | null
+    livestockId: string | null
     purpose: string | null
     feedingProgram: string | null
     milkProduction: string | null
     pregnancyStatus: string | null
+    beefQuality: string | null
+    milkQuality: string | null
+    milkYield: number | null
+    milkingDate: Date | null
+    homeUseQuantity: number | null
+    saleQuantity: number | null
     quantity: number | null
     pricePerBird: number | null
     eggProductionRate: string | null
@@ -36045,7 +36063,10 @@ export namespace Prisma {
     saleDate: Date | null
     buyerName: string | null
     buyerContact: string | null
+    buyerType: string | null
     saleAmount: number | null
+    marketPrice: number | null
+    salePrice: number | null
     paymentMethod: string | null
     receiptNumber: string | null
     saleNotes: string | null
@@ -36065,10 +36086,18 @@ export namespace Prisma {
     status: string | null
     health: string | null
     lastCheckup: string | null
+    animalId: string | null
+    livestockId: string | null
     purpose: string | null
     feedingProgram: string | null
     milkProduction: string | null
     pregnancyStatus: string | null
+    beefQuality: string | null
+    milkQuality: string | null
+    milkYield: number | null
+    milkingDate: Date | null
+    homeUseQuantity: number | null
+    saleQuantity: number | null
     quantity: number | null
     pricePerBird: number | null
     eggProductionRate: string | null
@@ -36078,7 +36107,10 @@ export namespace Prisma {
     saleDate: Date | null
     buyerName: string | null
     buyerContact: string | null
+    buyerType: string | null
     saleAmount: number | null
+    marketPrice: number | null
+    salePrice: number | null
     paymentMethod: string | null
     receiptNumber: string | null
     saleNotes: string | null
@@ -36098,10 +36130,18 @@ export namespace Prisma {
     status: number
     health: number
     lastCheckup: number
+    animalId: number
+    livestockId: number
     purpose: number
     feedingProgram: number
     milkProduction: number
     pregnancyStatus: number
+    beefQuality: number
+    milkQuality: number
+    milkYield: number
+    milkingDate: number
+    homeUseQuantity: number
+    saleQuantity: number
     quantity: number
     pricePerBird: number
     eggProductionRate: number
@@ -36112,7 +36152,10 @@ export namespace Prisma {
     saleDate: number
     buyerName: number
     buyerContact: number
+    buyerType: number
     saleAmount: number
+    marketPrice: number
+    salePrice: number
     paymentMethod: number
     receiptNumber: number
     saleNotes: number
@@ -36126,17 +36169,27 @@ export namespace Prisma {
   export type SaleListingAvgAggregateInputType = {
     weight?: true
     price?: true
+    milkYield?: true
+    homeUseQuantity?: true
+    saleQuantity?: true
     quantity?: true
     pricePerBird?: true
     saleAmount?: true
+    marketPrice?: true
+    salePrice?: true
   }
 
   export type SaleListingSumAggregateInputType = {
     weight?: true
     price?: true
+    milkYield?: true
+    homeUseQuantity?: true
+    saleQuantity?: true
     quantity?: true
     pricePerBird?: true
     saleAmount?: true
+    marketPrice?: true
+    salePrice?: true
   }
 
   export type SaleListingMinAggregateInputType = {
@@ -36151,10 +36204,18 @@ export namespace Prisma {
     status?: true
     health?: true
     lastCheckup?: true
+    animalId?: true
+    livestockId?: true
     purpose?: true
     feedingProgram?: true
     milkProduction?: true
     pregnancyStatus?: true
+    beefQuality?: true
+    milkQuality?: true
+    milkYield?: true
+    milkingDate?: true
+    homeUseQuantity?: true
+    saleQuantity?: true
     quantity?: true
     pricePerBird?: true
     eggProductionRate?: true
@@ -36164,7 +36225,10 @@ export namespace Prisma {
     saleDate?: true
     buyerName?: true
     buyerContact?: true
+    buyerType?: true
     saleAmount?: true
+    marketPrice?: true
+    salePrice?: true
     paymentMethod?: true
     receiptNumber?: true
     saleNotes?: true
@@ -36184,10 +36248,18 @@ export namespace Prisma {
     status?: true
     health?: true
     lastCheckup?: true
+    animalId?: true
+    livestockId?: true
     purpose?: true
     feedingProgram?: true
     milkProduction?: true
     pregnancyStatus?: true
+    beefQuality?: true
+    milkQuality?: true
+    milkYield?: true
+    milkingDate?: true
+    homeUseQuantity?: true
+    saleQuantity?: true
     quantity?: true
     pricePerBird?: true
     eggProductionRate?: true
@@ -36197,7 +36269,10 @@ export namespace Prisma {
     saleDate?: true
     buyerName?: true
     buyerContact?: true
+    buyerType?: true
     saleAmount?: true
+    marketPrice?: true
+    salePrice?: true
     paymentMethod?: true
     receiptNumber?: true
     saleNotes?: true
@@ -36217,10 +36292,18 @@ export namespace Prisma {
     status?: true
     health?: true
     lastCheckup?: true
+    animalId?: true
+    livestockId?: true
     purpose?: true
     feedingProgram?: true
     milkProduction?: true
     pregnancyStatus?: true
+    beefQuality?: true
+    milkQuality?: true
+    milkYield?: true
+    milkingDate?: true
+    homeUseQuantity?: true
+    saleQuantity?: true
     quantity?: true
     pricePerBird?: true
     eggProductionRate?: true
@@ -36231,7 +36314,10 @@ export namespace Prisma {
     saleDate?: true
     buyerName?: true
     buyerContact?: true
+    buyerType?: true
     saleAmount?: true
+    marketPrice?: true
+    salePrice?: true
     paymentMethod?: true
     receiptNumber?: true
     saleNotes?: true
@@ -36339,10 +36425,18 @@ export namespace Prisma {
     status: string
     health: string
     lastCheckup: string | null
+    animalId: string | null
+    livestockId: string | null
     purpose: string | null
     feedingProgram: string | null
     milkProduction: string | null
     pregnancyStatus: string | null
+    beefQuality: string | null
+    milkQuality: string | null
+    milkYield: number | null
+    milkingDate: Date | null
+    homeUseQuantity: number | null
+    saleQuantity: number | null
     quantity: number | null
     pricePerBird: number | null
     eggProductionRate: string | null
@@ -36353,7 +36447,10 @@ export namespace Prisma {
     saleDate: Date | null
     buyerName: string | null
     buyerContact: string | null
+    buyerType: string | null
     saleAmount: number | null
+    marketPrice: number | null
+    salePrice: number | null
     paymentMethod: string | null
     receiptNumber: string | null
     saleNotes: string | null
@@ -36393,10 +36490,18 @@ export namespace Prisma {
     status?: boolean
     health?: boolean
     lastCheckup?: boolean
+    animalId?: boolean
+    livestockId?: boolean
     purpose?: boolean
     feedingProgram?: boolean
     milkProduction?: boolean
     pregnancyStatus?: boolean
+    beefQuality?: boolean
+    milkQuality?: boolean
+    milkYield?: boolean
+    milkingDate?: boolean
+    homeUseQuantity?: boolean
+    saleQuantity?: boolean
     quantity?: boolean
     pricePerBird?: boolean
     eggProductionRate?: boolean
@@ -36407,7 +36512,10 @@ export namespace Prisma {
     saleDate?: boolean
     buyerName?: boolean
     buyerContact?: boolean
+    buyerType?: boolean
     saleAmount?: boolean
+    marketPrice?: boolean
+    salePrice?: boolean
     paymentMethod?: boolean
     receiptNumber?: boolean
     saleNotes?: boolean
@@ -36429,10 +36537,18 @@ export namespace Prisma {
     status?: boolean
     health?: boolean
     lastCheckup?: boolean
+    animalId?: boolean
+    livestockId?: boolean
     purpose?: boolean
     feedingProgram?: boolean
     milkProduction?: boolean
     pregnancyStatus?: boolean
+    beefQuality?: boolean
+    milkQuality?: boolean
+    milkYield?: boolean
+    milkingDate?: boolean
+    homeUseQuantity?: boolean
+    saleQuantity?: boolean
     quantity?: boolean
     pricePerBird?: boolean
     eggProductionRate?: boolean
@@ -36443,7 +36559,10 @@ export namespace Prisma {
     saleDate?: boolean
     buyerName?: boolean
     buyerContact?: boolean
+    buyerType?: boolean
     saleAmount?: boolean
+    marketPrice?: boolean
+    salePrice?: boolean
     paymentMethod?: boolean
     receiptNumber?: boolean
     saleNotes?: boolean
@@ -36465,10 +36584,18 @@ export namespace Prisma {
     status?: boolean
     health?: boolean
     lastCheckup?: boolean
+    animalId?: boolean
+    livestockId?: boolean
     purpose?: boolean
     feedingProgram?: boolean
     milkProduction?: boolean
     pregnancyStatus?: boolean
+    beefQuality?: boolean
+    milkQuality?: boolean
+    milkYield?: boolean
+    milkingDate?: boolean
+    homeUseQuantity?: boolean
+    saleQuantity?: boolean
     quantity?: boolean
     pricePerBird?: boolean
     eggProductionRate?: boolean
@@ -36479,7 +36606,10 @@ export namespace Prisma {
     saleDate?: boolean
     buyerName?: boolean
     buyerContact?: boolean
+    buyerType?: boolean
     saleAmount?: boolean
+    marketPrice?: boolean
+    salePrice?: boolean
     paymentMethod?: boolean
     receiptNumber?: boolean
     saleNotes?: boolean
@@ -36501,10 +36631,18 @@ export namespace Prisma {
     status?: boolean
     health?: boolean
     lastCheckup?: boolean
+    animalId?: boolean
+    livestockId?: boolean
     purpose?: boolean
     feedingProgram?: boolean
     milkProduction?: boolean
     pregnancyStatus?: boolean
+    beefQuality?: boolean
+    milkQuality?: boolean
+    milkYield?: boolean
+    milkingDate?: boolean
+    homeUseQuantity?: boolean
+    saleQuantity?: boolean
     quantity?: boolean
     pricePerBird?: boolean
     eggProductionRate?: boolean
@@ -36515,7 +36653,10 @@ export namespace Prisma {
     saleDate?: boolean
     buyerName?: boolean
     buyerContact?: boolean
+    buyerType?: boolean
     saleAmount?: boolean
+    marketPrice?: boolean
+    salePrice?: boolean
     paymentMethod?: boolean
     receiptNumber?: boolean
     saleNotes?: boolean
@@ -36524,7 +36665,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type SaleListingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "farmId" | "name" | "category" | "breed" | "age" | "weight" | "price" | "status" | "health" | "lastCheckup" | "purpose" | "feedingProgram" | "milkProduction" | "pregnancyStatus" | "quantity" | "pricePerBird" | "eggProductionRate" | "woolYield" | "milkProductionRate" | "notes" | "images" | "saleDate" | "buyerName" | "buyerContact" | "saleAmount" | "paymentMethod" | "receiptNumber" | "saleNotes" | "attachments" | "createdAt" | "updatedAt", ExtArgs["result"]["saleListing"]>
+  export type SaleListingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "farmId" | "name" | "category" | "breed" | "age" | "weight" | "price" | "status" | "health" | "lastCheckup" | "animalId" | "livestockId" | "purpose" | "feedingProgram" | "milkProduction" | "pregnancyStatus" | "beefQuality" | "milkQuality" | "milkYield" | "milkingDate" | "homeUseQuantity" | "saleQuantity" | "quantity" | "pricePerBird" | "eggProductionRate" | "woolYield" | "milkProductionRate" | "notes" | "images" | "saleDate" | "buyerName" | "buyerContact" | "buyerType" | "saleAmount" | "marketPrice" | "salePrice" | "paymentMethod" | "receiptNumber" | "saleNotes" | "attachments" | "createdAt" | "updatedAt", ExtArgs["result"]["saleListing"]>
   export type SaleListingInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     farm?: boolean | FarmDefaultArgs<ExtArgs>
   }
@@ -36552,10 +36693,18 @@ export namespace Prisma {
       status: string
       health: string
       lastCheckup: string | null
+      animalId: string | null
+      livestockId: string | null
       purpose: string | null
       feedingProgram: string | null
       milkProduction: string | null
       pregnancyStatus: string | null
+      beefQuality: string | null
+      milkQuality: string | null
+      milkYield: number | null
+      milkingDate: Date | null
+      homeUseQuantity: number | null
+      saleQuantity: number | null
       quantity: number | null
       pricePerBird: number | null
       eggProductionRate: string | null
@@ -36566,7 +36715,10 @@ export namespace Prisma {
       saleDate: Date | null
       buyerName: string | null
       buyerContact: string | null
+      buyerType: string | null
       saleAmount: number | null
+      marketPrice: number | null
+      salePrice: number | null
       paymentMethod: string | null
       receiptNumber: string | null
       saleNotes: string | null
@@ -37008,10 +37160,18 @@ export namespace Prisma {
     readonly status: FieldRef<"SaleListing", 'String'>
     readonly health: FieldRef<"SaleListing", 'String'>
     readonly lastCheckup: FieldRef<"SaleListing", 'String'>
+    readonly animalId: FieldRef<"SaleListing", 'String'>
+    readonly livestockId: FieldRef<"SaleListing", 'String'>
     readonly purpose: FieldRef<"SaleListing", 'String'>
     readonly feedingProgram: FieldRef<"SaleListing", 'String'>
     readonly milkProduction: FieldRef<"SaleListing", 'String'>
     readonly pregnancyStatus: FieldRef<"SaleListing", 'String'>
+    readonly beefQuality: FieldRef<"SaleListing", 'String'>
+    readonly milkQuality: FieldRef<"SaleListing", 'String'>
+    readonly milkYield: FieldRef<"SaleListing", 'Float'>
+    readonly milkingDate: FieldRef<"SaleListing", 'DateTime'>
+    readonly homeUseQuantity: FieldRef<"SaleListing", 'Float'>
+    readonly saleQuantity: FieldRef<"SaleListing", 'Float'>
     readonly quantity: FieldRef<"SaleListing", 'Int'>
     readonly pricePerBird: FieldRef<"SaleListing", 'Float'>
     readonly eggProductionRate: FieldRef<"SaleListing", 'String'>
@@ -37022,7 +37182,10 @@ export namespace Prisma {
     readonly saleDate: FieldRef<"SaleListing", 'DateTime'>
     readonly buyerName: FieldRef<"SaleListing", 'String'>
     readonly buyerContact: FieldRef<"SaleListing", 'String'>
+    readonly buyerType: FieldRef<"SaleListing", 'String'>
     readonly saleAmount: FieldRef<"SaleListing", 'Float'>
+    readonly marketPrice: FieldRef<"SaleListing", 'Float'>
+    readonly salePrice: FieldRef<"SaleListing", 'Float'>
     readonly paymentMethod: FieldRef<"SaleListing", 'String'>
     readonly receiptNumber: FieldRef<"SaleListing", 'String'>
     readonly saleNotes: FieldRef<"SaleListing", 'String'>
@@ -37971,10 +38134,18 @@ export namespace Prisma {
     status: 'status',
     health: 'health',
     lastCheckup: 'lastCheckup',
+    animalId: 'animalId',
+    livestockId: 'livestockId',
     purpose: 'purpose',
     feedingProgram: 'feedingProgram',
     milkProduction: 'milkProduction',
     pregnancyStatus: 'pregnancyStatus',
+    beefQuality: 'beefQuality',
+    milkQuality: 'milkQuality',
+    milkYield: 'milkYield',
+    milkingDate: 'milkingDate',
+    homeUseQuantity: 'homeUseQuantity',
+    saleQuantity: 'saleQuantity',
     quantity: 'quantity',
     pricePerBird: 'pricePerBird',
     eggProductionRate: 'eggProductionRate',
@@ -37985,7 +38156,10 @@ export namespace Prisma {
     saleDate: 'saleDate',
     buyerName: 'buyerName',
     buyerContact: 'buyerContact',
+    buyerType: 'buyerType',
     saleAmount: 'saleAmount',
+    marketPrice: 'marketPrice',
+    salePrice: 'salePrice',
     paymentMethod: 'paymentMethod',
     receiptNumber: 'receiptNumber',
     saleNotes: 'saleNotes',
@@ -40824,10 +40998,18 @@ export namespace Prisma {
     status?: StringFilter<"SaleListing"> | string
     health?: StringFilter<"SaleListing"> | string
     lastCheckup?: StringNullableFilter<"SaleListing"> | string | null
+    animalId?: StringNullableFilter<"SaleListing"> | string | null
+    livestockId?: StringNullableFilter<"SaleListing"> | string | null
     purpose?: StringNullableFilter<"SaleListing"> | string | null
     feedingProgram?: StringNullableFilter<"SaleListing"> | string | null
     milkProduction?: StringNullableFilter<"SaleListing"> | string | null
     pregnancyStatus?: StringNullableFilter<"SaleListing"> | string | null
+    beefQuality?: StringNullableFilter<"SaleListing"> | string | null
+    milkQuality?: StringNullableFilter<"SaleListing"> | string | null
+    milkYield?: FloatNullableFilter<"SaleListing"> | number | null
+    milkingDate?: DateTimeNullableFilter<"SaleListing"> | Date | string | null
+    homeUseQuantity?: FloatNullableFilter<"SaleListing"> | number | null
+    saleQuantity?: FloatNullableFilter<"SaleListing"> | number | null
     quantity?: IntNullableFilter<"SaleListing"> | number | null
     pricePerBird?: FloatNullableFilter<"SaleListing"> | number | null
     eggProductionRate?: StringNullableFilter<"SaleListing"> | string | null
@@ -40838,7 +41020,10 @@ export namespace Prisma {
     saleDate?: DateTimeNullableFilter<"SaleListing"> | Date | string | null
     buyerName?: StringNullableFilter<"SaleListing"> | string | null
     buyerContact?: StringNullableFilter<"SaleListing"> | string | null
+    buyerType?: StringNullableFilter<"SaleListing"> | string | null
     saleAmount?: FloatNullableFilter<"SaleListing"> | number | null
+    marketPrice?: FloatNullableFilter<"SaleListing"> | number | null
+    salePrice?: FloatNullableFilter<"SaleListing"> | number | null
     paymentMethod?: StringNullableFilter<"SaleListing"> | string | null
     receiptNumber?: StringNullableFilter<"SaleListing"> | string | null
     saleNotes?: StringNullableFilter<"SaleListing"> | string | null
@@ -40860,10 +41045,18 @@ export namespace Prisma {
     status?: SortOrder
     health?: SortOrder
     lastCheckup?: SortOrderInput | SortOrder
+    animalId?: SortOrderInput | SortOrder
+    livestockId?: SortOrderInput | SortOrder
     purpose?: SortOrderInput | SortOrder
     feedingProgram?: SortOrderInput | SortOrder
     milkProduction?: SortOrderInput | SortOrder
     pregnancyStatus?: SortOrderInput | SortOrder
+    beefQuality?: SortOrderInput | SortOrder
+    milkQuality?: SortOrderInput | SortOrder
+    milkYield?: SortOrderInput | SortOrder
+    milkingDate?: SortOrderInput | SortOrder
+    homeUseQuantity?: SortOrderInput | SortOrder
+    saleQuantity?: SortOrderInput | SortOrder
     quantity?: SortOrderInput | SortOrder
     pricePerBird?: SortOrderInput | SortOrder
     eggProductionRate?: SortOrderInput | SortOrder
@@ -40874,7 +41067,10 @@ export namespace Prisma {
     saleDate?: SortOrderInput | SortOrder
     buyerName?: SortOrderInput | SortOrder
     buyerContact?: SortOrderInput | SortOrder
+    buyerType?: SortOrderInput | SortOrder
     saleAmount?: SortOrderInput | SortOrder
+    marketPrice?: SortOrderInput | SortOrder
+    salePrice?: SortOrderInput | SortOrder
     paymentMethod?: SortOrderInput | SortOrder
     receiptNumber?: SortOrderInput | SortOrder
     saleNotes?: SortOrderInput | SortOrder
@@ -40899,10 +41095,18 @@ export namespace Prisma {
     status?: StringFilter<"SaleListing"> | string
     health?: StringFilter<"SaleListing"> | string
     lastCheckup?: StringNullableFilter<"SaleListing"> | string | null
+    animalId?: StringNullableFilter<"SaleListing"> | string | null
+    livestockId?: StringNullableFilter<"SaleListing"> | string | null
     purpose?: StringNullableFilter<"SaleListing"> | string | null
     feedingProgram?: StringNullableFilter<"SaleListing"> | string | null
     milkProduction?: StringNullableFilter<"SaleListing"> | string | null
     pregnancyStatus?: StringNullableFilter<"SaleListing"> | string | null
+    beefQuality?: StringNullableFilter<"SaleListing"> | string | null
+    milkQuality?: StringNullableFilter<"SaleListing"> | string | null
+    milkYield?: FloatNullableFilter<"SaleListing"> | number | null
+    milkingDate?: DateTimeNullableFilter<"SaleListing"> | Date | string | null
+    homeUseQuantity?: FloatNullableFilter<"SaleListing"> | number | null
+    saleQuantity?: FloatNullableFilter<"SaleListing"> | number | null
     quantity?: IntNullableFilter<"SaleListing"> | number | null
     pricePerBird?: FloatNullableFilter<"SaleListing"> | number | null
     eggProductionRate?: StringNullableFilter<"SaleListing"> | string | null
@@ -40913,7 +41117,10 @@ export namespace Prisma {
     saleDate?: DateTimeNullableFilter<"SaleListing"> | Date | string | null
     buyerName?: StringNullableFilter<"SaleListing"> | string | null
     buyerContact?: StringNullableFilter<"SaleListing"> | string | null
+    buyerType?: StringNullableFilter<"SaleListing"> | string | null
     saleAmount?: FloatNullableFilter<"SaleListing"> | number | null
+    marketPrice?: FloatNullableFilter<"SaleListing"> | number | null
+    salePrice?: FloatNullableFilter<"SaleListing"> | number | null
     paymentMethod?: StringNullableFilter<"SaleListing"> | string | null
     receiptNumber?: StringNullableFilter<"SaleListing"> | string | null
     saleNotes?: StringNullableFilter<"SaleListing"> | string | null
@@ -40935,10 +41142,18 @@ export namespace Prisma {
     status?: SortOrder
     health?: SortOrder
     lastCheckup?: SortOrderInput | SortOrder
+    animalId?: SortOrderInput | SortOrder
+    livestockId?: SortOrderInput | SortOrder
     purpose?: SortOrderInput | SortOrder
     feedingProgram?: SortOrderInput | SortOrder
     milkProduction?: SortOrderInput | SortOrder
     pregnancyStatus?: SortOrderInput | SortOrder
+    beefQuality?: SortOrderInput | SortOrder
+    milkQuality?: SortOrderInput | SortOrder
+    milkYield?: SortOrderInput | SortOrder
+    milkingDate?: SortOrderInput | SortOrder
+    homeUseQuantity?: SortOrderInput | SortOrder
+    saleQuantity?: SortOrderInput | SortOrder
     quantity?: SortOrderInput | SortOrder
     pricePerBird?: SortOrderInput | SortOrder
     eggProductionRate?: SortOrderInput | SortOrder
@@ -40949,7 +41164,10 @@ export namespace Prisma {
     saleDate?: SortOrderInput | SortOrder
     buyerName?: SortOrderInput | SortOrder
     buyerContact?: SortOrderInput | SortOrder
+    buyerType?: SortOrderInput | SortOrder
     saleAmount?: SortOrderInput | SortOrder
+    marketPrice?: SortOrderInput | SortOrder
+    salePrice?: SortOrderInput | SortOrder
     paymentMethod?: SortOrderInput | SortOrder
     receiptNumber?: SortOrderInput | SortOrder
     saleNotes?: SortOrderInput | SortOrder
@@ -40978,10 +41196,18 @@ export namespace Prisma {
     status?: StringWithAggregatesFilter<"SaleListing"> | string
     health?: StringWithAggregatesFilter<"SaleListing"> | string
     lastCheckup?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    animalId?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    livestockId?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
     purpose?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
     feedingProgram?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
     milkProduction?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
     pregnancyStatus?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    beefQuality?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    milkQuality?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    milkYield?: FloatNullableWithAggregatesFilter<"SaleListing"> | number | null
+    milkingDate?: DateTimeNullableWithAggregatesFilter<"SaleListing"> | Date | string | null
+    homeUseQuantity?: FloatNullableWithAggregatesFilter<"SaleListing"> | number | null
+    saleQuantity?: FloatNullableWithAggregatesFilter<"SaleListing"> | number | null
     quantity?: IntNullableWithAggregatesFilter<"SaleListing"> | number | null
     pricePerBird?: FloatNullableWithAggregatesFilter<"SaleListing"> | number | null
     eggProductionRate?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
@@ -40992,7 +41218,10 @@ export namespace Prisma {
     saleDate?: DateTimeNullableWithAggregatesFilter<"SaleListing"> | Date | string | null
     buyerName?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
     buyerContact?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    buyerType?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
     saleAmount?: FloatNullableWithAggregatesFilter<"SaleListing"> | number | null
+    marketPrice?: FloatNullableWithAggregatesFilter<"SaleListing"> | number | null
+    salePrice?: FloatNullableWithAggregatesFilter<"SaleListing"> | number | null
     paymentMethod?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
     receiptNumber?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
     saleNotes?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
@@ -44107,10 +44336,18 @@ export namespace Prisma {
     status?: string
     health: string
     lastCheckup?: string | null
+    animalId?: string | null
+    livestockId?: string | null
     purpose?: string | null
     feedingProgram?: string | null
     milkProduction?: string | null
     pregnancyStatus?: string | null
+    beefQuality?: string | null
+    milkQuality?: string | null
+    milkYield?: number | null
+    milkingDate?: Date | string | null
+    homeUseQuantity?: number | null
+    saleQuantity?: number | null
     quantity?: number | null
     pricePerBird?: number | null
     eggProductionRate?: string | null
@@ -44121,7 +44358,10 @@ export namespace Prisma {
     saleDate?: Date | string | null
     buyerName?: string | null
     buyerContact?: string | null
+    buyerType?: string | null
     saleAmount?: number | null
+    marketPrice?: number | null
+    salePrice?: number | null
     paymentMethod?: string | null
     receiptNumber?: string | null
     saleNotes?: string | null
@@ -44143,10 +44383,18 @@ export namespace Prisma {
     status?: string
     health: string
     lastCheckup?: string | null
+    animalId?: string | null
+    livestockId?: string | null
     purpose?: string | null
     feedingProgram?: string | null
     milkProduction?: string | null
     pregnancyStatus?: string | null
+    beefQuality?: string | null
+    milkQuality?: string | null
+    milkYield?: number | null
+    milkingDate?: Date | string | null
+    homeUseQuantity?: number | null
+    saleQuantity?: number | null
     quantity?: number | null
     pricePerBird?: number | null
     eggProductionRate?: string | null
@@ -44157,7 +44405,10 @@ export namespace Prisma {
     saleDate?: Date | string | null
     buyerName?: string | null
     buyerContact?: string | null
+    buyerType?: string | null
     saleAmount?: number | null
+    marketPrice?: number | null
+    salePrice?: number | null
     paymentMethod?: string | null
     receiptNumber?: string | null
     saleNotes?: string | null
@@ -44177,10 +44428,18 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     health?: StringFieldUpdateOperationsInput | string
     lastCheckup?: NullableStringFieldUpdateOperationsInput | string | null
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    livestockId?: NullableStringFieldUpdateOperationsInput | string | null
     purpose?: NullableStringFieldUpdateOperationsInput | string | null
     feedingProgram?: NullableStringFieldUpdateOperationsInput | string | null
     milkProduction?: NullableStringFieldUpdateOperationsInput | string | null
     pregnancyStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    beefQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    milkQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    milkYield?: NullableFloatFieldUpdateOperationsInput | number | null
+    milkingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    homeUseQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    saleQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
     quantity?: NullableIntFieldUpdateOperationsInput | number | null
     pricePerBird?: NullableFloatFieldUpdateOperationsInput | number | null
     eggProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44191,7 +44450,10 @@ export namespace Prisma {
     saleDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     buyerName?: NullableStringFieldUpdateOperationsInput | string | null
     buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    buyerType?: NullableStringFieldUpdateOperationsInput | string | null
     saleAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    marketPrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    salePrice?: NullableFloatFieldUpdateOperationsInput | number | null
     paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
     receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
     saleNotes?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44213,10 +44475,18 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     health?: StringFieldUpdateOperationsInput | string
     lastCheckup?: NullableStringFieldUpdateOperationsInput | string | null
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    livestockId?: NullableStringFieldUpdateOperationsInput | string | null
     purpose?: NullableStringFieldUpdateOperationsInput | string | null
     feedingProgram?: NullableStringFieldUpdateOperationsInput | string | null
     milkProduction?: NullableStringFieldUpdateOperationsInput | string | null
     pregnancyStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    beefQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    milkQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    milkYield?: NullableFloatFieldUpdateOperationsInput | number | null
+    milkingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    homeUseQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    saleQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
     quantity?: NullableIntFieldUpdateOperationsInput | number | null
     pricePerBird?: NullableFloatFieldUpdateOperationsInput | number | null
     eggProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44227,7 +44497,10 @@ export namespace Prisma {
     saleDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     buyerName?: NullableStringFieldUpdateOperationsInput | string | null
     buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    buyerType?: NullableStringFieldUpdateOperationsInput | string | null
     saleAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    marketPrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    salePrice?: NullableFloatFieldUpdateOperationsInput | number | null
     paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
     receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
     saleNotes?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44248,10 +44521,18 @@ export namespace Prisma {
     status?: string
     health: string
     lastCheckup?: string | null
+    animalId?: string | null
+    livestockId?: string | null
     purpose?: string | null
     feedingProgram?: string | null
     milkProduction?: string | null
     pregnancyStatus?: string | null
+    beefQuality?: string | null
+    milkQuality?: string | null
+    milkYield?: number | null
+    milkingDate?: Date | string | null
+    homeUseQuantity?: number | null
+    saleQuantity?: number | null
     quantity?: number | null
     pricePerBird?: number | null
     eggProductionRate?: string | null
@@ -44262,7 +44543,10 @@ export namespace Prisma {
     saleDate?: Date | string | null
     buyerName?: string | null
     buyerContact?: string | null
+    buyerType?: string | null
     saleAmount?: number | null
+    marketPrice?: number | null
+    salePrice?: number | null
     paymentMethod?: string | null
     receiptNumber?: string | null
     saleNotes?: string | null
@@ -44282,10 +44566,18 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     health?: StringFieldUpdateOperationsInput | string
     lastCheckup?: NullableStringFieldUpdateOperationsInput | string | null
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    livestockId?: NullableStringFieldUpdateOperationsInput | string | null
     purpose?: NullableStringFieldUpdateOperationsInput | string | null
     feedingProgram?: NullableStringFieldUpdateOperationsInput | string | null
     milkProduction?: NullableStringFieldUpdateOperationsInput | string | null
     pregnancyStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    beefQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    milkQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    milkYield?: NullableFloatFieldUpdateOperationsInput | number | null
+    milkingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    homeUseQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    saleQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
     quantity?: NullableIntFieldUpdateOperationsInput | number | null
     pricePerBird?: NullableFloatFieldUpdateOperationsInput | number | null
     eggProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44296,7 +44588,10 @@ export namespace Prisma {
     saleDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     buyerName?: NullableStringFieldUpdateOperationsInput | string | null
     buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    buyerType?: NullableStringFieldUpdateOperationsInput | string | null
     saleAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    marketPrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    salePrice?: NullableFloatFieldUpdateOperationsInput | number | null
     paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
     receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
     saleNotes?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44317,10 +44612,18 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     health?: StringFieldUpdateOperationsInput | string
     lastCheckup?: NullableStringFieldUpdateOperationsInput | string | null
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    livestockId?: NullableStringFieldUpdateOperationsInput | string | null
     purpose?: NullableStringFieldUpdateOperationsInput | string | null
     feedingProgram?: NullableStringFieldUpdateOperationsInput | string | null
     milkProduction?: NullableStringFieldUpdateOperationsInput | string | null
     pregnancyStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    beefQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    milkQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    milkYield?: NullableFloatFieldUpdateOperationsInput | number | null
+    milkingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    homeUseQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    saleQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
     quantity?: NullableIntFieldUpdateOperationsInput | number | null
     pricePerBird?: NullableFloatFieldUpdateOperationsInput | number | null
     eggProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44331,7 +44634,10 @@ export namespace Prisma {
     saleDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     buyerName?: NullableStringFieldUpdateOperationsInput | string | null
     buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    buyerType?: NullableStringFieldUpdateOperationsInput | string | null
     saleAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    marketPrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    salePrice?: NullableFloatFieldUpdateOperationsInput | number | null
     paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
     receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
     saleNotes?: NullableStringFieldUpdateOperationsInput | string | null
@@ -46320,10 +46626,18 @@ export namespace Prisma {
     status?: SortOrder
     health?: SortOrder
     lastCheckup?: SortOrder
+    animalId?: SortOrder
+    livestockId?: SortOrder
     purpose?: SortOrder
     feedingProgram?: SortOrder
     milkProduction?: SortOrder
     pregnancyStatus?: SortOrder
+    beefQuality?: SortOrder
+    milkQuality?: SortOrder
+    milkYield?: SortOrder
+    milkingDate?: SortOrder
+    homeUseQuantity?: SortOrder
+    saleQuantity?: SortOrder
     quantity?: SortOrder
     pricePerBird?: SortOrder
     eggProductionRate?: SortOrder
@@ -46334,7 +46648,10 @@ export namespace Prisma {
     saleDate?: SortOrder
     buyerName?: SortOrder
     buyerContact?: SortOrder
+    buyerType?: SortOrder
     saleAmount?: SortOrder
+    marketPrice?: SortOrder
+    salePrice?: SortOrder
     paymentMethod?: SortOrder
     receiptNumber?: SortOrder
     saleNotes?: SortOrder
@@ -46346,9 +46663,14 @@ export namespace Prisma {
   export type SaleListingAvgOrderByAggregateInput = {
     weight?: SortOrder
     price?: SortOrder
+    milkYield?: SortOrder
+    homeUseQuantity?: SortOrder
+    saleQuantity?: SortOrder
     quantity?: SortOrder
     pricePerBird?: SortOrder
     saleAmount?: SortOrder
+    marketPrice?: SortOrder
+    salePrice?: SortOrder
   }
 
   export type SaleListingMaxOrderByAggregateInput = {
@@ -46363,10 +46685,18 @@ export namespace Prisma {
     status?: SortOrder
     health?: SortOrder
     lastCheckup?: SortOrder
+    animalId?: SortOrder
+    livestockId?: SortOrder
     purpose?: SortOrder
     feedingProgram?: SortOrder
     milkProduction?: SortOrder
     pregnancyStatus?: SortOrder
+    beefQuality?: SortOrder
+    milkQuality?: SortOrder
+    milkYield?: SortOrder
+    milkingDate?: SortOrder
+    homeUseQuantity?: SortOrder
+    saleQuantity?: SortOrder
     quantity?: SortOrder
     pricePerBird?: SortOrder
     eggProductionRate?: SortOrder
@@ -46376,7 +46706,10 @@ export namespace Prisma {
     saleDate?: SortOrder
     buyerName?: SortOrder
     buyerContact?: SortOrder
+    buyerType?: SortOrder
     saleAmount?: SortOrder
+    marketPrice?: SortOrder
+    salePrice?: SortOrder
     paymentMethod?: SortOrder
     receiptNumber?: SortOrder
     saleNotes?: SortOrder
@@ -46396,10 +46729,18 @@ export namespace Prisma {
     status?: SortOrder
     health?: SortOrder
     lastCheckup?: SortOrder
+    animalId?: SortOrder
+    livestockId?: SortOrder
     purpose?: SortOrder
     feedingProgram?: SortOrder
     milkProduction?: SortOrder
     pregnancyStatus?: SortOrder
+    beefQuality?: SortOrder
+    milkQuality?: SortOrder
+    milkYield?: SortOrder
+    milkingDate?: SortOrder
+    homeUseQuantity?: SortOrder
+    saleQuantity?: SortOrder
     quantity?: SortOrder
     pricePerBird?: SortOrder
     eggProductionRate?: SortOrder
@@ -46409,7 +46750,10 @@ export namespace Prisma {
     saleDate?: SortOrder
     buyerName?: SortOrder
     buyerContact?: SortOrder
+    buyerType?: SortOrder
     saleAmount?: SortOrder
+    marketPrice?: SortOrder
+    salePrice?: SortOrder
     paymentMethod?: SortOrder
     receiptNumber?: SortOrder
     saleNotes?: SortOrder
@@ -46420,9 +46764,14 @@ export namespace Prisma {
   export type SaleListingSumOrderByAggregateInput = {
     weight?: SortOrder
     price?: SortOrder
+    milkYield?: SortOrder
+    homeUseQuantity?: SortOrder
+    saleQuantity?: SortOrder
     quantity?: SortOrder
     pricePerBird?: SortOrder
     saleAmount?: SortOrder
+    marketPrice?: SortOrder
+    salePrice?: SortOrder
   }
 
   export type FarmCreateNestedManyWithoutUserInput = {
@@ -50358,10 +50707,18 @@ export namespace Prisma {
     status?: string
     health: string
     lastCheckup?: string | null
+    animalId?: string | null
+    livestockId?: string | null
     purpose?: string | null
     feedingProgram?: string | null
     milkProduction?: string | null
     pregnancyStatus?: string | null
+    beefQuality?: string | null
+    milkQuality?: string | null
+    milkYield?: number | null
+    milkingDate?: Date | string | null
+    homeUseQuantity?: number | null
+    saleQuantity?: number | null
     quantity?: number | null
     pricePerBird?: number | null
     eggProductionRate?: string | null
@@ -50372,7 +50729,10 @@ export namespace Prisma {
     saleDate?: Date | string | null
     buyerName?: string | null
     buyerContact?: string | null
+    buyerType?: string | null
     saleAmount?: number | null
+    marketPrice?: number | null
+    salePrice?: number | null
     paymentMethod?: string | null
     receiptNumber?: string | null
     saleNotes?: string | null
@@ -50392,10 +50752,18 @@ export namespace Prisma {
     status?: string
     health: string
     lastCheckup?: string | null
+    animalId?: string | null
+    livestockId?: string | null
     purpose?: string | null
     feedingProgram?: string | null
     milkProduction?: string | null
     pregnancyStatus?: string | null
+    beefQuality?: string | null
+    milkQuality?: string | null
+    milkYield?: number | null
+    milkingDate?: Date | string | null
+    homeUseQuantity?: number | null
+    saleQuantity?: number | null
     quantity?: number | null
     pricePerBird?: number | null
     eggProductionRate?: string | null
@@ -50406,7 +50774,10 @@ export namespace Prisma {
     saleDate?: Date | string | null
     buyerName?: string | null
     buyerContact?: string | null
+    buyerType?: string | null
     saleAmount?: number | null
+    marketPrice?: number | null
+    salePrice?: number | null
     paymentMethod?: string | null
     receiptNumber?: string | null
     saleNotes?: string | null
@@ -50770,10 +51141,18 @@ export namespace Prisma {
     status?: StringFilter<"SaleListing"> | string
     health?: StringFilter<"SaleListing"> | string
     lastCheckup?: StringNullableFilter<"SaleListing"> | string | null
+    animalId?: StringNullableFilter<"SaleListing"> | string | null
+    livestockId?: StringNullableFilter<"SaleListing"> | string | null
     purpose?: StringNullableFilter<"SaleListing"> | string | null
     feedingProgram?: StringNullableFilter<"SaleListing"> | string | null
     milkProduction?: StringNullableFilter<"SaleListing"> | string | null
     pregnancyStatus?: StringNullableFilter<"SaleListing"> | string | null
+    beefQuality?: StringNullableFilter<"SaleListing"> | string | null
+    milkQuality?: StringNullableFilter<"SaleListing"> | string | null
+    milkYield?: FloatNullableFilter<"SaleListing"> | number | null
+    milkingDate?: DateTimeNullableFilter<"SaleListing"> | Date | string | null
+    homeUseQuantity?: FloatNullableFilter<"SaleListing"> | number | null
+    saleQuantity?: FloatNullableFilter<"SaleListing"> | number | null
     quantity?: IntNullableFilter<"SaleListing"> | number | null
     pricePerBird?: FloatNullableFilter<"SaleListing"> | number | null
     eggProductionRate?: StringNullableFilter<"SaleListing"> | string | null
@@ -50784,7 +51163,10 @@ export namespace Prisma {
     saleDate?: DateTimeNullableFilter<"SaleListing"> | Date | string | null
     buyerName?: StringNullableFilter<"SaleListing"> | string | null
     buyerContact?: StringNullableFilter<"SaleListing"> | string | null
+    buyerType?: StringNullableFilter<"SaleListing"> | string | null
     saleAmount?: FloatNullableFilter<"SaleListing"> | number | null
+    marketPrice?: FloatNullableFilter<"SaleListing"> | number | null
+    salePrice?: FloatNullableFilter<"SaleListing"> | number | null
     paymentMethod?: StringNullableFilter<"SaleListing"> | string | null
     receiptNumber?: StringNullableFilter<"SaleListing"> | string | null
     saleNotes?: StringNullableFilter<"SaleListing"> | string | null
@@ -57642,10 +58024,18 @@ export namespace Prisma {
     status?: string
     health: string
     lastCheckup?: string | null
+    animalId?: string | null
+    livestockId?: string | null
     purpose?: string | null
     feedingProgram?: string | null
     milkProduction?: string | null
     pregnancyStatus?: string | null
+    beefQuality?: string | null
+    milkQuality?: string | null
+    milkYield?: number | null
+    milkingDate?: Date | string | null
+    homeUseQuantity?: number | null
+    saleQuantity?: number | null
     quantity?: number | null
     pricePerBird?: number | null
     eggProductionRate?: string | null
@@ -57656,7 +58046,10 @@ export namespace Prisma {
     saleDate?: Date | string | null
     buyerName?: string | null
     buyerContact?: string | null
+    buyerType?: string | null
     saleAmount?: number | null
+    marketPrice?: number | null
+    salePrice?: number | null
     paymentMethod?: string | null
     receiptNumber?: string | null
     saleNotes?: string | null
@@ -58226,10 +58619,18 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     health?: StringFieldUpdateOperationsInput | string
     lastCheckup?: NullableStringFieldUpdateOperationsInput | string | null
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    livestockId?: NullableStringFieldUpdateOperationsInput | string | null
     purpose?: NullableStringFieldUpdateOperationsInput | string | null
     feedingProgram?: NullableStringFieldUpdateOperationsInput | string | null
     milkProduction?: NullableStringFieldUpdateOperationsInput | string | null
     pregnancyStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    beefQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    milkQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    milkYield?: NullableFloatFieldUpdateOperationsInput | number | null
+    milkingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    homeUseQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    saleQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
     quantity?: NullableIntFieldUpdateOperationsInput | number | null
     pricePerBird?: NullableFloatFieldUpdateOperationsInput | number | null
     eggProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
@@ -58240,7 +58641,10 @@ export namespace Prisma {
     saleDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     buyerName?: NullableStringFieldUpdateOperationsInput | string | null
     buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    buyerType?: NullableStringFieldUpdateOperationsInput | string | null
     saleAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    marketPrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    salePrice?: NullableFloatFieldUpdateOperationsInput | number | null
     paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
     receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
     saleNotes?: NullableStringFieldUpdateOperationsInput | string | null
@@ -58260,10 +58664,18 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     health?: StringFieldUpdateOperationsInput | string
     lastCheckup?: NullableStringFieldUpdateOperationsInput | string | null
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    livestockId?: NullableStringFieldUpdateOperationsInput | string | null
     purpose?: NullableStringFieldUpdateOperationsInput | string | null
     feedingProgram?: NullableStringFieldUpdateOperationsInput | string | null
     milkProduction?: NullableStringFieldUpdateOperationsInput | string | null
     pregnancyStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    beefQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    milkQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    milkYield?: NullableFloatFieldUpdateOperationsInput | number | null
+    milkingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    homeUseQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    saleQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
     quantity?: NullableIntFieldUpdateOperationsInput | number | null
     pricePerBird?: NullableFloatFieldUpdateOperationsInput | number | null
     eggProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
@@ -58274,7 +58686,10 @@ export namespace Prisma {
     saleDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     buyerName?: NullableStringFieldUpdateOperationsInput | string | null
     buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    buyerType?: NullableStringFieldUpdateOperationsInput | string | null
     saleAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    marketPrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    salePrice?: NullableFloatFieldUpdateOperationsInput | number | null
     paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
     receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
     saleNotes?: NullableStringFieldUpdateOperationsInput | string | null
@@ -58294,10 +58709,18 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     health?: StringFieldUpdateOperationsInput | string
     lastCheckup?: NullableStringFieldUpdateOperationsInput | string | null
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    livestockId?: NullableStringFieldUpdateOperationsInput | string | null
     purpose?: NullableStringFieldUpdateOperationsInput | string | null
     feedingProgram?: NullableStringFieldUpdateOperationsInput | string | null
     milkProduction?: NullableStringFieldUpdateOperationsInput | string | null
     pregnancyStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    beefQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    milkQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    milkYield?: NullableFloatFieldUpdateOperationsInput | number | null
+    milkingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    homeUseQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    saleQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
     quantity?: NullableIntFieldUpdateOperationsInput | number | null
     pricePerBird?: NullableFloatFieldUpdateOperationsInput | number | null
     eggProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
@@ -58308,7 +58731,10 @@ export namespace Prisma {
     saleDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     buyerName?: NullableStringFieldUpdateOperationsInput | string | null
     buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    buyerType?: NullableStringFieldUpdateOperationsInput | string | null
     saleAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    marketPrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    salePrice?: NullableFloatFieldUpdateOperationsInput | number | null
     paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
     receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
     saleNotes?: NullableStringFieldUpdateOperationsInput | string | null

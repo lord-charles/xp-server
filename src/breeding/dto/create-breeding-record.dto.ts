@@ -14,16 +14,25 @@ import {
 } from 'class-validator';
 import { Type } from 'class-transformer';
 
+// Expanded to match app options
 enum PurposeEnum {
   IMPROVE_MILK_PRODUCTION = 'Improve Milk Production',
-  STOCKING_NUMBER = 'Stocking Number',
-  IMMUNITY = 'Immunity',
+  IMPROVE_IMMUNITY = 'Improve Immunity',
+  STOCKING = 'Stocking',
+  IMPROVE_MEAT_QUALITY = 'Improve Meat Quality',
+  IMPROVE_REPRODUCTION = 'Improve Reproduction',
+  DISEASE_RESISTANCE = 'Disease Resistance',
+  BETTER_GROWTH_RATE = 'Better Growth Rate',
 }
 
+// Expanded to match app options
 enum StrategyEnum {
+  PURE_BREEDING = 'Pure Breeding',
   CROSS_BREEDING = 'Cross Breeding',
-  BREEDING_WITHIN_BREEDS = 'Breeding Within Breeds',
-  BREEDING_BETWEEN_BREEDS = 'Breeding Between Breeds',
+  LINE_BREEDING = 'Line Breeding',
+  OUT_BREEDING = 'Out Breeding',
+  INBREEDING = 'Inbreeding',
+  OUTCROSSING = 'Outcrossing',
 }
 
 enum ServiceTypeEnum {
@@ -31,14 +40,20 @@ enum ServiceTypeEnum {
   ARTIFICIAL_INSEMINATION = 'Artificial Insemination',
 }
 
+// Expanded to match app options
 enum AITypeEnum {
-  SEX_CELL_SEMEN = 'Sex Cell Semen',
   REGULAR_AI = 'Regular AI',
+  SEXED_SEMEN = 'Sexed Semen',
+  FROZEN_SEMEN = 'Frozen Semen',
+  FRESH_SEMEN = 'Fresh Semen',
 }
 
+// Expanded to match app options
 enum AISourceEnum {
   LOCAL = 'Local',
-  IMPORTED = 'Imported',
+  INTERNATIONAL = 'International',
+  FARM = 'Farm',
+  COOPERATIVE = 'Cooperative',
 }
 
 export class CreateBreedingRecordDto {

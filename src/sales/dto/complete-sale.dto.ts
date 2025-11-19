@@ -9,7 +9,7 @@ import {
   IsEnum,
   Min,
 } from 'class-validator';
-import { PaymentMethod } from './create-sale-listing.dto';
+import { PaymentMethod, BuyerType } from './create-sale-listing.dto';
 
 export class CompleteSaleDto {
   @ApiProperty({
@@ -35,6 +35,15 @@ export class CompleteSaleDto {
   @IsOptional()
   buyerContact?: string;
 
+  @ApiPropertyOptional({
+    enum: BuyerType,
+    description: 'Buyer type classification',
+    example: BuyerType.INDIVIDUAL,
+  })
+  @IsEnum(BuyerType)
+  @IsOptional()
+  buyerType?: BuyerType;
+
   @ApiProperty({
     description: 'Final sale amount',
     example: 85000,
@@ -42,6 +51,24 @@ export class CompleteSaleDto {
   @IsNumber()
   @Min(0)
   saleAmount: number;
+
+  @ApiPropertyOptional({
+    description: 'Prevailing market price at time of sale',
+    example: 80000,
+  })
+  @IsNumber()
+  @Min(0)
+  @IsOptional()
+  marketPrice?: number;
+
+  @ApiPropertyOptional({
+    description: 'Actual sale price agreed (alias of saleAmount for compatibility)',
+    example: 85000,
+  })
+  @IsNumber()
+  @Min(0)
+  @IsOptional()
+  salePrice?: number;
 
   @ApiProperty({
     enum: PaymentMethod,

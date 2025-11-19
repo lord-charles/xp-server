@@ -34,7 +34,18 @@ export class SalesService {
     const saleListing = await this.prisma.saleListing.create({
       data: {
         ...createSaleListingDto,
+        // Normalize date fields if provided as strings
+        lastCheckup: createSaleListingDto.lastCheckup,
+        milkingDate: createSaleListingDto.milkingDate
+          ? new Date(createSaleListingDto.milkingDate)
+          : undefined,
+        saleDate: createSaleListingDto.saleDate
+          ? new Date(createSaleListingDto.saleDate)
+          : undefined,
+        // Persist calculated/derived values
         pricePerBird,
+        // Ensure arrays are set to empty when missing
+        images: createSaleListingDto.images || [],
       },
       include: {
         farm: {
@@ -192,6 +203,14 @@ export class SalesService {
       where: { id },
       data: {
         ...updateSaleListingDto,
+        // Normalize date fields if present on update
+        lastCheckup: updateSaleListingDto.lastCheckup,
+        milkingDate: updateSaleListingDto.milkingDate
+          ? new Date(updateSaleListingDto.milkingDate as any)
+          : undefined,
+        saleDate: updateSaleListingDto.saleDate
+          ? new Date(updateSaleListingDto.saleDate as any)
+          : undefined,
         pricePerBird,
       },
       include: {
@@ -276,7 +295,14 @@ export class SalesService {
         saleDate: new Date(completeSaleDto.saleDate),
         buyerName: completeSaleDto.buyerName,
         buyerContact: completeSaleDto.buyerContact,
-        saleAmount: completeSaleDto.saleAmount,
+        buyerType: completeSaleDto.buyerType,
+        // Persist both saleAmount (existing) and salePrice (new) for compatibility
+        saleAmount:
+          completeSaleDto.salePrice !== undefined
+            ? completeSaleDto.salePrice
+            : completeSaleDto.saleAmount,
+        salePrice: completeSaleDto.salePrice ?? completeSaleDto.saleAmount,
+        marketPrice: completeSaleDto.marketPrice,
         paymentMethod: completeSaleDto.paymentMethod,
         receiptNumber: completeSaleDto.receiptNumber,
         saleNotes: completeSaleDto.notes,

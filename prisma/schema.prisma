@@ -560,6 +560,10 @@ model SaleListing {
   health      String // excellent, good, fair, poor
   lastCheckup String?
 
+  // Identifiers/mapping
+  animalId    String?
+  livestockId String?
+
   // Optional fields based on livestock type
   purpose        String? // Milk Production, Meat Production, Breeding, Both
   feedingProgram String?
@@ -567,6 +571,16 @@ model SaleListing {
   // Dairy cattle specific
   milkProduction  String? // e.g., "25 L/day"
   pregnancyStatus String? // e.g., "Not Pregnant", "Pregnant (6 months)"
+
+  // Quality grading
+  beefQuality String?
+  milkQuality String?
+
+  // Dairy production metrics
+  milkYield        Float?
+  milkingDate      DateTime?
+  homeUseQuantity  Float?
+  saleQuantity     Float?
 
   // Poultry specific
   quantity          Int? // Number of birds
@@ -587,7 +601,10 @@ model SaleListing {
   saleDate      DateTime?
   buyerName     String?
   buyerContact  String?
+  buyerType     String?
   saleAmount    Float? // Final sale amount (might differ from listing price)
+  marketPrice   Float?
+  salePrice     Float?
   paymentMethod String?
   receiptNumber String?
   saleNotes     String?

@@ -45,6 +45,19 @@ export enum HealthStatus {
   POOR = 'poor',
 }
 
+// Matches app usage: "Individual" | "Company"
+export enum BuyerType {
+  INDIVIDUAL = 'Individual',
+  COMPANY = 'Company',
+}
+
+// Common quality scale used across beef and milk screens
+export enum QualityLevel {
+  LOW = 'Low',
+  MEDIUM = 'Medium',
+  HIGH = 'High',
+}
+
 export class CreateSaleListingDto {
   @ApiProperty({
     description: 'Farm ID where the livestock is located',
@@ -53,6 +66,22 @@ export class CreateSaleListingDto {
   @IsString()
   @IsNotEmpty()
   farmId: string;
+
+  @ApiPropertyOptional({
+    description: 'External/secondary animal identifier recorded on farm tag',
+    example: 'TAG-BAA-001',
+  })
+  @IsString()
+  @IsOptional()
+  animalId?: string;
+
+  @ApiPropertyOptional({
+    description: 'Internal Livestock record ID (if mapped from livestock module)',
+    example: 'livestock_123',
+  })
+  @IsString()
+  @IsOptional()
+  livestockId?: string;
 
   @ApiProperty({
     description: 'Name or identifier for the sale listing',
@@ -93,6 +122,15 @@ export class CreateSaleListingDto {
   @IsNumber()
   @Min(0)
   weight: number;
+
+  @ApiPropertyOptional({
+    enum: QualityLevel,
+    description: 'Beef quality grading where applicable (beef cattle)',
+    example: QualityLevel.MEDIUM,
+  })
+  @IsEnum(QualityLevel)
+  @IsOptional()
+  beefQuality?: QualityLevel;
 
   @ApiProperty({
     description: 'Total price for the livestock',
@@ -154,6 +192,50 @@ export class CreateSaleListingDto {
   milkProduction?: string;
 
   @ApiPropertyOptional({
+    enum: QualityLevel,
+    description: 'Milk quality grading for dairy production contexts',
+    example: QualityLevel.MEDIUM,
+  })
+  @IsEnum(QualityLevel)
+  @IsOptional()
+  milkQuality?: QualityLevel;
+
+  @ApiPropertyOptional({
+    description: 'Total milk yield collected (e.g., liters)',
+    example: 25,
+  })
+  @IsNumber()
+  @IsOptional()
+  @Min(0)
+  milkYield?: number;
+
+  @ApiPropertyOptional({
+    description: 'Date milk was collected/milked (YYYY-MM-DD)',
+    example: '2025-10-05',
+  })
+  @IsDateString()
+  @IsOptional()
+  milkingDate?: string;
+
+  @ApiPropertyOptional({
+    description: 'Quantity reserved for home use (e.g., liters)',
+    example: 2,
+  })
+  @IsNumber()
+  @IsOptional()
+  @Min(0)
+  homeUseQuantity?: number;
+
+  @ApiPropertyOptional({
+    description: 'Quantity for sale (e.g., liters for milk)',
+    example: 20,
+  })
+  @IsNumber()
+  @IsOptional()
+  @Min(0)
+  saleQuantity?: number;
+
+  @ApiPropertyOptional({
     description: 'Pregnancy status (for cattle)',
     example: 'Not Pregnant',
   })
@@ -212,6 +294,50 @@ export class CreateSaleListingDto {
   @IsString()
   @IsOptional()
   notes?: string;
+
+  // Transactional/sale fields to align with mobile app sales forms
+  @ApiPropertyOptional({
+    description: 'Date when sale occurred (YYYY-MM-DD)',
+    example: '2025-10-05',
+  })
+  @IsDateString()
+  @IsOptional()
+  saleDate?: string;
+
+  @ApiPropertyOptional({
+    description: 'Prevailing market price (for comparison/analytics)',
+    example: 80000,
+  })
+  @IsNumber()
+  @Min(0)
+  @IsOptional()
+  marketPrice?: number;
+
+  @ApiPropertyOptional({
+    description: 'Actual sale price agreed',
+    example: 85000,
+  })
+  @IsNumber()
+  @Min(0)
+  @IsOptional()
+  salePrice?: number;
+
+  @ApiPropertyOptional({
+    description: "Name of the buyer (if sale is recorded at listing creation)",
+    example: 'John Doe',
+  })
+  @IsString()
+  @IsOptional()
+  buyerName?: string;
+
+  @ApiPropertyOptional({
+    enum: BuyerType,
+    description: 'Buyer type classification',
+    example: BuyerType.INDIVIDUAL,
+  })
+  @IsEnum(BuyerType)
+  @IsOptional()
+  buyerType?: BuyerType;
 
   @ApiPropertyOptional({
     description: 'Array of image URLs',
