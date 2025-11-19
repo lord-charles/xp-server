@@ -8,8 +8,25 @@ export class FeedingService {
   constructor(private prisma: PrismaService) {}
 
   async create(createFeedingDto: CreateFeedingDto) {
-    const { farmId, userId, feedDetails, ...feedingProgramData } =
-      createFeedingDto;
+    const {
+      farmId,
+      userId,
+      feedDetails,
+      // app simple payload fields
+      feedingMode,
+      date,
+      animalIds,
+      groupName,
+      feedName,
+      quantity,
+      purchasePrice,
+      supplier,
+      transportCost,
+      grazingDuration,
+      customHours,
+      grazingCost,
+      ...rest
+    } = createFeedingDto as any;
 
     const farm = await this.prisma.farm.findUnique({ where: { id: farmId } });
     if (!farm) {
@@ -21,18 +38,54 @@ export class FeedingService {
       throw new NotFoundException(`User with ID ${userId} not found`);
     }
 
+    // Build program shape compatible with schema
+    const programType = feedingMode
+      ? feedingMode === 'Single'
+        ? 'Single Animal'
+        : 'Group'
+      : rest.programType; // fallback to provided programType
+
+    // If feedDetails array provided, use as-is
+    let detailsToCreate = feedDetails as any[] | undefined;
+    if (!detailsToCreate) {
+      // Construct a single FeedDetails entry from simplified payload when present
+      if (date || feedName || quantity) {
+        const asDate = date ? new Date(date as any) : new Date();
+        detailsToCreate = [
+          {
+            feedType: rest.feedType || 'Feed',
+            feedName: feedName || undefined,
+            source: feedName || 'Unspecified',
+            schedule: 'Once',
+            quantity: typeof quantity === 'number' ? quantity : Number(quantity) || 0,
+            date: asDate,
+            cost: typeof purchasePrice === 'number' ? purchasePrice : Number(purchasePrice) || undefined,
+            supplier: supplier || undefined,
+            transportCost: typeof transportCost === 'number' ? transportCost : Number(transportCost) || undefined,
+          },
+        ];
+      }
+    }
+
+    const payload: any = {
+      ...rest,
+      programType,
+      groupName: groupName ?? rest.groupName,
+      grazingDuration: grazingDuration ?? rest.grazingDuration,
+      customHours: typeof customHours === 'number' ? customHours : Number(customHours) || undefined,
+      grazingCost: typeof grazingCost === 'number' ? grazingCost : Number(grazingCost) || undefined,
+      timeOfDay: Array.isArray(rest.timeOfDay) ? rest.timeOfDay : [],
+      animalIds: Array.isArray(animalIds) ? animalIds : undefined,
+      farm: { connect: { id: farmId } },
+      user: { connect: { id: userId } },
+      feedDetails: detailsToCreate
+        ? { create: detailsToCreate }
+        : undefined,
+    };
+
     return this.prisma.feedingProgram.create({
-      data: {
-        ...feedingProgramData,
-        farm: { connect: { id: farmId } },
-        user: { connect: { id: userId } },
-        feedDetails: {
-          create: feedDetails,
-        },
-      },
-      include: {
-        feedDetails: true,
-      },
+      data: payload,
+      include: { feedDetails: true },
     });
   }
 

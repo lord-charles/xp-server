@@ -356,9 +356,13 @@ exports.Prisma.FeedingProgramScalarFieldEnum = {
   groupId: 'groupId',
   groupType: 'groupType',
   groupLifecycleStages: 'groupLifecycleStages',
+  groupName: 'groupName',
   feedType: 'feedType',
   timeOfDay: 'timeOfDay',
   notes: 'notes',
+  grazingDuration: 'grazingDuration',
+  customHours: 'customHours',
+  grazingCost: 'grazingCost',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -366,12 +370,14 @@ exports.Prisma.FeedingProgramScalarFieldEnum = {
 exports.Prisma.FeedDetailsScalarFieldEnum = {
   id: 'id',
   feedType: 'feedType',
+  feedName: 'feedName',
   source: 'source',
   schedule: 'schedule',
   quantity: 'quantity',
   date: 'date',
   cost: 'cost',
   supplier: 'supplier',
+  transportCost: 'transportCost',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   feedingProgramId: 'feedingProgramId'

@@ -313,9 +313,14 @@ model FeedingProgram {
   groupId              String?
   groupType            String?
   groupLifecycleStages String[]
+  groupName            String?
   feedType             String // Basal Feeds or Basal Feed + Concentrates + Supplements
   timeOfDay            String[]
   notes                String?
+  // Grazing specific
+  grazingDuration      String?
+  customHours          Float?
+  grazingCost          Float?
   createdAt            DateTime @default(now())
   updatedAt            DateTime @updatedAt
 
@@ -328,12 +333,14 @@ model FeedingProgram {
 model FeedDetails {
   id        String   @id @default(cuid())
   feedType  String
+  feedName  String?
   source    String
   schedule  String
   quantity  Float
   date      DateTime
   cost      Float?
   supplier  String?
+  transportCost Float?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

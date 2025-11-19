@@ -21461,8 +21461,20 @@ export namespace Prisma {
 
   export type AggregateFeedingProgram = {
     _count: FeedingProgramCountAggregateOutputType | null
+    _avg: FeedingProgramAvgAggregateOutputType | null
+    _sum: FeedingProgramSumAggregateOutputType | null
     _min: FeedingProgramMinAggregateOutputType | null
     _max: FeedingProgramMaxAggregateOutputType | null
+  }
+
+  export type FeedingProgramAvgAggregateOutputType = {
+    customHours: number | null
+    grazingCost: number | null
+  }
+
+  export type FeedingProgramSumAggregateOutputType = {
+    customHours: number | null
+    grazingCost: number | null
   }
 
   export type FeedingProgramMinAggregateOutputType = {
@@ -21474,8 +21486,12 @@ export namespace Prisma {
     animalType: string | null
     groupId: string | null
     groupType: string | null
+    groupName: string | null
     feedType: string | null
     notes: string | null
+    grazingDuration: string | null
+    customHours: number | null
+    grazingCost: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -21489,8 +21505,12 @@ export namespace Prisma {
     animalType: string | null
     groupId: string | null
     groupType: string | null
+    groupName: string | null
     feedType: string | null
     notes: string | null
+    grazingDuration: string | null
+    customHours: number | null
+    grazingCost: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -21506,14 +21526,28 @@ export namespace Prisma {
     groupId: number
     groupType: number
     groupLifecycleStages: number
+    groupName: number
     feedType: number
     timeOfDay: number
     notes: number
+    grazingDuration: number
+    customHours: number
+    grazingCost: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
+
+  export type FeedingProgramAvgAggregateInputType = {
+    customHours?: true
+    grazingCost?: true
+  }
+
+  export type FeedingProgramSumAggregateInputType = {
+    customHours?: true
+    grazingCost?: true
+  }
 
   export type FeedingProgramMinAggregateInputType = {
     id?: true
@@ -21524,8 +21558,12 @@ export namespace Prisma {
     animalType?: true
     groupId?: true
     groupType?: true
+    groupName?: true
     feedType?: true
     notes?: true
+    grazingDuration?: true
+    customHours?: true
+    grazingCost?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -21539,8 +21577,12 @@ export namespace Prisma {
     animalType?: true
     groupId?: true
     groupType?: true
+    groupName?: true
     feedType?: true
     notes?: true
+    grazingDuration?: true
+    customHours?: true
+    grazingCost?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -21556,9 +21598,13 @@ export namespace Prisma {
     groupId?: true
     groupType?: true
     groupLifecycleStages?: true
+    groupName?: true
     feedType?: true
     timeOfDay?: true
     notes?: true
+    grazingDuration?: true
+    customHours?: true
+    grazingCost?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -21602,6 +21648,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: FeedingProgramAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FeedingProgramSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: FeedingProgramMinAggregateInputType
@@ -21632,6 +21690,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: FeedingProgramCountAggregateInputType | true
+    _avg?: FeedingProgramAvgAggregateInputType
+    _sum?: FeedingProgramSumAggregateInputType
     _min?: FeedingProgramMinAggregateInputType
     _max?: FeedingProgramMaxAggregateInputType
   }
@@ -21647,12 +21707,18 @@ export namespace Prisma {
     groupId: string | null
     groupType: string | null
     groupLifecycleStages: string[]
+    groupName: string | null
     feedType: string
     timeOfDay: string[]
     notes: string | null
+    grazingDuration: string | null
+    customHours: number | null
+    grazingCost: number | null
     createdAt: Date
     updatedAt: Date
     _count: FeedingProgramCountAggregateOutputType | null
+    _avg: FeedingProgramAvgAggregateOutputType | null
+    _sum: FeedingProgramSumAggregateOutputType | null
     _min: FeedingProgramMinAggregateOutputType | null
     _max: FeedingProgramMaxAggregateOutputType | null
   }
@@ -21682,9 +21748,13 @@ export namespace Prisma {
     groupId?: boolean
     groupType?: boolean
     groupLifecycleStages?: boolean
+    groupName?: boolean
     feedType?: boolean
     timeOfDay?: boolean
     notes?: boolean
+    grazingDuration?: boolean
+    customHours?: boolean
+    grazingCost?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     farm?: boolean | FarmDefaultArgs<ExtArgs>
@@ -21704,9 +21774,13 @@ export namespace Prisma {
     groupId?: boolean
     groupType?: boolean
     groupLifecycleStages?: boolean
+    groupName?: boolean
     feedType?: boolean
     timeOfDay?: boolean
     notes?: boolean
+    grazingDuration?: boolean
+    customHours?: boolean
+    grazingCost?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     farm?: boolean | FarmDefaultArgs<ExtArgs>
@@ -21724,9 +21798,13 @@ export namespace Prisma {
     groupId?: boolean
     groupType?: boolean
     groupLifecycleStages?: boolean
+    groupName?: boolean
     feedType?: boolean
     timeOfDay?: boolean
     notes?: boolean
+    grazingDuration?: boolean
+    customHours?: boolean
+    grazingCost?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     farm?: boolean | FarmDefaultArgs<ExtArgs>
@@ -21744,14 +21822,18 @@ export namespace Prisma {
     groupId?: boolean
     groupType?: boolean
     groupLifecycleStages?: boolean
+    groupName?: boolean
     feedType?: boolean
     timeOfDay?: boolean
     notes?: boolean
+    grazingDuration?: boolean
+    customHours?: boolean
+    grazingCost?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type FeedingProgramOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "farmId" | "userId" | "programType" | "animalId" | "animalType" | "lifecycleStages" | "groupId" | "groupType" | "groupLifecycleStages" | "feedType" | "timeOfDay" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["feedingProgram"]>
+  export type FeedingProgramOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "farmId" | "userId" | "programType" | "animalId" | "animalType" | "lifecycleStages" | "groupId" | "groupType" | "groupLifecycleStages" | "groupName" | "feedType" | "timeOfDay" | "notes" | "grazingDuration" | "customHours" | "grazingCost" | "createdAt" | "updatedAt", ExtArgs["result"]["feedingProgram"]>
   export type FeedingProgramInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     farm?: boolean | FarmDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -21785,9 +21867,13 @@ export namespace Prisma {
       groupId: string | null
       groupType: string | null
       groupLifecycleStages: string[]
+      groupName: string | null
       feedType: string
       timeOfDay: string[]
       notes: string | null
+      grazingDuration: string | null
+      customHours: number | null
+      grazingCost: number | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["feedingProgram"]>
@@ -22226,9 +22312,13 @@ export namespace Prisma {
     readonly groupId: FieldRef<"FeedingProgram", 'String'>
     readonly groupType: FieldRef<"FeedingProgram", 'String'>
     readonly groupLifecycleStages: FieldRef<"FeedingProgram", 'String[]'>
+    readonly groupName: FieldRef<"FeedingProgram", 'String'>
     readonly feedType: FieldRef<"FeedingProgram", 'String'>
     readonly timeOfDay: FieldRef<"FeedingProgram", 'String[]'>
     readonly notes: FieldRef<"FeedingProgram", 'String'>
+    readonly grazingDuration: FieldRef<"FeedingProgram", 'String'>
+    readonly customHours: FieldRef<"FeedingProgram", 'Float'>
+    readonly grazingCost: FieldRef<"FeedingProgram", 'Float'>
     readonly createdAt: FieldRef<"FeedingProgram", 'DateTime'>
     readonly updatedAt: FieldRef<"FeedingProgram", 'DateTime'>
   }
@@ -22684,22 +22774,26 @@ export namespace Prisma {
   export type FeedDetailsAvgAggregateOutputType = {
     quantity: number | null
     cost: number | null
+    transportCost: number | null
   }
 
   export type FeedDetailsSumAggregateOutputType = {
     quantity: number | null
     cost: number | null
+    transportCost: number | null
   }
 
   export type FeedDetailsMinAggregateOutputType = {
     id: string | null
     feedType: string | null
+    feedName: string | null
     source: string | null
     schedule: string | null
     quantity: number | null
     date: Date | null
     cost: number | null
     supplier: string | null
+    transportCost: number | null
     createdAt: Date | null
     updatedAt: Date | null
     feedingProgramId: string | null
@@ -22708,12 +22802,14 @@ export namespace Prisma {
   export type FeedDetailsMaxAggregateOutputType = {
     id: string | null
     feedType: string | null
+    feedName: string | null
     source: string | null
     schedule: string | null
     quantity: number | null
     date: Date | null
     cost: number | null
     supplier: string | null
+    transportCost: number | null
     createdAt: Date | null
     updatedAt: Date | null
     feedingProgramId: string | null
@@ -22722,12 +22818,14 @@ export namespace Prisma {
   export type FeedDetailsCountAggregateOutputType = {
     id: number
     feedType: number
+    feedName: number
     source: number
     schedule: number
     quantity: number
     date: number
     cost: number
     supplier: number
+    transportCost: number
     createdAt: number
     updatedAt: number
     feedingProgramId: number
@@ -22738,22 +22836,26 @@ export namespace Prisma {
   export type FeedDetailsAvgAggregateInputType = {
     quantity?: true
     cost?: true
+    transportCost?: true
   }
 
   export type FeedDetailsSumAggregateInputType = {
     quantity?: true
     cost?: true
+    transportCost?: true
   }
 
   export type FeedDetailsMinAggregateInputType = {
     id?: true
     feedType?: true
+    feedName?: true
     source?: true
     schedule?: true
     quantity?: true
     date?: true
     cost?: true
     supplier?: true
+    transportCost?: true
     createdAt?: true
     updatedAt?: true
     feedingProgramId?: true
@@ -22762,12 +22864,14 @@ export namespace Prisma {
   export type FeedDetailsMaxAggregateInputType = {
     id?: true
     feedType?: true
+    feedName?: true
     source?: true
     schedule?: true
     quantity?: true
     date?: true
     cost?: true
     supplier?: true
+    transportCost?: true
     createdAt?: true
     updatedAt?: true
     feedingProgramId?: true
@@ -22776,12 +22880,14 @@ export namespace Prisma {
   export type FeedDetailsCountAggregateInputType = {
     id?: true
     feedType?: true
+    feedName?: true
     source?: true
     schedule?: true
     quantity?: true
     date?: true
     cost?: true
     supplier?: true
+    transportCost?: true
     createdAt?: true
     updatedAt?: true
     feedingProgramId?: true
@@ -22877,12 +22983,14 @@ export namespace Prisma {
   export type FeedDetailsGroupByOutputType = {
     id: string
     feedType: string
+    feedName: string | null
     source: string
     schedule: string
     quantity: number
     date: Date
     cost: number | null
     supplier: string | null
+    transportCost: number | null
     createdAt: Date
     updatedAt: Date
     feedingProgramId: string
@@ -22910,12 +23018,14 @@ export namespace Prisma {
   export type FeedDetailsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     feedType?: boolean
+    feedName?: boolean
     source?: boolean
     schedule?: boolean
     quantity?: boolean
     date?: boolean
     cost?: boolean
     supplier?: boolean
+    transportCost?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     feedingProgramId?: boolean
@@ -22925,12 +23035,14 @@ export namespace Prisma {
   export type FeedDetailsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     feedType?: boolean
+    feedName?: boolean
     source?: boolean
     schedule?: boolean
     quantity?: boolean
     date?: boolean
     cost?: boolean
     supplier?: boolean
+    transportCost?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     feedingProgramId?: boolean
@@ -22940,12 +23052,14 @@ export namespace Prisma {
   export type FeedDetailsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     feedType?: boolean
+    feedName?: boolean
     source?: boolean
     schedule?: boolean
     quantity?: boolean
     date?: boolean
     cost?: boolean
     supplier?: boolean
+    transportCost?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     feedingProgramId?: boolean
@@ -22955,18 +23069,20 @@ export namespace Prisma {
   export type FeedDetailsSelectScalar = {
     id?: boolean
     feedType?: boolean
+    feedName?: boolean
     source?: boolean
     schedule?: boolean
     quantity?: boolean
     date?: boolean
     cost?: boolean
     supplier?: boolean
+    transportCost?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     feedingProgramId?: boolean
   }
 
-  export type FeedDetailsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "feedType" | "source" | "schedule" | "quantity" | "date" | "cost" | "supplier" | "createdAt" | "updatedAt" | "feedingProgramId", ExtArgs["result"]["feedDetails"]>
+  export type FeedDetailsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "feedType" | "feedName" | "source" | "schedule" | "quantity" | "date" | "cost" | "supplier" | "transportCost" | "createdAt" | "updatedAt" | "feedingProgramId", ExtArgs["result"]["feedDetails"]>
   export type FeedDetailsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     feedingProgram?: boolean | FeedingProgramDefaultArgs<ExtArgs>
   }
@@ -22985,12 +23101,14 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       feedType: string
+      feedName: string | null
       source: string
       schedule: string
       quantity: number
       date: Date
       cost: number | null
       supplier: string | null
+      transportCost: number | null
       createdAt: Date
       updatedAt: Date
       feedingProgramId: string
@@ -23420,12 +23538,14 @@ export namespace Prisma {
   interface FeedDetailsFieldRefs {
     readonly id: FieldRef<"FeedDetails", 'String'>
     readonly feedType: FieldRef<"FeedDetails", 'String'>
+    readonly feedName: FieldRef<"FeedDetails", 'String'>
     readonly source: FieldRef<"FeedDetails", 'String'>
     readonly schedule: FieldRef<"FeedDetails", 'String'>
     readonly quantity: FieldRef<"FeedDetails", 'Float'>
     readonly date: FieldRef<"FeedDetails", 'DateTime'>
     readonly cost: FieldRef<"FeedDetails", 'Float'>
     readonly supplier: FieldRef<"FeedDetails", 'String'>
+    readonly transportCost: FieldRef<"FeedDetails", 'Float'>
     readonly createdAt: FieldRef<"FeedDetails", 'DateTime'>
     readonly updatedAt: FieldRef<"FeedDetails", 'DateTime'>
     readonly feedingProgramId: FieldRef<"FeedDetails", 'String'>
@@ -37993,9 +38113,13 @@ export namespace Prisma {
     groupId: 'groupId',
     groupType: 'groupType',
     groupLifecycleStages: 'groupLifecycleStages',
+    groupName: 'groupName',
     feedType: 'feedType',
     timeOfDay: 'timeOfDay',
     notes: 'notes',
+    grazingDuration: 'grazingDuration',
+    customHours: 'customHours',
+    grazingCost: 'grazingCost',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -38006,12 +38130,14 @@ export namespace Prisma {
   export const FeedDetailsScalarFieldEnum: {
     id: 'id',
     feedType: 'feedType',
+    feedName: 'feedName',
     source: 'source',
     schedule: 'schedule',
     quantity: 'quantity',
     date: 'date',
     cost: 'cost',
     supplier: 'supplier',
+    transportCost: 'transportCost',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     feedingProgramId: 'feedingProgramId'
@@ -39859,9 +39985,13 @@ export namespace Prisma {
     groupId?: StringNullableFilter<"FeedingProgram"> | string | null
     groupType?: StringNullableFilter<"FeedingProgram"> | string | null
     groupLifecycleStages?: StringNullableListFilter<"FeedingProgram">
+    groupName?: StringNullableFilter<"FeedingProgram"> | string | null
     feedType?: StringFilter<"FeedingProgram"> | string
     timeOfDay?: StringNullableListFilter<"FeedingProgram">
     notes?: StringNullableFilter<"FeedingProgram"> | string | null
+    grazingDuration?: StringNullableFilter<"FeedingProgram"> | string | null
+    customHours?: FloatNullableFilter<"FeedingProgram"> | number | null
+    grazingCost?: FloatNullableFilter<"FeedingProgram"> | number | null
     createdAt?: DateTimeFilter<"FeedingProgram"> | Date | string
     updatedAt?: DateTimeFilter<"FeedingProgram"> | Date | string
     farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
@@ -39880,9 +40010,13 @@ export namespace Prisma {
     groupId?: SortOrderInput | SortOrder
     groupType?: SortOrderInput | SortOrder
     groupLifecycleStages?: SortOrder
+    groupName?: SortOrderInput | SortOrder
     feedType?: SortOrder
     timeOfDay?: SortOrder
     notes?: SortOrderInput | SortOrder
+    grazingDuration?: SortOrderInput | SortOrder
+    customHours?: SortOrderInput | SortOrder
+    grazingCost?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     farm?: FarmOrderByWithRelationInput
@@ -39904,9 +40038,13 @@ export namespace Prisma {
     groupId?: StringNullableFilter<"FeedingProgram"> | string | null
     groupType?: StringNullableFilter<"FeedingProgram"> | string | null
     groupLifecycleStages?: StringNullableListFilter<"FeedingProgram">
+    groupName?: StringNullableFilter<"FeedingProgram"> | string | null
     feedType?: StringFilter<"FeedingProgram"> | string
     timeOfDay?: StringNullableListFilter<"FeedingProgram">
     notes?: StringNullableFilter<"FeedingProgram"> | string | null
+    grazingDuration?: StringNullableFilter<"FeedingProgram"> | string | null
+    customHours?: FloatNullableFilter<"FeedingProgram"> | number | null
+    grazingCost?: FloatNullableFilter<"FeedingProgram"> | number | null
     createdAt?: DateTimeFilter<"FeedingProgram"> | Date | string
     updatedAt?: DateTimeFilter<"FeedingProgram"> | Date | string
     farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
@@ -39925,14 +40063,20 @@ export namespace Prisma {
     groupId?: SortOrderInput | SortOrder
     groupType?: SortOrderInput | SortOrder
     groupLifecycleStages?: SortOrder
+    groupName?: SortOrderInput | SortOrder
     feedType?: SortOrder
     timeOfDay?: SortOrder
     notes?: SortOrderInput | SortOrder
+    grazingDuration?: SortOrderInput | SortOrder
+    customHours?: SortOrderInput | SortOrder
+    grazingCost?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: FeedingProgramCountOrderByAggregateInput
+    _avg?: FeedingProgramAvgOrderByAggregateInput
     _max?: FeedingProgramMaxOrderByAggregateInput
     _min?: FeedingProgramMinOrderByAggregateInput
+    _sum?: FeedingProgramSumOrderByAggregateInput
   }
 
   export type FeedingProgramScalarWhereWithAggregatesInput = {
@@ -39949,9 +40093,13 @@ export namespace Prisma {
     groupId?: StringNullableWithAggregatesFilter<"FeedingProgram"> | string | null
     groupType?: StringNullableWithAggregatesFilter<"FeedingProgram"> | string | null
     groupLifecycleStages?: StringNullableListFilter<"FeedingProgram">
+    groupName?: StringNullableWithAggregatesFilter<"FeedingProgram"> | string | null
     feedType?: StringWithAggregatesFilter<"FeedingProgram"> | string
     timeOfDay?: StringNullableListFilter<"FeedingProgram">
     notes?: StringNullableWithAggregatesFilter<"FeedingProgram"> | string | null
+    grazingDuration?: StringNullableWithAggregatesFilter<"FeedingProgram"> | string | null
+    customHours?: FloatNullableWithAggregatesFilter<"FeedingProgram"> | number | null
+    grazingCost?: FloatNullableWithAggregatesFilter<"FeedingProgram"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"FeedingProgram"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"FeedingProgram"> | Date | string
   }
@@ -39962,12 +40110,14 @@ export namespace Prisma {
     NOT?: FeedDetailsWhereInput | FeedDetailsWhereInput[]
     id?: StringFilter<"FeedDetails"> | string
     feedType?: StringFilter<"FeedDetails"> | string
+    feedName?: StringNullableFilter<"FeedDetails"> | string | null
     source?: StringFilter<"FeedDetails"> | string
     schedule?: StringFilter<"FeedDetails"> | string
     quantity?: FloatFilter<"FeedDetails"> | number
     date?: DateTimeFilter<"FeedDetails"> | Date | string
     cost?: FloatNullableFilter<"FeedDetails"> | number | null
     supplier?: StringNullableFilter<"FeedDetails"> | string | null
+    transportCost?: FloatNullableFilter<"FeedDetails"> | number | null
     createdAt?: DateTimeFilter<"FeedDetails"> | Date | string
     updatedAt?: DateTimeFilter<"FeedDetails"> | Date | string
     feedingProgramId?: StringFilter<"FeedDetails"> | string
@@ -39977,12 +40127,14 @@ export namespace Prisma {
   export type FeedDetailsOrderByWithRelationInput = {
     id?: SortOrder
     feedType?: SortOrder
+    feedName?: SortOrderInput | SortOrder
     source?: SortOrder
     schedule?: SortOrder
     quantity?: SortOrder
     date?: SortOrder
     cost?: SortOrderInput | SortOrder
     supplier?: SortOrderInput | SortOrder
+    transportCost?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     feedingProgramId?: SortOrder
@@ -39995,12 +40147,14 @@ export namespace Prisma {
     OR?: FeedDetailsWhereInput[]
     NOT?: FeedDetailsWhereInput | FeedDetailsWhereInput[]
     feedType?: StringFilter<"FeedDetails"> | string
+    feedName?: StringNullableFilter<"FeedDetails"> | string | null
     source?: StringFilter<"FeedDetails"> | string
     schedule?: StringFilter<"FeedDetails"> | string
     quantity?: FloatFilter<"FeedDetails"> | number
     date?: DateTimeFilter<"FeedDetails"> | Date | string
     cost?: FloatNullableFilter<"FeedDetails"> | number | null
     supplier?: StringNullableFilter<"FeedDetails"> | string | null
+    transportCost?: FloatNullableFilter<"FeedDetails"> | number | null
     createdAt?: DateTimeFilter<"FeedDetails"> | Date | string
     updatedAt?: DateTimeFilter<"FeedDetails"> | Date | string
     feedingProgramId?: StringFilter<"FeedDetails"> | string
@@ -40010,12 +40164,14 @@ export namespace Prisma {
   export type FeedDetailsOrderByWithAggregationInput = {
     id?: SortOrder
     feedType?: SortOrder
+    feedName?: SortOrderInput | SortOrder
     source?: SortOrder
     schedule?: SortOrder
     quantity?: SortOrder
     date?: SortOrder
     cost?: SortOrderInput | SortOrder
     supplier?: SortOrderInput | SortOrder
+    transportCost?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     feedingProgramId?: SortOrder
@@ -40032,12 +40188,14 @@ export namespace Prisma {
     NOT?: FeedDetailsScalarWhereWithAggregatesInput | FeedDetailsScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"FeedDetails"> | string
     feedType?: StringWithAggregatesFilter<"FeedDetails"> | string
+    feedName?: StringNullableWithAggregatesFilter<"FeedDetails"> | string | null
     source?: StringWithAggregatesFilter<"FeedDetails"> | string
     schedule?: StringWithAggregatesFilter<"FeedDetails"> | string
     quantity?: FloatWithAggregatesFilter<"FeedDetails"> | number
     date?: DateTimeWithAggregatesFilter<"FeedDetails"> | Date | string
     cost?: FloatNullableWithAggregatesFilter<"FeedDetails"> | number | null
     supplier?: StringNullableWithAggregatesFilter<"FeedDetails"> | string | null
+    transportCost?: FloatNullableWithAggregatesFilter<"FeedDetails"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"FeedDetails"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"FeedDetails"> | Date | string
     feedingProgramId?: StringWithAggregatesFilter<"FeedDetails"> | string
@@ -43087,9 +43245,13 @@ export namespace Prisma {
     groupId?: string | null
     groupType?: string | null
     groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    groupName?: string | null
     feedType: string
     timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
     notes?: string | null
+    grazingDuration?: string | null
+    customHours?: number | null
+    grazingCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     farm: FarmCreateNestedOneWithoutFeedingProgramsInput
@@ -43108,9 +43270,13 @@ export namespace Prisma {
     groupId?: string | null
     groupType?: string | null
     groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    groupName?: string | null
     feedType: string
     timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
     notes?: string | null
+    grazingDuration?: string | null
+    customHours?: number | null
+    grazingCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     feedDetails?: FeedDetailsUncheckedCreateNestedManyWithoutFeedingProgramInput
@@ -43125,9 +43291,13 @@ export namespace Prisma {
     groupId?: NullableStringFieldUpdateOperationsInput | string | null
     groupType?: NullableStringFieldUpdateOperationsInput | string | null
     groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    groupName?: NullableStringFieldUpdateOperationsInput | string | null
     feedType?: StringFieldUpdateOperationsInput | string
     timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
     notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grazingDuration?: NullableStringFieldUpdateOperationsInput | string | null
+    customHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    grazingCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     farm?: FarmUpdateOneRequiredWithoutFeedingProgramsNestedInput
@@ -43146,9 +43316,13 @@ export namespace Prisma {
     groupId?: NullableStringFieldUpdateOperationsInput | string | null
     groupType?: NullableStringFieldUpdateOperationsInput | string | null
     groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    groupName?: NullableStringFieldUpdateOperationsInput | string | null
     feedType?: StringFieldUpdateOperationsInput | string
     timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
     notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grazingDuration?: NullableStringFieldUpdateOperationsInput | string | null
+    customHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    grazingCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     feedDetails?: FeedDetailsUncheckedUpdateManyWithoutFeedingProgramNestedInput
@@ -43165,9 +43339,13 @@ export namespace Prisma {
     groupId?: string | null
     groupType?: string | null
     groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    groupName?: string | null
     feedType: string
     timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
     notes?: string | null
+    grazingDuration?: string | null
+    customHours?: number | null
+    grazingCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -43181,9 +43359,13 @@ export namespace Prisma {
     groupId?: NullableStringFieldUpdateOperationsInput | string | null
     groupType?: NullableStringFieldUpdateOperationsInput | string | null
     groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    groupName?: NullableStringFieldUpdateOperationsInput | string | null
     feedType?: StringFieldUpdateOperationsInput | string
     timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
     notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grazingDuration?: NullableStringFieldUpdateOperationsInput | string | null
+    customHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    grazingCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -43199,9 +43381,13 @@ export namespace Prisma {
     groupId?: NullableStringFieldUpdateOperationsInput | string | null
     groupType?: NullableStringFieldUpdateOperationsInput | string | null
     groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    groupName?: NullableStringFieldUpdateOperationsInput | string | null
     feedType?: StringFieldUpdateOperationsInput | string
     timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
     notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grazingDuration?: NullableStringFieldUpdateOperationsInput | string | null
+    customHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    grazingCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -43209,12 +43395,14 @@ export namespace Prisma {
   export type FeedDetailsCreateInput = {
     id?: string
     feedType: string
+    feedName?: string | null
     source: string
     schedule: string
     quantity: number
     date: Date | string
     cost?: number | null
     supplier?: string | null
+    transportCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     feedingProgram: FeedingProgramCreateNestedOneWithoutFeedDetailsInput
@@ -43223,12 +43411,14 @@ export namespace Prisma {
   export type FeedDetailsUncheckedCreateInput = {
     id?: string
     feedType: string
+    feedName?: string | null
     source: string
     schedule: string
     quantity: number
     date: Date | string
     cost?: number | null
     supplier?: string | null
+    transportCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     feedingProgramId: string
@@ -43237,12 +43427,14 @@ export namespace Prisma {
   export type FeedDetailsUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     feedType?: StringFieldUpdateOperationsInput | string
+    feedName?: NullableStringFieldUpdateOperationsInput | string | null
     source?: StringFieldUpdateOperationsInput | string
     schedule?: StringFieldUpdateOperationsInput | string
     quantity?: FloatFieldUpdateOperationsInput | number
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     supplier?: NullableStringFieldUpdateOperationsInput | string | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     feedingProgram?: FeedingProgramUpdateOneRequiredWithoutFeedDetailsNestedInput
@@ -43251,12 +43443,14 @@ export namespace Prisma {
   export type FeedDetailsUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     feedType?: StringFieldUpdateOperationsInput | string
+    feedName?: NullableStringFieldUpdateOperationsInput | string | null
     source?: StringFieldUpdateOperationsInput | string
     schedule?: StringFieldUpdateOperationsInput | string
     quantity?: FloatFieldUpdateOperationsInput | number
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     supplier?: NullableStringFieldUpdateOperationsInput | string | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     feedingProgramId?: StringFieldUpdateOperationsInput | string
@@ -43265,12 +43459,14 @@ export namespace Prisma {
   export type FeedDetailsCreateManyInput = {
     id?: string
     feedType: string
+    feedName?: string | null
     source: string
     schedule: string
     quantity: number
     date: Date | string
     cost?: number | null
     supplier?: string | null
+    transportCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     feedingProgramId: string
@@ -43279,12 +43475,14 @@ export namespace Prisma {
   export type FeedDetailsUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     feedType?: StringFieldUpdateOperationsInput | string
+    feedName?: NullableStringFieldUpdateOperationsInput | string | null
     source?: StringFieldUpdateOperationsInput | string
     schedule?: StringFieldUpdateOperationsInput | string
     quantity?: FloatFieldUpdateOperationsInput | number
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     supplier?: NullableStringFieldUpdateOperationsInput | string | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -43292,12 +43490,14 @@ export namespace Prisma {
   export type FeedDetailsUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     feedType?: StringFieldUpdateOperationsInput | string
+    feedName?: NullableStringFieldUpdateOperationsInput | string | null
     source?: StringFieldUpdateOperationsInput | string
     schedule?: StringFieldUpdateOperationsInput | string
     quantity?: FloatFieldUpdateOperationsInput | number
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     supplier?: NullableStringFieldUpdateOperationsInput | string | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     feedingProgramId?: StringFieldUpdateOperationsInput | string
@@ -46096,11 +46296,20 @@ export namespace Prisma {
     groupId?: SortOrder
     groupType?: SortOrder
     groupLifecycleStages?: SortOrder
+    groupName?: SortOrder
     feedType?: SortOrder
     timeOfDay?: SortOrder
     notes?: SortOrder
+    grazingDuration?: SortOrder
+    customHours?: SortOrder
+    grazingCost?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type FeedingProgramAvgOrderByAggregateInput = {
+    customHours?: SortOrder
+    grazingCost?: SortOrder
   }
 
   export type FeedingProgramMaxOrderByAggregateInput = {
@@ -46112,8 +46321,12 @@ export namespace Prisma {
     animalType?: SortOrder
     groupId?: SortOrder
     groupType?: SortOrder
+    groupName?: SortOrder
     feedType?: SortOrder
     notes?: SortOrder
+    grazingDuration?: SortOrder
+    customHours?: SortOrder
+    grazingCost?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -46127,10 +46340,19 @@ export namespace Prisma {
     animalType?: SortOrder
     groupId?: SortOrder
     groupType?: SortOrder
+    groupName?: SortOrder
     feedType?: SortOrder
     notes?: SortOrder
+    grazingDuration?: SortOrder
+    customHours?: SortOrder
+    grazingCost?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type FeedingProgramSumOrderByAggregateInput = {
+    customHours?: SortOrder
+    grazingCost?: SortOrder
   }
 
   export type FeedingProgramScalarRelationFilter = {
@@ -46141,12 +46363,14 @@ export namespace Prisma {
   export type FeedDetailsCountOrderByAggregateInput = {
     id?: SortOrder
     feedType?: SortOrder
+    feedName?: SortOrder
     source?: SortOrder
     schedule?: SortOrder
     quantity?: SortOrder
     date?: SortOrder
     cost?: SortOrder
     supplier?: SortOrder
+    transportCost?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     feedingProgramId?: SortOrder
@@ -46155,17 +46379,20 @@ export namespace Prisma {
   export type FeedDetailsAvgOrderByAggregateInput = {
     quantity?: SortOrder
     cost?: SortOrder
+    transportCost?: SortOrder
   }
 
   export type FeedDetailsMaxOrderByAggregateInput = {
     id?: SortOrder
     feedType?: SortOrder
+    feedName?: SortOrder
     source?: SortOrder
     schedule?: SortOrder
     quantity?: SortOrder
     date?: SortOrder
     cost?: SortOrder
     supplier?: SortOrder
+    transportCost?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     feedingProgramId?: SortOrder
@@ -46174,12 +46401,14 @@ export namespace Prisma {
   export type FeedDetailsMinOrderByAggregateInput = {
     id?: SortOrder
     feedType?: SortOrder
+    feedName?: SortOrder
     source?: SortOrder
     schedule?: SortOrder
     quantity?: SortOrder
     date?: SortOrder
     cost?: SortOrder
     supplier?: SortOrder
+    transportCost?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     feedingProgramId?: SortOrder
@@ -46188,6 +46417,7 @@ export namespace Prisma {
   export type FeedDetailsSumOrderByAggregateInput = {
     quantity?: SortOrder
     cost?: SortOrder
+    transportCost?: SortOrder
   }
 
   export type GoodsInStockListRelationFilter = {
@@ -49750,9 +49980,13 @@ export namespace Prisma {
     groupId?: string | null
     groupType?: string | null
     groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    groupName?: string | null
     feedType: string
     timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
     notes?: string | null
+    grazingDuration?: string | null
+    customHours?: number | null
+    grazingCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     farm: FarmCreateNestedOneWithoutFeedingProgramsInput
@@ -49769,9 +50003,13 @@ export namespace Prisma {
     groupId?: string | null
     groupType?: string | null
     groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    groupName?: string | null
     feedType: string
     timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
     notes?: string | null
+    grazingDuration?: string | null
+    customHours?: number | null
+    grazingCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     feedDetails?: FeedDetailsUncheckedCreateNestedManyWithoutFeedingProgramInput
@@ -50117,9 +50355,13 @@ export namespace Prisma {
     groupId?: StringNullableFilter<"FeedingProgram"> | string | null
     groupType?: StringNullableFilter<"FeedingProgram"> | string | null
     groupLifecycleStages?: StringNullableListFilter<"FeedingProgram">
+    groupName?: StringNullableFilter<"FeedingProgram"> | string | null
     feedType?: StringFilter<"FeedingProgram"> | string
     timeOfDay?: StringNullableListFilter<"FeedingProgram">
     notes?: StringNullableFilter<"FeedingProgram"> | string | null
+    grazingDuration?: StringNullableFilter<"FeedingProgram"> | string | null
+    customHours?: FloatNullableFilter<"FeedingProgram"> | number | null
+    grazingCost?: FloatNullableFilter<"FeedingProgram"> | number | null
     createdAt?: DateTimeFilter<"FeedingProgram"> | Date | string
     updatedAt?: DateTimeFilter<"FeedingProgram"> | Date | string
   }
@@ -50572,9 +50814,13 @@ export namespace Prisma {
     groupId?: string | null
     groupType?: string | null
     groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    groupName?: string | null
     feedType: string
     timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
     notes?: string | null
+    grazingDuration?: string | null
+    customHours?: number | null
+    grazingCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutFeedingProgramsInput
@@ -50591,9 +50837,13 @@ export namespace Prisma {
     groupId?: string | null
     groupType?: string | null
     groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    groupName?: string | null
     feedType: string
     timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
     notes?: string | null
+    grazingDuration?: string | null
+    customHours?: number | null
+    grazingCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     feedDetails?: FeedDetailsUncheckedCreateNestedManyWithoutFeedingProgramInput
@@ -54413,12 +54663,14 @@ export namespace Prisma {
   export type FeedDetailsCreateWithoutFeedingProgramInput = {
     id?: string
     feedType: string
+    feedName?: string | null
     source: string
     schedule: string
     quantity: number
     date: Date | string
     cost?: number | null
     supplier?: string | null
+    transportCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -54426,12 +54678,14 @@ export namespace Prisma {
   export type FeedDetailsUncheckedCreateWithoutFeedingProgramInput = {
     id?: string
     feedType: string
+    feedName?: string | null
     source: string
     schedule: string
     quantity: number
     date: Date | string
     cost?: number | null
     supplier?: string | null
+    transportCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -54600,12 +54854,14 @@ export namespace Prisma {
     NOT?: FeedDetailsScalarWhereInput | FeedDetailsScalarWhereInput[]
     id?: StringFilter<"FeedDetails"> | string
     feedType?: StringFilter<"FeedDetails"> | string
+    feedName?: StringNullableFilter<"FeedDetails"> | string | null
     source?: StringFilter<"FeedDetails"> | string
     schedule?: StringFilter<"FeedDetails"> | string
     quantity?: FloatFilter<"FeedDetails"> | number
     date?: DateTimeFilter<"FeedDetails"> | Date | string
     cost?: FloatNullableFilter<"FeedDetails"> | number | null
     supplier?: StringNullableFilter<"FeedDetails"> | string | null
+    transportCost?: FloatNullableFilter<"FeedDetails"> | number | null
     createdAt?: DateTimeFilter<"FeedDetails"> | Date | string
     updatedAt?: DateTimeFilter<"FeedDetails"> | Date | string
     feedingProgramId?: StringFilter<"FeedDetails"> | string
@@ -54620,9 +54876,13 @@ export namespace Prisma {
     groupId?: string | null
     groupType?: string | null
     groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    groupName?: string | null
     feedType: string
     timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
     notes?: string | null
+    grazingDuration?: string | null
+    customHours?: number | null
+    grazingCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     farm: FarmCreateNestedOneWithoutFeedingProgramsInput
@@ -54640,9 +54900,13 @@ export namespace Prisma {
     groupId?: string | null
     groupType?: string | null
     groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    groupName?: string | null
     feedType: string
     timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
     notes?: string | null
+    grazingDuration?: string | null
+    customHours?: number | null
+    grazingCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -54672,9 +54936,13 @@ export namespace Prisma {
     groupId?: NullableStringFieldUpdateOperationsInput | string | null
     groupType?: NullableStringFieldUpdateOperationsInput | string | null
     groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    groupName?: NullableStringFieldUpdateOperationsInput | string | null
     feedType?: StringFieldUpdateOperationsInput | string
     timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
     notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grazingDuration?: NullableStringFieldUpdateOperationsInput | string | null
+    customHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    grazingCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     farm?: FarmUpdateOneRequiredWithoutFeedingProgramsNestedInput
@@ -54692,9 +54960,13 @@ export namespace Prisma {
     groupId?: NullableStringFieldUpdateOperationsInput | string | null
     groupType?: NullableStringFieldUpdateOperationsInput | string | null
     groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    groupName?: NullableStringFieldUpdateOperationsInput | string | null
     feedType?: StringFieldUpdateOperationsInput | string
     timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
     notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grazingDuration?: NullableStringFieldUpdateOperationsInput | string | null
+    customHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    grazingCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -57537,9 +57809,13 @@ export namespace Prisma {
     groupId?: string | null
     groupType?: string | null
     groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    groupName?: string | null
     feedType: string
     timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
     notes?: string | null
+    grazingDuration?: string | null
+    customHours?: number | null
+    grazingCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -57717,9 +57993,13 @@ export namespace Prisma {
     groupId?: NullableStringFieldUpdateOperationsInput | string | null
     groupType?: NullableStringFieldUpdateOperationsInput | string | null
     groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    groupName?: NullableStringFieldUpdateOperationsInput | string | null
     feedType?: StringFieldUpdateOperationsInput | string
     timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
     notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grazingDuration?: NullableStringFieldUpdateOperationsInput | string | null
+    customHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    grazingCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     farm?: FarmUpdateOneRequiredWithoutFeedingProgramsNestedInput
@@ -57736,9 +58016,13 @@ export namespace Prisma {
     groupId?: NullableStringFieldUpdateOperationsInput | string | null
     groupType?: NullableStringFieldUpdateOperationsInput | string | null
     groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    groupName?: NullableStringFieldUpdateOperationsInput | string | null
     feedType?: StringFieldUpdateOperationsInput | string
     timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
     notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grazingDuration?: NullableStringFieldUpdateOperationsInput | string | null
+    customHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    grazingCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     feedDetails?: FeedDetailsUncheckedUpdateManyWithoutFeedingProgramNestedInput
@@ -57754,9 +58038,13 @@ export namespace Prisma {
     groupId?: NullableStringFieldUpdateOperationsInput | string | null
     groupType?: NullableStringFieldUpdateOperationsInput | string | null
     groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    groupName?: NullableStringFieldUpdateOperationsInput | string | null
     feedType?: StringFieldUpdateOperationsInput | string
     timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
     notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grazingDuration?: NullableStringFieldUpdateOperationsInput | string | null
+    customHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    grazingCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -58126,9 +58414,13 @@ export namespace Prisma {
     groupId?: string | null
     groupType?: string | null
     groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    groupName?: string | null
     feedType: string
     timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
     notes?: string | null
+    grazingDuration?: string | null
+    customHours?: number | null
+    grazingCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -58458,9 +58750,13 @@ export namespace Prisma {
     groupId?: NullableStringFieldUpdateOperationsInput | string | null
     groupType?: NullableStringFieldUpdateOperationsInput | string | null
     groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    groupName?: NullableStringFieldUpdateOperationsInput | string | null
     feedType?: StringFieldUpdateOperationsInput | string
     timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
     notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grazingDuration?: NullableStringFieldUpdateOperationsInput | string | null
+    customHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    grazingCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutFeedingProgramsNestedInput
@@ -58477,9 +58773,13 @@ export namespace Prisma {
     groupId?: NullableStringFieldUpdateOperationsInput | string | null
     groupType?: NullableStringFieldUpdateOperationsInput | string | null
     groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    groupName?: NullableStringFieldUpdateOperationsInput | string | null
     feedType?: StringFieldUpdateOperationsInput | string
     timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
     notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grazingDuration?: NullableStringFieldUpdateOperationsInput | string | null
+    customHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    grazingCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     feedDetails?: FeedDetailsUncheckedUpdateManyWithoutFeedingProgramNestedInput
@@ -58495,9 +58795,13 @@ export namespace Prisma {
     groupId?: NullableStringFieldUpdateOperationsInput | string | null
     groupType?: NullableStringFieldUpdateOperationsInput | string | null
     groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    groupName?: NullableStringFieldUpdateOperationsInput | string | null
     feedType?: StringFieldUpdateOperationsInput | string
     timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
     notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grazingDuration?: NullableStringFieldUpdateOperationsInput | string | null
+    customHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    grazingCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -59880,12 +60184,14 @@ export namespace Prisma {
   export type FeedDetailsCreateManyFeedingProgramInput = {
     id?: string
     feedType: string
+    feedName?: string | null
     source: string
     schedule: string
     quantity: number
     date: Date | string
     cost?: number | null
     supplier?: string | null
+    transportCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -59893,12 +60199,14 @@ export namespace Prisma {
   export type FeedDetailsUpdateWithoutFeedingProgramInput = {
     id?: StringFieldUpdateOperationsInput | string
     feedType?: StringFieldUpdateOperationsInput | string
+    feedName?: NullableStringFieldUpdateOperationsInput | string | null
     source?: StringFieldUpdateOperationsInput | string
     schedule?: StringFieldUpdateOperationsInput | string
     quantity?: FloatFieldUpdateOperationsInput | number
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     supplier?: NullableStringFieldUpdateOperationsInput | string | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -59906,12 +60214,14 @@ export namespace Prisma {
   export type FeedDetailsUncheckedUpdateWithoutFeedingProgramInput = {
     id?: StringFieldUpdateOperationsInput | string
     feedType?: StringFieldUpdateOperationsInput | string
+    feedName?: NullableStringFieldUpdateOperationsInput | string | null
     source?: StringFieldUpdateOperationsInput | string
     schedule?: StringFieldUpdateOperationsInput | string
     quantity?: FloatFieldUpdateOperationsInput | number
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     supplier?: NullableStringFieldUpdateOperationsInput | string | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -59919,12 +60229,14 @@ export namespace Prisma {
   export type FeedDetailsUncheckedUpdateManyWithoutFeedingProgramInput = {
     id?: StringFieldUpdateOperationsInput | string
     feedType?: StringFieldUpdateOperationsInput | string
+    feedName?: NullableStringFieldUpdateOperationsInput | string | null
     source?: StringFieldUpdateOperationsInput | string
     schedule?: StringFieldUpdateOperationsInput | string
     quantity?: FloatFieldUpdateOperationsInput | number
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     supplier?: NullableStringFieldUpdateOperationsInput | string | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
