@@ -57,11 +57,18 @@ export class FeedingService {
             feedName: feedName || undefined,
             source: feedName || 'Unspecified',
             schedule: 'Once',
-            quantity: typeof quantity === 'number' ? quantity : Number(quantity) || 0,
+            quantity:
+              typeof quantity === 'number' ? quantity : Number(quantity) || 0,
             date: asDate,
-            cost: typeof purchasePrice === 'number' ? purchasePrice : Number(purchasePrice) || undefined,
+            cost:
+              typeof purchasePrice === 'number'
+                ? purchasePrice
+                : Number(purchasePrice) || undefined,
             supplier: supplier || undefined,
-            transportCost: typeof transportCost === 'number' ? transportCost : Number(transportCost) || undefined,
+            transportCost:
+              typeof transportCost === 'number'
+                ? transportCost
+                : Number(transportCost) || undefined,
           },
         ];
       }
@@ -72,14 +79,18 @@ export class FeedingService {
       programType,
       groupName: groupName ?? rest.groupName,
       grazingDuration: grazingDuration ?? rest.grazingDuration,
-      customHours: typeof customHours === 'number' ? customHours : Number(customHours) || undefined,
-      grazingCost: typeof grazingCost === 'number' ? grazingCost : Number(grazingCost) || undefined,
+      customHours:
+        typeof customHours === 'number'
+          ? customHours
+          : Number(customHours) || undefined,
+      grazingCost:
+        typeof grazingCost === 'number'
+          ? grazingCost
+          : Number(grazingCost) || undefined,
       timeOfDay: Array.isArray(rest.timeOfDay) ? rest.timeOfDay : [],
       farm: { connect: { id: farmId } },
       user: { connect: { id: userId } },
-      feedDetails: detailsToCreate
-        ? { create: detailsToCreate }
-        : undefined,
+      feedDetails: detailsToCreate ? { create: detailsToCreate } : undefined,
     };
 
     return this.prisma.feedingProgram.create({
@@ -190,5 +201,207 @@ export class FeedingService {
     return {
       message: `Feeding program with ID ${id} and its details have been removed.`,
     };
+  }
+
+  async findAllGrazing(
+    farmId: string,
+    page = 1,
+    limit = 10,
+    startDate?: string,
+    endDate?: string,
+  ) {
+    const skip = (page - 1) * limit;
+    const take = limit;
+
+    // Build date filter
+    const dateFilter: any = {};
+    if (startDate || endDate) {
+      dateFilter.feedDetails = {
+        some: {
+          date: {
+            ...(startDate && { gte: new Date(startDate) }),
+            ...(endDate && { lte: new Date(endDate) }),
+          },
+        },
+      };
+    }
+
+    const whereClause = {
+      farmId,
+      grazingDuration: { not: null },
+      ...dateFilter,
+    };
+
+    const [grazingRecords, total] = await this.prisma.$transaction([
+      this.prisma.feedingProgram.findMany({
+        where: whereClause,
+        skip,
+        take,
+        include: {
+          feedDetails: true,
+        },
+        orderBy: { createdAt: 'desc' },
+      }),
+      this.prisma.feedingProgram.count({ where: whereClause }),
+    ]);
+
+    const totalPages = Math.ceil(total / limit);
+
+    return {
+      data: grazingRecords,
+      meta: {
+        total,
+        page,
+        limit,
+        totalPages,
+      },
+    };
+  }
+
+  async getGrazingSummary(
+    farmId: string,
+    startDate?: string,
+    endDate?: string,
+  ) {
+    // Build date filter
+    const dateFilter: any = {};
+    if (startDate || endDate) {
+      dateFilter.feedDetails = {
+        some: {
+          date: {
+            ...(startDate && { gte: new Date(startDate) }),
+            ...(endDate && { lte: new Date(endDate) }),
+          },
+        },
+      };
+    }
+
+    const whereClause = {
+      farmId,
+      grazingDuration: { not: null },
+      ...dateFilter,
+    };
+
+    const grazingRecords = await this.prisma.feedingProgram.findMany({
+      where: whereClause,
+      include: {
+        feedDetails: true,
+      },
+    });
+
+    // Calculate statistics
+    const totalRecords = grazingRecords.length;
+    const totalCost = grazingRecords.reduce(
+      (sum, record) => sum + (record.grazingCost || 0),
+      0,
+    );
+
+    // Count by duration type
+    const durationBreakdown = grazingRecords.reduce(
+      (acc, record) => {
+        const duration = record.grazingDuration || 'Unknown';
+        acc[duration] = (acc[duration] || 0) + 1;
+        return acc;
+      },
+      {} as Record<string, number>,
+    );
+
+    // Calculate average custom hours for "Other" duration
+    const customHoursRecords = grazingRecords.filter(
+      (r) => r.grazingDuration === 'Other' && r.customHours,
+    );
+    const avgCustomHours =
+      customHoursRecords.length > 0
+        ? customHoursRecords.reduce((sum, r) => sum + (r.customHours || 0), 0) /
+          customHoursRecords.length
+        : 0;
+
+    // Get unique animal count (approximate - based on animalId or groupName)
+    const uniqueAnimals = new Set(
+      grazingRecords.filter((r) => r.animalId).map((r) => r.animalId),
+    ).size;
+
+    const uniqueGroups = new Set(
+      grazingRecords.filter((r) => r.groupName).map((r) => r.groupName),
+    ).size;
+
+    return {
+      totalRecords,
+      totalCost,
+      averageCostPerRecord: totalRecords > 0 ? totalCost / totalRecords : 0,
+      durationBreakdown,
+      averageCustomHours: avgCustomHours,
+      uniqueAnimals,
+      uniqueGroups,
+      dateRange: {
+        start: startDate || null,
+        end: endDate || null,
+      },
+    };
+  }
+
+  async createGrazing(createGrazingDto: any) {
+    const {
+      farmId,
+      userId,
+      date,
+      grazingDuration,
+      customHours,
+      grazingCost,
+      animalIds,
+      animalId,
+      groupName,
+      notes,
+    } = createGrazingDto;
+
+    const farm = await this.prisma.farm.findUnique({ where: { id: farmId } });
+    if (!farm) {
+      throw new NotFoundException(`Farm with ID ${farmId} not found`);
+    }
+
+    const user = await this.prisma.user.findUnique({ where: { id: userId } });
+    if (!user) {
+      throw new NotFoundException(`User with ID ${userId} not found`);
+    }
+
+    // Determine program type based on what's provided
+    let programType = 'Group';
+    if (animalId) {
+      programType = 'Single Animal';
+    }
+
+    // Create a feed detail entry for the grazing record
+    const grazingDate = date ? new Date(date) : new Date();
+    const feedDetail = {
+      feedType: 'Grazing',
+      feedName: 'Field Grazing',
+      source: 'Pasture',
+      schedule: grazingDuration || 'Whole Day',
+      quantity: 0, // Not applicable for grazing
+      date: grazingDate,
+      cost: grazingCost || 0,
+    };
+
+    const payload: any = {
+      programType,
+      feedType: 'Basal Feeds',
+      grazingDuration,
+      customHours: customHours || undefined,
+      grazingCost: grazingCost || undefined,
+      groupName: groupName || undefined,
+      animalId: animalId || undefined,
+      notes: notes || undefined,
+      timeOfDay: [],
+      farm: { connect: { id: farmId } },
+      user: { connect: { id: userId } },
+      feedDetails: {
+        create: [feedDetail],
+      },
+    };
+
+    return this.prisma.feedingProgram.create({
+      data: payload,
+      include: { feedDetails: true },
+    });
   }
 }
