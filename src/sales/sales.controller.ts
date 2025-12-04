@@ -687,4 +687,317 @@ export class SalesController {
   remove(@Param('id') id: string) {
     return this.salesService.remove(id);
   }
+
+  // Specialized endpoints for mobile app sales screens
+
+  @Post('beef-cattle')
+  @ApiOperation({
+    summary: 'Record beef cattle sale',
+    description: 'Record a direct beef cattle sale transaction',
+  })
+  @ApiBody({
+    schema: {
+      type: 'object',
+      required: [
+        'farmId',
+        'animalId',
+        'weight',
+        'saleDate',
+        'marketPrice',
+        'salePrice',
+        'buyerName',
+        'buyerType',
+      ],
+      properties: {
+        farmId: { type: 'string', example: 'farm_123' },
+        livestockId: { type: 'string', example: 'livestock_456' },
+        animalId: { type: 'string', example: 'A234' },
+        weight: { type: 'number', example: 550 },
+        beefQuality: {
+          type: 'string',
+          enum: ['Low', 'Medium', 'High'],
+          example: 'Medium',
+        },
+        saleDate: { type: 'string', format: 'date', example: '2025-10-05' },
+        marketPrice: { type: 'number', example: 80000 },
+        salePrice: { type: 'number', example: 85000 },
+        buyerName: { type: 'string', example: 'John Doe' },
+        buyerType: {
+          type: 'string',
+          enum: ['Individual', 'Company'],
+          example: 'Individual',
+        },
+      },
+    },
+  })
+  @ApiResponse({
+    status: 201,
+    description: 'Beef cattle sale recorded successfully',
+  })
+  createBeefSale(@Body() data: any) {
+    return this.salesService.createBeefSale(data);
+  }
+
+  @Post('milk')
+  @ApiOperation({
+    summary: 'Record milk production and sale',
+    description:
+      'Record milk production from dairy cattle or goats with optional sale details',
+  })
+  @ApiBody({
+    schema: {
+      type: 'object',
+      required: [
+        'farmId',
+        'animalId',
+        'milkYield',
+        'milkQuality',
+        'milkingDate',
+      ],
+      properties: {
+        farmId: { type: 'string', example: 'farm_123' },
+        livestockId: { type: 'string', example: 'livestock_456' },
+        animalId: { type: 'string', example: 'DC001' },
+        milkYield: { type: 'number', example: 25 },
+        milkQuality: {
+          type: 'string',
+          enum: ['Low', 'Medium', 'High'],
+          example: 'Medium',
+        },
+        milkingDate: { type: 'string', format: 'date', example: '2025-10-05' },
+        homeUseQuantity: { type: 'number', example: 2 },
+        saleQuantity: { type: 'number', example: 23 },
+        saleDate: { type: 'string', format: 'date', example: '2025-10-05' },
+        marketPrice: { type: 'number', example: 50 },
+        salePrice: { type: 'number', example: 55 },
+        buyerName: { type: 'string', example: 'Jane Doe' },
+        buyerType: {
+          type: 'string',
+          enum: ['Individual', 'Company'],
+          example: 'Individual',
+        },
+        category: { type: 'string', enum: ['dairy', 'goat'], example: 'dairy' },
+      },
+    },
+  })
+  @ApiResponse({ status: 201, description: 'Milk sale recorded successfully' })
+  createMilkSale(@Body() data: any) {
+    return this.salesService.createMilkSale(data);
+  }
+
+  @Post('swine')
+  @ApiOperation({
+    summary: 'Record swine sale',
+    description: 'Record a direct swine sale transaction',
+  })
+  @ApiBody({
+    schema: {
+      type: 'object',
+      required: [
+        'farmId',
+        'animalId',
+        'saleWeight',
+        'saleDate',
+        'marketPrice',
+        'salePrice',
+        'buyerName',
+        'buyerType',
+      ],
+      properties: {
+        farmId: { type: 'string', example: 'farm_123' },
+        livestockId: { type: 'string', example: 'livestock_456' },
+        animalId: { type: 'string', example: 'S001' },
+        saleWeight: { type: 'number', example: 120 },
+        saleDate: { type: 'string', format: 'date', example: '2025-10-05' },
+        marketPrice: { type: 'number', example: 300 },
+        salePrice: { type: 'number', example: 320 },
+        buyerName: { type: 'string', example: 'John Doe' },
+        buyerType: {
+          type: 'string',
+          enum: ['Individual', 'Company'],
+          example: 'Individual',
+        },
+      },
+    },
+  })
+  @ApiResponse({ status: 201, description: 'Swine sale recorded successfully' })
+  createSwineSale(@Body() data: any) {
+    return this.salesService.createSwineSale(data);
+  }
+
+  @Post('sheep')
+  @ApiOperation({
+    summary: 'Record sheep sale (wool or meat)',
+    description: 'Record sheep wool production or meat sale',
+  })
+  @ApiBody({
+    schema: {
+      type: 'object',
+      required: ['farmId', 'animalId', 'saleType', 'buyerName', 'buyerType'],
+      properties: {
+        farmId: { type: 'string', example: 'farm_123' },
+        livestockId: { type: 'string', example: 'livestock_456' },
+        animalId: { type: 'string', example: 'SH001' },
+        saleType: { type: 'string', enum: ['wool', 'meat'], example: 'wool' },
+        // Wool specific
+        shearingDate: { type: 'string', format: 'date', example: '2025-10-05' },
+        woolQuality: {
+          type: 'string',
+          enum: ['Low', 'Medium', 'High'],
+          example: 'Medium',
+        },
+        woolWeight: { type: 'number', example: 15.5 },
+        // Meat specific
+        saleWeight: { type: 'number', example: 45 },
+        saleDate: { type: 'string', format: 'date', example: '2025-10-05' },
+        marketPrice: { type: 'number', example: 600 },
+        salePrice: { type: 'number', example: 650 },
+        buyerName: { type: 'string', example: 'John Doe' },
+        buyerType: {
+          type: 'string',
+          enum: ['Individual', 'Company'],
+          example: 'Individual',
+        },
+      },
+    },
+  })
+  @ApiResponse({ status: 201, description: 'Sheep sale recorded successfully' })
+  createSheepSale(@Body() data: any) {
+    return this.salesService.createSheepSale(data);
+  }
+
+  @Post('rabbit')
+  @ApiOperation({
+    summary: 'Record rabbit sale',
+    description: 'Record a direct rabbit sale transaction',
+  })
+  @ApiBody({
+    schema: {
+      type: 'object',
+      required: [
+        'farmId',
+        'animalId',
+        'saleWeight',
+        'saleDate',
+        'marketPrice',
+        'salePrice',
+        'buyerName',
+        'buyerType',
+      ],
+      properties: {
+        farmId: { type: 'string', example: 'farm_123' },
+        livestockId: { type: 'string', example: 'livestock_456' },
+        animalId: { type: 'string', example: 'R001' },
+        groupId: { type: 'string', example: 'Batch A' },
+        saleWeight: { type: 'number', example: 3.5 },
+        saleDate: { type: 'string', format: 'date', example: '2025-10-05' },
+        marketPrice: { type: 'number', example: 500 },
+        salePrice: { type: 'number', example: 550 },
+        buyerName: { type: 'string', example: 'John Doe' },
+        buyerType: {
+          type: 'string',
+          enum: ['Individual', 'Company'],
+          example: 'Individual',
+        },
+      },
+    },
+  })
+  @ApiResponse({
+    status: 201,
+    description: 'Rabbit sale recorded successfully',
+  })
+  createRabbitSale(@Body() data: any) {
+    return this.salesService.createRabbitSale(data);
+  }
+
+  @Post('poultry')
+  @ApiOperation({
+    summary: 'Record poultry transaction',
+    description: 'Record broiler sale, egg production, or egg sale',
+  })
+  @ApiBody({
+    schema: {
+      type: 'object',
+      required: ['farmId', 'flockId', 'saleType'],
+      properties: {
+        farmId: { type: 'string', example: 'farm_123' },
+        livestockId: { type: 'string', example: 'livestock_456' },
+        flockId: { type: 'string', example: 'FL001' },
+        saleType: {
+          type: 'string',
+          enum: ['broiler', 'egg_production', 'egg_sales'],
+          example: 'broiler',
+        },
+        // Broiler specific
+        numberSold: { type: 'number', example: 50 },
+        saleWeight: { type: 'number', example: 150 },
+        // Egg production specific
+        productionDate: {
+          type: 'string',
+          format: 'date',
+          example: '2025-10-05',
+        },
+        numberOfLayers: { type: 'number', example: 200 },
+        eggCount: { type: 'number', example: 180 },
+        averageEggWeight: { type: 'number', example: 55 },
+        // Egg sales specific
+        trays: { type: 'number', example: 10 },
+        numberOfEggs: { type: 'number', example: 300 },
+        // Common sale fields
+        saleDate: { type: 'string', format: 'date', example: '2025-10-05' },
+        marketPrice: { type: 'number', example: 400 },
+        salePrice: { type: 'number', example: 450 },
+        buyerName: { type: 'string', example: 'John Doe' },
+        buyerType: {
+          type: 'string',
+          enum: ['Individual', 'Company'],
+          example: 'Individual',
+        },
+      },
+    },
+  })
+  @ApiResponse({
+    status: 201,
+    description: 'Poultry transaction recorded successfully',
+  })
+  createPoultryTransaction(@Body() data: any) {
+    return this.salesService.createPoultryTransaction(data);
+  }
+
+  @Post('egg-production')
+  @ApiOperation({
+    summary: 'Record egg production',
+    description: 'Record daily egg production from layer flocks',
+  })
+  @ApiBody({
+    schema: {
+      type: 'object',
+      required: [
+        'farmId',
+        'flockId',
+        'date',
+        'numberOfLayers',
+        'eggCount',
+        'avgEggWeight',
+      ],
+      properties: {
+        farmId: { type: 'string', example: 'farm_123' },
+        flockId: { type: 'string', example: 'L001' },
+        date: { type: 'string', format: 'date', example: '2025-10-05' },
+        numberOfLayers: { type: 'number', example: 200 },
+        eggCount: { type: 'number', example: 180 },
+        avgEggWeight: { type: 'number', example: 55 },
+        gradeA: { type: 'number', example: 150 },
+        gradeB: { type: 'number', example: 25 },
+        gradeC: { type: 'number', example: 5 },
+      },
+    },
+  })
+  @ApiResponse({
+    status: 201,
+    description: 'Egg production recorded successfully',
+  })
+  createEggProduction(@Body() data: any) {
+    return this.salesService.createEggProduction(data);
+  }
 }

@@ -405,4 +405,377 @@ export class SalesService {
 
     return recentSales;
   }
+
+  // Specialized sale recording methods for mobile app
+
+  async createBeefSale(data: any) {
+    const farm = await this.prisma.farm.findUnique({
+      where: { id: data.farmId },
+    });
+
+    if (!farm) {
+      throw new NotFoundException('Farm not found');
+    }
+
+    const saleListing = await this.prisma.saleListing.create({
+      data: {
+        farmId: data.farmId,
+        livestockId: data.livestockId,
+        animalId: data.animalId,
+        name: `Beef Cattle ${data.animalId}`,
+        category: 'beefCattle',
+        breed: 'Beef Cattle',
+        age: 'N/A',
+        weight: data.weight,
+        beefQuality: data.beefQuality || 'Medium',
+        saleDate: new Date(data.saleDate),
+        marketPrice: data.marketPrice,
+        salePrice: data.salePrice,
+        price: data.salePrice,
+        buyerName: data.buyerName,
+        buyerType: data.buyerType,
+        status: SaleStatus.SOLD,
+        health: 'good',
+        purpose: 'Meat Production',
+        images: [],
+      },
+      include: {
+        farm: {
+          select: {
+            id: true,
+            name: true,
+            county: true,
+            administrativeLocation: true,
+          },
+        },
+      },
+    });
+
+    return { success: true, data: saleListing };
+  }
+
+  async createMilkSale(data: any) {
+    const farm = await this.prisma.farm.findUnique({
+      where: { id: data.farmId },
+    });
+
+    if (!farm) {
+      throw new NotFoundException('Farm not found');
+    }
+
+    const category = data.category === 'goat' ? 'dairyGoats' : 'dairyCattle';
+
+    const saleListing = await this.prisma.saleListing.create({
+      data: {
+        farmId: data.farmId,
+        livestockId: data.livestockId,
+        animalId: data.animalId,
+        name: `${category === 'dairyGoats' ? 'Dairy Goat' : 'Dairy Cattle'} ${data.animalId}`,
+        category,
+        breed: category === 'dairyGoats' ? 'Dairy Goat' : 'Dairy Cattle',
+        age: 'N/A',
+        weight: 0,
+        milkYield: data.milkYield,
+        milkQuality: data.milkQuality || 'Medium',
+        milkingDate: new Date(data.milkingDate),
+        homeUseQuantity: data.homeUseQuantity || 0,
+        saleQuantity: data.saleQuantity || 0,
+        saleDate: data.saleDate ? new Date(data.saleDate) : undefined,
+        marketPrice: data.marketPrice,
+        salePrice: data.salePrice,
+        price: data.salePrice ? data.salePrice * (data.saleQuantity || 0) : 0,
+        buyerName: data.buyerName,
+        buyerType: data.buyerType,
+        status: data.saleQuantity > 0 ? SaleStatus.SOLD : SaleStatus.AVAILABLE,
+        health: 'good',
+        purpose: 'Milk Production',
+        images: [],
+      },
+      include: {
+        farm: {
+          select: {
+            id: true,
+            name: true,
+            county: true,
+            administrativeLocation: true,
+          },
+        },
+      },
+    });
+
+    return { success: true, data: saleListing };
+  }
+
+  async createSwineSale(data: any) {
+    const farm = await this.prisma.farm.findUnique({
+      where: { id: data.farmId },
+    });
+
+    if (!farm) {
+      throw new NotFoundException('Farm not found');
+    }
+
+    const saleListing = await this.prisma.saleListing.create({
+      data: {
+        farmId: data.farmId,
+        livestockId: data.livestockId,
+        animalId: data.animalId,
+        name: `Swine ${data.animalId}`,
+        category: 'swine',
+        breed: 'Swine',
+        age: 'N/A',
+        weight: data.saleWeight,
+        saleDate: new Date(data.saleDate),
+        marketPrice: data.marketPrice,
+        salePrice: data.salePrice,
+        price: data.salePrice * data.saleWeight,
+        buyerName: data.buyerName,
+        buyerType: data.buyerType,
+        status: SaleStatus.SOLD,
+        health: 'good',
+        purpose: 'Meat Production',
+        images: [],
+      },
+      include: {
+        farm: {
+          select: {
+            id: true,
+            name: true,
+            county: true,
+            administrativeLocation: true,
+          },
+        },
+      },
+    });
+
+    return { success: true, data: saleListing };
+  }
+
+  async createSheepSale(data: any) {
+    const farm = await this.prisma.farm.findUnique({
+      where: { id: data.farmId },
+    });
+
+    if (!farm) {
+      throw new NotFoundException('Farm not found');
+    }
+
+    const isWoolSale = data.saleType === 'wool';
+
+    const saleListing = await this.prisma.saleListing.create({
+      data: {
+        farmId: data.farmId,
+        livestockId: data.livestockId,
+        animalId: data.animalId,
+        name: `Sheep ${data.animalId}`,
+        category: 'sheep',
+        breed: 'Sheep',
+        age: 'N/A',
+        weight: isWoolSale ? data.woolWeight : data.saleWeight,
+        woolYield: isWoolSale ? `${data.woolWeight} kg` : undefined,
+        saleDate: isWoolSale
+          ? new Date(data.shearingDate)
+          : new Date(data.saleDate),
+        marketPrice: data.marketPrice,
+        salePrice: data.salePrice,
+        price: isWoolSale ? data.salePrice : data.salePrice * data.saleWeight,
+        buyerName: data.buyerName,
+        buyerType: data.buyerType,
+        status: SaleStatus.SOLD,
+        health: 'good',
+        purpose: isWoolSale ? 'Wool Production' : 'Meat Production',
+        images: [],
+      },
+      include: {
+        farm: {
+          select: {
+            id: true,
+            name: true,
+            county: true,
+            administrativeLocation: true,
+          },
+        },
+      },
+    });
+
+    return { success: true, data: saleListing };
+  }
+
+  async createRabbitSale(data: any) {
+    const farm = await this.prisma.farm.findUnique({
+      where: { id: data.farmId },
+    });
+
+    if (!farm) {
+      throw new NotFoundException('Farm not found');
+    }
+
+    const saleListing = await this.prisma.saleListing.create({
+      data: {
+        farmId: data.farmId,
+        livestockId: data.livestockId,
+        animalId: data.animalId,
+        name: `Rabbit ${data.animalId}`,
+        category: 'rabbits',
+        breed: 'Rabbit',
+        age: 'N/A',
+        weight: data.saleWeight,
+        saleDate: new Date(data.saleDate),
+        marketPrice: data.marketPrice,
+        salePrice: data.salePrice,
+        price: data.salePrice * data.saleWeight,
+        buyerName: data.buyerName,
+        buyerType: data.buyerType,
+        status: SaleStatus.SOLD,
+        health: 'good',
+        purpose: 'Meat Production',
+        notes: data.groupId ? `Group: ${data.groupId}` : undefined,
+        images: [],
+      },
+      include: {
+        farm: {
+          select: {
+            id: true,
+            name: true,
+            county: true,
+            administrativeLocation: true,
+          },
+        },
+      },
+    });
+
+    return { success: true, data: saleListing };
+  }
+
+  async createPoultryTransaction(data: any) {
+    const farm = await this.prisma.farm.findUnique({
+      where: { id: data.farmId },
+    });
+
+    if (!farm) {
+      throw new NotFoundException('Farm not found');
+    }
+
+    const { saleType } = data;
+    let saleData: any = {
+      farmId: data.farmId,
+      livestockId: data.livestockId,
+      animalId: data.flockId,
+      name: `Poultry Flock ${data.flockId}`,
+      category: 'poultry',
+      breed: 'Poultry',
+      age: 'N/A',
+      health: 'good',
+      images: [],
+    };
+
+    if (saleType === 'broiler') {
+      saleData = {
+        ...saleData,
+        quantity: data.numberSold,
+        weight: data.saleWeight,
+        saleDate: new Date(data.saleDate),
+        marketPrice: data.marketPrice,
+        salePrice: data.salePrice,
+        price: data.salePrice * data.saleWeight,
+        pricePerBird: data.salePrice * (data.saleWeight / data.numberSold),
+        buyerName: data.buyerName,
+        buyerType: data.buyerType,
+        status: SaleStatus.SOLD,
+        purpose: 'Meat Production',
+      };
+    } else if (saleType === 'egg_production') {
+      saleData = {
+        ...saleData,
+        quantity: data.numberOfLayers,
+        weight: (data.eggCount * data.averageEggWeight) / 1000,
+        saleDate: new Date(data.productionDate),
+        eggProductionRate: `${((data.eggCount / data.numberOfLayers) * 100).toFixed(1)}%`,
+        price: 0,
+        status: SaleStatus.AVAILABLE,
+        purpose: 'Egg Production',
+        notes: `Eggs: ${data.eggCount}, Avg Weight: ${data.averageEggWeight}g`,
+      };
+    } else if (saleType === 'egg_sales') {
+      saleData = {
+        ...saleData,
+        quantity: data.numberOfEggs,
+        weight: data.numberOfEggs * 0.055, // Approximate weight
+        saleDate: new Date(data.saleDate),
+        marketPrice: data.marketPrice,
+        salePrice: data.salePrice,
+        price: data.salePrice * data.numberOfEggs,
+        buyerName: data.buyerName,
+        buyerType: data.buyerType,
+        status: SaleStatus.SOLD,
+        purpose: 'Egg Sales',
+        notes: `Trays: ${data.trays}, Eggs: ${data.numberOfEggs}`,
+      };
+    }
+
+    const saleListing = await this.prisma.saleListing.create({
+      data: saleData,
+      include: {
+        farm: {
+          select: {
+            id: true,
+            name: true,
+            county: true,
+            administrativeLocation: true,
+          },
+        },
+      },
+    });
+
+    return { success: true, data: saleListing };
+  }
+
+  async createEggProduction(data: any) {
+    const farm = await this.prisma.farm.findUnique({
+      where: { id: data.farmId },
+    });
+
+    if (!farm) {
+      throw new NotFoundException('Farm not found');
+    }
+
+    const productionRate = (
+      (data.eggCount / data.numberOfLayers) *
+      100
+    ).toFixed(1);
+    const totalWeight = (data.eggCount * data.avgEggWeight) / 1000;
+
+    const saleListing = await this.prisma.saleListing.create({
+      data: {
+        farmId: data.farmId,
+        animalId: data.flockId,
+        name: `Egg Production - Flock ${data.flockId}`,
+        category: 'poultry',
+        breed: 'Layer',
+        age: 'N/A',
+        quantity: data.numberOfLayers,
+        weight: totalWeight,
+        saleDate: new Date(data.date),
+        eggProductionRate: `${productionRate}%`,
+        price: 0,
+        status: SaleStatus.AVAILABLE,
+        health: 'good',
+        purpose: 'Egg Production',
+        notes: `Grade A: ${data.gradeA || 0}, Grade B: ${data.gradeB || 0}, Grade C: ${data.gradeC || 0}. Total: ${data.eggCount} eggs`,
+        images: [],
+      },
+      include: {
+        farm: {
+          select: {
+            id: true,
+            name: true,
+            county: true,
+            administrativeLocation: true,
+          },
+        },
+      },
+    });
+
+    return { success: true, data: saleListing };
+  }
 }
