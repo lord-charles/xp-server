@@ -18,11 +18,16 @@ export class LoggingInterceptor implements NestInterceptor {
     const response = context.switchToHttp().getResponse<Response>();
     const { method, url, ip, headers } = request;
     const userAgent = headers['user-agent'] || '';
+    const authorization = headers['authorization'] || '';
     const startTime = Date.now();
 
-    // Log incoming request
+    // Log incoming request with auth info
+    const authInfo = authorization
+      ? `Auth: Bearer ${authorization.substring(7, 20)}...`
+      : 'Auth: None';
+
     this.logger.log(
-      `Incoming Request: ${method} ${url} - IP: ${ip} - User Agent: ${userAgent}`,
+      `Incoming Request: ${method} ${url} - IP: ${ip} - ${authInfo} - User Agent: ${userAgent}`,
     );
 
     return next.handle().pipe(

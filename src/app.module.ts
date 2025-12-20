@@ -15,6 +15,7 @@ import { AccountingModule } from './accounting/accounting.module';
 import { AnalyticsModule } from './analytics/analytics.module';
 import { HomeModule } from './home/home.module';
 import { CommonModule } from './common/common.module';
+import { DebugModule } from './debug/debug.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { CommonModule } from './common/common.module';
     AccountingModule,
     AnalyticsModule,
     HomeModule,
+    DebugModule,
   ],
   controllers: [],
   providers: [],

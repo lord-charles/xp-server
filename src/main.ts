@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
 import { LoggingInterceptor } from './common/interceptors/logging.interceptor';
+import { JwtDebugInterceptor } from './common/interceptors/jwt-debug.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -13,6 +14,15 @@ async function bootstrap() {
 
   // Enable global logging interceptor
   app.useGlobalInterceptors(new LoggingInterceptor());
+
+  // Enable JWT debug interceptor (only in development/debug mode)
+  if (
+    process.env.NODE_ENV !== 'production' ||
+    process.env.DEBUG_JWT === 'true'
+  ) {
+    const jwtDebugInterceptor = app.get(JwtDebugInterceptor);
+    app.useGlobalInterceptors(jwtDebugInterceptor);
+  }
 
   const config = new DocumentBuilder()
     .setTitle('XP Farmer API')
