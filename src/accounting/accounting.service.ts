@@ -324,23 +324,34 @@ export class AccountingService {
     const netOperatingCash = operatingInflows - totalOperatingOutflows;
 
     // Investing Activities - Asset purchases
-    const investingActivities = await this.prisma.utility.findMany({
-      where: {
-        inventory: { farmId },
-        createdAt: { gte: start, lte: end },
-      },
+    // Get infrastructure/equipment values from utilities, water, and power
+    const utilities = await this.prisma.utility.findMany({
+      where: { inventory: { farmId } },
       select: {
-        installationCost: true,
         constructionCost: true,
-        utilityType: true,
+        maintenanceCost: true,
       },
     });
 
-    const netInvestingCash = -investingActivities.reduce(
-      (sum, inv) =>
-        sum + (inv.installationCost || 0) + (inv.constructionCost || 0),
-      0,
-    );
+    const water = await this.prisma.water.findMany({
+      where: { inventory: { farmId } },
+      select: {
+        waterConstructionCost: true,
+      },
+    });
+
+    const power = await this.prisma.power.findMany({
+      where: { inventory: { farmId } },
+      select: {
+        powerInstallationCost: true,
+      },
+    });
+
+    const netInvestingCash = -[
+      ...utilities.map((u) => u.constructionCost || 0),
+      ...water.map((w) => w.waterConstructionCost || 0),
+      ...power.map((p) => p.powerInstallationCost || 0),
+    ].reduce((sum, cost) => sum + cost, 0);
 
     const netCashMovement = netOperatingCash + netInvestingCash;
 
@@ -362,10 +373,20 @@ export class AccountingService {
         netOperatingCash,
       },
       investingActivities: {
-        outflows: investingActivities.map((inv) => ({
-          description: `${inv.utilityType} infrastructure`,
-          amount: (inv.installationCost || 0) + (inv.constructionCost || 0),
-        })),
+        outflows: [
+          ...utilities.map((u) => ({
+            description: 'Facility infrastructure',
+            amount: u.constructionCost || 0,
+          })),
+          ...water.map((w) => ({
+            description: 'Water system infrastructure',
+            amount: w.waterConstructionCost || 0,
+          })),
+          ...power.map((p) => ({
+            description: 'Power system infrastructure',
+            amount: p.powerInstallationCost || 0,
+          })),
+        ],
         netInvestingCash,
       },
       financingActivities: {
@@ -519,20 +540,32 @@ export class AccountingService {
     );
 
     // Get infrastructure/equipment values
-    const infrastructure = await this.prisma.utility.findMany({
+    const utilities = await this.prisma.utility.findMany({
       where: { inventory: { farmId } },
       select: {
-        installationCost: true,
         constructionCost: true,
-        utilityType: true,
       },
     });
 
-    const infrastructureValue = infrastructure.reduce(
-      (sum, item) =>
-        sum + (item.installationCost || 0) + (item.constructionCost || 0),
-      0,
-    );
+    const water = await this.prisma.water.findMany({
+      where: { inventory: { farmId } },
+      select: {
+        waterConstructionCost: true,
+      },
+    });
+
+    const power = await this.prisma.power.findMany({
+      where: { inventory: { farmId } },
+      select: {
+        powerInstallationCost: true,
+      },
+    });
+
+    const infrastructureValue = [
+      ...utilities.map((u) => u.constructionCost || 0),
+      ...water.map((w) => w.waterConstructionCost || 0),
+      ...power.map((p) => p.powerInstallationCost || 0),
+    ].reduce((sum, cost) => sum + cost, 0);
 
     // Get current cash position (simplified)
     const profitLoss = await this.getProfitAndLoss(query);

@@ -693,9 +693,7 @@ export class AnalyticsService {
         machinery: machineryValue,
         utilities: utilitiesValue,
       },
-      facilities: inventory.utilities.filter(
-        (u) => u.utilityType === 'facility',
-      ),
+      facilities: inventory.utilities, // All utilities are now facilities
       equipment: inventory.machinery,
       goodsInStock: inventory.goodsInStock,
       utilities: inventory.utilities,
