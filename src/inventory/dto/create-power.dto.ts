@@ -1,51 +1,44 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {
-  IsString,
-  IsOptional,
-  IsDateString,
-  IsNumber,
-  IsNotEmpty,
-} from 'class-validator';
+import { IsString, IsOptional, IsDateString, IsNumber } from 'class-validator';
 
-export class CreateUtilityDto {
-  // Facility/Structure fields
+export class CreatePowerDto {
   @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
-  structureType?: string;
+  powerSource?: string;
 
   @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
-  structureCapacity?: string;
+  powerCapacity?: string;
 
   @ApiProperty({ required: false })
   @IsNumber({ maxDecimalPlaces: 2 })
   @IsOptional()
-  constructionCost?: number;
+  powerInstallationCost?: number;
 
   @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
-  facilityCondition?: string;
-
-  @ApiProperty({ required: false })
-  @IsString()
-  @IsOptional()
-  utilityLocation?: string;
-
-  @ApiProperty({ required: false })
-  @IsDateString()
-  @IsOptional()
-  lastMaintenanceDate?: Date;
-
-  @ApiProperty({ required: false })
-  @IsDateString()
-  @IsOptional()
-  nextMaintenanceDate?: Date;
+  powerLocation?: string;
 
   @ApiProperty({ required: false })
   @IsNumber({ maxDecimalPlaces: 2 })
   @IsOptional()
-  maintenanceCost?: number;
+  consumptionRate?: number;
+
+  @ApiProperty({ required: false })
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @IsOptional()
+  consumptionCost?: number;
+
+  @ApiProperty({ required: false })
+  @IsDateString()
+  @IsOptional()
+  lastMaintenanceDatePower?: Date;
+
+  @ApiProperty({ required: false })
+  @IsDateString()
+  @IsOptional()
+  nextMaintenanceDatePower?: Date;
 }

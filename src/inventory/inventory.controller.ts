@@ -14,6 +14,8 @@ import { CreateInventoryDto } from './dto/create-inventory.dto';
 import { UpdateGoodsDto } from './dto/update-goods.dto';
 import { UpdateMachineryDto } from './dto/update-machinery.dto';
 import { UpdateUtilityDto } from './dto/update-utility.dto';
+import { UpdateWaterDto } from './dto/update-water.dto';
+import { UpdatePowerDto } from './dto/update-power.dto';
 import {
   ApiTags,
   ApiBearerAuth,
@@ -88,5 +90,29 @@ export class InventoryController {
   @ApiOperation({ summary: 'Delete a utility item' })
   removeUtility(@Param('id') id: string) {
     return this.inventoryService.remove(id, 'utility');
+  }
+
+  @Patch('water/:id')
+  @ApiOperation({ summary: 'Update a water system item' })
+  updateWater(@Param('id') id: string, @Body() updateWaterDto: UpdateWaterDto) {
+    return this.inventoryService.update(id, 'water', updateWaterDto);
+  }
+
+  @Delete('water/:id')
+  @ApiOperation({ summary: 'Delete a water system item' })
+  removeWater(@Param('id') id: string) {
+    return this.inventoryService.remove(id, 'water');
+  }
+
+  @Patch('power/:id')
+  @ApiOperation({ summary: 'Update a power system item' })
+  updatePower(@Param('id') id: string, @Body() updatePowerDto: UpdatePowerDto) {
+    return this.inventoryService.update(id, 'power', updatePowerDto);
+  }
+
+  @Delete('power/:id')
+  @ApiOperation({ summary: 'Delete a power system item' })
+  removePower(@Param('id') id: string) {
+    return this.inventoryService.remove(id, 'power');
   }
 }

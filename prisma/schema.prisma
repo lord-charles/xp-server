@@ -357,6 +357,8 @@ model Inventory {
   goodsInStock GoodsInStock[]
   machinery    Machinery[]
   utilities    Utility[]
+  water        Water[]
+  power        Power[]
   createdAt    DateTime       @default(now())
   updatedAt    DateTime       @updatedAt
 }
@@ -383,49 +385,66 @@ model GoodsInStock {
 }
 
 model Machinery {
-  id              String    @id @default(cuid())
-  inventoryId     String
-  inventory       Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
-  equipmentName   String
-  equipmentId     String?
-  purchaseDate    DateTime
-  currentLocation String
-  condition       String
-  lastServiceDate DateTime?
-  nextServiceDate DateTime?
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
+  id                   String    @id @default(cuid())
+  inventoryId          String
+  inventory            Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
+  equipmentName        String
+  equipmentId          String?
+  purchaseDate2        DateTime?
+  purchasePrice2       Float?
+  machineryLocation    String?
+  machineryCondition   String?
+  lastServiceDate      DateTime?
+  nextServiceDate      DateTime?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
 }
 
 model Utility {
-  id          String    @id @default(cuid())
-  inventoryId String
-  inventory   Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
-  utilityType String // water, power, facility
+  id                    String    @id @default(cuid())
+  inventoryId           String
+  inventory             Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
+  structureType         String?
+  structureCapacity     String?
+  constructionCost      Float?
+  facilityCondition     String?
+  utilityLocation       String?
+  lastMaintenanceDate   DateTime?
+  nextMaintenanceDate   DateTime?
+  maintenanceCost       Float?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+}
 
-  // Water Supply fields
-  waterLevel   Float?
-  waterSource  String?
-  waterStorage Float?
-  entryDate    DateTime?
+model Water {
+  id                        String    @id @default(cuid())
+  inventoryId               String
+  inventory                 Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
+  waterSource               String?
+  waterCapacity             String?
+  waterLevel                Float?
+  waterConstructionCost     Float?
+  waterLocation             String?
+  waterEntryDate            DateTime?
+  nextInspectionDateWater   DateTime?
+  createdAt                 DateTime  @default(now())
+  updatedAt                 DateTime  @updatedAt
+}
 
-  // Power Supply fields
-  powerSource      String?
-  powerCapacity    String?
-  installationCost Float?
-  consumptionRate  Float?
-  consumptionCost  Float?
-
-  // Facility fields
-  structureType       String?
-  structureCapacity   String?
-  constructionCost    Float?
-  facilityCondition   String?
-  lastMaintenanceDate DateTime?
-  maintenanceCost     Float?
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model Power {
+  id                        String    @id @default(cuid())
+  inventoryId               String
+  inventory                 Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
+  powerSource               String?
+  powerCapacity             String?
+  powerInstallationCost     Float?
+  powerLocation             String?
+  consumptionRate           Float?
+  consumptionCost           Float?
+  lastMaintenanceDatePower  DateTime?
+  nextMaintenanceDatePower  DateTime?
+  createdAt                 DateTime  @default(now())
+  updatedAt                 DateTime  @updatedAt
 }
 
 // Health Module

@@ -1,50 +1,39 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {
-  IsString,
-  IsOptional,
-  IsDateString,
-  IsNotEmpty,
-  IsNumber,
-} from 'class-validator';
+import { IsString, IsOptional, IsDateString, IsNumber } from 'class-validator';
 
-export class CreateMachineryDto {
-  @ApiProperty()
+export class CreateWaterDto {
+  @ApiProperty({ required: false })
   @IsString()
-  @IsNotEmpty()
-  equipmentName: string;
+  @IsOptional()
+  waterSource?: string;
 
   @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
-  equipmentId?: string;
+  waterCapacity?: string;
 
   @ApiProperty({ required: false })
-  @IsDateString()
+  @IsNumber()
   @IsOptional()
-  purchaseDate2?: Date;
+  waterLevel?: number;
 
   @ApiProperty({ required: false })
   @IsNumber({ maxDecimalPlaces: 2 })
   @IsOptional()
-  purchasePrice2?: number;
+  waterConstructionCost?: number;
 
   @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
-  machineryLocation?: string;
-
-  @ApiProperty({ required: false })
-  @IsString()
-  @IsOptional()
-  machineryCondition?: string;
+  waterLocation?: string;
 
   @ApiProperty({ required: false })
   @IsDateString()
   @IsOptional()
-  lastServiceDate?: Date;
+  waterEntryDate?: Date;
 
   @ApiProperty({ required: false })
   @IsDateString()
   @IsOptional()
-  nextServiceDate?: Date;
+  nextInspectionDateWater?: Date;
 }

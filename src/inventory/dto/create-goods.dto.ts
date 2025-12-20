@@ -1,5 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsInt, IsOptional, IsDateString, IsNotEmpty, IsNumber } from 'class-validator';
+import {
+  IsString,
+  IsInt,
+  IsOptional,
+  IsDateString,
+  IsNotEmpty,
+  IsNumber,
+} from 'class-validator';
 
 export class CreateGoodsDto {
   @ApiProperty()
@@ -43,7 +50,10 @@ export class CreateGoodsDto {
   condition: string;
 
   @ApiProperty({ required: false })
-  @IsNumber({ maxDecimalPlaces: 2 }, { message: 'purchasePrice must be a number' })
+  @IsNumber(
+    { maxDecimalPlaces: 2 },
+    { message: 'purchasePrice must be a number' },
+  )
   @IsOptional()
   purchasePrice?: number;
 
