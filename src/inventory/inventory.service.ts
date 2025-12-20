@@ -28,7 +28,9 @@ export class InventoryService {
       });
     }
 
-    // Create the specific inventory item
+    const results = [];
+
+    // Create all provided inventory items
     if (goodsInStock) {
       const { purchaseDate, expirationDate, nextInspectionDate, ...rest } =
         goodsInStock as any;
@@ -36,7 +38,7 @@ export class InventoryService {
       const normalizeDate = (d?: any) =>
         typeof d === 'string' ? new Date(d) : d;
 
-      return this.prisma.goodsInStock.create({
+      const goods = await this.prisma.goodsInStock.create({
         data: {
           ...rest,
           purchaseDate: normalizeDate(purchaseDate),
@@ -45,43 +47,54 @@ export class InventoryService {
           inventoryId: inventory.id,
         },
       });
+      results.push({ type: 'goodsInStock', item: goods });
     }
 
     if (machinery) {
-      return this.prisma.machinery.create({
+      const machineryItem = await this.prisma.machinery.create({
         data: {
           ...machinery,
           inventoryId: inventory.id,
         },
       });
+      results.push({ type: 'machinery', item: machineryItem });
     }
 
     if (utility) {
-      return this.prisma.utility.create({
+      const utilityItem = await this.prisma.utility.create({
         data: {
           ...utility,
           inventoryId: inventory.id,
         },
       });
+      results.push({ type: 'utility', item: utilityItem });
     }
 
     if (water) {
-      return this.prisma.water.create({
+      const waterItem = await this.prisma.water.create({
         data: {
           ...water,
           inventoryId: inventory.id,
         },
       });
+      results.push({ type: 'water', item: waterItem });
     }
 
     if (power) {
-      return this.prisma.power.create({
+      const powerItem = await this.prisma.power.create({
         data: {
           ...power,
           inventoryId: inventory.id,
         },
       });
+      results.push({ type: 'power', item: powerItem });
     }
+
+    return {
+      message: `Created ${results.length} inventory item(s)`,
+      items: results,
+      inventoryId: inventory.id,
+    };
   }
 
   async findAll(farmId: string) {

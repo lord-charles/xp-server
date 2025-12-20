@@ -390,8 +390,8 @@ model Machinery {
   inventory            Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
   equipmentName        String
   equipmentId          String?
-  purchaseDate2        DateTime?
-  purchasePrice2       Float?
+  purchaseDate         DateTime?
+  purchasePrice        Float?
   machineryLocation    String?
   machineryCondition   String?
   lastServiceDate      DateTime?
