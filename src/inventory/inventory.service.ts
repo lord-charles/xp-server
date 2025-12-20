@@ -61,9 +61,26 @@ export class InventoryService {
     }
 
     if (utility) {
+      // Filter out non-utility fields that might be sent by frontend
+      const {
+        utilityType,
+        waterSource,
+        waterStorage,
+        waterLevel,
+        installationCost,
+        entryDate,
+        nextInspectionDate,
+        currentLocation,
+        powerSource,
+        powerCapacity,
+        consumptionRate,
+        consumptionCost,
+        ...validUtilityFields
+      } = utility as any;
+
       const utilityItem = await this.prisma.utility.create({
         data: {
-          ...utility,
+          ...validUtilityFields,
           inventoryId: inventory.id,
         },
       });

@@ -114,6 +114,16 @@ export type Machinery = $Result.DefaultSelection<Prisma.$MachineryPayload>
  */
 export type Utility = $Result.DefaultSelection<Prisma.$UtilityPayload>
 /**
+ * Model Water
+ * 
+ */
+export type Water = $Result.DefaultSelection<Prisma.$WaterPayload>
+/**
+ * Model Power
+ * 
+ */
+export type Power = $Result.DefaultSelection<Prisma.$PowerPayload>
+/**
  * Model AllergyRecord
  * 
  */
@@ -473,6 +483,26 @@ export class PrismaClient<
     * ```
     */
   get utility(): Prisma.UtilityDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.water`: Exposes CRUD operations for the **Water** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Waters
+    * const waters = await prisma.water.findMany()
+    * ```
+    */
+  get water(): Prisma.WaterDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.power`: Exposes CRUD operations for the **Power** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Powers
+    * const powers = await prisma.power.findMany()
+    * ```
+    */
+  get power(): Prisma.PowerDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.allergyRecord`: Exposes CRUD operations for the **AllergyRecord** model.
@@ -1003,6 +1033,8 @@ export namespace Prisma {
     GoodsInStock: 'GoodsInStock',
     Machinery: 'Machinery',
     Utility: 'Utility',
+    Water: 'Water',
+    Power: 'Power',
     AllergyRecord: 'AllergyRecord',
     BoosterRecord: 'BoosterRecord',
     VaccinationRecord: 'VaccinationRecord',
@@ -1028,7 +1060,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "farm" | "employee" | "employeeFarm" | "employeeBenefit" | "livestock" | "mammal" | "poultry" | "mortality" | "healthEvent" | "transfer" | "sale" | "breedingRecord" | "offspring" | "feedingProgram" | "feedDetails" | "inventory" | "goodsInStock" | "machinery" | "utility" | "allergyRecord" | "boosterRecord" | "vaccinationRecord" | "dewormingRecord" | "geneticDisorderRecord" | "treatmentRecord" | "saleListing"
+      modelProps: "user" | "farm" | "employee" | "employeeFarm" | "employeeBenefit" | "livestock" | "mammal" | "poultry" | "mortality" | "healthEvent" | "transfer" | "sale" | "breedingRecord" | "offspring" | "feedingProgram" | "feedDetails" | "inventory" | "goodsInStock" | "machinery" | "utility" | "water" | "power" | "allergyRecord" | "boosterRecord" | "vaccinationRecord" | "dewormingRecord" | "geneticDisorderRecord" | "treatmentRecord" | "saleListing"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2512,6 +2544,154 @@ export namespace Prisma {
           }
         }
       }
+      Water: {
+        payload: Prisma.$WaterPayload<ExtArgs>
+        fields: Prisma.WaterFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.WaterFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaterPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.WaterFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaterPayload>
+          }
+          findFirst: {
+            args: Prisma.WaterFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaterPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.WaterFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaterPayload>
+          }
+          findMany: {
+            args: Prisma.WaterFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaterPayload>[]
+          }
+          create: {
+            args: Prisma.WaterCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaterPayload>
+          }
+          createMany: {
+            args: Prisma.WaterCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.WaterCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaterPayload>[]
+          }
+          delete: {
+            args: Prisma.WaterDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaterPayload>
+          }
+          update: {
+            args: Prisma.WaterUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaterPayload>
+          }
+          deleteMany: {
+            args: Prisma.WaterDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.WaterUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.WaterUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaterPayload>[]
+          }
+          upsert: {
+            args: Prisma.WaterUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaterPayload>
+          }
+          aggregate: {
+            args: Prisma.WaterAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateWater>
+          }
+          groupBy: {
+            args: Prisma.WaterGroupByArgs<ExtArgs>
+            result: $Utils.Optional<WaterGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.WaterCountArgs<ExtArgs>
+            result: $Utils.Optional<WaterCountAggregateOutputType> | number
+          }
+        }
+      }
+      Power: {
+        payload: Prisma.$PowerPayload<ExtArgs>
+        fields: Prisma.PowerFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PowerFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PowerFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerPayload>
+          }
+          findFirst: {
+            args: Prisma.PowerFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PowerFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerPayload>
+          }
+          findMany: {
+            args: Prisma.PowerFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerPayload>[]
+          }
+          create: {
+            args: Prisma.PowerCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerPayload>
+          }
+          createMany: {
+            args: Prisma.PowerCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PowerCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerPayload>[]
+          }
+          delete: {
+            args: Prisma.PowerDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerPayload>
+          }
+          update: {
+            args: Prisma.PowerUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerPayload>
+          }
+          deleteMany: {
+            args: Prisma.PowerDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PowerUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PowerUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerPayload>[]
+          }
+          upsert: {
+            args: Prisma.PowerUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerPayload>
+          }
+          aggregate: {
+            args: Prisma.PowerAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePower>
+          }
+          groupBy: {
+            args: Prisma.PowerGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PowerGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PowerCountArgs<ExtArgs>
+            result: $Utils.Optional<PowerCountAggregateOutputType> | number
+          }
+        }
+      }
       AllergyRecord: {
         payload: Prisma.$AllergyRecordPayload<ExtArgs>
         fields: Prisma.AllergyRecordFieldRefs
@@ -3134,6 +3314,8 @@ export namespace Prisma {
     goodsInStock?: GoodsInStockOmit
     machinery?: MachineryOmit
     utility?: UtilityOmit
+    water?: WaterOmit
+    power?: PowerOmit
     allergyRecord?: AllergyRecordOmit
     boosterRecord?: BoosterRecordOmit
     vaccinationRecord?: VaccinationRecordOmit
@@ -3685,12 +3867,16 @@ export namespace Prisma {
     goodsInStock: number
     machinery: number
     utilities: number
+    water: number
+    power: number
   }
 
   export type InventoryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     goodsInStock?: boolean | InventoryCountOutputTypeCountGoodsInStockArgs
     machinery?: boolean | InventoryCountOutputTypeCountMachineryArgs
     utilities?: boolean | InventoryCountOutputTypeCountUtilitiesArgs
+    water?: boolean | InventoryCountOutputTypeCountWaterArgs
+    power?: boolean | InventoryCountOutputTypeCountPowerArgs
   }
 
   // Custom InputTypes
@@ -3723,6 +3909,20 @@ export namespace Prisma {
    */
   export type InventoryCountOutputTypeCountUtilitiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UtilityWhereInput
+  }
+
+  /**
+   * InventoryCountOutputType without action
+   */
+  export type InventoryCountOutputTypeCountWaterArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WaterWhereInput
+  }
+
+  /**
+   * InventoryCountOutputType without action
+   */
+  export type InventoryCountOutputTypeCountPowerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PowerWhereInput
   }
 
 
@@ -24123,6 +24323,8 @@ export namespace Prisma {
     goodsInStock?: boolean | Inventory$goodsInStockArgs<ExtArgs>
     machinery?: boolean | Inventory$machineryArgs<ExtArgs>
     utilities?: boolean | Inventory$utilitiesArgs<ExtArgs>
+    water?: boolean | Inventory$waterArgs<ExtArgs>
+    power?: boolean | Inventory$powerArgs<ExtArgs>
     _count?: boolean | InventoryCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["inventory"]>
 
@@ -24155,6 +24357,8 @@ export namespace Prisma {
     goodsInStock?: boolean | Inventory$goodsInStockArgs<ExtArgs>
     machinery?: boolean | Inventory$machineryArgs<ExtArgs>
     utilities?: boolean | Inventory$utilitiesArgs<ExtArgs>
+    water?: boolean | Inventory$waterArgs<ExtArgs>
+    power?: boolean | Inventory$powerArgs<ExtArgs>
     _count?: boolean | InventoryCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type InventoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -24171,6 +24375,8 @@ export namespace Prisma {
       goodsInStock: Prisma.$GoodsInStockPayload<ExtArgs>[]
       machinery: Prisma.$MachineryPayload<ExtArgs>[]
       utilities: Prisma.$UtilityPayload<ExtArgs>[]
+      water: Prisma.$WaterPayload<ExtArgs>[]
+      power: Prisma.$PowerPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -24575,6 +24781,8 @@ export namespace Prisma {
     goodsInStock<T extends Inventory$goodsInStockArgs<ExtArgs> = {}>(args?: Subset<T, Inventory$goodsInStockArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GoodsInStockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     machinery<T extends Inventory$machineryArgs<ExtArgs> = {}>(args?: Subset<T, Inventory$machineryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MachineryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     utilities<T extends Inventory$utilitiesArgs<ExtArgs> = {}>(args?: Subset<T, Inventory$utilitiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UtilityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    water<T extends Inventory$waterArgs<ExtArgs> = {}>(args?: Subset<T, Inventory$waterArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WaterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    power<T extends Inventory$powerArgs<ExtArgs> = {}>(args?: Subset<T, Inventory$powerArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PowerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -25073,6 +25281,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: UtilityScalarFieldEnum | UtilityScalarFieldEnum[]
+  }
+
+  /**
+   * Inventory.water
+   */
+  export type Inventory$waterArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Water
+     */
+    select?: WaterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Water
+     */
+    omit?: WaterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WaterInclude<ExtArgs> | null
+    where?: WaterWhereInput
+    orderBy?: WaterOrderByWithRelationInput | WaterOrderByWithRelationInput[]
+    cursor?: WaterWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: WaterScalarFieldEnum | WaterScalarFieldEnum[]
+  }
+
+  /**
+   * Inventory.power
+   */
+  export type Inventory$powerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Power
+     */
+    select?: PowerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Power
+     */
+    omit?: PowerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PowerInclude<ExtArgs> | null
+    where?: PowerWhereInput
+    orderBy?: PowerOrderByWithRelationInput | PowerOrderByWithRelationInput[]
+    cursor?: PowerWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PowerScalarFieldEnum | PowerScalarFieldEnum[]
   }
 
   /**
@@ -26352,8 +26608,18 @@ export namespace Prisma {
 
   export type AggregateMachinery = {
     _count: MachineryCountAggregateOutputType | null
+    _avg: MachineryAvgAggregateOutputType | null
+    _sum: MachinerySumAggregateOutputType | null
     _min: MachineryMinAggregateOutputType | null
     _max: MachineryMaxAggregateOutputType | null
+  }
+
+  export type MachineryAvgAggregateOutputType = {
+    purchasePrice: number | null
+  }
+
+  export type MachinerySumAggregateOutputType = {
+    purchasePrice: number | null
   }
 
   export type MachineryMinAggregateOutputType = {
@@ -26362,8 +26628,9 @@ export namespace Prisma {
     equipmentName: string | null
     equipmentId: string | null
     purchaseDate: Date | null
-    currentLocation: string | null
-    condition: string | null
+    purchasePrice: number | null
+    machineryLocation: string | null
+    machineryCondition: string | null
     lastServiceDate: Date | null
     nextServiceDate: Date | null
     createdAt: Date | null
@@ -26376,8 +26643,9 @@ export namespace Prisma {
     equipmentName: string | null
     equipmentId: string | null
     purchaseDate: Date | null
-    currentLocation: string | null
-    condition: string | null
+    purchasePrice: number | null
+    machineryLocation: string | null
+    machineryCondition: string | null
     lastServiceDate: Date | null
     nextServiceDate: Date | null
     createdAt: Date | null
@@ -26390,8 +26658,9 @@ export namespace Prisma {
     equipmentName: number
     equipmentId: number
     purchaseDate: number
-    currentLocation: number
-    condition: number
+    purchasePrice: number
+    machineryLocation: number
+    machineryCondition: number
     lastServiceDate: number
     nextServiceDate: number
     createdAt: number
@@ -26400,14 +26669,23 @@ export namespace Prisma {
   }
 
 
+  export type MachineryAvgAggregateInputType = {
+    purchasePrice?: true
+  }
+
+  export type MachinerySumAggregateInputType = {
+    purchasePrice?: true
+  }
+
   export type MachineryMinAggregateInputType = {
     id?: true
     inventoryId?: true
     equipmentName?: true
     equipmentId?: true
     purchaseDate?: true
-    currentLocation?: true
-    condition?: true
+    purchasePrice?: true
+    machineryLocation?: true
+    machineryCondition?: true
     lastServiceDate?: true
     nextServiceDate?: true
     createdAt?: true
@@ -26420,8 +26698,9 @@ export namespace Prisma {
     equipmentName?: true
     equipmentId?: true
     purchaseDate?: true
-    currentLocation?: true
-    condition?: true
+    purchasePrice?: true
+    machineryLocation?: true
+    machineryCondition?: true
     lastServiceDate?: true
     nextServiceDate?: true
     createdAt?: true
@@ -26434,8 +26713,9 @@ export namespace Prisma {
     equipmentName?: true
     equipmentId?: true
     purchaseDate?: true
-    currentLocation?: true
-    condition?: true
+    purchasePrice?: true
+    machineryLocation?: true
+    machineryCondition?: true
     lastServiceDate?: true
     nextServiceDate?: true
     createdAt?: true
@@ -26481,6 +26761,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: MachineryAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: MachinerySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: MachineryMinAggregateInputType
@@ -26511,6 +26803,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: MachineryCountAggregateInputType | true
+    _avg?: MachineryAvgAggregateInputType
+    _sum?: MachinerySumAggregateInputType
     _min?: MachineryMinAggregateInputType
     _max?: MachineryMaxAggregateInputType
   }
@@ -26520,14 +26814,17 @@ export namespace Prisma {
     inventoryId: string
     equipmentName: string
     equipmentId: string | null
-    purchaseDate: Date
-    currentLocation: string
-    condition: string
+    purchaseDate: Date | null
+    purchasePrice: number | null
+    machineryLocation: string | null
+    machineryCondition: string | null
     lastServiceDate: Date | null
     nextServiceDate: Date | null
     createdAt: Date
     updatedAt: Date
     _count: MachineryCountAggregateOutputType | null
+    _avg: MachineryAvgAggregateOutputType | null
+    _sum: MachinerySumAggregateOutputType | null
     _min: MachineryMinAggregateOutputType | null
     _max: MachineryMaxAggregateOutputType | null
   }
@@ -26552,8 +26849,9 @@ export namespace Prisma {
     equipmentName?: boolean
     equipmentId?: boolean
     purchaseDate?: boolean
-    currentLocation?: boolean
-    condition?: boolean
+    purchasePrice?: boolean
+    machineryLocation?: boolean
+    machineryCondition?: boolean
     lastServiceDate?: boolean
     nextServiceDate?: boolean
     createdAt?: boolean
@@ -26567,8 +26865,9 @@ export namespace Prisma {
     equipmentName?: boolean
     equipmentId?: boolean
     purchaseDate?: boolean
-    currentLocation?: boolean
-    condition?: boolean
+    purchasePrice?: boolean
+    machineryLocation?: boolean
+    machineryCondition?: boolean
     lastServiceDate?: boolean
     nextServiceDate?: boolean
     createdAt?: boolean
@@ -26582,8 +26881,9 @@ export namespace Prisma {
     equipmentName?: boolean
     equipmentId?: boolean
     purchaseDate?: boolean
-    currentLocation?: boolean
-    condition?: boolean
+    purchasePrice?: boolean
+    machineryLocation?: boolean
+    machineryCondition?: boolean
     lastServiceDate?: boolean
     nextServiceDate?: boolean
     createdAt?: boolean
@@ -26597,15 +26897,16 @@ export namespace Prisma {
     equipmentName?: boolean
     equipmentId?: boolean
     purchaseDate?: boolean
-    currentLocation?: boolean
-    condition?: boolean
+    purchasePrice?: boolean
+    machineryLocation?: boolean
+    machineryCondition?: boolean
     lastServiceDate?: boolean
     nextServiceDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type MachineryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "inventoryId" | "equipmentName" | "equipmentId" | "purchaseDate" | "currentLocation" | "condition" | "lastServiceDate" | "nextServiceDate" | "createdAt" | "updatedAt", ExtArgs["result"]["machinery"]>
+  export type MachineryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "inventoryId" | "equipmentName" | "equipmentId" | "purchaseDate" | "purchasePrice" | "machineryLocation" | "machineryCondition" | "lastServiceDate" | "nextServiceDate" | "createdAt" | "updatedAt", ExtArgs["result"]["machinery"]>
   export type MachineryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     inventory?: boolean | InventoryDefaultArgs<ExtArgs>
   }
@@ -26626,9 +26927,10 @@ export namespace Prisma {
       inventoryId: string
       equipmentName: string
       equipmentId: string | null
-      purchaseDate: Date
-      currentLocation: string
-      condition: string
+      purchaseDate: Date | null
+      purchasePrice: number | null
+      machineryLocation: string | null
+      machineryCondition: string | null
       lastServiceDate: Date | null
       nextServiceDate: Date | null
       createdAt: Date
@@ -27062,8 +27364,9 @@ export namespace Prisma {
     readonly equipmentName: FieldRef<"Machinery", 'String'>
     readonly equipmentId: FieldRef<"Machinery", 'String'>
     readonly purchaseDate: FieldRef<"Machinery", 'DateTime'>
-    readonly currentLocation: FieldRef<"Machinery", 'String'>
-    readonly condition: FieldRef<"Machinery", 'String'>
+    readonly purchasePrice: FieldRef<"Machinery", 'Float'>
+    readonly machineryLocation: FieldRef<"Machinery", 'String'>
+    readonly machineryCondition: FieldRef<"Machinery", 'String'>
     readonly lastServiceDate: FieldRef<"Machinery", 'DateTime'>
     readonly nextServiceDate: FieldRef<"Machinery", 'DateTime'>
     readonly createdAt: FieldRef<"Machinery", 'DateTime'>
@@ -27495,21 +27798,11 @@ export namespace Prisma {
   }
 
   export type UtilityAvgAggregateOutputType = {
-    waterLevel: number | null
-    waterStorage: number | null
-    installationCost: number | null
-    consumptionRate: number | null
-    consumptionCost: number | null
     constructionCost: number | null
     maintenanceCost: number | null
   }
 
   export type UtilitySumAggregateOutputType = {
-    waterLevel: number | null
-    waterStorage: number | null
-    installationCost: number | null
-    consumptionRate: number | null
-    consumptionCost: number | null
     constructionCost: number | null
     maintenanceCost: number | null
   }
@@ -27517,21 +27810,13 @@ export namespace Prisma {
   export type UtilityMinAggregateOutputType = {
     id: string | null
     inventoryId: string | null
-    utilityType: string | null
-    waterLevel: number | null
-    waterSource: string | null
-    waterStorage: number | null
-    entryDate: Date | null
-    powerSource: string | null
-    powerCapacity: string | null
-    installationCost: number | null
-    consumptionRate: number | null
-    consumptionCost: number | null
     structureType: string | null
     structureCapacity: string | null
     constructionCost: number | null
     facilityCondition: string | null
+    utilityLocation: string | null
     lastMaintenanceDate: Date | null
+    nextMaintenanceDate: Date | null
     maintenanceCost: number | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -27540,21 +27825,13 @@ export namespace Prisma {
   export type UtilityMaxAggregateOutputType = {
     id: string | null
     inventoryId: string | null
-    utilityType: string | null
-    waterLevel: number | null
-    waterSource: string | null
-    waterStorage: number | null
-    entryDate: Date | null
-    powerSource: string | null
-    powerCapacity: string | null
-    installationCost: number | null
-    consumptionRate: number | null
-    consumptionCost: number | null
     structureType: string | null
     structureCapacity: string | null
     constructionCost: number | null
     facilityCondition: string | null
+    utilityLocation: string | null
     lastMaintenanceDate: Date | null
+    nextMaintenanceDate: Date | null
     maintenanceCost: number | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -27563,21 +27840,13 @@ export namespace Prisma {
   export type UtilityCountAggregateOutputType = {
     id: number
     inventoryId: number
-    utilityType: number
-    waterLevel: number
-    waterSource: number
-    waterStorage: number
-    entryDate: number
-    powerSource: number
-    powerCapacity: number
-    installationCost: number
-    consumptionRate: number
-    consumptionCost: number
     structureType: number
     structureCapacity: number
     constructionCost: number
     facilityCondition: number
+    utilityLocation: number
     lastMaintenanceDate: number
+    nextMaintenanceDate: number
     maintenanceCost: number
     createdAt: number
     updatedAt: number
@@ -27586,21 +27855,11 @@ export namespace Prisma {
 
 
   export type UtilityAvgAggregateInputType = {
-    waterLevel?: true
-    waterStorage?: true
-    installationCost?: true
-    consumptionRate?: true
-    consumptionCost?: true
     constructionCost?: true
     maintenanceCost?: true
   }
 
   export type UtilitySumAggregateInputType = {
-    waterLevel?: true
-    waterStorage?: true
-    installationCost?: true
-    consumptionRate?: true
-    consumptionCost?: true
     constructionCost?: true
     maintenanceCost?: true
   }
@@ -27608,21 +27867,13 @@ export namespace Prisma {
   export type UtilityMinAggregateInputType = {
     id?: true
     inventoryId?: true
-    utilityType?: true
-    waterLevel?: true
-    waterSource?: true
-    waterStorage?: true
-    entryDate?: true
-    powerSource?: true
-    powerCapacity?: true
-    installationCost?: true
-    consumptionRate?: true
-    consumptionCost?: true
     structureType?: true
     structureCapacity?: true
     constructionCost?: true
     facilityCondition?: true
+    utilityLocation?: true
     lastMaintenanceDate?: true
+    nextMaintenanceDate?: true
     maintenanceCost?: true
     createdAt?: true
     updatedAt?: true
@@ -27631,21 +27882,13 @@ export namespace Prisma {
   export type UtilityMaxAggregateInputType = {
     id?: true
     inventoryId?: true
-    utilityType?: true
-    waterLevel?: true
-    waterSource?: true
-    waterStorage?: true
-    entryDate?: true
-    powerSource?: true
-    powerCapacity?: true
-    installationCost?: true
-    consumptionRate?: true
-    consumptionCost?: true
     structureType?: true
     structureCapacity?: true
     constructionCost?: true
     facilityCondition?: true
+    utilityLocation?: true
     lastMaintenanceDate?: true
+    nextMaintenanceDate?: true
     maintenanceCost?: true
     createdAt?: true
     updatedAt?: true
@@ -27654,21 +27897,13 @@ export namespace Prisma {
   export type UtilityCountAggregateInputType = {
     id?: true
     inventoryId?: true
-    utilityType?: true
-    waterLevel?: true
-    waterSource?: true
-    waterStorage?: true
-    entryDate?: true
-    powerSource?: true
-    powerCapacity?: true
-    installationCost?: true
-    consumptionRate?: true
-    consumptionCost?: true
     structureType?: true
     structureCapacity?: true
     constructionCost?: true
     facilityCondition?: true
+    utilityLocation?: true
     lastMaintenanceDate?: true
+    nextMaintenanceDate?: true
     maintenanceCost?: true
     createdAt?: true
     updatedAt?: true
@@ -27764,21 +27999,13 @@ export namespace Prisma {
   export type UtilityGroupByOutputType = {
     id: string
     inventoryId: string
-    utilityType: string
-    waterLevel: number | null
-    waterSource: string | null
-    waterStorage: number | null
-    entryDate: Date | null
-    powerSource: string | null
-    powerCapacity: string | null
-    installationCost: number | null
-    consumptionRate: number | null
-    consumptionCost: number | null
     structureType: string | null
     structureCapacity: string | null
     constructionCost: number | null
     facilityCondition: string | null
+    utilityLocation: string | null
     lastMaintenanceDate: Date | null
+    nextMaintenanceDate: Date | null
     maintenanceCost: number | null
     createdAt: Date
     updatedAt: Date
@@ -27806,21 +28033,13 @@ export namespace Prisma {
   export type UtilitySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     inventoryId?: boolean
-    utilityType?: boolean
-    waterLevel?: boolean
-    waterSource?: boolean
-    waterStorage?: boolean
-    entryDate?: boolean
-    powerSource?: boolean
-    powerCapacity?: boolean
-    installationCost?: boolean
-    consumptionRate?: boolean
-    consumptionCost?: boolean
     structureType?: boolean
     structureCapacity?: boolean
     constructionCost?: boolean
     facilityCondition?: boolean
+    utilityLocation?: boolean
     lastMaintenanceDate?: boolean
+    nextMaintenanceDate?: boolean
     maintenanceCost?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -27830,21 +28049,13 @@ export namespace Prisma {
   export type UtilitySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     inventoryId?: boolean
-    utilityType?: boolean
-    waterLevel?: boolean
-    waterSource?: boolean
-    waterStorage?: boolean
-    entryDate?: boolean
-    powerSource?: boolean
-    powerCapacity?: boolean
-    installationCost?: boolean
-    consumptionRate?: boolean
-    consumptionCost?: boolean
     structureType?: boolean
     structureCapacity?: boolean
     constructionCost?: boolean
     facilityCondition?: boolean
+    utilityLocation?: boolean
     lastMaintenanceDate?: boolean
+    nextMaintenanceDate?: boolean
     maintenanceCost?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -27854,21 +28065,13 @@ export namespace Prisma {
   export type UtilitySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     inventoryId?: boolean
-    utilityType?: boolean
-    waterLevel?: boolean
-    waterSource?: boolean
-    waterStorage?: boolean
-    entryDate?: boolean
-    powerSource?: boolean
-    powerCapacity?: boolean
-    installationCost?: boolean
-    consumptionRate?: boolean
-    consumptionCost?: boolean
     structureType?: boolean
     structureCapacity?: boolean
     constructionCost?: boolean
     facilityCondition?: boolean
+    utilityLocation?: boolean
     lastMaintenanceDate?: boolean
+    nextMaintenanceDate?: boolean
     maintenanceCost?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -27878,27 +28081,19 @@ export namespace Prisma {
   export type UtilitySelectScalar = {
     id?: boolean
     inventoryId?: boolean
-    utilityType?: boolean
-    waterLevel?: boolean
-    waterSource?: boolean
-    waterStorage?: boolean
-    entryDate?: boolean
-    powerSource?: boolean
-    powerCapacity?: boolean
-    installationCost?: boolean
-    consumptionRate?: boolean
-    consumptionCost?: boolean
     structureType?: boolean
     structureCapacity?: boolean
     constructionCost?: boolean
     facilityCondition?: boolean
+    utilityLocation?: boolean
     lastMaintenanceDate?: boolean
+    nextMaintenanceDate?: boolean
     maintenanceCost?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UtilityOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "inventoryId" | "utilityType" | "waterLevel" | "waterSource" | "waterStorage" | "entryDate" | "powerSource" | "powerCapacity" | "installationCost" | "consumptionRate" | "consumptionCost" | "structureType" | "structureCapacity" | "constructionCost" | "facilityCondition" | "lastMaintenanceDate" | "maintenanceCost" | "createdAt" | "updatedAt", ExtArgs["result"]["utility"]>
+  export type UtilityOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "inventoryId" | "structureType" | "structureCapacity" | "constructionCost" | "facilityCondition" | "utilityLocation" | "lastMaintenanceDate" | "nextMaintenanceDate" | "maintenanceCost" | "createdAt" | "updatedAt", ExtArgs["result"]["utility"]>
   export type UtilityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     inventory?: boolean | InventoryDefaultArgs<ExtArgs>
   }
@@ -27917,21 +28112,13 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       inventoryId: string
-      utilityType: string
-      waterLevel: number | null
-      waterSource: string | null
-      waterStorage: number | null
-      entryDate: Date | null
-      powerSource: string | null
-      powerCapacity: string | null
-      installationCost: number | null
-      consumptionRate: number | null
-      consumptionCost: number | null
       structureType: string | null
       structureCapacity: string | null
       constructionCost: number | null
       facilityCondition: string | null
+      utilityLocation: string | null
       lastMaintenanceDate: Date | null
+      nextMaintenanceDate: Date | null
       maintenanceCost: number | null
       createdAt: Date
       updatedAt: Date
@@ -28361,21 +28548,13 @@ export namespace Prisma {
   interface UtilityFieldRefs {
     readonly id: FieldRef<"Utility", 'String'>
     readonly inventoryId: FieldRef<"Utility", 'String'>
-    readonly utilityType: FieldRef<"Utility", 'String'>
-    readonly waterLevel: FieldRef<"Utility", 'Float'>
-    readonly waterSource: FieldRef<"Utility", 'String'>
-    readonly waterStorage: FieldRef<"Utility", 'Float'>
-    readonly entryDate: FieldRef<"Utility", 'DateTime'>
-    readonly powerSource: FieldRef<"Utility", 'String'>
-    readonly powerCapacity: FieldRef<"Utility", 'String'>
-    readonly installationCost: FieldRef<"Utility", 'Float'>
-    readonly consumptionRate: FieldRef<"Utility", 'Float'>
-    readonly consumptionCost: FieldRef<"Utility", 'Float'>
     readonly structureType: FieldRef<"Utility", 'String'>
     readonly structureCapacity: FieldRef<"Utility", 'String'>
     readonly constructionCost: FieldRef<"Utility", 'Float'>
     readonly facilityCondition: FieldRef<"Utility", 'String'>
+    readonly utilityLocation: FieldRef<"Utility", 'String'>
     readonly lastMaintenanceDate: FieldRef<"Utility", 'DateTime'>
+    readonly nextMaintenanceDate: FieldRef<"Utility", 'DateTime'>
     readonly maintenanceCost: FieldRef<"Utility", 'Float'>
     readonly createdAt: FieldRef<"Utility", 'DateTime'>
     readonly updatedAt: FieldRef<"Utility", 'DateTime'>
@@ -28790,6 +28969,2371 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: UtilityInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Water
+   */
+
+  export type AggregateWater = {
+    _count: WaterCountAggregateOutputType | null
+    _avg: WaterAvgAggregateOutputType | null
+    _sum: WaterSumAggregateOutputType | null
+    _min: WaterMinAggregateOutputType | null
+    _max: WaterMaxAggregateOutputType | null
+  }
+
+  export type WaterAvgAggregateOutputType = {
+    waterLevel: number | null
+    waterConstructionCost: number | null
+  }
+
+  export type WaterSumAggregateOutputType = {
+    waterLevel: number | null
+    waterConstructionCost: number | null
+  }
+
+  export type WaterMinAggregateOutputType = {
+    id: string | null
+    inventoryId: string | null
+    waterSource: string | null
+    waterCapacity: string | null
+    waterLevel: number | null
+    waterConstructionCost: number | null
+    waterLocation: string | null
+    waterEntryDate: Date | null
+    nextInspectionDateWater: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type WaterMaxAggregateOutputType = {
+    id: string | null
+    inventoryId: string | null
+    waterSource: string | null
+    waterCapacity: string | null
+    waterLevel: number | null
+    waterConstructionCost: number | null
+    waterLocation: string | null
+    waterEntryDate: Date | null
+    nextInspectionDateWater: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type WaterCountAggregateOutputType = {
+    id: number
+    inventoryId: number
+    waterSource: number
+    waterCapacity: number
+    waterLevel: number
+    waterConstructionCost: number
+    waterLocation: number
+    waterEntryDate: number
+    nextInspectionDateWater: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type WaterAvgAggregateInputType = {
+    waterLevel?: true
+    waterConstructionCost?: true
+  }
+
+  export type WaterSumAggregateInputType = {
+    waterLevel?: true
+    waterConstructionCost?: true
+  }
+
+  export type WaterMinAggregateInputType = {
+    id?: true
+    inventoryId?: true
+    waterSource?: true
+    waterCapacity?: true
+    waterLevel?: true
+    waterConstructionCost?: true
+    waterLocation?: true
+    waterEntryDate?: true
+    nextInspectionDateWater?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type WaterMaxAggregateInputType = {
+    id?: true
+    inventoryId?: true
+    waterSource?: true
+    waterCapacity?: true
+    waterLevel?: true
+    waterConstructionCost?: true
+    waterLocation?: true
+    waterEntryDate?: true
+    nextInspectionDateWater?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type WaterCountAggregateInputType = {
+    id?: true
+    inventoryId?: true
+    waterSource?: true
+    waterCapacity?: true
+    waterLevel?: true
+    waterConstructionCost?: true
+    waterLocation?: true
+    waterEntryDate?: true
+    nextInspectionDateWater?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type WaterAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Water to aggregate.
+     */
+    where?: WaterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Waters to fetch.
+     */
+    orderBy?: WaterOrderByWithRelationInput | WaterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: WaterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Waters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Waters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Waters
+    **/
+    _count?: true | WaterCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: WaterAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: WaterSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: WaterMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: WaterMaxAggregateInputType
+  }
+
+  export type GetWaterAggregateType<T extends WaterAggregateArgs> = {
+        [P in keyof T & keyof AggregateWater]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateWater[P]>
+      : GetScalarType<T[P], AggregateWater[P]>
+  }
+
+
+
+
+  export type WaterGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WaterWhereInput
+    orderBy?: WaterOrderByWithAggregationInput | WaterOrderByWithAggregationInput[]
+    by: WaterScalarFieldEnum[] | WaterScalarFieldEnum
+    having?: WaterScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: WaterCountAggregateInputType | true
+    _avg?: WaterAvgAggregateInputType
+    _sum?: WaterSumAggregateInputType
+    _min?: WaterMinAggregateInputType
+    _max?: WaterMaxAggregateInputType
+  }
+
+  export type WaterGroupByOutputType = {
+    id: string
+    inventoryId: string
+    waterSource: string | null
+    waterCapacity: string | null
+    waterLevel: number | null
+    waterConstructionCost: number | null
+    waterLocation: string | null
+    waterEntryDate: Date | null
+    nextInspectionDateWater: Date | null
+    createdAt: Date
+    updatedAt: Date
+    _count: WaterCountAggregateOutputType | null
+    _avg: WaterAvgAggregateOutputType | null
+    _sum: WaterSumAggregateOutputType | null
+    _min: WaterMinAggregateOutputType | null
+    _max: WaterMaxAggregateOutputType | null
+  }
+
+  type GetWaterGroupByPayload<T extends WaterGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<WaterGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof WaterGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], WaterGroupByOutputType[P]>
+            : GetScalarType<T[P], WaterGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type WaterSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    inventoryId?: boolean
+    waterSource?: boolean
+    waterCapacity?: boolean
+    waterLevel?: boolean
+    waterConstructionCost?: boolean
+    waterLocation?: boolean
+    waterEntryDate?: boolean
+    nextInspectionDateWater?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    inventory?: boolean | InventoryDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["water"]>
+
+  export type WaterSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    inventoryId?: boolean
+    waterSource?: boolean
+    waterCapacity?: boolean
+    waterLevel?: boolean
+    waterConstructionCost?: boolean
+    waterLocation?: boolean
+    waterEntryDate?: boolean
+    nextInspectionDateWater?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    inventory?: boolean | InventoryDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["water"]>
+
+  export type WaterSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    inventoryId?: boolean
+    waterSource?: boolean
+    waterCapacity?: boolean
+    waterLevel?: boolean
+    waterConstructionCost?: boolean
+    waterLocation?: boolean
+    waterEntryDate?: boolean
+    nextInspectionDateWater?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    inventory?: boolean | InventoryDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["water"]>
+
+  export type WaterSelectScalar = {
+    id?: boolean
+    inventoryId?: boolean
+    waterSource?: boolean
+    waterCapacity?: boolean
+    waterLevel?: boolean
+    waterConstructionCost?: boolean
+    waterLocation?: boolean
+    waterEntryDate?: boolean
+    nextInspectionDateWater?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type WaterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "inventoryId" | "waterSource" | "waterCapacity" | "waterLevel" | "waterConstructionCost" | "waterLocation" | "waterEntryDate" | "nextInspectionDateWater" | "createdAt" | "updatedAt", ExtArgs["result"]["water"]>
+  export type WaterInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    inventory?: boolean | InventoryDefaultArgs<ExtArgs>
+  }
+  export type WaterIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    inventory?: boolean | InventoryDefaultArgs<ExtArgs>
+  }
+  export type WaterIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    inventory?: boolean | InventoryDefaultArgs<ExtArgs>
+  }
+
+  export type $WaterPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Water"
+    objects: {
+      inventory: Prisma.$InventoryPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      inventoryId: string
+      waterSource: string | null
+      waterCapacity: string | null
+      waterLevel: number | null
+      waterConstructionCost: number | null
+      waterLocation: string | null
+      waterEntryDate: Date | null
+      nextInspectionDateWater: Date | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["water"]>
+    composites: {}
+  }
+
+  type WaterGetPayload<S extends boolean | null | undefined | WaterDefaultArgs> = $Result.GetResult<Prisma.$WaterPayload, S>
+
+  type WaterCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<WaterFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: WaterCountAggregateInputType | true
+    }
+
+  export interface WaterDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Water'], meta: { name: 'Water' } }
+    /**
+     * Find zero or one Water that matches the filter.
+     * @param {WaterFindUniqueArgs} args - Arguments to find a Water
+     * @example
+     * // Get one Water
+     * const water = await prisma.water.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends WaterFindUniqueArgs>(args: SelectSubset<T, WaterFindUniqueArgs<ExtArgs>>): Prisma__WaterClient<$Result.GetResult<Prisma.$WaterPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Water that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {WaterFindUniqueOrThrowArgs} args - Arguments to find a Water
+     * @example
+     * // Get one Water
+     * const water = await prisma.water.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends WaterFindUniqueOrThrowArgs>(args: SelectSubset<T, WaterFindUniqueOrThrowArgs<ExtArgs>>): Prisma__WaterClient<$Result.GetResult<Prisma.$WaterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Water that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WaterFindFirstArgs} args - Arguments to find a Water
+     * @example
+     * // Get one Water
+     * const water = await prisma.water.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends WaterFindFirstArgs>(args?: SelectSubset<T, WaterFindFirstArgs<ExtArgs>>): Prisma__WaterClient<$Result.GetResult<Prisma.$WaterPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Water that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WaterFindFirstOrThrowArgs} args - Arguments to find a Water
+     * @example
+     * // Get one Water
+     * const water = await prisma.water.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends WaterFindFirstOrThrowArgs>(args?: SelectSubset<T, WaterFindFirstOrThrowArgs<ExtArgs>>): Prisma__WaterClient<$Result.GetResult<Prisma.$WaterPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Waters that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WaterFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Waters
+     * const waters = await prisma.water.findMany()
+     * 
+     * // Get first 10 Waters
+     * const waters = await prisma.water.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const waterWithIdOnly = await prisma.water.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends WaterFindManyArgs>(args?: SelectSubset<T, WaterFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WaterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Water.
+     * @param {WaterCreateArgs} args - Arguments to create a Water.
+     * @example
+     * // Create one Water
+     * const Water = await prisma.water.create({
+     *   data: {
+     *     // ... data to create a Water
+     *   }
+     * })
+     * 
+     */
+    create<T extends WaterCreateArgs>(args: SelectSubset<T, WaterCreateArgs<ExtArgs>>): Prisma__WaterClient<$Result.GetResult<Prisma.$WaterPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Waters.
+     * @param {WaterCreateManyArgs} args - Arguments to create many Waters.
+     * @example
+     * // Create many Waters
+     * const water = await prisma.water.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends WaterCreateManyArgs>(args?: SelectSubset<T, WaterCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Waters and returns the data saved in the database.
+     * @param {WaterCreateManyAndReturnArgs} args - Arguments to create many Waters.
+     * @example
+     * // Create many Waters
+     * const water = await prisma.water.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Waters and only return the `id`
+     * const waterWithIdOnly = await prisma.water.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends WaterCreateManyAndReturnArgs>(args?: SelectSubset<T, WaterCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WaterPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Water.
+     * @param {WaterDeleteArgs} args - Arguments to delete one Water.
+     * @example
+     * // Delete one Water
+     * const Water = await prisma.water.delete({
+     *   where: {
+     *     // ... filter to delete one Water
+     *   }
+     * })
+     * 
+     */
+    delete<T extends WaterDeleteArgs>(args: SelectSubset<T, WaterDeleteArgs<ExtArgs>>): Prisma__WaterClient<$Result.GetResult<Prisma.$WaterPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Water.
+     * @param {WaterUpdateArgs} args - Arguments to update one Water.
+     * @example
+     * // Update one Water
+     * const water = await prisma.water.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends WaterUpdateArgs>(args: SelectSubset<T, WaterUpdateArgs<ExtArgs>>): Prisma__WaterClient<$Result.GetResult<Prisma.$WaterPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Waters.
+     * @param {WaterDeleteManyArgs} args - Arguments to filter Waters to delete.
+     * @example
+     * // Delete a few Waters
+     * const { count } = await prisma.water.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends WaterDeleteManyArgs>(args?: SelectSubset<T, WaterDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Waters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WaterUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Waters
+     * const water = await prisma.water.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends WaterUpdateManyArgs>(args: SelectSubset<T, WaterUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Waters and returns the data updated in the database.
+     * @param {WaterUpdateManyAndReturnArgs} args - Arguments to update many Waters.
+     * @example
+     * // Update many Waters
+     * const water = await prisma.water.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Waters and only return the `id`
+     * const waterWithIdOnly = await prisma.water.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends WaterUpdateManyAndReturnArgs>(args: SelectSubset<T, WaterUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WaterPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Water.
+     * @param {WaterUpsertArgs} args - Arguments to update or create a Water.
+     * @example
+     * // Update or create a Water
+     * const water = await prisma.water.upsert({
+     *   create: {
+     *     // ... data to create a Water
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Water we want to update
+     *   }
+     * })
+     */
+    upsert<T extends WaterUpsertArgs>(args: SelectSubset<T, WaterUpsertArgs<ExtArgs>>): Prisma__WaterClient<$Result.GetResult<Prisma.$WaterPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Waters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WaterCountArgs} args - Arguments to filter Waters to count.
+     * @example
+     * // Count the number of Waters
+     * const count = await prisma.water.count({
+     *   where: {
+     *     // ... the filter for the Waters we want to count
+     *   }
+     * })
+    **/
+    count<T extends WaterCountArgs>(
+      args?: Subset<T, WaterCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], WaterCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Water.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WaterAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends WaterAggregateArgs>(args: Subset<T, WaterAggregateArgs>): Prisma.PrismaPromise<GetWaterAggregateType<T>>
+
+    /**
+     * Group by Water.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WaterGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends WaterGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: WaterGroupByArgs['orderBy'] }
+        : { orderBy?: WaterGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, WaterGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWaterGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Water model
+   */
+  readonly fields: WaterFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Water.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__WaterClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    inventory<T extends InventoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, InventoryDefaultArgs<ExtArgs>>): Prisma__InventoryClient<$Result.GetResult<Prisma.$InventoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Water model
+   */
+  interface WaterFieldRefs {
+    readonly id: FieldRef<"Water", 'String'>
+    readonly inventoryId: FieldRef<"Water", 'String'>
+    readonly waterSource: FieldRef<"Water", 'String'>
+    readonly waterCapacity: FieldRef<"Water", 'String'>
+    readonly waterLevel: FieldRef<"Water", 'Float'>
+    readonly waterConstructionCost: FieldRef<"Water", 'Float'>
+    readonly waterLocation: FieldRef<"Water", 'String'>
+    readonly waterEntryDate: FieldRef<"Water", 'DateTime'>
+    readonly nextInspectionDateWater: FieldRef<"Water", 'DateTime'>
+    readonly createdAt: FieldRef<"Water", 'DateTime'>
+    readonly updatedAt: FieldRef<"Water", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Water findUnique
+   */
+  export type WaterFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Water
+     */
+    select?: WaterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Water
+     */
+    omit?: WaterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WaterInclude<ExtArgs> | null
+    /**
+     * Filter, which Water to fetch.
+     */
+    where: WaterWhereUniqueInput
+  }
+
+  /**
+   * Water findUniqueOrThrow
+   */
+  export type WaterFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Water
+     */
+    select?: WaterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Water
+     */
+    omit?: WaterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WaterInclude<ExtArgs> | null
+    /**
+     * Filter, which Water to fetch.
+     */
+    where: WaterWhereUniqueInput
+  }
+
+  /**
+   * Water findFirst
+   */
+  export type WaterFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Water
+     */
+    select?: WaterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Water
+     */
+    omit?: WaterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WaterInclude<ExtArgs> | null
+    /**
+     * Filter, which Water to fetch.
+     */
+    where?: WaterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Waters to fetch.
+     */
+    orderBy?: WaterOrderByWithRelationInput | WaterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Waters.
+     */
+    cursor?: WaterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Waters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Waters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Waters.
+     */
+    distinct?: WaterScalarFieldEnum | WaterScalarFieldEnum[]
+  }
+
+  /**
+   * Water findFirstOrThrow
+   */
+  export type WaterFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Water
+     */
+    select?: WaterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Water
+     */
+    omit?: WaterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WaterInclude<ExtArgs> | null
+    /**
+     * Filter, which Water to fetch.
+     */
+    where?: WaterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Waters to fetch.
+     */
+    orderBy?: WaterOrderByWithRelationInput | WaterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Waters.
+     */
+    cursor?: WaterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Waters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Waters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Waters.
+     */
+    distinct?: WaterScalarFieldEnum | WaterScalarFieldEnum[]
+  }
+
+  /**
+   * Water findMany
+   */
+  export type WaterFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Water
+     */
+    select?: WaterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Water
+     */
+    omit?: WaterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WaterInclude<ExtArgs> | null
+    /**
+     * Filter, which Waters to fetch.
+     */
+    where?: WaterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Waters to fetch.
+     */
+    orderBy?: WaterOrderByWithRelationInput | WaterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Waters.
+     */
+    cursor?: WaterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Waters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Waters.
+     */
+    skip?: number
+    distinct?: WaterScalarFieldEnum | WaterScalarFieldEnum[]
+  }
+
+  /**
+   * Water create
+   */
+  export type WaterCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Water
+     */
+    select?: WaterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Water
+     */
+    omit?: WaterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WaterInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Water.
+     */
+    data: XOR<WaterCreateInput, WaterUncheckedCreateInput>
+  }
+
+  /**
+   * Water createMany
+   */
+  export type WaterCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Waters.
+     */
+    data: WaterCreateManyInput | WaterCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Water createManyAndReturn
+   */
+  export type WaterCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Water
+     */
+    select?: WaterSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Water
+     */
+    omit?: WaterOmit<ExtArgs> | null
+    /**
+     * The data used to create many Waters.
+     */
+    data: WaterCreateManyInput | WaterCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WaterIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Water update
+   */
+  export type WaterUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Water
+     */
+    select?: WaterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Water
+     */
+    omit?: WaterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WaterInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Water.
+     */
+    data: XOR<WaterUpdateInput, WaterUncheckedUpdateInput>
+    /**
+     * Choose, which Water to update.
+     */
+    where: WaterWhereUniqueInput
+  }
+
+  /**
+   * Water updateMany
+   */
+  export type WaterUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Waters.
+     */
+    data: XOR<WaterUpdateManyMutationInput, WaterUncheckedUpdateManyInput>
+    /**
+     * Filter which Waters to update
+     */
+    where?: WaterWhereInput
+    /**
+     * Limit how many Waters to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Water updateManyAndReturn
+   */
+  export type WaterUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Water
+     */
+    select?: WaterSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Water
+     */
+    omit?: WaterOmit<ExtArgs> | null
+    /**
+     * The data used to update Waters.
+     */
+    data: XOR<WaterUpdateManyMutationInput, WaterUncheckedUpdateManyInput>
+    /**
+     * Filter which Waters to update
+     */
+    where?: WaterWhereInput
+    /**
+     * Limit how many Waters to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WaterIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Water upsert
+   */
+  export type WaterUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Water
+     */
+    select?: WaterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Water
+     */
+    omit?: WaterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WaterInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Water to update in case it exists.
+     */
+    where: WaterWhereUniqueInput
+    /**
+     * In case the Water found by the `where` argument doesn't exist, create a new Water with this data.
+     */
+    create: XOR<WaterCreateInput, WaterUncheckedCreateInput>
+    /**
+     * In case the Water was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<WaterUpdateInput, WaterUncheckedUpdateInput>
+  }
+
+  /**
+   * Water delete
+   */
+  export type WaterDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Water
+     */
+    select?: WaterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Water
+     */
+    omit?: WaterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WaterInclude<ExtArgs> | null
+    /**
+     * Filter which Water to delete.
+     */
+    where: WaterWhereUniqueInput
+  }
+
+  /**
+   * Water deleteMany
+   */
+  export type WaterDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Waters to delete
+     */
+    where?: WaterWhereInput
+    /**
+     * Limit how many Waters to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Water without action
+   */
+  export type WaterDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Water
+     */
+    select?: WaterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Water
+     */
+    omit?: WaterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WaterInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Power
+   */
+
+  export type AggregatePower = {
+    _count: PowerCountAggregateOutputType | null
+    _avg: PowerAvgAggregateOutputType | null
+    _sum: PowerSumAggregateOutputType | null
+    _min: PowerMinAggregateOutputType | null
+    _max: PowerMaxAggregateOutputType | null
+  }
+
+  export type PowerAvgAggregateOutputType = {
+    powerInstallationCost: number | null
+    consumptionRate: number | null
+    consumptionCost: number | null
+  }
+
+  export type PowerSumAggregateOutputType = {
+    powerInstallationCost: number | null
+    consumptionRate: number | null
+    consumptionCost: number | null
+  }
+
+  export type PowerMinAggregateOutputType = {
+    id: string | null
+    inventoryId: string | null
+    powerSource: string | null
+    powerCapacity: string | null
+    powerInstallationCost: number | null
+    powerLocation: string | null
+    consumptionRate: number | null
+    consumptionCost: number | null
+    lastMaintenanceDatePower: Date | null
+    nextMaintenanceDatePower: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PowerMaxAggregateOutputType = {
+    id: string | null
+    inventoryId: string | null
+    powerSource: string | null
+    powerCapacity: string | null
+    powerInstallationCost: number | null
+    powerLocation: string | null
+    consumptionRate: number | null
+    consumptionCost: number | null
+    lastMaintenanceDatePower: Date | null
+    nextMaintenanceDatePower: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PowerCountAggregateOutputType = {
+    id: number
+    inventoryId: number
+    powerSource: number
+    powerCapacity: number
+    powerInstallationCost: number
+    powerLocation: number
+    consumptionRate: number
+    consumptionCost: number
+    lastMaintenanceDatePower: number
+    nextMaintenanceDatePower: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type PowerAvgAggregateInputType = {
+    powerInstallationCost?: true
+    consumptionRate?: true
+    consumptionCost?: true
+  }
+
+  export type PowerSumAggregateInputType = {
+    powerInstallationCost?: true
+    consumptionRate?: true
+    consumptionCost?: true
+  }
+
+  export type PowerMinAggregateInputType = {
+    id?: true
+    inventoryId?: true
+    powerSource?: true
+    powerCapacity?: true
+    powerInstallationCost?: true
+    powerLocation?: true
+    consumptionRate?: true
+    consumptionCost?: true
+    lastMaintenanceDatePower?: true
+    nextMaintenanceDatePower?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PowerMaxAggregateInputType = {
+    id?: true
+    inventoryId?: true
+    powerSource?: true
+    powerCapacity?: true
+    powerInstallationCost?: true
+    powerLocation?: true
+    consumptionRate?: true
+    consumptionCost?: true
+    lastMaintenanceDatePower?: true
+    nextMaintenanceDatePower?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PowerCountAggregateInputType = {
+    id?: true
+    inventoryId?: true
+    powerSource?: true
+    powerCapacity?: true
+    powerInstallationCost?: true
+    powerLocation?: true
+    consumptionRate?: true
+    consumptionCost?: true
+    lastMaintenanceDatePower?: true
+    nextMaintenanceDatePower?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type PowerAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Power to aggregate.
+     */
+    where?: PowerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Powers to fetch.
+     */
+    orderBy?: PowerOrderByWithRelationInput | PowerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PowerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Powers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Powers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Powers
+    **/
+    _count?: true | PowerCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PowerAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PowerSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PowerMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PowerMaxAggregateInputType
+  }
+
+  export type GetPowerAggregateType<T extends PowerAggregateArgs> = {
+        [P in keyof T & keyof AggregatePower]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePower[P]>
+      : GetScalarType<T[P], AggregatePower[P]>
+  }
+
+
+
+
+  export type PowerGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PowerWhereInput
+    orderBy?: PowerOrderByWithAggregationInput | PowerOrderByWithAggregationInput[]
+    by: PowerScalarFieldEnum[] | PowerScalarFieldEnum
+    having?: PowerScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PowerCountAggregateInputType | true
+    _avg?: PowerAvgAggregateInputType
+    _sum?: PowerSumAggregateInputType
+    _min?: PowerMinAggregateInputType
+    _max?: PowerMaxAggregateInputType
+  }
+
+  export type PowerGroupByOutputType = {
+    id: string
+    inventoryId: string
+    powerSource: string | null
+    powerCapacity: string | null
+    powerInstallationCost: number | null
+    powerLocation: string | null
+    consumptionRate: number | null
+    consumptionCost: number | null
+    lastMaintenanceDatePower: Date | null
+    nextMaintenanceDatePower: Date | null
+    createdAt: Date
+    updatedAt: Date
+    _count: PowerCountAggregateOutputType | null
+    _avg: PowerAvgAggregateOutputType | null
+    _sum: PowerSumAggregateOutputType | null
+    _min: PowerMinAggregateOutputType | null
+    _max: PowerMaxAggregateOutputType | null
+  }
+
+  type GetPowerGroupByPayload<T extends PowerGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PowerGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PowerGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PowerGroupByOutputType[P]>
+            : GetScalarType<T[P], PowerGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PowerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    inventoryId?: boolean
+    powerSource?: boolean
+    powerCapacity?: boolean
+    powerInstallationCost?: boolean
+    powerLocation?: boolean
+    consumptionRate?: boolean
+    consumptionCost?: boolean
+    lastMaintenanceDatePower?: boolean
+    nextMaintenanceDatePower?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    inventory?: boolean | InventoryDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["power"]>
+
+  export type PowerSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    inventoryId?: boolean
+    powerSource?: boolean
+    powerCapacity?: boolean
+    powerInstallationCost?: boolean
+    powerLocation?: boolean
+    consumptionRate?: boolean
+    consumptionCost?: boolean
+    lastMaintenanceDatePower?: boolean
+    nextMaintenanceDatePower?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    inventory?: boolean | InventoryDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["power"]>
+
+  export type PowerSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    inventoryId?: boolean
+    powerSource?: boolean
+    powerCapacity?: boolean
+    powerInstallationCost?: boolean
+    powerLocation?: boolean
+    consumptionRate?: boolean
+    consumptionCost?: boolean
+    lastMaintenanceDatePower?: boolean
+    nextMaintenanceDatePower?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    inventory?: boolean | InventoryDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["power"]>
+
+  export type PowerSelectScalar = {
+    id?: boolean
+    inventoryId?: boolean
+    powerSource?: boolean
+    powerCapacity?: boolean
+    powerInstallationCost?: boolean
+    powerLocation?: boolean
+    consumptionRate?: boolean
+    consumptionCost?: boolean
+    lastMaintenanceDatePower?: boolean
+    nextMaintenanceDatePower?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type PowerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "inventoryId" | "powerSource" | "powerCapacity" | "powerInstallationCost" | "powerLocation" | "consumptionRate" | "consumptionCost" | "lastMaintenanceDatePower" | "nextMaintenanceDatePower" | "createdAt" | "updatedAt", ExtArgs["result"]["power"]>
+  export type PowerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    inventory?: boolean | InventoryDefaultArgs<ExtArgs>
+  }
+  export type PowerIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    inventory?: boolean | InventoryDefaultArgs<ExtArgs>
+  }
+  export type PowerIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    inventory?: boolean | InventoryDefaultArgs<ExtArgs>
+  }
+
+  export type $PowerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Power"
+    objects: {
+      inventory: Prisma.$InventoryPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      inventoryId: string
+      powerSource: string | null
+      powerCapacity: string | null
+      powerInstallationCost: number | null
+      powerLocation: string | null
+      consumptionRate: number | null
+      consumptionCost: number | null
+      lastMaintenanceDatePower: Date | null
+      nextMaintenanceDatePower: Date | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["power"]>
+    composites: {}
+  }
+
+  type PowerGetPayload<S extends boolean | null | undefined | PowerDefaultArgs> = $Result.GetResult<Prisma.$PowerPayload, S>
+
+  type PowerCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PowerFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PowerCountAggregateInputType | true
+    }
+
+  export interface PowerDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Power'], meta: { name: 'Power' } }
+    /**
+     * Find zero or one Power that matches the filter.
+     * @param {PowerFindUniqueArgs} args - Arguments to find a Power
+     * @example
+     * // Get one Power
+     * const power = await prisma.power.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PowerFindUniqueArgs>(args: SelectSubset<T, PowerFindUniqueArgs<ExtArgs>>): Prisma__PowerClient<$Result.GetResult<Prisma.$PowerPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Power that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PowerFindUniqueOrThrowArgs} args - Arguments to find a Power
+     * @example
+     * // Get one Power
+     * const power = await prisma.power.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PowerFindUniqueOrThrowArgs>(args: SelectSubset<T, PowerFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PowerClient<$Result.GetResult<Prisma.$PowerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Power that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PowerFindFirstArgs} args - Arguments to find a Power
+     * @example
+     * // Get one Power
+     * const power = await prisma.power.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PowerFindFirstArgs>(args?: SelectSubset<T, PowerFindFirstArgs<ExtArgs>>): Prisma__PowerClient<$Result.GetResult<Prisma.$PowerPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Power that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PowerFindFirstOrThrowArgs} args - Arguments to find a Power
+     * @example
+     * // Get one Power
+     * const power = await prisma.power.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PowerFindFirstOrThrowArgs>(args?: SelectSubset<T, PowerFindFirstOrThrowArgs<ExtArgs>>): Prisma__PowerClient<$Result.GetResult<Prisma.$PowerPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Powers that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PowerFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Powers
+     * const powers = await prisma.power.findMany()
+     * 
+     * // Get first 10 Powers
+     * const powers = await prisma.power.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const powerWithIdOnly = await prisma.power.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PowerFindManyArgs>(args?: SelectSubset<T, PowerFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PowerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Power.
+     * @param {PowerCreateArgs} args - Arguments to create a Power.
+     * @example
+     * // Create one Power
+     * const Power = await prisma.power.create({
+     *   data: {
+     *     // ... data to create a Power
+     *   }
+     * })
+     * 
+     */
+    create<T extends PowerCreateArgs>(args: SelectSubset<T, PowerCreateArgs<ExtArgs>>): Prisma__PowerClient<$Result.GetResult<Prisma.$PowerPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Powers.
+     * @param {PowerCreateManyArgs} args - Arguments to create many Powers.
+     * @example
+     * // Create many Powers
+     * const power = await prisma.power.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PowerCreateManyArgs>(args?: SelectSubset<T, PowerCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Powers and returns the data saved in the database.
+     * @param {PowerCreateManyAndReturnArgs} args - Arguments to create many Powers.
+     * @example
+     * // Create many Powers
+     * const power = await prisma.power.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Powers and only return the `id`
+     * const powerWithIdOnly = await prisma.power.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PowerCreateManyAndReturnArgs>(args?: SelectSubset<T, PowerCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PowerPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Power.
+     * @param {PowerDeleteArgs} args - Arguments to delete one Power.
+     * @example
+     * // Delete one Power
+     * const Power = await prisma.power.delete({
+     *   where: {
+     *     // ... filter to delete one Power
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PowerDeleteArgs>(args: SelectSubset<T, PowerDeleteArgs<ExtArgs>>): Prisma__PowerClient<$Result.GetResult<Prisma.$PowerPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Power.
+     * @param {PowerUpdateArgs} args - Arguments to update one Power.
+     * @example
+     * // Update one Power
+     * const power = await prisma.power.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PowerUpdateArgs>(args: SelectSubset<T, PowerUpdateArgs<ExtArgs>>): Prisma__PowerClient<$Result.GetResult<Prisma.$PowerPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Powers.
+     * @param {PowerDeleteManyArgs} args - Arguments to filter Powers to delete.
+     * @example
+     * // Delete a few Powers
+     * const { count } = await prisma.power.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PowerDeleteManyArgs>(args?: SelectSubset<T, PowerDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Powers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PowerUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Powers
+     * const power = await prisma.power.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PowerUpdateManyArgs>(args: SelectSubset<T, PowerUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Powers and returns the data updated in the database.
+     * @param {PowerUpdateManyAndReturnArgs} args - Arguments to update many Powers.
+     * @example
+     * // Update many Powers
+     * const power = await prisma.power.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Powers and only return the `id`
+     * const powerWithIdOnly = await prisma.power.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PowerUpdateManyAndReturnArgs>(args: SelectSubset<T, PowerUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PowerPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Power.
+     * @param {PowerUpsertArgs} args - Arguments to update or create a Power.
+     * @example
+     * // Update or create a Power
+     * const power = await prisma.power.upsert({
+     *   create: {
+     *     // ... data to create a Power
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Power we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PowerUpsertArgs>(args: SelectSubset<T, PowerUpsertArgs<ExtArgs>>): Prisma__PowerClient<$Result.GetResult<Prisma.$PowerPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Powers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PowerCountArgs} args - Arguments to filter Powers to count.
+     * @example
+     * // Count the number of Powers
+     * const count = await prisma.power.count({
+     *   where: {
+     *     // ... the filter for the Powers we want to count
+     *   }
+     * })
+    **/
+    count<T extends PowerCountArgs>(
+      args?: Subset<T, PowerCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PowerCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Power.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PowerAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PowerAggregateArgs>(args: Subset<T, PowerAggregateArgs>): Prisma.PrismaPromise<GetPowerAggregateType<T>>
+
+    /**
+     * Group by Power.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PowerGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PowerGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PowerGroupByArgs['orderBy'] }
+        : { orderBy?: PowerGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PowerGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPowerGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Power model
+   */
+  readonly fields: PowerFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Power.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PowerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    inventory<T extends InventoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, InventoryDefaultArgs<ExtArgs>>): Prisma__InventoryClient<$Result.GetResult<Prisma.$InventoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Power model
+   */
+  interface PowerFieldRefs {
+    readonly id: FieldRef<"Power", 'String'>
+    readonly inventoryId: FieldRef<"Power", 'String'>
+    readonly powerSource: FieldRef<"Power", 'String'>
+    readonly powerCapacity: FieldRef<"Power", 'String'>
+    readonly powerInstallationCost: FieldRef<"Power", 'Float'>
+    readonly powerLocation: FieldRef<"Power", 'String'>
+    readonly consumptionRate: FieldRef<"Power", 'Float'>
+    readonly consumptionCost: FieldRef<"Power", 'Float'>
+    readonly lastMaintenanceDatePower: FieldRef<"Power", 'DateTime'>
+    readonly nextMaintenanceDatePower: FieldRef<"Power", 'DateTime'>
+    readonly createdAt: FieldRef<"Power", 'DateTime'>
+    readonly updatedAt: FieldRef<"Power", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Power findUnique
+   */
+  export type PowerFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Power
+     */
+    select?: PowerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Power
+     */
+    omit?: PowerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PowerInclude<ExtArgs> | null
+    /**
+     * Filter, which Power to fetch.
+     */
+    where: PowerWhereUniqueInput
+  }
+
+  /**
+   * Power findUniqueOrThrow
+   */
+  export type PowerFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Power
+     */
+    select?: PowerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Power
+     */
+    omit?: PowerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PowerInclude<ExtArgs> | null
+    /**
+     * Filter, which Power to fetch.
+     */
+    where: PowerWhereUniqueInput
+  }
+
+  /**
+   * Power findFirst
+   */
+  export type PowerFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Power
+     */
+    select?: PowerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Power
+     */
+    omit?: PowerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PowerInclude<ExtArgs> | null
+    /**
+     * Filter, which Power to fetch.
+     */
+    where?: PowerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Powers to fetch.
+     */
+    orderBy?: PowerOrderByWithRelationInput | PowerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Powers.
+     */
+    cursor?: PowerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Powers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Powers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Powers.
+     */
+    distinct?: PowerScalarFieldEnum | PowerScalarFieldEnum[]
+  }
+
+  /**
+   * Power findFirstOrThrow
+   */
+  export type PowerFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Power
+     */
+    select?: PowerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Power
+     */
+    omit?: PowerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PowerInclude<ExtArgs> | null
+    /**
+     * Filter, which Power to fetch.
+     */
+    where?: PowerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Powers to fetch.
+     */
+    orderBy?: PowerOrderByWithRelationInput | PowerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Powers.
+     */
+    cursor?: PowerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Powers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Powers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Powers.
+     */
+    distinct?: PowerScalarFieldEnum | PowerScalarFieldEnum[]
+  }
+
+  /**
+   * Power findMany
+   */
+  export type PowerFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Power
+     */
+    select?: PowerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Power
+     */
+    omit?: PowerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PowerInclude<ExtArgs> | null
+    /**
+     * Filter, which Powers to fetch.
+     */
+    where?: PowerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Powers to fetch.
+     */
+    orderBy?: PowerOrderByWithRelationInput | PowerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Powers.
+     */
+    cursor?: PowerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Powers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Powers.
+     */
+    skip?: number
+    distinct?: PowerScalarFieldEnum | PowerScalarFieldEnum[]
+  }
+
+  /**
+   * Power create
+   */
+  export type PowerCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Power
+     */
+    select?: PowerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Power
+     */
+    omit?: PowerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PowerInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Power.
+     */
+    data: XOR<PowerCreateInput, PowerUncheckedCreateInput>
+  }
+
+  /**
+   * Power createMany
+   */
+  export type PowerCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Powers.
+     */
+    data: PowerCreateManyInput | PowerCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Power createManyAndReturn
+   */
+  export type PowerCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Power
+     */
+    select?: PowerSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Power
+     */
+    omit?: PowerOmit<ExtArgs> | null
+    /**
+     * The data used to create many Powers.
+     */
+    data: PowerCreateManyInput | PowerCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PowerIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Power update
+   */
+  export type PowerUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Power
+     */
+    select?: PowerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Power
+     */
+    omit?: PowerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PowerInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Power.
+     */
+    data: XOR<PowerUpdateInput, PowerUncheckedUpdateInput>
+    /**
+     * Choose, which Power to update.
+     */
+    where: PowerWhereUniqueInput
+  }
+
+  /**
+   * Power updateMany
+   */
+  export type PowerUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Powers.
+     */
+    data: XOR<PowerUpdateManyMutationInput, PowerUncheckedUpdateManyInput>
+    /**
+     * Filter which Powers to update
+     */
+    where?: PowerWhereInput
+    /**
+     * Limit how many Powers to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Power updateManyAndReturn
+   */
+  export type PowerUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Power
+     */
+    select?: PowerSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Power
+     */
+    omit?: PowerOmit<ExtArgs> | null
+    /**
+     * The data used to update Powers.
+     */
+    data: XOR<PowerUpdateManyMutationInput, PowerUncheckedUpdateManyInput>
+    /**
+     * Filter which Powers to update
+     */
+    where?: PowerWhereInput
+    /**
+     * Limit how many Powers to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PowerIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Power upsert
+   */
+  export type PowerUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Power
+     */
+    select?: PowerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Power
+     */
+    omit?: PowerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PowerInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Power to update in case it exists.
+     */
+    where: PowerWhereUniqueInput
+    /**
+     * In case the Power found by the `where` argument doesn't exist, create a new Power with this data.
+     */
+    create: XOR<PowerCreateInput, PowerUncheckedCreateInput>
+    /**
+     * In case the Power was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PowerUpdateInput, PowerUncheckedUpdateInput>
+  }
+
+  /**
+   * Power delete
+   */
+  export type PowerDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Power
+     */
+    select?: PowerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Power
+     */
+    omit?: PowerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PowerInclude<ExtArgs> | null
+    /**
+     * Filter which Power to delete.
+     */
+    where: PowerWhereUniqueInput
+  }
+
+  /**
+   * Power deleteMany
+   */
+  export type PowerDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Powers to delete
+     */
+    where?: PowerWhereInput
+    /**
+     * Limit how many Powers to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Power without action
+   */
+  export type PowerDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Power
+     */
+    select?: PowerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Power
+     */
+    omit?: PowerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PowerInclude<ExtArgs> | null
   }
 
 
@@ -38185,8 +40729,9 @@ export namespace Prisma {
     equipmentName: 'equipmentName',
     equipmentId: 'equipmentId',
     purchaseDate: 'purchaseDate',
-    currentLocation: 'currentLocation',
-    condition: 'condition',
+    purchasePrice: 'purchasePrice',
+    machineryLocation: 'machineryLocation',
+    machineryCondition: 'machineryCondition',
     lastServiceDate: 'lastServiceDate',
     nextServiceDate: 'nextServiceDate',
     createdAt: 'createdAt',
@@ -38199,27 +40744,54 @@ export namespace Prisma {
   export const UtilityScalarFieldEnum: {
     id: 'id',
     inventoryId: 'inventoryId',
-    utilityType: 'utilityType',
-    waterLevel: 'waterLevel',
-    waterSource: 'waterSource',
-    waterStorage: 'waterStorage',
-    entryDate: 'entryDate',
-    powerSource: 'powerSource',
-    powerCapacity: 'powerCapacity',
-    installationCost: 'installationCost',
-    consumptionRate: 'consumptionRate',
-    consumptionCost: 'consumptionCost',
     structureType: 'structureType',
     structureCapacity: 'structureCapacity',
     constructionCost: 'constructionCost',
     facilityCondition: 'facilityCondition',
+    utilityLocation: 'utilityLocation',
     lastMaintenanceDate: 'lastMaintenanceDate',
+    nextMaintenanceDate: 'nextMaintenanceDate',
     maintenanceCost: 'maintenanceCost',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
   export type UtilityScalarFieldEnum = (typeof UtilityScalarFieldEnum)[keyof typeof UtilityScalarFieldEnum]
+
+
+  export const WaterScalarFieldEnum: {
+    id: 'id',
+    inventoryId: 'inventoryId',
+    waterSource: 'waterSource',
+    waterCapacity: 'waterCapacity',
+    waterLevel: 'waterLevel',
+    waterConstructionCost: 'waterConstructionCost',
+    waterLocation: 'waterLocation',
+    waterEntryDate: 'waterEntryDate',
+    nextInspectionDateWater: 'nextInspectionDateWater',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type WaterScalarFieldEnum = (typeof WaterScalarFieldEnum)[keyof typeof WaterScalarFieldEnum]
+
+
+  export const PowerScalarFieldEnum: {
+    id: 'id',
+    inventoryId: 'inventoryId',
+    powerSource: 'powerSource',
+    powerCapacity: 'powerCapacity',
+    powerInstallationCost: 'powerInstallationCost',
+    powerLocation: 'powerLocation',
+    consumptionRate: 'consumptionRate',
+    consumptionCost: 'consumptionCost',
+    lastMaintenanceDatePower: 'lastMaintenanceDatePower',
+    nextMaintenanceDatePower: 'nextMaintenanceDatePower',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type PowerScalarFieldEnum = (typeof PowerScalarFieldEnum)[keyof typeof PowerScalarFieldEnum]
 
 
   export const AllergyRecordScalarFieldEnum: {
@@ -40213,6 +42785,8 @@ export namespace Prisma {
     goodsInStock?: GoodsInStockListRelationFilter
     machinery?: MachineryListRelationFilter
     utilities?: UtilityListRelationFilter
+    water?: WaterListRelationFilter
+    power?: PowerListRelationFilter
   }
 
   export type InventoryOrderByWithRelationInput = {
@@ -40224,6 +42798,8 @@ export namespace Prisma {
     goodsInStock?: GoodsInStockOrderByRelationAggregateInput
     machinery?: MachineryOrderByRelationAggregateInput
     utilities?: UtilityOrderByRelationAggregateInput
+    water?: WaterOrderByRelationAggregateInput
+    power?: PowerOrderByRelationAggregateInput
   }
 
   export type InventoryWhereUniqueInput = Prisma.AtLeast<{
@@ -40238,6 +42814,8 @@ export namespace Prisma {
     goodsInStock?: GoodsInStockListRelationFilter
     machinery?: MachineryListRelationFilter
     utilities?: UtilityListRelationFilter
+    water?: WaterListRelationFilter
+    power?: PowerListRelationFilter
   }, "id">
 
   export type InventoryOrderByWithAggregationInput = {
@@ -40385,9 +42963,10 @@ export namespace Prisma {
     inventoryId?: StringFilter<"Machinery"> | string
     equipmentName?: StringFilter<"Machinery"> | string
     equipmentId?: StringNullableFilter<"Machinery"> | string | null
-    purchaseDate?: DateTimeFilter<"Machinery"> | Date | string
-    currentLocation?: StringFilter<"Machinery"> | string
-    condition?: StringFilter<"Machinery"> | string
+    purchaseDate?: DateTimeNullableFilter<"Machinery"> | Date | string | null
+    purchasePrice?: FloatNullableFilter<"Machinery"> | number | null
+    machineryLocation?: StringNullableFilter<"Machinery"> | string | null
+    machineryCondition?: StringNullableFilter<"Machinery"> | string | null
     lastServiceDate?: DateTimeNullableFilter<"Machinery"> | Date | string | null
     nextServiceDate?: DateTimeNullableFilter<"Machinery"> | Date | string | null
     createdAt?: DateTimeFilter<"Machinery"> | Date | string
@@ -40400,9 +42979,10 @@ export namespace Prisma {
     inventoryId?: SortOrder
     equipmentName?: SortOrder
     equipmentId?: SortOrderInput | SortOrder
-    purchaseDate?: SortOrder
-    currentLocation?: SortOrder
-    condition?: SortOrder
+    purchaseDate?: SortOrderInput | SortOrder
+    purchasePrice?: SortOrderInput | SortOrder
+    machineryLocation?: SortOrderInput | SortOrder
+    machineryCondition?: SortOrderInput | SortOrder
     lastServiceDate?: SortOrderInput | SortOrder
     nextServiceDate?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -40418,9 +42998,10 @@ export namespace Prisma {
     inventoryId?: StringFilter<"Machinery"> | string
     equipmentName?: StringFilter<"Machinery"> | string
     equipmentId?: StringNullableFilter<"Machinery"> | string | null
-    purchaseDate?: DateTimeFilter<"Machinery"> | Date | string
-    currentLocation?: StringFilter<"Machinery"> | string
-    condition?: StringFilter<"Machinery"> | string
+    purchaseDate?: DateTimeNullableFilter<"Machinery"> | Date | string | null
+    purchasePrice?: FloatNullableFilter<"Machinery"> | number | null
+    machineryLocation?: StringNullableFilter<"Machinery"> | string | null
+    machineryCondition?: StringNullableFilter<"Machinery"> | string | null
     lastServiceDate?: DateTimeNullableFilter<"Machinery"> | Date | string | null
     nextServiceDate?: DateTimeNullableFilter<"Machinery"> | Date | string | null
     createdAt?: DateTimeFilter<"Machinery"> | Date | string
@@ -40433,16 +43014,19 @@ export namespace Prisma {
     inventoryId?: SortOrder
     equipmentName?: SortOrder
     equipmentId?: SortOrderInput | SortOrder
-    purchaseDate?: SortOrder
-    currentLocation?: SortOrder
-    condition?: SortOrder
+    purchaseDate?: SortOrderInput | SortOrder
+    purchasePrice?: SortOrderInput | SortOrder
+    machineryLocation?: SortOrderInput | SortOrder
+    machineryCondition?: SortOrderInput | SortOrder
     lastServiceDate?: SortOrderInput | SortOrder
     nextServiceDate?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: MachineryCountOrderByAggregateInput
+    _avg?: MachineryAvgOrderByAggregateInput
     _max?: MachineryMaxOrderByAggregateInput
     _min?: MachineryMinOrderByAggregateInput
+    _sum?: MachinerySumOrderByAggregateInput
   }
 
   export type MachineryScalarWhereWithAggregatesInput = {
@@ -40453,9 +43037,10 @@ export namespace Prisma {
     inventoryId?: StringWithAggregatesFilter<"Machinery"> | string
     equipmentName?: StringWithAggregatesFilter<"Machinery"> | string
     equipmentId?: StringNullableWithAggregatesFilter<"Machinery"> | string | null
-    purchaseDate?: DateTimeWithAggregatesFilter<"Machinery"> | Date | string
-    currentLocation?: StringWithAggregatesFilter<"Machinery"> | string
-    condition?: StringWithAggregatesFilter<"Machinery"> | string
+    purchaseDate?: DateTimeNullableWithAggregatesFilter<"Machinery"> | Date | string | null
+    purchasePrice?: FloatNullableWithAggregatesFilter<"Machinery"> | number | null
+    machineryLocation?: StringNullableWithAggregatesFilter<"Machinery"> | string | null
+    machineryCondition?: StringNullableWithAggregatesFilter<"Machinery"> | string | null
     lastServiceDate?: DateTimeNullableWithAggregatesFilter<"Machinery"> | Date | string | null
     nextServiceDate?: DateTimeNullableWithAggregatesFilter<"Machinery"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Machinery"> | Date | string
@@ -40468,21 +43053,13 @@ export namespace Prisma {
     NOT?: UtilityWhereInput | UtilityWhereInput[]
     id?: StringFilter<"Utility"> | string
     inventoryId?: StringFilter<"Utility"> | string
-    utilityType?: StringFilter<"Utility"> | string
-    waterLevel?: FloatNullableFilter<"Utility"> | number | null
-    waterSource?: StringNullableFilter<"Utility"> | string | null
-    waterStorage?: FloatNullableFilter<"Utility"> | number | null
-    entryDate?: DateTimeNullableFilter<"Utility"> | Date | string | null
-    powerSource?: StringNullableFilter<"Utility"> | string | null
-    powerCapacity?: StringNullableFilter<"Utility"> | string | null
-    installationCost?: FloatNullableFilter<"Utility"> | number | null
-    consumptionRate?: FloatNullableFilter<"Utility"> | number | null
-    consumptionCost?: FloatNullableFilter<"Utility"> | number | null
     structureType?: StringNullableFilter<"Utility"> | string | null
     structureCapacity?: StringNullableFilter<"Utility"> | string | null
     constructionCost?: FloatNullableFilter<"Utility"> | number | null
     facilityCondition?: StringNullableFilter<"Utility"> | string | null
+    utilityLocation?: StringNullableFilter<"Utility"> | string | null
     lastMaintenanceDate?: DateTimeNullableFilter<"Utility"> | Date | string | null
+    nextMaintenanceDate?: DateTimeNullableFilter<"Utility"> | Date | string | null
     maintenanceCost?: FloatNullableFilter<"Utility"> | number | null
     createdAt?: DateTimeFilter<"Utility"> | Date | string
     updatedAt?: DateTimeFilter<"Utility"> | Date | string
@@ -40492,21 +43069,13 @@ export namespace Prisma {
   export type UtilityOrderByWithRelationInput = {
     id?: SortOrder
     inventoryId?: SortOrder
-    utilityType?: SortOrder
-    waterLevel?: SortOrderInput | SortOrder
-    waterSource?: SortOrderInput | SortOrder
-    waterStorage?: SortOrderInput | SortOrder
-    entryDate?: SortOrderInput | SortOrder
-    powerSource?: SortOrderInput | SortOrder
-    powerCapacity?: SortOrderInput | SortOrder
-    installationCost?: SortOrderInput | SortOrder
-    consumptionRate?: SortOrderInput | SortOrder
-    consumptionCost?: SortOrderInput | SortOrder
     structureType?: SortOrderInput | SortOrder
     structureCapacity?: SortOrderInput | SortOrder
     constructionCost?: SortOrderInput | SortOrder
     facilityCondition?: SortOrderInput | SortOrder
+    utilityLocation?: SortOrderInput | SortOrder
     lastMaintenanceDate?: SortOrderInput | SortOrder
+    nextMaintenanceDate?: SortOrderInput | SortOrder
     maintenanceCost?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -40519,21 +43088,13 @@ export namespace Prisma {
     OR?: UtilityWhereInput[]
     NOT?: UtilityWhereInput | UtilityWhereInput[]
     inventoryId?: StringFilter<"Utility"> | string
-    utilityType?: StringFilter<"Utility"> | string
-    waterLevel?: FloatNullableFilter<"Utility"> | number | null
-    waterSource?: StringNullableFilter<"Utility"> | string | null
-    waterStorage?: FloatNullableFilter<"Utility"> | number | null
-    entryDate?: DateTimeNullableFilter<"Utility"> | Date | string | null
-    powerSource?: StringNullableFilter<"Utility"> | string | null
-    powerCapacity?: StringNullableFilter<"Utility"> | string | null
-    installationCost?: FloatNullableFilter<"Utility"> | number | null
-    consumptionRate?: FloatNullableFilter<"Utility"> | number | null
-    consumptionCost?: FloatNullableFilter<"Utility"> | number | null
     structureType?: StringNullableFilter<"Utility"> | string | null
     structureCapacity?: StringNullableFilter<"Utility"> | string | null
     constructionCost?: FloatNullableFilter<"Utility"> | number | null
     facilityCondition?: StringNullableFilter<"Utility"> | string | null
+    utilityLocation?: StringNullableFilter<"Utility"> | string | null
     lastMaintenanceDate?: DateTimeNullableFilter<"Utility"> | Date | string | null
+    nextMaintenanceDate?: DateTimeNullableFilter<"Utility"> | Date | string | null
     maintenanceCost?: FloatNullableFilter<"Utility"> | number | null
     createdAt?: DateTimeFilter<"Utility"> | Date | string
     updatedAt?: DateTimeFilter<"Utility"> | Date | string
@@ -40543,21 +43104,13 @@ export namespace Prisma {
   export type UtilityOrderByWithAggregationInput = {
     id?: SortOrder
     inventoryId?: SortOrder
-    utilityType?: SortOrder
-    waterLevel?: SortOrderInput | SortOrder
-    waterSource?: SortOrderInput | SortOrder
-    waterStorage?: SortOrderInput | SortOrder
-    entryDate?: SortOrderInput | SortOrder
-    powerSource?: SortOrderInput | SortOrder
-    powerCapacity?: SortOrderInput | SortOrder
-    installationCost?: SortOrderInput | SortOrder
-    consumptionRate?: SortOrderInput | SortOrder
-    consumptionCost?: SortOrderInput | SortOrder
     structureType?: SortOrderInput | SortOrder
     structureCapacity?: SortOrderInput | SortOrder
     constructionCost?: SortOrderInput | SortOrder
     facilityCondition?: SortOrderInput | SortOrder
+    utilityLocation?: SortOrderInput | SortOrder
     lastMaintenanceDate?: SortOrderInput | SortOrder
+    nextMaintenanceDate?: SortOrderInput | SortOrder
     maintenanceCost?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -40574,24 +43127,195 @@ export namespace Prisma {
     NOT?: UtilityScalarWhereWithAggregatesInput | UtilityScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Utility"> | string
     inventoryId?: StringWithAggregatesFilter<"Utility"> | string
-    utilityType?: StringWithAggregatesFilter<"Utility"> | string
-    waterLevel?: FloatNullableWithAggregatesFilter<"Utility"> | number | null
-    waterSource?: StringNullableWithAggregatesFilter<"Utility"> | string | null
-    waterStorage?: FloatNullableWithAggregatesFilter<"Utility"> | number | null
-    entryDate?: DateTimeNullableWithAggregatesFilter<"Utility"> | Date | string | null
-    powerSource?: StringNullableWithAggregatesFilter<"Utility"> | string | null
-    powerCapacity?: StringNullableWithAggregatesFilter<"Utility"> | string | null
-    installationCost?: FloatNullableWithAggregatesFilter<"Utility"> | number | null
-    consumptionRate?: FloatNullableWithAggregatesFilter<"Utility"> | number | null
-    consumptionCost?: FloatNullableWithAggregatesFilter<"Utility"> | number | null
     structureType?: StringNullableWithAggregatesFilter<"Utility"> | string | null
     structureCapacity?: StringNullableWithAggregatesFilter<"Utility"> | string | null
     constructionCost?: FloatNullableWithAggregatesFilter<"Utility"> | number | null
     facilityCondition?: StringNullableWithAggregatesFilter<"Utility"> | string | null
+    utilityLocation?: StringNullableWithAggregatesFilter<"Utility"> | string | null
     lastMaintenanceDate?: DateTimeNullableWithAggregatesFilter<"Utility"> | Date | string | null
+    nextMaintenanceDate?: DateTimeNullableWithAggregatesFilter<"Utility"> | Date | string | null
     maintenanceCost?: FloatNullableWithAggregatesFilter<"Utility"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"Utility"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Utility"> | Date | string
+  }
+
+  export type WaterWhereInput = {
+    AND?: WaterWhereInput | WaterWhereInput[]
+    OR?: WaterWhereInput[]
+    NOT?: WaterWhereInput | WaterWhereInput[]
+    id?: StringFilter<"Water"> | string
+    inventoryId?: StringFilter<"Water"> | string
+    waterSource?: StringNullableFilter<"Water"> | string | null
+    waterCapacity?: StringNullableFilter<"Water"> | string | null
+    waterLevel?: FloatNullableFilter<"Water"> | number | null
+    waterConstructionCost?: FloatNullableFilter<"Water"> | number | null
+    waterLocation?: StringNullableFilter<"Water"> | string | null
+    waterEntryDate?: DateTimeNullableFilter<"Water"> | Date | string | null
+    nextInspectionDateWater?: DateTimeNullableFilter<"Water"> | Date | string | null
+    createdAt?: DateTimeFilter<"Water"> | Date | string
+    updatedAt?: DateTimeFilter<"Water"> | Date | string
+    inventory?: XOR<InventoryScalarRelationFilter, InventoryWhereInput>
+  }
+
+  export type WaterOrderByWithRelationInput = {
+    id?: SortOrder
+    inventoryId?: SortOrder
+    waterSource?: SortOrderInput | SortOrder
+    waterCapacity?: SortOrderInput | SortOrder
+    waterLevel?: SortOrderInput | SortOrder
+    waterConstructionCost?: SortOrderInput | SortOrder
+    waterLocation?: SortOrderInput | SortOrder
+    waterEntryDate?: SortOrderInput | SortOrder
+    nextInspectionDateWater?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    inventory?: InventoryOrderByWithRelationInput
+  }
+
+  export type WaterWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: WaterWhereInput | WaterWhereInput[]
+    OR?: WaterWhereInput[]
+    NOT?: WaterWhereInput | WaterWhereInput[]
+    inventoryId?: StringFilter<"Water"> | string
+    waterSource?: StringNullableFilter<"Water"> | string | null
+    waterCapacity?: StringNullableFilter<"Water"> | string | null
+    waterLevel?: FloatNullableFilter<"Water"> | number | null
+    waterConstructionCost?: FloatNullableFilter<"Water"> | number | null
+    waterLocation?: StringNullableFilter<"Water"> | string | null
+    waterEntryDate?: DateTimeNullableFilter<"Water"> | Date | string | null
+    nextInspectionDateWater?: DateTimeNullableFilter<"Water"> | Date | string | null
+    createdAt?: DateTimeFilter<"Water"> | Date | string
+    updatedAt?: DateTimeFilter<"Water"> | Date | string
+    inventory?: XOR<InventoryScalarRelationFilter, InventoryWhereInput>
+  }, "id">
+
+  export type WaterOrderByWithAggregationInput = {
+    id?: SortOrder
+    inventoryId?: SortOrder
+    waterSource?: SortOrderInput | SortOrder
+    waterCapacity?: SortOrderInput | SortOrder
+    waterLevel?: SortOrderInput | SortOrder
+    waterConstructionCost?: SortOrderInput | SortOrder
+    waterLocation?: SortOrderInput | SortOrder
+    waterEntryDate?: SortOrderInput | SortOrder
+    nextInspectionDateWater?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: WaterCountOrderByAggregateInput
+    _avg?: WaterAvgOrderByAggregateInput
+    _max?: WaterMaxOrderByAggregateInput
+    _min?: WaterMinOrderByAggregateInput
+    _sum?: WaterSumOrderByAggregateInput
+  }
+
+  export type WaterScalarWhereWithAggregatesInput = {
+    AND?: WaterScalarWhereWithAggregatesInput | WaterScalarWhereWithAggregatesInput[]
+    OR?: WaterScalarWhereWithAggregatesInput[]
+    NOT?: WaterScalarWhereWithAggregatesInput | WaterScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Water"> | string
+    inventoryId?: StringWithAggregatesFilter<"Water"> | string
+    waterSource?: StringNullableWithAggregatesFilter<"Water"> | string | null
+    waterCapacity?: StringNullableWithAggregatesFilter<"Water"> | string | null
+    waterLevel?: FloatNullableWithAggregatesFilter<"Water"> | number | null
+    waterConstructionCost?: FloatNullableWithAggregatesFilter<"Water"> | number | null
+    waterLocation?: StringNullableWithAggregatesFilter<"Water"> | string | null
+    waterEntryDate?: DateTimeNullableWithAggregatesFilter<"Water"> | Date | string | null
+    nextInspectionDateWater?: DateTimeNullableWithAggregatesFilter<"Water"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Water"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Water"> | Date | string
+  }
+
+  export type PowerWhereInput = {
+    AND?: PowerWhereInput | PowerWhereInput[]
+    OR?: PowerWhereInput[]
+    NOT?: PowerWhereInput | PowerWhereInput[]
+    id?: StringFilter<"Power"> | string
+    inventoryId?: StringFilter<"Power"> | string
+    powerSource?: StringNullableFilter<"Power"> | string | null
+    powerCapacity?: StringNullableFilter<"Power"> | string | null
+    powerInstallationCost?: FloatNullableFilter<"Power"> | number | null
+    powerLocation?: StringNullableFilter<"Power"> | string | null
+    consumptionRate?: FloatNullableFilter<"Power"> | number | null
+    consumptionCost?: FloatNullableFilter<"Power"> | number | null
+    lastMaintenanceDatePower?: DateTimeNullableFilter<"Power"> | Date | string | null
+    nextMaintenanceDatePower?: DateTimeNullableFilter<"Power"> | Date | string | null
+    createdAt?: DateTimeFilter<"Power"> | Date | string
+    updatedAt?: DateTimeFilter<"Power"> | Date | string
+    inventory?: XOR<InventoryScalarRelationFilter, InventoryWhereInput>
+  }
+
+  export type PowerOrderByWithRelationInput = {
+    id?: SortOrder
+    inventoryId?: SortOrder
+    powerSource?: SortOrderInput | SortOrder
+    powerCapacity?: SortOrderInput | SortOrder
+    powerInstallationCost?: SortOrderInput | SortOrder
+    powerLocation?: SortOrderInput | SortOrder
+    consumptionRate?: SortOrderInput | SortOrder
+    consumptionCost?: SortOrderInput | SortOrder
+    lastMaintenanceDatePower?: SortOrderInput | SortOrder
+    nextMaintenanceDatePower?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    inventory?: InventoryOrderByWithRelationInput
+  }
+
+  export type PowerWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: PowerWhereInput | PowerWhereInput[]
+    OR?: PowerWhereInput[]
+    NOT?: PowerWhereInput | PowerWhereInput[]
+    inventoryId?: StringFilter<"Power"> | string
+    powerSource?: StringNullableFilter<"Power"> | string | null
+    powerCapacity?: StringNullableFilter<"Power"> | string | null
+    powerInstallationCost?: FloatNullableFilter<"Power"> | number | null
+    powerLocation?: StringNullableFilter<"Power"> | string | null
+    consumptionRate?: FloatNullableFilter<"Power"> | number | null
+    consumptionCost?: FloatNullableFilter<"Power"> | number | null
+    lastMaintenanceDatePower?: DateTimeNullableFilter<"Power"> | Date | string | null
+    nextMaintenanceDatePower?: DateTimeNullableFilter<"Power"> | Date | string | null
+    createdAt?: DateTimeFilter<"Power"> | Date | string
+    updatedAt?: DateTimeFilter<"Power"> | Date | string
+    inventory?: XOR<InventoryScalarRelationFilter, InventoryWhereInput>
+  }, "id">
+
+  export type PowerOrderByWithAggregationInput = {
+    id?: SortOrder
+    inventoryId?: SortOrder
+    powerSource?: SortOrderInput | SortOrder
+    powerCapacity?: SortOrderInput | SortOrder
+    powerInstallationCost?: SortOrderInput | SortOrder
+    powerLocation?: SortOrderInput | SortOrder
+    consumptionRate?: SortOrderInput | SortOrder
+    consumptionCost?: SortOrderInput | SortOrder
+    lastMaintenanceDatePower?: SortOrderInput | SortOrder
+    nextMaintenanceDatePower?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: PowerCountOrderByAggregateInput
+    _avg?: PowerAvgOrderByAggregateInput
+    _max?: PowerMaxOrderByAggregateInput
+    _min?: PowerMinOrderByAggregateInput
+    _sum?: PowerSumOrderByAggregateInput
+  }
+
+  export type PowerScalarWhereWithAggregatesInput = {
+    AND?: PowerScalarWhereWithAggregatesInput | PowerScalarWhereWithAggregatesInput[]
+    OR?: PowerScalarWhereWithAggregatesInput[]
+    NOT?: PowerScalarWhereWithAggregatesInput | PowerScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Power"> | string
+    inventoryId?: StringWithAggregatesFilter<"Power"> | string
+    powerSource?: StringNullableWithAggregatesFilter<"Power"> | string | null
+    powerCapacity?: StringNullableWithAggregatesFilter<"Power"> | string | null
+    powerInstallationCost?: FloatNullableWithAggregatesFilter<"Power"> | number | null
+    powerLocation?: StringNullableWithAggregatesFilter<"Power"> | string | null
+    consumptionRate?: FloatNullableWithAggregatesFilter<"Power"> | number | null
+    consumptionCost?: FloatNullableWithAggregatesFilter<"Power"> | number | null
+    lastMaintenanceDatePower?: DateTimeNullableWithAggregatesFilter<"Power"> | Date | string | null
+    nextMaintenanceDatePower?: DateTimeNullableWithAggregatesFilter<"Power"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Power"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Power"> | Date | string
   }
 
   export type AllergyRecordWhereInput = {
@@ -43511,6 +46235,8 @@ export namespace Prisma {
     goodsInStock?: GoodsInStockCreateNestedManyWithoutInventoryInput
     machinery?: MachineryCreateNestedManyWithoutInventoryInput
     utilities?: UtilityCreateNestedManyWithoutInventoryInput
+    water?: WaterCreateNestedManyWithoutInventoryInput
+    power?: PowerCreateNestedManyWithoutInventoryInput
   }
 
   export type InventoryUncheckedCreateInput = {
@@ -43521,6 +46247,8 @@ export namespace Prisma {
     goodsInStock?: GoodsInStockUncheckedCreateNestedManyWithoutInventoryInput
     machinery?: MachineryUncheckedCreateNestedManyWithoutInventoryInput
     utilities?: UtilityUncheckedCreateNestedManyWithoutInventoryInput
+    water?: WaterUncheckedCreateNestedManyWithoutInventoryInput
+    power?: PowerUncheckedCreateNestedManyWithoutInventoryInput
   }
 
   export type InventoryUpdateInput = {
@@ -43531,6 +46259,8 @@ export namespace Prisma {
     goodsInStock?: GoodsInStockUpdateManyWithoutInventoryNestedInput
     machinery?: MachineryUpdateManyWithoutInventoryNestedInput
     utilities?: UtilityUpdateManyWithoutInventoryNestedInput
+    water?: WaterUpdateManyWithoutInventoryNestedInput
+    power?: PowerUpdateManyWithoutInventoryNestedInput
   }
 
   export type InventoryUncheckedUpdateInput = {
@@ -43541,6 +46271,8 @@ export namespace Prisma {
     goodsInStock?: GoodsInStockUncheckedUpdateManyWithoutInventoryNestedInput
     machinery?: MachineryUncheckedUpdateManyWithoutInventoryNestedInput
     utilities?: UtilityUncheckedUpdateManyWithoutInventoryNestedInput
+    water?: WaterUncheckedUpdateManyWithoutInventoryNestedInput
+    power?: PowerUncheckedUpdateManyWithoutInventoryNestedInput
   }
 
   export type InventoryCreateManyInput = {
@@ -43706,9 +46438,10 @@ export namespace Prisma {
     id?: string
     equipmentName: string
     equipmentId?: string | null
-    purchaseDate: Date | string
-    currentLocation: string
-    condition: string
+    purchaseDate?: Date | string | null
+    purchasePrice?: number | null
+    machineryLocation?: string | null
+    machineryCondition?: string | null
     lastServiceDate?: Date | string | null
     nextServiceDate?: Date | string | null
     createdAt?: Date | string
@@ -43721,9 +46454,10 @@ export namespace Prisma {
     inventoryId: string
     equipmentName: string
     equipmentId?: string | null
-    purchaseDate: Date | string
-    currentLocation: string
-    condition: string
+    purchaseDate?: Date | string | null
+    purchasePrice?: number | null
+    machineryLocation?: string | null
+    machineryCondition?: string | null
     lastServiceDate?: Date | string | null
     nextServiceDate?: Date | string | null
     createdAt?: Date | string
@@ -43734,9 +46468,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     equipmentName?: StringFieldUpdateOperationsInput | string
     equipmentId?: NullableStringFieldUpdateOperationsInput | string | null
-    purchaseDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    currentLocation?: StringFieldUpdateOperationsInput | string
-    condition?: StringFieldUpdateOperationsInput | string
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    machineryLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    machineryCondition?: NullableStringFieldUpdateOperationsInput | string | null
     lastServiceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextServiceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43749,9 +46484,10 @@ export namespace Prisma {
     inventoryId?: StringFieldUpdateOperationsInput | string
     equipmentName?: StringFieldUpdateOperationsInput | string
     equipmentId?: NullableStringFieldUpdateOperationsInput | string | null
-    purchaseDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    currentLocation?: StringFieldUpdateOperationsInput | string
-    condition?: StringFieldUpdateOperationsInput | string
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    machineryLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    machineryCondition?: NullableStringFieldUpdateOperationsInput | string | null
     lastServiceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextServiceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43763,9 +46499,10 @@ export namespace Prisma {
     inventoryId: string
     equipmentName: string
     equipmentId?: string | null
-    purchaseDate: Date | string
-    currentLocation: string
-    condition: string
+    purchaseDate?: Date | string | null
+    purchasePrice?: number | null
+    machineryLocation?: string | null
+    machineryCondition?: string | null
     lastServiceDate?: Date | string | null
     nextServiceDate?: Date | string | null
     createdAt?: Date | string
@@ -43776,9 +46513,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     equipmentName?: StringFieldUpdateOperationsInput | string
     equipmentId?: NullableStringFieldUpdateOperationsInput | string | null
-    purchaseDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    currentLocation?: StringFieldUpdateOperationsInput | string
-    condition?: StringFieldUpdateOperationsInput | string
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    machineryLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    machineryCondition?: NullableStringFieldUpdateOperationsInput | string | null
     lastServiceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextServiceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43790,9 +46528,10 @@ export namespace Prisma {
     inventoryId?: StringFieldUpdateOperationsInput | string
     equipmentName?: StringFieldUpdateOperationsInput | string
     equipmentId?: NullableStringFieldUpdateOperationsInput | string | null
-    purchaseDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    currentLocation?: StringFieldUpdateOperationsInput | string
-    condition?: StringFieldUpdateOperationsInput | string
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    machineryLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    machineryCondition?: NullableStringFieldUpdateOperationsInput | string | null
     lastServiceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextServiceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43801,21 +46540,13 @@ export namespace Prisma {
 
   export type UtilityCreateInput = {
     id?: string
-    utilityType: string
-    waterLevel?: number | null
-    waterSource?: string | null
-    waterStorage?: number | null
-    entryDate?: Date | string | null
-    powerSource?: string | null
-    powerCapacity?: string | null
-    installationCost?: number | null
-    consumptionRate?: number | null
-    consumptionCost?: number | null
     structureType?: string | null
     structureCapacity?: string | null
     constructionCost?: number | null
     facilityCondition?: string | null
+    utilityLocation?: string | null
     lastMaintenanceDate?: Date | string | null
+    nextMaintenanceDate?: Date | string | null
     maintenanceCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -43825,21 +46556,13 @@ export namespace Prisma {
   export type UtilityUncheckedCreateInput = {
     id?: string
     inventoryId: string
-    utilityType: string
-    waterLevel?: number | null
-    waterSource?: string | null
-    waterStorage?: number | null
-    entryDate?: Date | string | null
-    powerSource?: string | null
-    powerCapacity?: string | null
-    installationCost?: number | null
-    consumptionRate?: number | null
-    consumptionCost?: number | null
     structureType?: string | null
     structureCapacity?: string | null
     constructionCost?: number | null
     facilityCondition?: string | null
+    utilityLocation?: string | null
     lastMaintenanceDate?: Date | string | null
+    nextMaintenanceDate?: Date | string | null
     maintenanceCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -43847,21 +46570,13 @@ export namespace Prisma {
 
   export type UtilityUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    utilityType?: StringFieldUpdateOperationsInput | string
-    waterLevel?: NullableFloatFieldUpdateOperationsInput | number | null
-    waterSource?: NullableStringFieldUpdateOperationsInput | string | null
-    waterStorage?: NullableFloatFieldUpdateOperationsInput | number | null
-    entryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    powerSource?: NullableStringFieldUpdateOperationsInput | string | null
-    powerCapacity?: NullableStringFieldUpdateOperationsInput | string | null
-    installationCost?: NullableFloatFieldUpdateOperationsInput | number | null
-    consumptionRate?: NullableFloatFieldUpdateOperationsInput | number | null
-    consumptionCost?: NullableFloatFieldUpdateOperationsInput | number | null
     structureType?: NullableStringFieldUpdateOperationsInput | string | null
     structureCapacity?: NullableStringFieldUpdateOperationsInput | string | null
     constructionCost?: NullableFloatFieldUpdateOperationsInput | number | null
     facilityCondition?: NullableStringFieldUpdateOperationsInput | string | null
+    utilityLocation?: NullableStringFieldUpdateOperationsInput | string | null
     lastMaintenanceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextMaintenanceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     maintenanceCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43871,21 +46586,13 @@ export namespace Prisma {
   export type UtilityUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     inventoryId?: StringFieldUpdateOperationsInput | string
-    utilityType?: StringFieldUpdateOperationsInput | string
-    waterLevel?: NullableFloatFieldUpdateOperationsInput | number | null
-    waterSource?: NullableStringFieldUpdateOperationsInput | string | null
-    waterStorage?: NullableFloatFieldUpdateOperationsInput | number | null
-    entryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    powerSource?: NullableStringFieldUpdateOperationsInput | string | null
-    powerCapacity?: NullableStringFieldUpdateOperationsInput | string | null
-    installationCost?: NullableFloatFieldUpdateOperationsInput | number | null
-    consumptionRate?: NullableFloatFieldUpdateOperationsInput | number | null
-    consumptionCost?: NullableFloatFieldUpdateOperationsInput | number | null
     structureType?: NullableStringFieldUpdateOperationsInput | string | null
     structureCapacity?: NullableStringFieldUpdateOperationsInput | string | null
     constructionCost?: NullableFloatFieldUpdateOperationsInput | number | null
     facilityCondition?: NullableStringFieldUpdateOperationsInput | string | null
+    utilityLocation?: NullableStringFieldUpdateOperationsInput | string | null
     lastMaintenanceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextMaintenanceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     maintenanceCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43894,21 +46601,13 @@ export namespace Prisma {
   export type UtilityCreateManyInput = {
     id?: string
     inventoryId: string
-    utilityType: string
-    waterLevel?: number | null
-    waterSource?: string | null
-    waterStorage?: number | null
-    entryDate?: Date | string | null
-    powerSource?: string | null
-    powerCapacity?: string | null
-    installationCost?: number | null
-    consumptionRate?: number | null
-    consumptionCost?: number | null
     structureType?: string | null
     structureCapacity?: string | null
     constructionCost?: number | null
     facilityCondition?: string | null
+    utilityLocation?: string | null
     lastMaintenanceDate?: Date | string | null
+    nextMaintenanceDate?: Date | string | null
     maintenanceCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -43916,21 +46615,13 @@ export namespace Prisma {
 
   export type UtilityUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    utilityType?: StringFieldUpdateOperationsInput | string
-    waterLevel?: NullableFloatFieldUpdateOperationsInput | number | null
-    waterSource?: NullableStringFieldUpdateOperationsInput | string | null
-    waterStorage?: NullableFloatFieldUpdateOperationsInput | number | null
-    entryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    powerSource?: NullableStringFieldUpdateOperationsInput | string | null
-    powerCapacity?: NullableStringFieldUpdateOperationsInput | string | null
-    installationCost?: NullableFloatFieldUpdateOperationsInput | number | null
-    consumptionRate?: NullableFloatFieldUpdateOperationsInput | number | null
-    consumptionCost?: NullableFloatFieldUpdateOperationsInput | number | null
     structureType?: NullableStringFieldUpdateOperationsInput | string | null
     structureCapacity?: NullableStringFieldUpdateOperationsInput | string | null
     constructionCost?: NullableFloatFieldUpdateOperationsInput | number | null
     facilityCondition?: NullableStringFieldUpdateOperationsInput | string | null
+    utilityLocation?: NullableStringFieldUpdateOperationsInput | string | null
     lastMaintenanceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextMaintenanceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     maintenanceCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43939,22 +46630,215 @@ export namespace Prisma {
   export type UtilityUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     inventoryId?: StringFieldUpdateOperationsInput | string
-    utilityType?: StringFieldUpdateOperationsInput | string
-    waterLevel?: NullableFloatFieldUpdateOperationsInput | number | null
-    waterSource?: NullableStringFieldUpdateOperationsInput | string | null
-    waterStorage?: NullableFloatFieldUpdateOperationsInput | number | null
-    entryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    powerSource?: NullableStringFieldUpdateOperationsInput | string | null
-    powerCapacity?: NullableStringFieldUpdateOperationsInput | string | null
-    installationCost?: NullableFloatFieldUpdateOperationsInput | number | null
-    consumptionRate?: NullableFloatFieldUpdateOperationsInput | number | null
-    consumptionCost?: NullableFloatFieldUpdateOperationsInput | number | null
     structureType?: NullableStringFieldUpdateOperationsInput | string | null
     structureCapacity?: NullableStringFieldUpdateOperationsInput | string | null
     constructionCost?: NullableFloatFieldUpdateOperationsInput | number | null
     facilityCondition?: NullableStringFieldUpdateOperationsInput | string | null
+    utilityLocation?: NullableStringFieldUpdateOperationsInput | string | null
     lastMaintenanceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextMaintenanceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     maintenanceCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WaterCreateInput = {
+    id?: string
+    waterSource?: string | null
+    waterCapacity?: string | null
+    waterLevel?: number | null
+    waterConstructionCost?: number | null
+    waterLocation?: string | null
+    waterEntryDate?: Date | string | null
+    nextInspectionDateWater?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    inventory: InventoryCreateNestedOneWithoutWaterInput
+  }
+
+  export type WaterUncheckedCreateInput = {
+    id?: string
+    inventoryId: string
+    waterSource?: string | null
+    waterCapacity?: string | null
+    waterLevel?: number | null
+    waterConstructionCost?: number | null
+    waterLocation?: string | null
+    waterEntryDate?: Date | string | null
+    nextInspectionDateWater?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WaterUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    waterSource?: NullableStringFieldUpdateOperationsInput | string | null
+    waterCapacity?: NullableStringFieldUpdateOperationsInput | string | null
+    waterLevel?: NullableFloatFieldUpdateOperationsInput | number | null
+    waterConstructionCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    waterLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    waterEntryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextInspectionDateWater?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    inventory?: InventoryUpdateOneRequiredWithoutWaterNestedInput
+  }
+
+  export type WaterUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    inventoryId?: StringFieldUpdateOperationsInput | string
+    waterSource?: NullableStringFieldUpdateOperationsInput | string | null
+    waterCapacity?: NullableStringFieldUpdateOperationsInput | string | null
+    waterLevel?: NullableFloatFieldUpdateOperationsInput | number | null
+    waterConstructionCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    waterLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    waterEntryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextInspectionDateWater?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WaterCreateManyInput = {
+    id?: string
+    inventoryId: string
+    waterSource?: string | null
+    waterCapacity?: string | null
+    waterLevel?: number | null
+    waterConstructionCost?: number | null
+    waterLocation?: string | null
+    waterEntryDate?: Date | string | null
+    nextInspectionDateWater?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WaterUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    waterSource?: NullableStringFieldUpdateOperationsInput | string | null
+    waterCapacity?: NullableStringFieldUpdateOperationsInput | string | null
+    waterLevel?: NullableFloatFieldUpdateOperationsInput | number | null
+    waterConstructionCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    waterLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    waterEntryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextInspectionDateWater?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WaterUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    inventoryId?: StringFieldUpdateOperationsInput | string
+    waterSource?: NullableStringFieldUpdateOperationsInput | string | null
+    waterCapacity?: NullableStringFieldUpdateOperationsInput | string | null
+    waterLevel?: NullableFloatFieldUpdateOperationsInput | number | null
+    waterConstructionCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    waterLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    waterEntryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextInspectionDateWater?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PowerCreateInput = {
+    id?: string
+    powerSource?: string | null
+    powerCapacity?: string | null
+    powerInstallationCost?: number | null
+    powerLocation?: string | null
+    consumptionRate?: number | null
+    consumptionCost?: number | null
+    lastMaintenanceDatePower?: Date | string | null
+    nextMaintenanceDatePower?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    inventory: InventoryCreateNestedOneWithoutPowerInput
+  }
+
+  export type PowerUncheckedCreateInput = {
+    id?: string
+    inventoryId: string
+    powerSource?: string | null
+    powerCapacity?: string | null
+    powerInstallationCost?: number | null
+    powerLocation?: string | null
+    consumptionRate?: number | null
+    consumptionCost?: number | null
+    lastMaintenanceDatePower?: Date | string | null
+    nextMaintenanceDatePower?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PowerUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    powerSource?: NullableStringFieldUpdateOperationsInput | string | null
+    powerCapacity?: NullableStringFieldUpdateOperationsInput | string | null
+    powerInstallationCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    powerLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    consumptionRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    consumptionCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastMaintenanceDatePower?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextMaintenanceDatePower?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    inventory?: InventoryUpdateOneRequiredWithoutPowerNestedInput
+  }
+
+  export type PowerUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    inventoryId?: StringFieldUpdateOperationsInput | string
+    powerSource?: NullableStringFieldUpdateOperationsInput | string | null
+    powerCapacity?: NullableStringFieldUpdateOperationsInput | string | null
+    powerInstallationCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    powerLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    consumptionRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    consumptionCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastMaintenanceDatePower?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextMaintenanceDatePower?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PowerCreateManyInput = {
+    id?: string
+    inventoryId: string
+    powerSource?: string | null
+    powerCapacity?: string | null
+    powerInstallationCost?: number | null
+    powerLocation?: string | null
+    consumptionRate?: number | null
+    consumptionCost?: number | null
+    lastMaintenanceDatePower?: Date | string | null
+    nextMaintenanceDatePower?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PowerUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    powerSource?: NullableStringFieldUpdateOperationsInput | string | null
+    powerCapacity?: NullableStringFieldUpdateOperationsInput | string | null
+    powerInstallationCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    powerLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    consumptionRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    consumptionCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastMaintenanceDatePower?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextMaintenanceDatePower?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PowerUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    inventoryId?: StringFieldUpdateOperationsInput | string
+    powerSource?: NullableStringFieldUpdateOperationsInput | string | null
+    powerCapacity?: NullableStringFieldUpdateOperationsInput | string | null
+    powerInstallationCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    powerLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    consumptionRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    consumptionCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastMaintenanceDatePower?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextMaintenanceDatePower?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -46438,6 +49322,18 @@ export namespace Prisma {
     none?: UtilityWhereInput
   }
 
+  export type WaterListRelationFilter = {
+    every?: WaterWhereInput
+    some?: WaterWhereInput
+    none?: WaterWhereInput
+  }
+
+  export type PowerListRelationFilter = {
+    every?: PowerWhereInput
+    some?: PowerWhereInput
+    none?: PowerWhereInput
+  }
+
   export type GoodsInStockOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -46447,6 +49343,14 @@ export namespace Prisma {
   }
 
   export type UtilityOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type WaterOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PowerOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -46552,12 +49456,17 @@ export namespace Prisma {
     equipmentName?: SortOrder
     equipmentId?: SortOrder
     purchaseDate?: SortOrder
-    currentLocation?: SortOrder
-    condition?: SortOrder
+    purchasePrice?: SortOrder
+    machineryLocation?: SortOrder
+    machineryCondition?: SortOrder
     lastServiceDate?: SortOrder
     nextServiceDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type MachineryAvgOrderByAggregateInput = {
+    purchasePrice?: SortOrder
   }
 
   export type MachineryMaxOrderByAggregateInput = {
@@ -46566,8 +49475,9 @@ export namespace Prisma {
     equipmentName?: SortOrder
     equipmentId?: SortOrder
     purchaseDate?: SortOrder
-    currentLocation?: SortOrder
-    condition?: SortOrder
+    purchasePrice?: SortOrder
+    machineryLocation?: SortOrder
+    machineryCondition?: SortOrder
     lastServiceDate?: SortOrder
     nextServiceDate?: SortOrder
     createdAt?: SortOrder
@@ -46580,43 +49490,35 @@ export namespace Prisma {
     equipmentName?: SortOrder
     equipmentId?: SortOrder
     purchaseDate?: SortOrder
-    currentLocation?: SortOrder
-    condition?: SortOrder
+    purchasePrice?: SortOrder
+    machineryLocation?: SortOrder
+    machineryCondition?: SortOrder
     lastServiceDate?: SortOrder
     nextServiceDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
+  export type MachinerySumOrderByAggregateInput = {
+    purchasePrice?: SortOrder
+  }
+
   export type UtilityCountOrderByAggregateInput = {
     id?: SortOrder
     inventoryId?: SortOrder
-    utilityType?: SortOrder
-    waterLevel?: SortOrder
-    waterSource?: SortOrder
-    waterStorage?: SortOrder
-    entryDate?: SortOrder
-    powerSource?: SortOrder
-    powerCapacity?: SortOrder
-    installationCost?: SortOrder
-    consumptionRate?: SortOrder
-    consumptionCost?: SortOrder
     structureType?: SortOrder
     structureCapacity?: SortOrder
     constructionCost?: SortOrder
     facilityCondition?: SortOrder
+    utilityLocation?: SortOrder
     lastMaintenanceDate?: SortOrder
+    nextMaintenanceDate?: SortOrder
     maintenanceCost?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type UtilityAvgOrderByAggregateInput = {
-    waterLevel?: SortOrder
-    waterStorage?: SortOrder
-    installationCost?: SortOrder
-    consumptionRate?: SortOrder
-    consumptionCost?: SortOrder
     constructionCost?: SortOrder
     maintenanceCost?: SortOrder
   }
@@ -46624,21 +49526,13 @@ export namespace Prisma {
   export type UtilityMaxOrderByAggregateInput = {
     id?: SortOrder
     inventoryId?: SortOrder
-    utilityType?: SortOrder
-    waterLevel?: SortOrder
-    waterSource?: SortOrder
-    waterStorage?: SortOrder
-    entryDate?: SortOrder
-    powerSource?: SortOrder
-    powerCapacity?: SortOrder
-    installationCost?: SortOrder
-    consumptionRate?: SortOrder
-    consumptionCost?: SortOrder
     structureType?: SortOrder
     structureCapacity?: SortOrder
     constructionCost?: SortOrder
     facilityCondition?: SortOrder
+    utilityLocation?: SortOrder
     lastMaintenanceDate?: SortOrder
+    nextMaintenanceDate?: SortOrder
     maintenanceCost?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -46647,34 +49541,130 @@ export namespace Prisma {
   export type UtilityMinOrderByAggregateInput = {
     id?: SortOrder
     inventoryId?: SortOrder
-    utilityType?: SortOrder
-    waterLevel?: SortOrder
-    waterSource?: SortOrder
-    waterStorage?: SortOrder
-    entryDate?: SortOrder
-    powerSource?: SortOrder
-    powerCapacity?: SortOrder
-    installationCost?: SortOrder
-    consumptionRate?: SortOrder
-    consumptionCost?: SortOrder
     structureType?: SortOrder
     structureCapacity?: SortOrder
     constructionCost?: SortOrder
     facilityCondition?: SortOrder
+    utilityLocation?: SortOrder
     lastMaintenanceDate?: SortOrder
+    nextMaintenanceDate?: SortOrder
     maintenanceCost?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type UtilitySumOrderByAggregateInput = {
-    waterLevel?: SortOrder
-    waterStorage?: SortOrder
-    installationCost?: SortOrder
-    consumptionRate?: SortOrder
-    consumptionCost?: SortOrder
     constructionCost?: SortOrder
     maintenanceCost?: SortOrder
+  }
+
+  export type WaterCountOrderByAggregateInput = {
+    id?: SortOrder
+    inventoryId?: SortOrder
+    waterSource?: SortOrder
+    waterCapacity?: SortOrder
+    waterLevel?: SortOrder
+    waterConstructionCost?: SortOrder
+    waterLocation?: SortOrder
+    waterEntryDate?: SortOrder
+    nextInspectionDateWater?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WaterAvgOrderByAggregateInput = {
+    waterLevel?: SortOrder
+    waterConstructionCost?: SortOrder
+  }
+
+  export type WaterMaxOrderByAggregateInput = {
+    id?: SortOrder
+    inventoryId?: SortOrder
+    waterSource?: SortOrder
+    waterCapacity?: SortOrder
+    waterLevel?: SortOrder
+    waterConstructionCost?: SortOrder
+    waterLocation?: SortOrder
+    waterEntryDate?: SortOrder
+    nextInspectionDateWater?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WaterMinOrderByAggregateInput = {
+    id?: SortOrder
+    inventoryId?: SortOrder
+    waterSource?: SortOrder
+    waterCapacity?: SortOrder
+    waterLevel?: SortOrder
+    waterConstructionCost?: SortOrder
+    waterLocation?: SortOrder
+    waterEntryDate?: SortOrder
+    nextInspectionDateWater?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WaterSumOrderByAggregateInput = {
+    waterLevel?: SortOrder
+    waterConstructionCost?: SortOrder
+  }
+
+  export type PowerCountOrderByAggregateInput = {
+    id?: SortOrder
+    inventoryId?: SortOrder
+    powerSource?: SortOrder
+    powerCapacity?: SortOrder
+    powerInstallationCost?: SortOrder
+    powerLocation?: SortOrder
+    consumptionRate?: SortOrder
+    consumptionCost?: SortOrder
+    lastMaintenanceDatePower?: SortOrder
+    nextMaintenanceDatePower?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PowerAvgOrderByAggregateInput = {
+    powerInstallationCost?: SortOrder
+    consumptionRate?: SortOrder
+    consumptionCost?: SortOrder
+  }
+
+  export type PowerMaxOrderByAggregateInput = {
+    id?: SortOrder
+    inventoryId?: SortOrder
+    powerSource?: SortOrder
+    powerCapacity?: SortOrder
+    powerInstallationCost?: SortOrder
+    powerLocation?: SortOrder
+    consumptionRate?: SortOrder
+    consumptionCost?: SortOrder
+    lastMaintenanceDatePower?: SortOrder
+    nextMaintenanceDatePower?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PowerMinOrderByAggregateInput = {
+    id?: SortOrder
+    inventoryId?: SortOrder
+    powerSource?: SortOrder
+    powerCapacity?: SortOrder
+    powerInstallationCost?: SortOrder
+    powerLocation?: SortOrder
+    consumptionRate?: SortOrder
+    consumptionCost?: SortOrder
+    lastMaintenanceDatePower?: SortOrder
+    nextMaintenanceDatePower?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PowerSumOrderByAggregateInput = {
+    powerInstallationCost?: SortOrder
+    consumptionRate?: SortOrder
+    consumptionCost?: SortOrder
   }
 
   export type AllergyRecordCountOrderByAggregateInput = {
@@ -49241,6 +52231,20 @@ export namespace Prisma {
     connect?: UtilityWhereUniqueInput | UtilityWhereUniqueInput[]
   }
 
+  export type WaterCreateNestedManyWithoutInventoryInput = {
+    create?: XOR<WaterCreateWithoutInventoryInput, WaterUncheckedCreateWithoutInventoryInput> | WaterCreateWithoutInventoryInput[] | WaterUncheckedCreateWithoutInventoryInput[]
+    connectOrCreate?: WaterCreateOrConnectWithoutInventoryInput | WaterCreateOrConnectWithoutInventoryInput[]
+    createMany?: WaterCreateManyInventoryInputEnvelope
+    connect?: WaterWhereUniqueInput | WaterWhereUniqueInput[]
+  }
+
+  export type PowerCreateNestedManyWithoutInventoryInput = {
+    create?: XOR<PowerCreateWithoutInventoryInput, PowerUncheckedCreateWithoutInventoryInput> | PowerCreateWithoutInventoryInput[] | PowerUncheckedCreateWithoutInventoryInput[]
+    connectOrCreate?: PowerCreateOrConnectWithoutInventoryInput | PowerCreateOrConnectWithoutInventoryInput[]
+    createMany?: PowerCreateManyInventoryInputEnvelope
+    connect?: PowerWhereUniqueInput | PowerWhereUniqueInput[]
+  }
+
   export type GoodsInStockUncheckedCreateNestedManyWithoutInventoryInput = {
     create?: XOR<GoodsInStockCreateWithoutInventoryInput, GoodsInStockUncheckedCreateWithoutInventoryInput> | GoodsInStockCreateWithoutInventoryInput[] | GoodsInStockUncheckedCreateWithoutInventoryInput[]
     connectOrCreate?: GoodsInStockCreateOrConnectWithoutInventoryInput | GoodsInStockCreateOrConnectWithoutInventoryInput[]
@@ -49260,6 +52264,20 @@ export namespace Prisma {
     connectOrCreate?: UtilityCreateOrConnectWithoutInventoryInput | UtilityCreateOrConnectWithoutInventoryInput[]
     createMany?: UtilityCreateManyInventoryInputEnvelope
     connect?: UtilityWhereUniqueInput | UtilityWhereUniqueInput[]
+  }
+
+  export type WaterUncheckedCreateNestedManyWithoutInventoryInput = {
+    create?: XOR<WaterCreateWithoutInventoryInput, WaterUncheckedCreateWithoutInventoryInput> | WaterCreateWithoutInventoryInput[] | WaterUncheckedCreateWithoutInventoryInput[]
+    connectOrCreate?: WaterCreateOrConnectWithoutInventoryInput | WaterCreateOrConnectWithoutInventoryInput[]
+    createMany?: WaterCreateManyInventoryInputEnvelope
+    connect?: WaterWhereUniqueInput | WaterWhereUniqueInput[]
+  }
+
+  export type PowerUncheckedCreateNestedManyWithoutInventoryInput = {
+    create?: XOR<PowerCreateWithoutInventoryInput, PowerUncheckedCreateWithoutInventoryInput> | PowerCreateWithoutInventoryInput[] | PowerUncheckedCreateWithoutInventoryInput[]
+    connectOrCreate?: PowerCreateOrConnectWithoutInventoryInput | PowerCreateOrConnectWithoutInventoryInput[]
+    createMany?: PowerCreateManyInventoryInputEnvelope
+    connect?: PowerWhereUniqueInput | PowerWhereUniqueInput[]
   }
 
   export type FarmUpdateOneRequiredWithoutInventoriesNestedInput = {
@@ -49312,6 +52330,34 @@ export namespace Prisma {
     deleteMany?: UtilityScalarWhereInput | UtilityScalarWhereInput[]
   }
 
+  export type WaterUpdateManyWithoutInventoryNestedInput = {
+    create?: XOR<WaterCreateWithoutInventoryInput, WaterUncheckedCreateWithoutInventoryInput> | WaterCreateWithoutInventoryInput[] | WaterUncheckedCreateWithoutInventoryInput[]
+    connectOrCreate?: WaterCreateOrConnectWithoutInventoryInput | WaterCreateOrConnectWithoutInventoryInput[]
+    upsert?: WaterUpsertWithWhereUniqueWithoutInventoryInput | WaterUpsertWithWhereUniqueWithoutInventoryInput[]
+    createMany?: WaterCreateManyInventoryInputEnvelope
+    set?: WaterWhereUniqueInput | WaterWhereUniqueInput[]
+    disconnect?: WaterWhereUniqueInput | WaterWhereUniqueInput[]
+    delete?: WaterWhereUniqueInput | WaterWhereUniqueInput[]
+    connect?: WaterWhereUniqueInput | WaterWhereUniqueInput[]
+    update?: WaterUpdateWithWhereUniqueWithoutInventoryInput | WaterUpdateWithWhereUniqueWithoutInventoryInput[]
+    updateMany?: WaterUpdateManyWithWhereWithoutInventoryInput | WaterUpdateManyWithWhereWithoutInventoryInput[]
+    deleteMany?: WaterScalarWhereInput | WaterScalarWhereInput[]
+  }
+
+  export type PowerUpdateManyWithoutInventoryNestedInput = {
+    create?: XOR<PowerCreateWithoutInventoryInput, PowerUncheckedCreateWithoutInventoryInput> | PowerCreateWithoutInventoryInput[] | PowerUncheckedCreateWithoutInventoryInput[]
+    connectOrCreate?: PowerCreateOrConnectWithoutInventoryInput | PowerCreateOrConnectWithoutInventoryInput[]
+    upsert?: PowerUpsertWithWhereUniqueWithoutInventoryInput | PowerUpsertWithWhereUniqueWithoutInventoryInput[]
+    createMany?: PowerCreateManyInventoryInputEnvelope
+    set?: PowerWhereUniqueInput | PowerWhereUniqueInput[]
+    disconnect?: PowerWhereUniqueInput | PowerWhereUniqueInput[]
+    delete?: PowerWhereUniqueInput | PowerWhereUniqueInput[]
+    connect?: PowerWhereUniqueInput | PowerWhereUniqueInput[]
+    update?: PowerUpdateWithWhereUniqueWithoutInventoryInput | PowerUpdateWithWhereUniqueWithoutInventoryInput[]
+    updateMany?: PowerUpdateManyWithWhereWithoutInventoryInput | PowerUpdateManyWithWhereWithoutInventoryInput[]
+    deleteMany?: PowerScalarWhereInput | PowerScalarWhereInput[]
+  }
+
   export type GoodsInStockUncheckedUpdateManyWithoutInventoryNestedInput = {
     create?: XOR<GoodsInStockCreateWithoutInventoryInput, GoodsInStockUncheckedCreateWithoutInventoryInput> | GoodsInStockCreateWithoutInventoryInput[] | GoodsInStockUncheckedCreateWithoutInventoryInput[]
     connectOrCreate?: GoodsInStockCreateOrConnectWithoutInventoryInput | GoodsInStockCreateOrConnectWithoutInventoryInput[]
@@ -49354,6 +52400,34 @@ export namespace Prisma {
     deleteMany?: UtilityScalarWhereInput | UtilityScalarWhereInput[]
   }
 
+  export type WaterUncheckedUpdateManyWithoutInventoryNestedInput = {
+    create?: XOR<WaterCreateWithoutInventoryInput, WaterUncheckedCreateWithoutInventoryInput> | WaterCreateWithoutInventoryInput[] | WaterUncheckedCreateWithoutInventoryInput[]
+    connectOrCreate?: WaterCreateOrConnectWithoutInventoryInput | WaterCreateOrConnectWithoutInventoryInput[]
+    upsert?: WaterUpsertWithWhereUniqueWithoutInventoryInput | WaterUpsertWithWhereUniqueWithoutInventoryInput[]
+    createMany?: WaterCreateManyInventoryInputEnvelope
+    set?: WaterWhereUniqueInput | WaterWhereUniqueInput[]
+    disconnect?: WaterWhereUniqueInput | WaterWhereUniqueInput[]
+    delete?: WaterWhereUniqueInput | WaterWhereUniqueInput[]
+    connect?: WaterWhereUniqueInput | WaterWhereUniqueInput[]
+    update?: WaterUpdateWithWhereUniqueWithoutInventoryInput | WaterUpdateWithWhereUniqueWithoutInventoryInput[]
+    updateMany?: WaterUpdateManyWithWhereWithoutInventoryInput | WaterUpdateManyWithWhereWithoutInventoryInput[]
+    deleteMany?: WaterScalarWhereInput | WaterScalarWhereInput[]
+  }
+
+  export type PowerUncheckedUpdateManyWithoutInventoryNestedInput = {
+    create?: XOR<PowerCreateWithoutInventoryInput, PowerUncheckedCreateWithoutInventoryInput> | PowerCreateWithoutInventoryInput[] | PowerUncheckedCreateWithoutInventoryInput[]
+    connectOrCreate?: PowerCreateOrConnectWithoutInventoryInput | PowerCreateOrConnectWithoutInventoryInput[]
+    upsert?: PowerUpsertWithWhereUniqueWithoutInventoryInput | PowerUpsertWithWhereUniqueWithoutInventoryInput[]
+    createMany?: PowerCreateManyInventoryInputEnvelope
+    set?: PowerWhereUniqueInput | PowerWhereUniqueInput[]
+    disconnect?: PowerWhereUniqueInput | PowerWhereUniqueInput[]
+    delete?: PowerWhereUniqueInput | PowerWhereUniqueInput[]
+    connect?: PowerWhereUniqueInput | PowerWhereUniqueInput[]
+    update?: PowerUpdateWithWhereUniqueWithoutInventoryInput | PowerUpdateWithWhereUniqueWithoutInventoryInput[]
+    updateMany?: PowerUpdateManyWithWhereWithoutInventoryInput | PowerUpdateManyWithWhereWithoutInventoryInput[]
+    deleteMany?: PowerScalarWhereInput | PowerScalarWhereInput[]
+  }
+
   export type InventoryCreateNestedOneWithoutGoodsInStockInput = {
     create?: XOR<InventoryCreateWithoutGoodsInStockInput, InventoryUncheckedCreateWithoutGoodsInStockInput>
     connectOrCreate?: InventoryCreateOrConnectWithoutGoodsInStockInput
@@ -49394,6 +52468,34 @@ export namespace Prisma {
     upsert?: InventoryUpsertWithoutUtilitiesInput
     connect?: InventoryWhereUniqueInput
     update?: XOR<XOR<InventoryUpdateToOneWithWhereWithoutUtilitiesInput, InventoryUpdateWithoutUtilitiesInput>, InventoryUncheckedUpdateWithoutUtilitiesInput>
+  }
+
+  export type InventoryCreateNestedOneWithoutWaterInput = {
+    create?: XOR<InventoryCreateWithoutWaterInput, InventoryUncheckedCreateWithoutWaterInput>
+    connectOrCreate?: InventoryCreateOrConnectWithoutWaterInput
+    connect?: InventoryWhereUniqueInput
+  }
+
+  export type InventoryUpdateOneRequiredWithoutWaterNestedInput = {
+    create?: XOR<InventoryCreateWithoutWaterInput, InventoryUncheckedCreateWithoutWaterInput>
+    connectOrCreate?: InventoryCreateOrConnectWithoutWaterInput
+    upsert?: InventoryUpsertWithoutWaterInput
+    connect?: InventoryWhereUniqueInput
+    update?: XOR<XOR<InventoryUpdateToOneWithWhereWithoutWaterInput, InventoryUpdateWithoutWaterInput>, InventoryUncheckedUpdateWithoutWaterInput>
+  }
+
+  export type InventoryCreateNestedOneWithoutPowerInput = {
+    create?: XOR<InventoryCreateWithoutPowerInput, InventoryUncheckedCreateWithoutPowerInput>
+    connectOrCreate?: InventoryCreateOrConnectWithoutPowerInput
+    connect?: InventoryWhereUniqueInput
+  }
+
+  export type InventoryUpdateOneRequiredWithoutPowerNestedInput = {
+    create?: XOR<InventoryCreateWithoutPowerInput, InventoryUncheckedCreateWithoutPowerInput>
+    connectOrCreate?: InventoryCreateOrConnectWithoutPowerInput
+    upsert?: InventoryUpsertWithoutPowerInput
+    connect?: InventoryWhereUniqueInput
+    update?: XOR<XOR<InventoryUpdateToOneWithWhereWithoutPowerInput, InventoryUpdateWithoutPowerInput>, InventoryUncheckedUpdateWithoutPowerInput>
   }
 
   export type FarmCreateNestedOneWithoutAllergyRecordsInput = {
@@ -50866,6 +53968,8 @@ export namespace Prisma {
     goodsInStock?: GoodsInStockCreateNestedManyWithoutInventoryInput
     machinery?: MachineryCreateNestedManyWithoutInventoryInput
     utilities?: UtilityCreateNestedManyWithoutInventoryInput
+    water?: WaterCreateNestedManyWithoutInventoryInput
+    power?: PowerCreateNestedManyWithoutInventoryInput
   }
 
   export type InventoryUncheckedCreateWithoutFarmInput = {
@@ -50875,6 +53979,8 @@ export namespace Prisma {
     goodsInStock?: GoodsInStockUncheckedCreateNestedManyWithoutInventoryInput
     machinery?: MachineryUncheckedCreateNestedManyWithoutInventoryInput
     utilities?: UtilityUncheckedCreateNestedManyWithoutInventoryInput
+    water?: WaterUncheckedCreateNestedManyWithoutInventoryInput
+    power?: PowerUncheckedCreateNestedManyWithoutInventoryInput
   }
 
   export type InventoryCreateOrConnectWithoutFarmInput = {
@@ -55076,9 +58182,10 @@ export namespace Prisma {
     id?: string
     equipmentName: string
     equipmentId?: string | null
-    purchaseDate: Date | string
-    currentLocation: string
-    condition: string
+    purchaseDate?: Date | string | null
+    purchasePrice?: number | null
+    machineryLocation?: string | null
+    machineryCondition?: string | null
     lastServiceDate?: Date | string | null
     nextServiceDate?: Date | string | null
     createdAt?: Date | string
@@ -55089,9 +58196,10 @@ export namespace Prisma {
     id?: string
     equipmentName: string
     equipmentId?: string | null
-    purchaseDate: Date | string
-    currentLocation: string
-    condition: string
+    purchaseDate?: Date | string | null
+    purchasePrice?: number | null
+    machineryLocation?: string | null
+    machineryCondition?: string | null
     lastServiceDate?: Date | string | null
     nextServiceDate?: Date | string | null
     createdAt?: Date | string
@@ -55110,21 +58218,13 @@ export namespace Prisma {
 
   export type UtilityCreateWithoutInventoryInput = {
     id?: string
-    utilityType: string
-    waterLevel?: number | null
-    waterSource?: string | null
-    waterStorage?: number | null
-    entryDate?: Date | string | null
-    powerSource?: string | null
-    powerCapacity?: string | null
-    installationCost?: number | null
-    consumptionRate?: number | null
-    consumptionCost?: number | null
     structureType?: string | null
     structureCapacity?: string | null
     constructionCost?: number | null
     facilityCondition?: string | null
+    utilityLocation?: string | null
     lastMaintenanceDate?: Date | string | null
+    nextMaintenanceDate?: Date | string | null
     maintenanceCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -55132,21 +58232,13 @@ export namespace Prisma {
 
   export type UtilityUncheckedCreateWithoutInventoryInput = {
     id?: string
-    utilityType: string
-    waterLevel?: number | null
-    waterSource?: string | null
-    waterStorage?: number | null
-    entryDate?: Date | string | null
-    powerSource?: string | null
-    powerCapacity?: string | null
-    installationCost?: number | null
-    consumptionRate?: number | null
-    consumptionCost?: number | null
     structureType?: string | null
     structureCapacity?: string | null
     constructionCost?: number | null
     facilityCondition?: string | null
+    utilityLocation?: string | null
     lastMaintenanceDate?: Date | string | null
+    nextMaintenanceDate?: Date | string | null
     maintenanceCost?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -55159,6 +58251,80 @@ export namespace Prisma {
 
   export type UtilityCreateManyInventoryInputEnvelope = {
     data: UtilityCreateManyInventoryInput | UtilityCreateManyInventoryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type WaterCreateWithoutInventoryInput = {
+    id?: string
+    waterSource?: string | null
+    waterCapacity?: string | null
+    waterLevel?: number | null
+    waterConstructionCost?: number | null
+    waterLocation?: string | null
+    waterEntryDate?: Date | string | null
+    nextInspectionDateWater?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WaterUncheckedCreateWithoutInventoryInput = {
+    id?: string
+    waterSource?: string | null
+    waterCapacity?: string | null
+    waterLevel?: number | null
+    waterConstructionCost?: number | null
+    waterLocation?: string | null
+    waterEntryDate?: Date | string | null
+    nextInspectionDateWater?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WaterCreateOrConnectWithoutInventoryInput = {
+    where: WaterWhereUniqueInput
+    create: XOR<WaterCreateWithoutInventoryInput, WaterUncheckedCreateWithoutInventoryInput>
+  }
+
+  export type WaterCreateManyInventoryInputEnvelope = {
+    data: WaterCreateManyInventoryInput | WaterCreateManyInventoryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PowerCreateWithoutInventoryInput = {
+    id?: string
+    powerSource?: string | null
+    powerCapacity?: string | null
+    powerInstallationCost?: number | null
+    powerLocation?: string | null
+    consumptionRate?: number | null
+    consumptionCost?: number | null
+    lastMaintenanceDatePower?: Date | string | null
+    nextMaintenanceDatePower?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PowerUncheckedCreateWithoutInventoryInput = {
+    id?: string
+    powerSource?: string | null
+    powerCapacity?: string | null
+    powerInstallationCost?: number | null
+    powerLocation?: string | null
+    consumptionRate?: number | null
+    consumptionCost?: number | null
+    lastMaintenanceDatePower?: Date | string | null
+    nextMaintenanceDatePower?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PowerCreateOrConnectWithoutInventoryInput = {
+    where: PowerWhereUniqueInput
+    create: XOR<PowerCreateWithoutInventoryInput, PowerUncheckedCreateWithoutInventoryInput>
+  }
+
+  export type PowerCreateManyInventoryInputEnvelope = {
+    data: PowerCreateManyInventoryInput | PowerCreateManyInventoryInput[]
     skipDuplicates?: boolean
   }
 
@@ -55284,9 +58450,10 @@ export namespace Prisma {
     inventoryId?: StringFilter<"Machinery"> | string
     equipmentName?: StringFilter<"Machinery"> | string
     equipmentId?: StringNullableFilter<"Machinery"> | string | null
-    purchaseDate?: DateTimeFilter<"Machinery"> | Date | string
-    currentLocation?: StringFilter<"Machinery"> | string
-    condition?: StringFilter<"Machinery"> | string
+    purchaseDate?: DateTimeNullableFilter<"Machinery"> | Date | string | null
+    purchasePrice?: FloatNullableFilter<"Machinery"> | number | null
+    machineryLocation?: StringNullableFilter<"Machinery"> | string | null
+    machineryCondition?: StringNullableFilter<"Machinery"> | string | null
     lastServiceDate?: DateTimeNullableFilter<"Machinery"> | Date | string | null
     nextServiceDate?: DateTimeNullableFilter<"Machinery"> | Date | string | null
     createdAt?: DateTimeFilter<"Machinery"> | Date | string
@@ -55315,24 +58482,83 @@ export namespace Prisma {
     NOT?: UtilityScalarWhereInput | UtilityScalarWhereInput[]
     id?: StringFilter<"Utility"> | string
     inventoryId?: StringFilter<"Utility"> | string
-    utilityType?: StringFilter<"Utility"> | string
-    waterLevel?: FloatNullableFilter<"Utility"> | number | null
-    waterSource?: StringNullableFilter<"Utility"> | string | null
-    waterStorage?: FloatNullableFilter<"Utility"> | number | null
-    entryDate?: DateTimeNullableFilter<"Utility"> | Date | string | null
-    powerSource?: StringNullableFilter<"Utility"> | string | null
-    powerCapacity?: StringNullableFilter<"Utility"> | string | null
-    installationCost?: FloatNullableFilter<"Utility"> | number | null
-    consumptionRate?: FloatNullableFilter<"Utility"> | number | null
-    consumptionCost?: FloatNullableFilter<"Utility"> | number | null
     structureType?: StringNullableFilter<"Utility"> | string | null
     structureCapacity?: StringNullableFilter<"Utility"> | string | null
     constructionCost?: FloatNullableFilter<"Utility"> | number | null
     facilityCondition?: StringNullableFilter<"Utility"> | string | null
+    utilityLocation?: StringNullableFilter<"Utility"> | string | null
     lastMaintenanceDate?: DateTimeNullableFilter<"Utility"> | Date | string | null
+    nextMaintenanceDate?: DateTimeNullableFilter<"Utility"> | Date | string | null
     maintenanceCost?: FloatNullableFilter<"Utility"> | number | null
     createdAt?: DateTimeFilter<"Utility"> | Date | string
     updatedAt?: DateTimeFilter<"Utility"> | Date | string
+  }
+
+  export type WaterUpsertWithWhereUniqueWithoutInventoryInput = {
+    where: WaterWhereUniqueInput
+    update: XOR<WaterUpdateWithoutInventoryInput, WaterUncheckedUpdateWithoutInventoryInput>
+    create: XOR<WaterCreateWithoutInventoryInput, WaterUncheckedCreateWithoutInventoryInput>
+  }
+
+  export type WaterUpdateWithWhereUniqueWithoutInventoryInput = {
+    where: WaterWhereUniqueInput
+    data: XOR<WaterUpdateWithoutInventoryInput, WaterUncheckedUpdateWithoutInventoryInput>
+  }
+
+  export type WaterUpdateManyWithWhereWithoutInventoryInput = {
+    where: WaterScalarWhereInput
+    data: XOR<WaterUpdateManyMutationInput, WaterUncheckedUpdateManyWithoutInventoryInput>
+  }
+
+  export type WaterScalarWhereInput = {
+    AND?: WaterScalarWhereInput | WaterScalarWhereInput[]
+    OR?: WaterScalarWhereInput[]
+    NOT?: WaterScalarWhereInput | WaterScalarWhereInput[]
+    id?: StringFilter<"Water"> | string
+    inventoryId?: StringFilter<"Water"> | string
+    waterSource?: StringNullableFilter<"Water"> | string | null
+    waterCapacity?: StringNullableFilter<"Water"> | string | null
+    waterLevel?: FloatNullableFilter<"Water"> | number | null
+    waterConstructionCost?: FloatNullableFilter<"Water"> | number | null
+    waterLocation?: StringNullableFilter<"Water"> | string | null
+    waterEntryDate?: DateTimeNullableFilter<"Water"> | Date | string | null
+    nextInspectionDateWater?: DateTimeNullableFilter<"Water"> | Date | string | null
+    createdAt?: DateTimeFilter<"Water"> | Date | string
+    updatedAt?: DateTimeFilter<"Water"> | Date | string
+  }
+
+  export type PowerUpsertWithWhereUniqueWithoutInventoryInput = {
+    where: PowerWhereUniqueInput
+    update: XOR<PowerUpdateWithoutInventoryInput, PowerUncheckedUpdateWithoutInventoryInput>
+    create: XOR<PowerCreateWithoutInventoryInput, PowerUncheckedCreateWithoutInventoryInput>
+  }
+
+  export type PowerUpdateWithWhereUniqueWithoutInventoryInput = {
+    where: PowerWhereUniqueInput
+    data: XOR<PowerUpdateWithoutInventoryInput, PowerUncheckedUpdateWithoutInventoryInput>
+  }
+
+  export type PowerUpdateManyWithWhereWithoutInventoryInput = {
+    where: PowerScalarWhereInput
+    data: XOR<PowerUpdateManyMutationInput, PowerUncheckedUpdateManyWithoutInventoryInput>
+  }
+
+  export type PowerScalarWhereInput = {
+    AND?: PowerScalarWhereInput | PowerScalarWhereInput[]
+    OR?: PowerScalarWhereInput[]
+    NOT?: PowerScalarWhereInput | PowerScalarWhereInput[]
+    id?: StringFilter<"Power"> | string
+    inventoryId?: StringFilter<"Power"> | string
+    powerSource?: StringNullableFilter<"Power"> | string | null
+    powerCapacity?: StringNullableFilter<"Power"> | string | null
+    powerInstallationCost?: FloatNullableFilter<"Power"> | number | null
+    powerLocation?: StringNullableFilter<"Power"> | string | null
+    consumptionRate?: FloatNullableFilter<"Power"> | number | null
+    consumptionCost?: FloatNullableFilter<"Power"> | number | null
+    lastMaintenanceDatePower?: DateTimeNullableFilter<"Power"> | Date | string | null
+    nextMaintenanceDatePower?: DateTimeNullableFilter<"Power"> | Date | string | null
+    createdAt?: DateTimeFilter<"Power"> | Date | string
+    updatedAt?: DateTimeFilter<"Power"> | Date | string
   }
 
   export type InventoryCreateWithoutGoodsInStockInput = {
@@ -55342,6 +58568,8 @@ export namespace Prisma {
     farm: FarmCreateNestedOneWithoutInventoriesInput
     machinery?: MachineryCreateNestedManyWithoutInventoryInput
     utilities?: UtilityCreateNestedManyWithoutInventoryInput
+    water?: WaterCreateNestedManyWithoutInventoryInput
+    power?: PowerCreateNestedManyWithoutInventoryInput
   }
 
   export type InventoryUncheckedCreateWithoutGoodsInStockInput = {
@@ -55351,6 +58579,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     machinery?: MachineryUncheckedCreateNestedManyWithoutInventoryInput
     utilities?: UtilityUncheckedCreateNestedManyWithoutInventoryInput
+    water?: WaterUncheckedCreateNestedManyWithoutInventoryInput
+    power?: PowerUncheckedCreateNestedManyWithoutInventoryInput
   }
 
   export type InventoryCreateOrConnectWithoutGoodsInStockInput = {
@@ -55376,6 +58606,8 @@ export namespace Prisma {
     farm?: FarmUpdateOneRequiredWithoutInventoriesNestedInput
     machinery?: MachineryUpdateManyWithoutInventoryNestedInput
     utilities?: UtilityUpdateManyWithoutInventoryNestedInput
+    water?: WaterUpdateManyWithoutInventoryNestedInput
+    power?: PowerUpdateManyWithoutInventoryNestedInput
   }
 
   export type InventoryUncheckedUpdateWithoutGoodsInStockInput = {
@@ -55385,6 +58617,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     machinery?: MachineryUncheckedUpdateManyWithoutInventoryNestedInput
     utilities?: UtilityUncheckedUpdateManyWithoutInventoryNestedInput
+    water?: WaterUncheckedUpdateManyWithoutInventoryNestedInput
+    power?: PowerUncheckedUpdateManyWithoutInventoryNestedInput
   }
 
   export type InventoryCreateWithoutMachineryInput = {
@@ -55394,6 +58628,8 @@ export namespace Prisma {
     farm: FarmCreateNestedOneWithoutInventoriesInput
     goodsInStock?: GoodsInStockCreateNestedManyWithoutInventoryInput
     utilities?: UtilityCreateNestedManyWithoutInventoryInput
+    water?: WaterCreateNestedManyWithoutInventoryInput
+    power?: PowerCreateNestedManyWithoutInventoryInput
   }
 
   export type InventoryUncheckedCreateWithoutMachineryInput = {
@@ -55403,6 +58639,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     goodsInStock?: GoodsInStockUncheckedCreateNestedManyWithoutInventoryInput
     utilities?: UtilityUncheckedCreateNestedManyWithoutInventoryInput
+    water?: WaterUncheckedCreateNestedManyWithoutInventoryInput
+    power?: PowerUncheckedCreateNestedManyWithoutInventoryInput
   }
 
   export type InventoryCreateOrConnectWithoutMachineryInput = {
@@ -55428,6 +58666,8 @@ export namespace Prisma {
     farm?: FarmUpdateOneRequiredWithoutInventoriesNestedInput
     goodsInStock?: GoodsInStockUpdateManyWithoutInventoryNestedInput
     utilities?: UtilityUpdateManyWithoutInventoryNestedInput
+    water?: WaterUpdateManyWithoutInventoryNestedInput
+    power?: PowerUpdateManyWithoutInventoryNestedInput
   }
 
   export type InventoryUncheckedUpdateWithoutMachineryInput = {
@@ -55437,6 +58677,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     goodsInStock?: GoodsInStockUncheckedUpdateManyWithoutInventoryNestedInput
     utilities?: UtilityUncheckedUpdateManyWithoutInventoryNestedInput
+    water?: WaterUncheckedUpdateManyWithoutInventoryNestedInput
+    power?: PowerUncheckedUpdateManyWithoutInventoryNestedInput
   }
 
   export type InventoryCreateWithoutUtilitiesInput = {
@@ -55446,6 +58688,8 @@ export namespace Prisma {
     farm: FarmCreateNestedOneWithoutInventoriesInput
     goodsInStock?: GoodsInStockCreateNestedManyWithoutInventoryInput
     machinery?: MachineryCreateNestedManyWithoutInventoryInput
+    water?: WaterCreateNestedManyWithoutInventoryInput
+    power?: PowerCreateNestedManyWithoutInventoryInput
   }
 
   export type InventoryUncheckedCreateWithoutUtilitiesInput = {
@@ -55455,6 +58699,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     goodsInStock?: GoodsInStockUncheckedCreateNestedManyWithoutInventoryInput
     machinery?: MachineryUncheckedCreateNestedManyWithoutInventoryInput
+    water?: WaterUncheckedCreateNestedManyWithoutInventoryInput
+    power?: PowerUncheckedCreateNestedManyWithoutInventoryInput
   }
 
   export type InventoryCreateOrConnectWithoutUtilitiesInput = {
@@ -55480,6 +58726,8 @@ export namespace Prisma {
     farm?: FarmUpdateOneRequiredWithoutInventoriesNestedInput
     goodsInStock?: GoodsInStockUpdateManyWithoutInventoryNestedInput
     machinery?: MachineryUpdateManyWithoutInventoryNestedInput
+    water?: WaterUpdateManyWithoutInventoryNestedInput
+    power?: PowerUpdateManyWithoutInventoryNestedInput
   }
 
   export type InventoryUncheckedUpdateWithoutUtilitiesInput = {
@@ -55489,6 +58737,128 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     goodsInStock?: GoodsInStockUncheckedUpdateManyWithoutInventoryNestedInput
     machinery?: MachineryUncheckedUpdateManyWithoutInventoryNestedInput
+    water?: WaterUncheckedUpdateManyWithoutInventoryNestedInput
+    power?: PowerUncheckedUpdateManyWithoutInventoryNestedInput
+  }
+
+  export type InventoryCreateWithoutWaterInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutInventoriesInput
+    goodsInStock?: GoodsInStockCreateNestedManyWithoutInventoryInput
+    machinery?: MachineryCreateNestedManyWithoutInventoryInput
+    utilities?: UtilityCreateNestedManyWithoutInventoryInput
+    power?: PowerCreateNestedManyWithoutInventoryInput
+  }
+
+  export type InventoryUncheckedCreateWithoutWaterInput = {
+    id?: string
+    farmId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    goodsInStock?: GoodsInStockUncheckedCreateNestedManyWithoutInventoryInput
+    machinery?: MachineryUncheckedCreateNestedManyWithoutInventoryInput
+    utilities?: UtilityUncheckedCreateNestedManyWithoutInventoryInput
+    power?: PowerUncheckedCreateNestedManyWithoutInventoryInput
+  }
+
+  export type InventoryCreateOrConnectWithoutWaterInput = {
+    where: InventoryWhereUniqueInput
+    create: XOR<InventoryCreateWithoutWaterInput, InventoryUncheckedCreateWithoutWaterInput>
+  }
+
+  export type InventoryUpsertWithoutWaterInput = {
+    update: XOR<InventoryUpdateWithoutWaterInput, InventoryUncheckedUpdateWithoutWaterInput>
+    create: XOR<InventoryCreateWithoutWaterInput, InventoryUncheckedCreateWithoutWaterInput>
+    where?: InventoryWhereInput
+  }
+
+  export type InventoryUpdateToOneWithWhereWithoutWaterInput = {
+    where?: InventoryWhereInput
+    data: XOR<InventoryUpdateWithoutWaterInput, InventoryUncheckedUpdateWithoutWaterInput>
+  }
+
+  export type InventoryUpdateWithoutWaterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutInventoriesNestedInput
+    goodsInStock?: GoodsInStockUpdateManyWithoutInventoryNestedInput
+    machinery?: MachineryUpdateManyWithoutInventoryNestedInput
+    utilities?: UtilityUpdateManyWithoutInventoryNestedInput
+    power?: PowerUpdateManyWithoutInventoryNestedInput
+  }
+
+  export type InventoryUncheckedUpdateWithoutWaterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    goodsInStock?: GoodsInStockUncheckedUpdateManyWithoutInventoryNestedInput
+    machinery?: MachineryUncheckedUpdateManyWithoutInventoryNestedInput
+    utilities?: UtilityUncheckedUpdateManyWithoutInventoryNestedInput
+    power?: PowerUncheckedUpdateManyWithoutInventoryNestedInput
+  }
+
+  export type InventoryCreateWithoutPowerInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutInventoriesInput
+    goodsInStock?: GoodsInStockCreateNestedManyWithoutInventoryInput
+    machinery?: MachineryCreateNestedManyWithoutInventoryInput
+    utilities?: UtilityCreateNestedManyWithoutInventoryInput
+    water?: WaterCreateNestedManyWithoutInventoryInput
+  }
+
+  export type InventoryUncheckedCreateWithoutPowerInput = {
+    id?: string
+    farmId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    goodsInStock?: GoodsInStockUncheckedCreateNestedManyWithoutInventoryInput
+    machinery?: MachineryUncheckedCreateNestedManyWithoutInventoryInput
+    utilities?: UtilityUncheckedCreateNestedManyWithoutInventoryInput
+    water?: WaterUncheckedCreateNestedManyWithoutInventoryInput
+  }
+
+  export type InventoryCreateOrConnectWithoutPowerInput = {
+    where: InventoryWhereUniqueInput
+    create: XOR<InventoryCreateWithoutPowerInput, InventoryUncheckedCreateWithoutPowerInput>
+  }
+
+  export type InventoryUpsertWithoutPowerInput = {
+    update: XOR<InventoryUpdateWithoutPowerInput, InventoryUncheckedUpdateWithoutPowerInput>
+    create: XOR<InventoryCreateWithoutPowerInput, InventoryUncheckedCreateWithoutPowerInput>
+    where?: InventoryWhereInput
+  }
+
+  export type InventoryUpdateToOneWithWhereWithoutPowerInput = {
+    where?: InventoryWhereInput
+    data: XOR<InventoryUpdateWithoutPowerInput, InventoryUncheckedUpdateWithoutPowerInput>
+  }
+
+  export type InventoryUpdateWithoutPowerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutInventoriesNestedInput
+    goodsInStock?: GoodsInStockUpdateManyWithoutInventoryNestedInput
+    machinery?: MachineryUpdateManyWithoutInventoryNestedInput
+    utilities?: UtilityUpdateManyWithoutInventoryNestedInput
+    water?: WaterUpdateManyWithoutInventoryNestedInput
+  }
+
+  export type InventoryUncheckedUpdateWithoutPowerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    goodsInStock?: GoodsInStockUncheckedUpdateManyWithoutInventoryNestedInput
+    machinery?: MachineryUncheckedUpdateManyWithoutInventoryNestedInput
+    utilities?: UtilityUncheckedUpdateManyWithoutInventoryNestedInput
+    water?: WaterUncheckedUpdateManyWithoutInventoryNestedInput
   }
 
   export type FarmCreateWithoutAllergyRecordsInput = {
@@ -58813,6 +62183,8 @@ export namespace Prisma {
     goodsInStock?: GoodsInStockUpdateManyWithoutInventoryNestedInput
     machinery?: MachineryUpdateManyWithoutInventoryNestedInput
     utilities?: UtilityUpdateManyWithoutInventoryNestedInput
+    water?: WaterUpdateManyWithoutInventoryNestedInput
+    power?: PowerUpdateManyWithoutInventoryNestedInput
   }
 
   export type InventoryUncheckedUpdateWithoutFarmInput = {
@@ -58822,6 +62194,8 @@ export namespace Prisma {
     goodsInStock?: GoodsInStockUncheckedUpdateManyWithoutInventoryNestedInput
     machinery?: MachineryUncheckedUpdateManyWithoutInventoryNestedInput
     utilities?: UtilityUncheckedUpdateManyWithoutInventoryNestedInput
+    water?: WaterUncheckedUpdateManyWithoutInventoryNestedInput
+    power?: PowerUncheckedUpdateManyWithoutInventoryNestedInput
   }
 
   export type InventoryUncheckedUpdateManyWithoutFarmInput = {
@@ -60264,9 +63638,10 @@ export namespace Prisma {
     id?: string
     equipmentName: string
     equipmentId?: string | null
-    purchaseDate: Date | string
-    currentLocation: string
-    condition: string
+    purchaseDate?: Date | string | null
+    purchasePrice?: number | null
+    machineryLocation?: string | null
+    machineryCondition?: string | null
     lastServiceDate?: Date | string | null
     nextServiceDate?: Date | string | null
     createdAt?: Date | string
@@ -60275,22 +63650,41 @@ export namespace Prisma {
 
   export type UtilityCreateManyInventoryInput = {
     id?: string
-    utilityType: string
-    waterLevel?: number | null
-    waterSource?: string | null
-    waterStorage?: number | null
-    entryDate?: Date | string | null
-    powerSource?: string | null
-    powerCapacity?: string | null
-    installationCost?: number | null
-    consumptionRate?: number | null
-    consumptionCost?: number | null
     structureType?: string | null
     structureCapacity?: string | null
     constructionCost?: number | null
     facilityCondition?: string | null
+    utilityLocation?: string | null
     lastMaintenanceDate?: Date | string | null
+    nextMaintenanceDate?: Date | string | null
     maintenanceCost?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WaterCreateManyInventoryInput = {
+    id?: string
+    waterSource?: string | null
+    waterCapacity?: string | null
+    waterLevel?: number | null
+    waterConstructionCost?: number | null
+    waterLocation?: string | null
+    waterEntryDate?: Date | string | null
+    nextInspectionDateWater?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PowerCreateManyInventoryInput = {
+    id?: string
+    powerSource?: string | null
+    powerCapacity?: string | null
+    powerInstallationCost?: number | null
+    powerLocation?: string | null
+    consumptionRate?: number | null
+    consumptionCost?: number | null
+    lastMaintenanceDatePower?: Date | string | null
+    nextMaintenanceDatePower?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -60356,9 +63750,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     equipmentName?: StringFieldUpdateOperationsInput | string
     equipmentId?: NullableStringFieldUpdateOperationsInput | string | null
-    purchaseDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    currentLocation?: StringFieldUpdateOperationsInput | string
-    condition?: StringFieldUpdateOperationsInput | string
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    machineryLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    machineryCondition?: NullableStringFieldUpdateOperationsInput | string | null
     lastServiceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextServiceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -60369,9 +63764,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     equipmentName?: StringFieldUpdateOperationsInput | string
     equipmentId?: NullableStringFieldUpdateOperationsInput | string | null
-    purchaseDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    currentLocation?: StringFieldUpdateOperationsInput | string
-    condition?: StringFieldUpdateOperationsInput | string
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    machineryLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    machineryCondition?: NullableStringFieldUpdateOperationsInput | string | null
     lastServiceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextServiceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -60382,9 +63778,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     equipmentName?: StringFieldUpdateOperationsInput | string
     equipmentId?: NullableStringFieldUpdateOperationsInput | string | null
-    purchaseDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    currentLocation?: StringFieldUpdateOperationsInput | string
-    condition?: StringFieldUpdateOperationsInput | string
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    machineryLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    machineryCondition?: NullableStringFieldUpdateOperationsInput | string | null
     lastServiceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextServiceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -60393,21 +63790,13 @@ export namespace Prisma {
 
   export type UtilityUpdateWithoutInventoryInput = {
     id?: StringFieldUpdateOperationsInput | string
-    utilityType?: StringFieldUpdateOperationsInput | string
-    waterLevel?: NullableFloatFieldUpdateOperationsInput | number | null
-    waterSource?: NullableStringFieldUpdateOperationsInput | string | null
-    waterStorage?: NullableFloatFieldUpdateOperationsInput | number | null
-    entryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    powerSource?: NullableStringFieldUpdateOperationsInput | string | null
-    powerCapacity?: NullableStringFieldUpdateOperationsInput | string | null
-    installationCost?: NullableFloatFieldUpdateOperationsInput | number | null
-    consumptionRate?: NullableFloatFieldUpdateOperationsInput | number | null
-    consumptionCost?: NullableFloatFieldUpdateOperationsInput | number | null
     structureType?: NullableStringFieldUpdateOperationsInput | string | null
     structureCapacity?: NullableStringFieldUpdateOperationsInput | string | null
     constructionCost?: NullableFloatFieldUpdateOperationsInput | number | null
     facilityCondition?: NullableStringFieldUpdateOperationsInput | string | null
+    utilityLocation?: NullableStringFieldUpdateOperationsInput | string | null
     lastMaintenanceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextMaintenanceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     maintenanceCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -60415,21 +63804,13 @@ export namespace Prisma {
 
   export type UtilityUncheckedUpdateWithoutInventoryInput = {
     id?: StringFieldUpdateOperationsInput | string
-    utilityType?: StringFieldUpdateOperationsInput | string
-    waterLevel?: NullableFloatFieldUpdateOperationsInput | number | null
-    waterSource?: NullableStringFieldUpdateOperationsInput | string | null
-    waterStorage?: NullableFloatFieldUpdateOperationsInput | number | null
-    entryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    powerSource?: NullableStringFieldUpdateOperationsInput | string | null
-    powerCapacity?: NullableStringFieldUpdateOperationsInput | string | null
-    installationCost?: NullableFloatFieldUpdateOperationsInput | number | null
-    consumptionRate?: NullableFloatFieldUpdateOperationsInput | number | null
-    consumptionCost?: NullableFloatFieldUpdateOperationsInput | number | null
     structureType?: NullableStringFieldUpdateOperationsInput | string | null
     structureCapacity?: NullableStringFieldUpdateOperationsInput | string | null
     constructionCost?: NullableFloatFieldUpdateOperationsInput | number | null
     facilityCondition?: NullableStringFieldUpdateOperationsInput | string | null
+    utilityLocation?: NullableStringFieldUpdateOperationsInput | string | null
     lastMaintenanceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextMaintenanceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     maintenanceCost?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -60437,22 +63818,95 @@ export namespace Prisma {
 
   export type UtilityUncheckedUpdateManyWithoutInventoryInput = {
     id?: StringFieldUpdateOperationsInput | string
-    utilityType?: StringFieldUpdateOperationsInput | string
-    waterLevel?: NullableFloatFieldUpdateOperationsInput | number | null
-    waterSource?: NullableStringFieldUpdateOperationsInput | string | null
-    waterStorage?: NullableFloatFieldUpdateOperationsInput | number | null
-    entryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    powerSource?: NullableStringFieldUpdateOperationsInput | string | null
-    powerCapacity?: NullableStringFieldUpdateOperationsInput | string | null
-    installationCost?: NullableFloatFieldUpdateOperationsInput | number | null
-    consumptionRate?: NullableFloatFieldUpdateOperationsInput | number | null
-    consumptionCost?: NullableFloatFieldUpdateOperationsInput | number | null
     structureType?: NullableStringFieldUpdateOperationsInput | string | null
     structureCapacity?: NullableStringFieldUpdateOperationsInput | string | null
     constructionCost?: NullableFloatFieldUpdateOperationsInput | number | null
     facilityCondition?: NullableStringFieldUpdateOperationsInput | string | null
+    utilityLocation?: NullableStringFieldUpdateOperationsInput | string | null
     lastMaintenanceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextMaintenanceDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     maintenanceCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WaterUpdateWithoutInventoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    waterSource?: NullableStringFieldUpdateOperationsInput | string | null
+    waterCapacity?: NullableStringFieldUpdateOperationsInput | string | null
+    waterLevel?: NullableFloatFieldUpdateOperationsInput | number | null
+    waterConstructionCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    waterLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    waterEntryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextInspectionDateWater?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WaterUncheckedUpdateWithoutInventoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    waterSource?: NullableStringFieldUpdateOperationsInput | string | null
+    waterCapacity?: NullableStringFieldUpdateOperationsInput | string | null
+    waterLevel?: NullableFloatFieldUpdateOperationsInput | number | null
+    waterConstructionCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    waterLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    waterEntryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextInspectionDateWater?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WaterUncheckedUpdateManyWithoutInventoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    waterSource?: NullableStringFieldUpdateOperationsInput | string | null
+    waterCapacity?: NullableStringFieldUpdateOperationsInput | string | null
+    waterLevel?: NullableFloatFieldUpdateOperationsInput | number | null
+    waterConstructionCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    waterLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    waterEntryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextInspectionDateWater?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PowerUpdateWithoutInventoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    powerSource?: NullableStringFieldUpdateOperationsInput | string | null
+    powerCapacity?: NullableStringFieldUpdateOperationsInput | string | null
+    powerInstallationCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    powerLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    consumptionRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    consumptionCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastMaintenanceDatePower?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextMaintenanceDatePower?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PowerUncheckedUpdateWithoutInventoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    powerSource?: NullableStringFieldUpdateOperationsInput | string | null
+    powerCapacity?: NullableStringFieldUpdateOperationsInput | string | null
+    powerInstallationCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    powerLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    consumptionRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    consumptionCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastMaintenanceDatePower?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextMaintenanceDatePower?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PowerUncheckedUpdateManyWithoutInventoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    powerSource?: NullableStringFieldUpdateOperationsInput | string | null
+    powerCapacity?: NullableStringFieldUpdateOperationsInput | string | null
+    powerInstallationCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    powerLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    consumptionRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    consumptionCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastMaintenanceDatePower?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextMaintenanceDatePower?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

@@ -9,51 +9,80 @@ import {
 } from 'class-validator';
 
 export class CreateGoodsDto {
-  @ApiProperty({ example: 'Dairy Feed Pellets' })
+  @ApiProperty({
+    description: 'Name of the inventory item',
+    example: 'Premium Dairy Concentrate Feed',
+  })
   @IsString()
   @IsNotEmpty()
   itemName: string;
 
   @ApiProperty({
     required: false,
-    description: 'Any text batch number',
-    example: 'BATCH-2024-001',
+    description: 'Batch or lot number for tracking',
+    example: 'BATCH-DF-2024-Q4-001',
   })
   @IsString()
   @IsOptional()
   batchNumber?: string;
 
-  @ApiProperty({ required: false, example: 'Animal Feed' })
+  @ApiProperty({
+    required: false,
+    description: 'Category of the item',
+    example: 'Animal Feed & Nutrition',
+  })
   @IsString()
   @IsOptional()
   category?: string;
 
-  @ApiProperty({ required: false, example: 'SKU-FEED-001' })
+  @ApiProperty({
+    required: false,
+    description: 'Stock keeping unit identifier',
+    example: 'SKU-FEED-DAIRY-001',
+  })
   @IsString()
   @IsOptional()
   sku?: string;
 
-  @ApiProperty({ example: 50 })
+  @ApiProperty({
+    description: 'Quantity in stock',
+    example: 150,
+  })
   @IsInt()
   @IsNotEmpty()
   quantity: number;
 
-  @ApiProperty({ required: false, example: 'bags' })
+  @ApiProperty({
+    required: false,
+    description: 'Unit of measurement',
+    example: '50kg bags',
+  })
   @IsString()
   @IsOptional()
   unit?: string;
 
-  @ApiProperty({ example: 'Warehouse A, Section 2' })
+  @ApiProperty({
+    description: 'Current storage location',
+    example: 'Main Warehouse, Section A, Shelf 3',
+  })
   @IsString()
   @IsNotEmpty()
   currentLocation: string;
 
-  @ApiProperty({ example: 'Good' })
+  @ApiProperty({
+    description: 'Current condition of the item',
+    example: 'Excellent',
+    enum: ['Excellent', 'Good', 'Fair', 'Poor', 'Damaged'],
+  })
   @IsString()
   @IsNotEmpty()
   condition: string;
 
-  @ApiProperty({ required: false, example: 2500.0 })
+  @ApiProperty({
+    required: false,
+    description: 'Purchase price per unit in KES',
+    example: 3500.0,
+  })
   @IsNumber(
     { maxDecimalPlaces: 2 },
     { message: 'purchasePrice must be a number' },
@@ -61,22 +90,38 @@ export class CreateGoodsDto {
   @IsOptional()
   purchasePrice?: number;
 
-  @ApiProperty({ required: false, example: '2024-12-01T00:00:00.000Z' })
+  @ApiProperty({
+    required: false,
+    description: 'Date when the item was purchased',
+    example: '2024-12-01T00:00:00.000Z',
+  })
   @IsDateString()
   @IsOptional()
   purchaseDate?: Date;
 
-  @ApiProperty({ required: false, example: 'Agro Supplies Ltd' })
+  @ApiProperty({
+    required: false,
+    description: 'Supplier or vendor name',
+    example: 'Kenya Agricultural Supplies Ltd',
+  })
   @IsString()
   @IsOptional()
   supplier?: string;
 
-  @ApiProperty({ required: false, example: '2025-06-01T00:00:00.000Z' })
+  @ApiProperty({
+    required: false,
+    description: 'Expiration or best before date',
+    example: '2025-06-01T00:00:00.000Z',
+  })
   @IsDateString()
   @IsOptional()
   expirationDate?: Date;
 
-  @ApiProperty({ required: false, example: '2025-03-01T00:00:00.000Z' })
+  @ApiProperty({
+    required: false,
+    description: 'Next scheduled inspection date',
+    example: '2025-03-01T00:00:00.000Z',
+  })
   @IsDateString()
   @IsOptional()
   nextInspectionDate?: Date;
