@@ -14,12 +14,14 @@ import { SalesModule } from './sales/sales.module';
 import { AccountingModule } from './accounting/accounting.module';
 import { AnalyticsModule } from './analytics/analytics.module';
 import { HomeModule } from './home/home.module';
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    CommonModule,
     AuthModule,
     PrismaModule,
     UsersModule,
