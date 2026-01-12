@@ -258,4 +258,112 @@ export class AccountingController {
   async getBalanceSheet(@Query() query: FinancialReportQueryDto) {
     return this.accountingService.getBalanceSheet(query);
   }
+
+  @Get('chart-of-accounts')
+  @ApiOperation({
+    summary: 'Get Chart of Accounts',
+    description:
+      'Generate chart of accounts showing all account categories with balances based on farm data',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Successfully generated chart of accounts',
+    schema: {
+      type: 'object',
+      example: {
+        period: 'This month',
+        startDate: '2025-05-01',
+        endDate: '2025-05-31',
+        assets: {
+          current: [
+            {
+              name: 'Goods in Stock',
+              code: '1205',
+              balance: 15000,
+              type: 'debit',
+            },
+            {
+              name: 'Cash/Bank',
+              code: '1200',
+              balance: 25000,
+              type: 'debit',
+            },
+          ],
+          nonCurrent: [
+            {
+              name: 'Livestock',
+              code: '1300',
+              balance: 2850000,
+              type: 'debit',
+            },
+            {
+              name: 'Water',
+              code: '1400',
+              balance: 500000,
+              type: 'debit',
+            },
+            {
+              name: 'Power',
+              code: '1500',
+              balance: 200000,
+              type: 'debit',
+            },
+            {
+              name: 'Facilities',
+              code: '1600',
+              balance: 1000000,
+              type: 'debit',
+            },
+            {
+              name: 'Machinery',
+              code: '1700',
+              balance: 300000,
+              type: 'debit',
+            },
+          ],
+        },
+        revenue: [
+          {
+            name: 'DairySales',
+            code: '4100',
+            balance: 15000,
+            type: 'credit',
+          },
+          {
+            name: 'BeefSales',
+            code: '4200',
+            balance: 25000,
+            type: 'credit',
+          },
+        ],
+        expenses: [
+          {
+            name: 'Feeding',
+            code: '5100',
+            balance: 8000,
+            type: 'debit',
+          },
+          {
+            name: 'Health',
+            code: '5200',
+            balance: 5000,
+            type: 'debit',
+          },
+        ],
+        liabilities: [
+          {
+            name: 'PAYE',
+            code: '2100',
+            balance: 2000,
+            type: 'credit',
+          },
+        ],
+      },
+    },
+  })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  @ApiResponse({ status: 404, description: 'Farm not found' })
+  async getChartOfAccounts(@Query() query: FinancialReportQueryDto) {
+    return this.accountingService.getChartOfAccounts(query);
+  }
 }

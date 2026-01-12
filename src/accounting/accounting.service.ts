@@ -607,4 +607,478 @@ export class AccountingService {
         Math.abs(totalAssets - (totalLiabilities + totalEquity)) < 0.01,
     };
   }
+
+  async getChartOfAccounts(query: FinancialReportQueryDto) {
+    const {
+      farmId,
+      period = ReportPeriod.THIS_MONTH,
+      startDate,
+      endDate,
+    } = query;
+    const { start, end } = this.getDateRange(period, startDate, endDate);
+
+    // Verify farm exists
+    const farm = await this.prisma.farm.findUnique({ where: { id: farmId } });
+    if (!farm) {
+      throw new NotFoundException(`Farm with ID ${farmId} not found`);
+    }
+
+    // ASSETS - Current Assets
+    // 1205 - Goods in Stock
+    const goodsInStock = await this.prisma.goodsInStock.findMany({
+      where: { inventory: { farmId } },
+      select: { purchasePrice: true },
+    });
+    const goodsInStockValue = goodsInStock.reduce(
+      (sum, item) => sum + (item.purchasePrice || 0),
+      0,
+    );
+
+    // 1200 - Cash/Bank (from sales)
+    const [salesData, saleListingsData] = await Promise.all([
+      this.prisma.sale.findMany({
+        where: {
+          livestock: { farmId },
+          saleDate: { gte: start, lte: end },
+        },
+        select: { saleAmount: true },
+      }),
+      this.prisma.saleListing.findMany({
+        where: {
+          farmId,
+          status: 'sold',
+          saleDate: { gte: start, lte: end },
+        },
+        select: {
+          saleAmount: true,
+          price: true,
+          pricePerBird: true,
+          salePrice: true,
+          quantity: true,
+        },
+      }),
+    ]);
+
+    const directSales = salesData.reduce(
+      (sum, sale) => sum + sale.saleAmount,
+      0,
+    );
+    const listingSales = saleListingsData.reduce((sum, listing) => {
+      const amount =
+        listing.saleAmount ||
+        listing.salePrice ||
+        (listing.pricePerBird && listing.quantity
+          ? listing.pricePerBird * listing.quantity
+          : 0) ||
+        listing.price;
+      return sum + (amount || 0);
+    }, 0);
+    const cashBankBalance = directSales + listingSales;
+
+    // ASSETS - Non-Current Assets
+    // 1300 - Livestock (current value + newborns)
+    const livestockValue = await this.prisma.saleListing.findMany({
+      where: { farmId, status: { in: ['available', 'reserved'] } },
+      select: { price: true, quantity: true },
+    });
+    const currentLivestockValue = livestockValue.reduce(
+      (sum, item) => sum + item.price * (item.quantity || 1),
+      0,
+    );
+
+    // Add value of newborn offspring
+    const newborns = await this.prisma.breedingRecord.findMany({
+      where: {
+        farmId,
+        birthRecorded: true,
+        birthDate: { gte: start, lte: end },
+      },
+      select: { youngOnes: true },
+    });
+    const newbornValue = newborns.reduce((sum, record) => {
+      const estimatedValuePerCalf = 10000; // This should be configurable
+      return sum + (record.youngOnes || 0) * estimatedValuePerCalf;
+    }, 0);
+    const totalLivestockValue = currentLivestockValue + newbornValue;
+
+    // 1400 - Water
+    const waterAssets = await this.prisma.water.findMany({
+      where: { inventory: { farmId } },
+      select: { waterConstructionCost: true },
+    });
+    const waterValue = waterAssets.reduce(
+      (sum, water) => sum + (water.waterConstructionCost || 0),
+      0,
+    );
+
+    // 1500 - Power
+    const powerAssets = await this.prisma.power.findMany({
+      where: { inventory: { farmId } },
+      select: { powerInstallationCost: true },
+    });
+    const powerValue = powerAssets.reduce(
+      (sum, power) => sum + (power.powerInstallationCost || 0),
+      0,
+    );
+
+    // 1600 - Facilities
+    const facilities = await this.prisma.utility.findMany({
+      where: { inventory: { farmId } },
+      select: { constructionCost: true },
+    });
+    const facilitiesValue = facilities.reduce(
+      (sum, facility) => sum + (facility.constructionCost || 0),
+      0,
+    );
+
+    // 1700 - Machinery
+    const machinery = await this.prisma.machinery.findMany({
+      where: { inventory: { farmId } },
+      select: { purchasePrice: true },
+    });
+    const machineryValue = machinery.reduce(
+      (sum, machine) => sum + (machine.purchasePrice || 0),
+      0,
+    );
+
+    // REVENUE
+    const revenueData = await this.calculateRevenueByCategory(
+      farmId,
+      start,
+      end,
+    );
+
+    // EXPENSES
+    const expenseData = await this.calculateExpensesByCategory(
+      farmId,
+      start,
+      end,
+    );
+
+    // LIABILITIES
+    const liabilityData = await this.calculateLiabilities(farmId, start, end);
+
+    return {
+      period,
+      startDate: start.toISOString().split('T')[0],
+      endDate: end.toISOString().split('T')[0],
+      assets: {
+        current: [
+          {
+            name: 'Goods in Stock',
+            code: '1205',
+            balance: goodsInStockValue,
+            type: 'debit',
+          },
+          {
+            name: 'Cash/Bank',
+            code: '1200',
+            balance: cashBankBalance,
+            type: 'debit',
+          },
+        ],
+        nonCurrent: [
+          {
+            name: 'Livestock',
+            code: '1300',
+            balance: totalLivestockValue,
+            type: 'debit',
+          },
+          {
+            name: 'Water',
+            code: '1400',
+            balance: waterValue,
+            type: 'debit',
+          },
+          {
+            name: 'Power',
+            code: '1500',
+            balance: powerValue,
+            type: 'debit',
+          },
+          {
+            name: 'Facilities',
+            code: '1600',
+            balance: facilitiesValue,
+            type: 'debit',
+          },
+          {
+            name: 'Machinery',
+            code: '1700',
+            balance: machineryValue,
+            type: 'debit',
+          },
+        ],
+      },
+      revenue: revenueData,
+      expenses: expenseData,
+      liabilities: liabilityData,
+    };
+  }
+
+  private async calculateRevenueByCategory(
+    farmId: string,
+    start: Date,
+    end: Date,
+  ) {
+    // Get all sales by category
+    const salesByCategory = await this.prisma.saleListing.findMany({
+      where: {
+        farmId,
+        status: 'sold',
+        saleDate: { gte: start, lte: end },
+      },
+      select: {
+        category: true,
+        saleAmount: true,
+        salePrice: true,
+        price: true,
+        pricePerBird: true,
+        quantity: true,
+      },
+    });
+
+    const revenue = [
+      { name: 'DairySales', code: '4100', balance: 0, type: 'credit' },
+      { name: 'BeefSales', code: '4200', balance: 0, type: 'credit' },
+      { name: 'GoatMilk', code: '4300', balance: 0, type: 'credit' },
+      { name: 'GoatMeat', code: '4310', balance: 0, type: 'credit' },
+      { name: 'SheepWool', code: '4320', balance: 0, type: 'credit' },
+      { name: 'SheepMeat', code: '4330', balance: 0, type: 'credit' },
+      { name: 'LiveAnimals', code: '4340', balance: 0, type: 'credit' },
+      { name: 'EggSales', code: '4350', balance: 0, type: 'credit' },
+      { name: 'BroilerSales', code: '4360', balance: 0, type: 'credit' },
+      { name: 'Rabbits', code: '4370', balance: 0, type: 'credit' },
+      { name: 'PigSales', code: '4380', balance: 0, type: 'credit' },
+    ];
+
+    salesByCategory.forEach((sale) => {
+      const amount =
+        sale.saleAmount ||
+        sale.salePrice ||
+        (sale.pricePerBird && sale.quantity
+          ? sale.pricePerBird * sale.quantity
+          : 0) ||
+        sale.price ||
+        0;
+
+      switch (sale.category?.toLowerCase()) {
+        case 'dairycattle':
+          revenue.find((r) => r.code === '4100').balance += amount;
+          break;
+        case 'beefcattle':
+          revenue.find((r) => r.code === '4200').balance += amount;
+          break;
+        case 'dairygoats':
+          revenue.find((r) => r.code === '4300').balance += amount;
+          break;
+        case 'meatgoats':
+          revenue.find((r) => r.code === '4310').balance += amount;
+          break;
+        case 'sheep':
+          // Determine if wool or meat based on additional context
+          revenue.find((r) => r.code === '4330').balance += amount; // Default to meat
+          break;
+        case 'poultry':
+          // Determine if eggs or broiler based on additional context
+          revenue.find((r) => r.code === '4360').balance += amount; // Default to broiler
+          break;
+        case 'rabbits':
+          revenue.find((r) => r.code === '4370').balance += amount;
+          break;
+        case 'swine':
+          revenue.find((r) => r.code === '4380').balance += amount;
+          break;
+        default:
+          revenue.find((r) => r.code === '4340').balance += amount; // Live animals
+      }
+    });
+
+    return revenue.filter((r) => r.balance > 0);
+  }
+
+  private async calculateExpensesByCategory(
+    farmId: string,
+    start: Date,
+    end: Date,
+  ) {
+    // 5100 - Feeding (cost + transport cost from feedDetails)
+    const feedingExpenses = await this.prisma.feedDetails.findMany({
+      where: {
+        feedingProgram: { farmId },
+        date: { gte: start, lte: end },
+      },
+      select: { cost: true, transportCost: true },
+    });
+    const feedingTotal = feedingExpenses.reduce(
+      (sum, feed) => sum + (feed.cost || 0) + (feed.transportCost || 0),
+      0,
+    );
+
+    // 5200 - Health (all health-related costs)
+    const [treatments, vaccinations, dewormings, boosters] = await Promise.all([
+      this.prisma.treatmentRecord.findMany({
+        where: {
+          farmId,
+          dateAdministered: { gte: start, lte: end },
+        },
+        select: { costOfDrugs: true, costOfService: true },
+      }),
+      this.prisma.vaccinationRecord.findMany({
+        where: {
+          farmId,
+          dateAdministered: { gte: start, lte: end },
+        },
+        select: { costOfVaccine: true, costOfService: true },
+      }),
+      this.prisma.dewormingRecord.findMany({
+        where: {
+          farmId,
+          dateAdministered: { gte: start, lte: end },
+        },
+        select: { costOfVaccine: true, costOfService: true },
+      }),
+      this.prisma.boosterRecord.findMany({
+        where: {
+          farmId,
+          dateAdministered: { gte: start, lte: end },
+        },
+        select: { costOfBooster: true },
+      }),
+    ]);
+
+    const healthTotal = [
+      ...treatments.map((t) => (t.costOfDrugs || 0) + (t.costOfService || 0)),
+      ...vaccinations.map(
+        (v) => (v.costOfVaccine || 0) + (v.costOfService || 0),
+      ),
+      ...dewormings.map((d) => (d.costOfVaccine || 0) + (d.costOfService || 0)),
+      ...boosters.map((b) => b.costOfBooster || 0),
+    ].reduce((sum, cost) => sum + cost, 0);
+
+    // 5300 - Breeding (AI costs)
+    const breedingExpenses = await this.prisma.breedingRecord.findMany({
+      where: {
+        farmId,
+        serviceDate: { gte: start, lte: end },
+      },
+      select: { aiCost: true },
+    });
+    const breedingTotal = breedingExpenses.reduce(
+      (sum, breeding) => sum + (breeding.aiCost || 0),
+      0,
+    );
+
+    // 5400 - Inventory (maintenance costs)
+    const [powerMaintenance, waterMaintenance, utilityMaintenance] =
+      await Promise.all([
+        this.prisma.power.findMany({
+          where: { inventory: { farmId } },
+          select: { consumptionCost: true },
+        }),
+        this.prisma.water.findMany({
+          where: { inventory: { farmId } },
+          select: { waterConstructionCost: true }, // No maintenance cost field in schema
+        }),
+        this.prisma.utility.findMany({
+          where: { inventory: { farmId } },
+          select: { maintenanceCost: true },
+        }),
+      ]);
+
+    const inventoryTotal = [
+      ...powerMaintenance.map((p) => p.consumptionCost || 0),
+      ...utilityMaintenance.map((u) => u.maintenanceCost || 0),
+    ].reduce((sum, cost) => sum + cost, 0);
+
+    // 5500 - Sales (transport costs - currently zero as not captured)
+    const salesTotal = 0;
+
+    // 5600 - Employees (salaries and wages)
+    const employees = await this.prisma.employee.findMany({
+      where: {
+        farms: { some: { farmId } },
+        dateOfEmployment: { lte: end },
+        OR: [{ endDate: null }, { endDate: { gte: start } }],
+      },
+      select: { salary: true, paymentSchedule: true },
+    });
+
+    const monthsInPeriod = Math.ceil(
+      (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 30),
+    );
+    const employeeTotal = employees.reduce((sum, emp) => {
+      const monthlySalary =
+        emp.paymentSchedule === 'Monthly' ? emp.salary : emp.salary / 12;
+      return sum + monthlySalary * monthsInPeriod;
+    }, 0);
+
+    const expenses = [
+      { name: 'Feeding', code: '5100', balance: feedingTotal, type: 'debit' },
+      { name: 'Health', code: '5200', balance: healthTotal, type: 'debit' },
+      { name: 'Breeding', code: '5300', balance: breedingTotal, type: 'debit' },
+      {
+        name: 'Inventory',
+        code: '5400',
+        balance: inventoryTotal,
+        type: 'debit',
+      },
+      { name: 'Sales', code: '5500', balance: salesTotal, type: 'debit' },
+      {
+        name: 'Employees',
+        code: '5600',
+        balance: employeeTotal,
+        type: 'debit',
+      },
+    ];
+
+    return expenses.filter((e) => e.balance > 0);
+  }
+
+  private async calculateLiabilities(farmId: string, start: Date, end: Date) {
+    // Get employee benefits (payables)
+    const employeeBenefits = await this.prisma.employeeBenefit.findMany({
+      where: {
+        employee: {
+          farms: { some: { farmId } },
+        },
+      },
+      select: { name: true, amount: true },
+    });
+
+    const liabilities = [
+      { name: 'PAYE', code: '2100', balance: 0, type: 'credit' },
+      { name: 'NSSF', code: '2200', balance: 0, type: 'credit' },
+      { name: 'Housing Levy', code: '2300', balance: 0, type: 'credit' },
+      { name: 'SACCOs', code: '2400', balance: 0, type: 'credit' },
+      { name: 'NITA', code: '2500', balance: 0, type: 'credit' },
+      { name: 'SHIF', code: '2600', balance: 0, type: 'credit' },
+    ];
+
+    employeeBenefits.forEach((benefit) => {
+      const amount = benefit.amount || 0;
+      switch (benefit.name?.toUpperCase()) {
+        case 'PAYE':
+          liabilities.find((l) => l.code === '2100').balance += amount;
+          break;
+        case 'NSSF':
+          liabilities.find((l) => l.code === '2200').balance += amount;
+          break;
+        case 'HOUSING LEVY':
+          liabilities.find((l) => l.code === '2300').balance += amount;
+          break;
+        case 'SACCOS':
+          liabilities.find((l) => l.code === '2400').balance += amount;
+          break;
+        case 'NITA':
+          liabilities.find((l) => l.code === '2500').balance += amount;
+          break;
+        case 'SHIF':
+          liabilities.find((l) => l.code === '2600').balance += amount;
+          break;
+      }
+    });
+
+    return liabilities.filter((l) => l.balance > 0);
+  }
 }
