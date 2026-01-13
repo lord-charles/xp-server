@@ -16,247 +16,33 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 export class AccountingController {
   constructor(private readonly accountingService: AccountingService) {}
 
-  @Get('profit-loss')
+  @Get('overview')
   @ApiOperation({
-    summary: 'Get Profit & Loss Statement',
+    summary: 'Get Financial Overview',
     description:
-      'Generate profit and loss statement based on farm operations data including sales, expenses, and costs',
+      'Get financial overview stats for the dashboard cards including total revenue, expenses, profit, and cash flow',
   })
   @ApiResponse({
     status: 200,
-    description: 'Successfully generated profit & loss statement',
+    description: 'Successfully generated financial overview',
     schema: {
       type: 'object',
       example: {
         period: 'This month',
-        startDate: '2025-05-01',
-        endDate: '2025-05-31',
-        revenue: {
-          dairySales: 1090,
-          beefSales: 3500,
-          biologicalGains: 10000,
-          total: 14590,
-        },
-        costOfGoodsSold: {
-          feeds: 840,
-          healthVaccination: 215,
-          healthDeworming: 215,
-          healthTreatment: 215,
-          healthBoosters: 380,
-          salariesAndWages: 2240,
-          breedingServices: 255,
-          total: 4460,
-        },
-        grossProfit: 10130,
-        operatingExpenses: {
-          total: 0,
-        },
+        startDate: '2025-01-01',
+        endDate: '2025-01-31',
+        totalRevenue: 14590,
+        totalExpenses: 4460,
         netProfit: 10130,
-        margins: {
-          grossMargin: 69.4,
-          netMargin: 69.4,
-        },
+        cashFlow: 3320,
+        profitMargin: 69.4,
       },
     },
   })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   @ApiResponse({ status: 404, description: 'Farm not found' })
-  async getProfitAndLoss(@Query() query: FinancialReportQueryDto) {
-    return this.accountingService.getProfitAndLoss(query);
-  }
-
-  @Get('cash-flow')
-  @ApiOperation({
-    summary: 'Get Cash Flow Statement',
-    description:
-      'Generate cash flow statement showing operating, investing, and financing activities',
-  })
-  @ApiResponse({
-    status: 200,
-    description: 'Successfully generated cash flow statement',
-    schema: {
-      type: 'object',
-      example: {
-        period: 'This month',
-        startDate: '2025-05-01',
-        endDate: '2025-05-31',
-        operatingActivities: {
-          inflows: {
-            dairySales: 4590,
-            total: 4590,
-          },
-          outflows: {
-            feedPurchases: 840,
-            vaccinationExpenses: 215,
-            treatmentExpenses: 215,
-            total: 1270,
-          },
-          netOperatingCash: 3320,
-        },
-        investingActivities: {
-          outflows: [
-            {
-              description: 'water infrastructure',
-              amount: 2070000,
-            },
-          ],
-          netInvestingCash: -2070000,
-        },
-        financingActivities: {
-          netFinancingCash: 0,
-        },
-        netCashMovement: -2066680,
-        cashFlowHealth: {
-          operatingCashRatio: 72.3,
-          isPositiveOperatingCash: true,
-        },
-      },
-    },
-  })
-  @ApiResponse({ status: 401, description: 'Unauthorized' })
-  @ApiResponse({ status: 404, description: 'Farm not found' })
-  async getCashFlow(@Query() query: FinancialReportQueryDto) {
-    return this.accountingService.getCashFlow(query);
-  }
-
-  @Get('trial-balance')
-  @ApiOperation({
-    summary: 'Get Trial Balance',
-    description:
-      'Generate trial balance showing all account balances with debits and credits',
-  })
-  @ApiResponse({
-    status: 200,
-    description: 'Successfully generated trial balance',
-    schema: {
-      type: 'object',
-      example: {
-        period: 'This month',
-        startDate: '2025-05-01',
-        endDate: '2025-05-31',
-        accounts: [
-          {
-            account: 'Bank/Cash',
-            debit: 10130,
-            credit: 0,
-            balance: 10130,
-          },
-          {
-            account: 'Dairy Sales',
-            debit: 0,
-            credit: 1090,
-            balance: -1090,
-          },
-          {
-            account: 'Feeds',
-            debit: 840,
-            credit: 0,
-            balance: 840,
-          },
-        ],
-        totals: {
-          totalDebits: 14590,
-          totalCredits: 14590,
-          isBalanced: true,
-          variance: 0,
-        },
-      },
-    },
-  })
-  @ApiResponse({ status: 401, description: 'Unauthorized' })
-  @ApiResponse({ status: 404, description: 'Farm not found' })
-  async getTrialBalance(@Query() query: FinancialReportQueryDto) {
-    return this.accountingService.getTrialBalance(query);
-  }
-
-  @Get('general-ledger')
-  @ApiOperation({
-    summary: 'Get General Ledger',
-    description:
-      'Generate general ledger showing account summaries with account types',
-  })
-  @ApiResponse({
-    status: 200,
-    description: 'Successfully generated general ledger',
-    schema: {
-      type: 'object',
-      example: {
-        period: 'This month',
-        startDate: '2025-05-01',
-        endDate: '2025-05-31',
-        accounts: [
-          {
-            account: 'Bank/Cash',
-            debit: 10130,
-            credit: 0,
-            balance: 10130,
-            accountType: 'Assets',
-          },
-          {
-            account: 'Dairy Sales',
-            debit: 0,
-            credit: 1090,
-            balance: -1090,
-            accountType: 'Revenue',
-          },
-        ],
-        totals: {
-          totalDebits: 14590,
-          totalCredits: 14590,
-          isBalanced: true,
-          variance: 0,
-        },
-      },
-    },
-  })
-  @ApiResponse({ status: 401, description: 'Unauthorized' })
-  @ApiResponse({ status: 404, description: 'Farm not found' })
-  async getGeneralLedger(@Query() query: FinancialReportQueryDto) {
-    return this.accountingService.getGeneralLedger(query);
-  }
-
-  @Get('balance-sheet')
-  @ApiOperation({
-    summary: 'Get Balance Sheet',
-    description:
-      'Generate balance sheet showing assets, liabilities, and equity',
-  })
-  @ApiResponse({
-    status: 200,
-    description: 'Successfully generated balance sheet',
-    schema: {
-      type: 'object',
-      example: {
-        period: 'This month',
-        assets: {
-          currentAssets: {
-            cashAndBank: 10130,
-            total: 10130,
-          },
-          nonCurrentAssets: {
-            livestock: 2850000,
-            infrastructure: 2214500,
-            total: 5064500,
-          },
-          totalAssets: 5074630,
-        },
-        liabilities: {
-          currentLiabilities: { total: 0 },
-          nonCurrentLiabilities: { total: 0 },
-          totalLiabilities: 0,
-        },
-        equity: {
-          ownersEquity: 5074630,
-          totalEquity: 5074630,
-        },
-        isBalanced: true,
-      },
-    },
-  })
-  @ApiResponse({ status: 401, description: 'Unauthorized' })
-  @ApiResponse({ status: 404, description: 'Farm not found' })
-  async getBalanceSheet(@Query() query: FinancialReportQueryDto) {
-    return this.accountingService.getBalanceSheet(query);
+  async getFinancialOverview(@Query() query: FinancialReportQueryDto) {
+    return this.accountingService.getFinancialOverview(query);
   }
 
   @Get('chart-of-accounts')
@@ -272,8 +58,8 @@ export class AccountingController {
       type: 'object',
       example: {
         period: 'This month',
-        startDate: '2025-05-01',
-        endDate: '2025-05-31',
+        startDate: '2025-01-01',
+        endDate: '2025-01-31',
         assets: {
           current: [
             {
@@ -296,30 +82,6 @@ export class AccountingController {
               balance: 2850000,
               type: 'debit',
             },
-            {
-              name: 'Water',
-              code: '1400',
-              balance: 500000,
-              type: 'debit',
-            },
-            {
-              name: 'Power',
-              code: '1500',
-              balance: 200000,
-              type: 'debit',
-            },
-            {
-              name: 'Facilities',
-              code: '1600',
-              balance: 1000000,
-              type: 'debit',
-            },
-            {
-              name: 'Machinery',
-              code: '1700',
-              balance: 300000,
-              type: 'debit',
-            },
           ],
         },
         revenue: [
@@ -329,24 +91,12 @@ export class AccountingController {
             balance: 15000,
             type: 'credit',
           },
-          {
-            name: 'BeefSales',
-            code: '4200',
-            balance: 25000,
-            type: 'credit',
-          },
         ],
         expenses: [
           {
             name: 'Feeding',
             code: '5100',
             balance: 8000,
-            type: 'debit',
-          },
-          {
-            name: 'Health',
-            code: '5200',
-            balance: 5000,
             type: 'debit',
           },
         ],
@@ -365,5 +115,178 @@ export class AccountingController {
   @ApiResponse({ status: 404, description: 'Farm not found' })
   async getChartOfAccounts(@Query() query: FinancialReportQueryDto) {
     return this.accountingService.getChartOfAccounts(query);
+  }
+
+  @Get('journals/sales')
+  @ApiOperation({
+    summary: 'Get Sales Journal',
+    description:
+      'Generate sales journal entries from livestock sales and sale listings',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Successfully generated sales journal',
+    schema: {
+      type: 'object',
+      example: {
+        period: 'This month',
+        startDate: '2025-01-01',
+        endDate: '2025-01-31',
+        entries: [
+          {
+            id: 1,
+            date: '2025-01-15',
+            reference: 'RCP-001',
+            description: 'Sale of 25L of Milk',
+            account: 'DairySales',
+            debit: null,
+            credit: 1250,
+          },
+          {
+            id: 2,
+            date: '2025-01-15',
+            reference: 'RCP-001',
+            description: 'Sale of 25L of Milk',
+            account: 'Cash/Bank',
+            debit: 1250,
+            credit: null,
+          },
+        ],
+        totals: {
+          totalDebits: 14590,
+          totalCredits: 14590,
+          entryCount: 15,
+        },
+      },
+    },
+  })
+  async getSalesJournal(@Query() query: FinancialReportQueryDto) {
+    return this.accountingService.getSalesJournal(query);
+  }
+
+  @Get('journals/purchases')
+  @ApiOperation({
+    summary: 'Get Purchases Journal',
+    description:
+      'Generate purchases journal entries from feed purchases, health expenses, and other purchases',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Successfully generated purchases journal',
+  })
+  async getPurchasesJournal(@Query() query: FinancialReportQueryDto) {
+    return this.accountingService.getPurchasesJournal(query);
+  }
+
+  @Get('journals/assets')
+  @ApiOperation({
+    summary: 'Get Assets Journal',
+    description:
+      'Generate assets journal entries from machinery, utilities, water, and power installations',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Successfully generated assets journal',
+  })
+  async getAssetsJournal(@Query() query: FinancialReportQueryDto) {
+    return this.accountingService.getAssetsJournal(query);
+  }
+
+  @Get('journals/payroll')
+  @ApiOperation({
+    summary: 'Get Payroll Journal',
+    description:
+      'Generate payroll journal entries from employee salaries and benefits',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Successfully generated payroll journal',
+  })
+  async getPayrollJournal(@Query() query: FinancialReportQueryDto) {
+    return this.accountingService.getPayrollJournal(query);
+  }
+
+  @Get('journals/general')
+  @ApiOperation({
+    summary: 'Get General Journal',
+    description:
+      'Generate general journal entries including biological gains and other miscellaneous entries',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Successfully generated general journal',
+  })
+  async getGeneralJournal(@Query() query: FinancialReportQueryDto) {
+    return this.accountingService.getGeneralJournal(query);
+  }
+
+  @Get('general-ledger')
+  @ApiOperation({
+    summary: 'Get General Ledger',
+    description:
+      'Generate general ledger showing account summaries with account types',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Successfully generated general ledger',
+  })
+  async getGeneralLedger(@Query() query: FinancialReportQueryDto) {
+    return this.accountingService.getGeneralLedger(query);
+  }
+
+  @Get('reports/trial-balance')
+  @ApiOperation({
+    summary: 'Get Trial Balance Report',
+    description:
+      'Generate trial balance report showing all account balances with debits and credits for verification',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Successfully generated trial balance report',
+  })
+  async getTrialBalance(@Query() query: FinancialReportQueryDto) {
+    return this.accountingService.getTrialBalance(query);
+  }
+
+  @Get('reports/balance-sheet')
+  @ApiOperation({
+    summary: 'Get Balance Sheet Report',
+    description:
+      'Generate balance sheet report showing financial position with assets, liabilities, and equity',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Successfully generated balance sheet report',
+  })
+  async getBalanceSheetReport(@Query() query: FinancialReportQueryDto) {
+    return this.accountingService.getBalanceSheet(query);
+  }
+
+  @Get('reports/profit-loss')
+  @ApiOperation({
+    summary: 'Get Profit & Loss Report',
+    description:
+      'Generate profit and loss statement showing revenue, expenses, and profitability',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Successfully generated profit & loss report',
+  })
+  async getProfitAndLossReport(@Query() query: FinancialReportQueryDto) {
+    return this.accountingService.getProfitAndLoss(query);
+  }
+
+  @Get('reports/cash-flow')
+  @ApiOperation({
+    summary: 'Get Cash Flow Report',
+    description:
+      'Generate cash flow statement showing operating, investing, and financing activities',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Successfully generated cash flow report',
+  })
+  async getCashFlowReport(@Query() query: FinancialReportQueryDto) {
+    return this.accountingService.getCashFlow(query);
   }
 }
