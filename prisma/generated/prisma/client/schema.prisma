@@ -64,6 +64,7 @@ model Farm {
   geneticDisorderRecords GeneticDisorderRecord[]
   treatmentRecords       TreatmentRecord[]
   saleListings           SaleListing[]
+  cropCycles             CropCycle[]
 }
 
 model Employee {
@@ -645,4 +646,52 @@ model SaleListing {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CROPS MODULE
+// ─────────────────────────────────────────────────────────────────────────────
+
+model CropCycle {
+  id            String   @id @default(cuid())
+  farmId        String
+  farm          Farm     @relation(fields: [farmId], references: [id], onDelete: Cascade)
+  name          String
+  startDate     String
+  endDate       String?
+  landSelection String // "entire" | "input"
+  landSize      Float?
+  landUnit      String   @default("acres")
+  status        String   @default("Active") // Active | Complete | Planned
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  crops Crop[]
+
+  @@index([farmId])
+}
+
+model Crop {
+  id                  String    @id @default(cuid())
+  cycleId             String
+  cycle               CropCycle @relation(fields: [cycleId], references: [id], onDelete: Cascade)
+  farmId              String
+  cropName            String
+  category            String?
+  variety             String?
+  areaSize            Float
+  areaUnit            String    @default("acres")
+  plantingDate        String
+  expectedHarvestDate String
+  status              String    @default("Active") // Active | Complete
+  progress            Int       @default(0)
+  currentActivity     String?
+  icon                String?
+  color               String?
+  notes               String?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  @@index([cycleId])
+  @@index([farmId])
 }

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document analyzes the implementation of the comprehensive journal system based on existing schema data and identifies gaps that prevent complete implementation.
+This document analyzes the implementation of the comprehensive journal system based on existing schema data and identifies actual gaps that prevent complete implementation.
 
 ## Implemented Journal Endpoints
 
@@ -16,7 +16,7 @@ This document analyzes the implementation of the comprehensive journal system ba
 **Mapping:**
 
 - **Date**: `saleDate` from both tables
-- **Reference**: Auto-generated `INV-001`, `INV-002`, etc.
+- **Reference**: Uses existing `receiptNumber` field, falls back to auto-generated `INV-001`, `INV-002`, etc.
 - **Description**: Generated from sale details
 - **Debit Account**: Always `Cash/Bank`
 - **Credit Account**: Mapped by category:
@@ -43,7 +43,7 @@ This document analyzes the implementation of the comprehensive journal system ba
 
 **Mapping:**
 
-- **Reference**: Auto-generated `XPAY-001`, `XPAY-002`, etc.
+- **Reference**: Uses existing fields (`batchNumber`, `sku`, `practiceId`, `licenseId`) or auto-generated
 - **Debit Accounts**: `Feeding`, `Health`, `Breeding`, `GoodsInStock`
 - **Credit Account**: Always `Cash/Bank`
 - **Supplier**: Extracted from various supplier fields
@@ -59,7 +59,7 @@ This document analyzes the implementation of the comprehensive journal system ba
 
 **Mapping:**
 
-- **Reference**: `XEQP-001`, `XUTILS-001`, `XWAT-001`, `XPWR-001`
+- **Reference**: Uses `equipmentId` for machinery or auto-generated references
 - **Debit Accounts**: `Machinery`, `Facilities`, `Water`, `Power`
 - **Credit Account**: Always `Cash/Bank`
 
@@ -85,25 +85,24 @@ This document analyzes the implementation of the comprehensive journal system ba
 
 **Mapping:**
 
-- **Reference**: `XBIO-001`, `XBIO-002`, etc.
+- **Reference**: Uses existing `offspringId` or auto-generated `XBIO-001`, `XBIO-002`, etc.
 - **Debit Account**: `Livestock`
 - **Credit Account**: `Other Income` (biological gains)
 
-## Schema Gaps and Limitations
+## Actual Schema Gaps and Limitations
 
 ### Critical Missing Fields
 
 #### 1. Date Fields for Asset Transactions
 
-**Issue**: Several asset-related tables lack proper date fields for when transactions occurred.
+**Issue**: Some asset-related tables lack proper date fields for when transactions occurred.
 
 **Missing Fields:**
 
-- `Utility` table: No construction date field
-- `Power` table: No installation date field
-- Both tables have maintenance dates but no initial transaction dates
+- `Utility` table: No construction date field (only maintenance dates)
+- `Power` table: No installation date field (only maintenance dates)
 
-**Impact**: Asset journal entries use current date instead of actual transaction date
+**Impact**: Asset journal entries use current date instead of actual transaction date for these items
 
 **Workaround**: Using `new Date()` for missing dates, but this affects historical accuracy
 
@@ -132,46 +131,35 @@ This document analyzes the implementation of the comprehensive journal system ba
 
 **Impact**: Requires special handling in code with comments explaining inconsistencies
 
-#### 4. Transport and Additional Costs
+## Data Quality Observations
 
-**Issue**: Limited tracking of additional costs beyond primary purchase prices
+#### 1. Reference Number Coverage
 
-**Missing/Limited Fields:**
+**Available Fields:**
 
-- Transport costs only available in `FeedDetails`
-- No transport cost tracking for other purchases
-- No handling fees or additional charges
+- `receiptNumber` in Sale and SaleListing tables ✓
+- `batchNumber` and `sku` in GoodsInStock ✓
+- `equipmentId` in Machinery ✓
+- `practiceId` in VaccinationRecord and DewormingRecord ✓
+- `licenseId` in TreatmentRecord ✓
+- `offspringId` in Offspring ✓
 
-**Impact**: Some journal entries may not reflect total transaction costs
+**Coverage**: Good coverage of reference fields across most transaction types
 
-#### 5. Reference Number System
+#### 2. Supplier Information
 
-**Issue**: No existing reference number system in the database
+**Available Fields:**
 
-**Missing:**
-
-- No invoice numbers or transaction references stored
-- No sequential numbering system
-- No way to link related transactions
-
-**Impact**: Auto-generating references in code, but they're not persistent
-
-### Data Quality Issues
-
-#### 1. Supplier Information
-
-**Inconsistent Fields:**
-
-- `FeedDetails.supplier` (string)
-- `GoodsInStock.supplier` (string)
-- Various health records use different fields for provider names
+- `FeedDetails.supplier` (string) ✓
+- `GoodsInStock.supplier` (string) ✓
+- Various health records use different fields for provider names ✓
 
 **Missing Supplier Data:**
 
 - Asset purchases (machinery, utilities) have no supplier tracking
-- Many health services don't capture provider details consistently
+- Some health services don't capture provider details consistently
 
-#### 2. Account Classification
+#### 3. Account Classification
 
 **Issue**: No built-in account classification system
 
@@ -181,30 +169,18 @@ This document analyzes the implementation of the comprehensive journal system ba
 - No account codes stored in database
 - Account mapping done entirely in application logic
 
-#### 3. Transaction Linking
-
-**Issue**: No way to link related transactions or create compound entries
-
-**Missing:**
-
-- No transaction grouping mechanism
-- No way to reverse or adjust entries
-- No audit trail for journal entries
-
 ## Recommendations for Schema Improvements
 
 ### High Priority
 
 1. **Add Date Fields**: Add transaction date fields to `Utility` and `Power` tables
 2. **Livestock Valuation**: Add value fields to `Offspring` and create livestock valuation system
-3. **Fix Field Naming**: Standardize cost field names across health tables
-4. **Reference System**: Add transaction reference fields to all relevant tables
+3. **Fix Field Naming**: Standardize cost field names across health tables (rename `costOfVaccine` in DewormingRecord to `costOfDrug`)
 
 ### Medium Priority
 
 1. **Supplier Standardization**: Create supplier master table and standardize references
-2. **Transport Costs**: Add transport cost fields to all purchase-related tables
-3. **Account Codes**: Add account code fields to relevant tables
+2. **Account Codes**: Add account code fields to relevant tables
 
 ### Low Priority
 
@@ -216,24 +192,24 @@ This document analyzes the implementation of the comprehensive journal system ba
 
 ✅ **Completed:**
 
-- Sales Journal endpoint with SaleListing and Sale data
-- Purchases Journal with all expense categories
-- Assets Journal with machinery and infrastructure
+- Sales Journal endpoint with SaleListing and Sale data using existing `receiptNumber`
+- Purchases Journal with all expense categories using existing reference fields
+- Assets Journal with machinery using `equipmentId` and infrastructure
 - Payroll Journal with employee and benefit data
-- General Journal with biological gains
+- General Journal with biological gains using `offspringId`
 - Proper double-entry accounting structure
 - Error handling and data validation
+- Utilization of existing schema fields for references
 
 ⚠️ **Limitations:**
 
-- Some dates are approximated due to missing schema fields
+- Some dates are approximated due to missing schema fields (Utility and Power construction dates)
 - Livestock values are estimated rather than actual
-- Reference numbers are generated, not stored
-- Some supplier information may be incomplete
+- Some supplier information may be incomplete for asset purchases
 
 🔄 **Workarounds Applied:**
 
-- Using current date for missing transaction dates
+- Using current date for missing transaction dates in Utility and Power tables
 - Fixed livestock valuation (10,000 KES per newborn)
-- Auto-generating reference numbers with prefixes
-- Mapping inconsistent field names in code
+- Prioritizing existing reference fields over auto-generated ones
+- Mapping inconsistent field names in code (e.g., `costOfVaccine` in DewormingRecord)

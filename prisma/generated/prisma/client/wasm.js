@@ -625,6 +625,41 @@ exports.Prisma.SaleListingScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.CropCycleScalarFieldEnum = {
+  id: 'id',
+  farmId: 'farmId',
+  name: 'name',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  landSelection: 'landSelection',
+  landSize: 'landSize',
+  landUnit: 'landUnit',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CropScalarFieldEnum = {
+  id: 'id',
+  cycleId: 'cycleId',
+  farmId: 'farmId',
+  cropName: 'cropName',
+  category: 'category',
+  variety: 'variety',
+  areaSize: 'areaSize',
+  areaUnit: 'areaUnit',
+  plantingDate: 'plantingDate',
+  expectedHarvestDate: 'expectedHarvestDate',
+  status: 'status',
+  progress: 'progress',
+  currentActivity: 'currentActivity',
+  icon: 'icon',
+  color: 'color',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -670,7 +705,9 @@ exports.Prisma.ModelName = {
   DewormingRecord: 'DewormingRecord',
   GeneticDisorderRecord: 'GeneticDisorderRecord',
   TreatmentRecord: 'TreatmentRecord',
-  SaleListing: 'SaleListing'
+  SaleListing: 'SaleListing',
+  CropCycle: 'CropCycle',
+  Crop: 'Crop'
 };
 
 /**

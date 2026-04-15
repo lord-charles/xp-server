@@ -64,6 +64,7 @@ model Farm {
   geneticDisorderRecords GeneticDisorderRecord[]
   treatmentRecords       TreatmentRecord[]
   saleListings           SaleListing[]
+  cropCycles             CropCycle[]
 }
 
 model Employee {
@@ -331,18 +332,18 @@ model FeedingProgram {
 }
 
 model FeedDetails {
-  id        String   @id @default(cuid())
-  feedType  String
-  feedName  String?
-  source    String
-  schedule  String
-  quantity  Float
-  date      DateTime
-  cost      Float?
-  supplier  String?
+  id            String   @id @default(cuid())
+  feedType      String
+  feedName      String?
+  source        String
+  schedule      String
+  quantity      Float
+  date          DateTime
+  cost          Float?
+  supplier      String?
   transportCost Float?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 
   feedingProgramId String
   feedingProgram   FeedingProgram @relation(fields: [feedingProgramId], references: [id], onDelete: Cascade)
@@ -385,66 +386,66 @@ model GoodsInStock {
 }
 
 model Machinery {
-  id                   String    @id @default(cuid())
-  inventoryId          String
-  inventory            Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
-  equipmentName        String
-  equipmentId          String?
-  purchaseDate         DateTime?
-  purchasePrice        Float?
-  machineryLocation    String?
-  machineryCondition   String?
-  lastServiceDate      DateTime?
-  nextServiceDate      DateTime?
-  createdAt            DateTime  @default(now())
-  updatedAt            DateTime  @updatedAt
+  id                 String    @id @default(cuid())
+  inventoryId        String
+  inventory          Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
+  equipmentName      String
+  equipmentId        String?
+  purchaseDate       DateTime?
+  purchasePrice      Float?
+  machineryLocation  String?
+  machineryCondition String?
+  lastServiceDate    DateTime?
+  nextServiceDate    DateTime?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
 }
 
 model Utility {
-  id                    String    @id @default(cuid())
-  inventoryId           String
-  inventory             Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
-  structureType         String?
-  structureCapacity     String?
-  constructionCost      Float?
-  facilityCondition     String?
-  utilityLocation       String?
-  lastMaintenanceDate   DateTime?
-  nextMaintenanceDate   DateTime?
-  maintenanceCost       Float?
-  createdAt             DateTime  @default(now())
-  updatedAt             DateTime  @updatedAt
+  id                  String    @id @default(cuid())
+  inventoryId         String
+  inventory           Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
+  structureType       String?
+  structureCapacity   String?
+  constructionCost    Float?
+  facilityCondition   String?
+  utilityLocation     String?
+  lastMaintenanceDate DateTime?
+  nextMaintenanceDate DateTime?
+  maintenanceCost     Float?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
 }
 
 model Water {
-  id                        String    @id @default(cuid())
-  inventoryId               String
-  inventory                 Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
-  waterSource               String?
-  waterCapacity             String?
-  waterLevel                Float?
-  waterConstructionCost     Float?
-  waterLocation             String?
-  waterEntryDate            DateTime?
-  nextInspectionDateWater   DateTime?
-  createdAt                 DateTime  @default(now())
-  updatedAt                 DateTime  @updatedAt
+  id                      String    @id @default(cuid())
+  inventoryId             String
+  inventory               Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
+  waterSource             String?
+  waterCapacity           String?
+  waterLevel              Float?
+  waterConstructionCost   Float?
+  waterLocation           String?
+  waterEntryDate          DateTime?
+  nextInspectionDateWater DateTime?
+  createdAt               DateTime  @default(now())
+  updatedAt               DateTime  @updatedAt
 }
 
 model Power {
-  id                        String    @id @default(cuid())
-  inventoryId               String
-  inventory                 Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
-  powerSource               String?
-  powerCapacity             String?
-  powerInstallationCost     Float?
-  powerLocation             String?
-  consumptionRate           Float?
-  consumptionCost           Float?
-  lastMaintenanceDatePower  DateTime?
-  nextMaintenanceDatePower  DateTime?
-  createdAt                 DateTime  @default(now())
-  updatedAt                 DateTime  @updatedAt
+  id                       String    @id @default(cuid())
+  inventoryId              String
+  inventory                Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
+  powerSource              String?
+  powerCapacity            String?
+  powerInstallationCost    Float?
+  powerLocation            String?
+  consumptionRate          Float?
+  consumptionCost          Float?
+  lastMaintenanceDatePower DateTime?
+  nextMaintenanceDatePower DateTime?
+  createdAt                DateTime  @default(now())
+  updatedAt                DateTime  @updatedAt
 }
 
 // Health Module
@@ -645,4 +646,52 @@ model SaleListing {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CROPS MODULE
+// ─────────────────────────────────────────────────────────────────────────────
+
+model CropCycle {
+  id            String   @id @default(cuid())
+  farmId        String
+  farm          Farm     @relation(fields: [farmId], references: [id], onDelete: Cascade)
+  name          String
+  startDate     String
+  endDate       String?
+  landSelection String // "entire" | "input"
+  landSize      Float?
+  landUnit      String   @default("acres")
+  status        String   @default("Active") // Active | Complete | Planned
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  crops Crop[]
+
+  @@index([farmId])
+}
+
+model Crop {
+  id                  String    @id @default(cuid())
+  cycleId             String
+  cycle               CropCycle @relation(fields: [cycleId], references: [id], onDelete: Cascade)
+  farmId              String
+  cropName            String
+  category            String?
+  variety             String?
+  areaSize            Float
+  areaUnit            String    @default("acres")
+  plantingDate        String
+  expectedHarvestDate String
+  status              String    @default("Active") // Active | Complete
+  progress            Int       @default(0)
+  currentActivity     String?
+  icon                String?
+  color               String?
+  notes               String?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  @@index([cycleId])
+  @@index([farmId])
 }

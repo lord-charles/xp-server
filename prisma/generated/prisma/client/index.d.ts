@@ -158,6 +158,16 @@ export type TreatmentRecord = $Result.DefaultSelection<Prisma.$TreatmentRecordPa
  * 
  */
 export type SaleListing = $Result.DefaultSelection<Prisma.$SaleListingPayload>
+/**
+ * Model CropCycle
+ * 
+ */
+export type CropCycle = $Result.DefaultSelection<Prisma.$CropCyclePayload>
+/**
+ * Model Crop
+ * 
+ */
+export type Crop = $Result.DefaultSelection<Prisma.$CropPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -573,6 +583,26 @@ export class PrismaClient<
     * ```
     */
   get saleListing(): Prisma.SaleListingDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.cropCycle`: Exposes CRUD operations for the **CropCycle** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CropCycles
+    * const cropCycles = await prisma.cropCycle.findMany()
+    * ```
+    */
+  get cropCycle(): Prisma.CropCycleDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.crop`: Exposes CRUD operations for the **Crop** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Crops
+    * const crops = await prisma.crop.findMany()
+    * ```
+    */
+  get crop(): Prisma.CropDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -1041,7 +1071,9 @@ export namespace Prisma {
     DewormingRecord: 'DewormingRecord',
     GeneticDisorderRecord: 'GeneticDisorderRecord',
     TreatmentRecord: 'TreatmentRecord',
-    SaleListing: 'SaleListing'
+    SaleListing: 'SaleListing',
+    CropCycle: 'CropCycle',
+    Crop: 'Crop'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1060,7 +1092,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "farm" | "employee" | "employeeFarm" | "employeeBenefit" | "livestock" | "mammal" | "poultry" | "mortality" | "healthEvent" | "transfer" | "sale" | "breedingRecord" | "offspring" | "feedingProgram" | "feedDetails" | "inventory" | "goodsInStock" | "machinery" | "utility" | "water" | "power" | "allergyRecord" | "boosterRecord" | "vaccinationRecord" | "dewormingRecord" | "geneticDisorderRecord" | "treatmentRecord" | "saleListing"
+      modelProps: "user" | "farm" | "employee" | "employeeFarm" | "employeeBenefit" | "livestock" | "mammal" | "poultry" | "mortality" | "healthEvent" | "transfer" | "sale" | "breedingRecord" | "offspring" | "feedingProgram" | "feedDetails" | "inventory" | "goodsInStock" | "machinery" | "utility" | "water" | "power" | "allergyRecord" | "boosterRecord" | "vaccinationRecord" | "dewormingRecord" | "geneticDisorderRecord" | "treatmentRecord" | "saleListing" | "cropCycle" | "crop"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -3210,6 +3242,154 @@ export namespace Prisma {
           }
         }
       }
+      CropCycle: {
+        payload: Prisma.$CropCyclePayload<ExtArgs>
+        fields: Prisma.CropCycleFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CropCycleFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropCyclePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CropCycleFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropCyclePayload>
+          }
+          findFirst: {
+            args: Prisma.CropCycleFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropCyclePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CropCycleFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropCyclePayload>
+          }
+          findMany: {
+            args: Prisma.CropCycleFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropCyclePayload>[]
+          }
+          create: {
+            args: Prisma.CropCycleCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropCyclePayload>
+          }
+          createMany: {
+            args: Prisma.CropCycleCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CropCycleCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropCyclePayload>[]
+          }
+          delete: {
+            args: Prisma.CropCycleDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropCyclePayload>
+          }
+          update: {
+            args: Prisma.CropCycleUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropCyclePayload>
+          }
+          deleteMany: {
+            args: Prisma.CropCycleDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CropCycleUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CropCycleUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropCyclePayload>[]
+          }
+          upsert: {
+            args: Prisma.CropCycleUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropCyclePayload>
+          }
+          aggregate: {
+            args: Prisma.CropCycleAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCropCycle>
+          }
+          groupBy: {
+            args: Prisma.CropCycleGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CropCycleGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CropCycleCountArgs<ExtArgs>
+            result: $Utils.Optional<CropCycleCountAggregateOutputType> | number
+          }
+        }
+      }
+      Crop: {
+        payload: Prisma.$CropPayload<ExtArgs>
+        fields: Prisma.CropFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CropFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CropFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropPayload>
+          }
+          findFirst: {
+            args: Prisma.CropFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CropFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropPayload>
+          }
+          findMany: {
+            args: Prisma.CropFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropPayload>[]
+          }
+          create: {
+            args: Prisma.CropCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropPayload>
+          }
+          createMany: {
+            args: Prisma.CropCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CropCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropPayload>[]
+          }
+          delete: {
+            args: Prisma.CropDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropPayload>
+          }
+          update: {
+            args: Prisma.CropUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropPayload>
+          }
+          deleteMany: {
+            args: Prisma.CropDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CropUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CropUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropPayload>[]
+          }
+          upsert: {
+            args: Prisma.CropUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CropPayload>
+          }
+          aggregate: {
+            args: Prisma.CropAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCrop>
+          }
+          groupBy: {
+            args: Prisma.CropGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CropGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CropCountArgs<ExtArgs>
+            result: $Utils.Optional<CropCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -3323,6 +3503,8 @@ export namespace Prisma {
     geneticDisorderRecord?: GeneticDisorderRecordOmit
     treatmentRecord?: TreatmentRecordOmit
     saleListing?: SaleListingOmit
+    cropCycle?: CropCycleOmit
+    crop?: CropOmit
   }
 
   /* Types for Logging */
@@ -3523,6 +3705,7 @@ export namespace Prisma {
     geneticDisorderRecords: number
     treatmentRecords: number
     saleListings: number
+    cropCycles: number
   }
 
   export type FarmCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3538,6 +3721,7 @@ export namespace Prisma {
     geneticDisorderRecords?: boolean | FarmCountOutputTypeCountGeneticDisorderRecordsArgs
     treatmentRecords?: boolean | FarmCountOutputTypeCountTreatmentRecordsArgs
     saleListings?: boolean | FarmCountOutputTypeCountSaleListingsArgs
+    cropCycles?: boolean | FarmCountOutputTypeCountCropCyclesArgs
   }
 
   // Custom InputTypes
@@ -3633,6 +3817,13 @@ export namespace Prisma {
    */
   export type FarmCountOutputTypeCountSaleListingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: SaleListingWhereInput
+  }
+
+  /**
+   * FarmCountOutputType without action
+   */
+  export type FarmCountOutputTypeCountCropCyclesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CropCycleWhereInput
   }
 
 
@@ -3923,6 +4114,37 @@ export namespace Prisma {
    */
   export type InventoryCountOutputTypeCountPowerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PowerWhereInput
+  }
+
+
+  /**
+   * Count Type CropCycleCountOutputType
+   */
+
+  export type CropCycleCountOutputType = {
+    crops: number
+  }
+
+  export type CropCycleCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    crops?: boolean | CropCycleCountOutputTypeCountCropsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CropCycleCountOutputType without action
+   */
+  export type CropCycleCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CropCycleCountOutputType
+     */
+    select?: CropCycleCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CropCycleCountOutputType without action
+   */
+  export type CropCycleCountOutputTypeCountCropsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CropWhereInput
   }
 
 
@@ -5685,6 +5907,7 @@ export namespace Prisma {
     geneticDisorderRecords?: boolean | Farm$geneticDisorderRecordsArgs<ExtArgs>
     treatmentRecords?: boolean | Farm$treatmentRecordsArgs<ExtArgs>
     saleListings?: boolean | Farm$saleListingsArgs<ExtArgs>
+    cropCycles?: boolean | Farm$cropCyclesArgs<ExtArgs>
     _count?: boolean | FarmCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["farm"]>
 
@@ -5744,6 +5967,7 @@ export namespace Prisma {
     geneticDisorderRecords?: boolean | Farm$geneticDisorderRecordsArgs<ExtArgs>
     treatmentRecords?: boolean | Farm$treatmentRecordsArgs<ExtArgs>
     saleListings?: boolean | Farm$saleListingsArgs<ExtArgs>
+    cropCycles?: boolean | Farm$cropCyclesArgs<ExtArgs>
     _count?: boolean | FarmCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type FarmIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5769,6 +5993,7 @@ export namespace Prisma {
       geneticDisorderRecords: Prisma.$GeneticDisorderRecordPayload<ExtArgs>[]
       treatmentRecords: Prisma.$TreatmentRecordPayload<ExtArgs>[]
       saleListings: Prisma.$SaleListingPayload<ExtArgs>[]
+      cropCycles: Prisma.$CropCyclePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -6188,6 +6413,7 @@ export namespace Prisma {
     geneticDisorderRecords<T extends Farm$geneticDisorderRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Farm$geneticDisorderRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GeneticDisorderRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     treatmentRecords<T extends Farm$treatmentRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Farm$treatmentRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TreatmentRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     saleListings<T extends Farm$saleListingsArgs<ExtArgs> = {}>(args?: Subset<T, Farm$saleListingsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SaleListingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    cropCycles<T extends Farm$cropCyclesArgs<ExtArgs> = {}>(args?: Subset<T, Farm$cropCyclesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CropCyclePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6908,6 +7134,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: SaleListingScalarFieldEnum | SaleListingScalarFieldEnum[]
+  }
+
+  /**
+   * Farm.cropCycles
+   */
+  export type Farm$cropCyclesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CropCycle
+     */
+    select?: CropCycleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CropCycle
+     */
+    omit?: CropCycleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropCycleInclude<ExtArgs> | null
+    where?: CropCycleWhereInput
+    orderBy?: CropCycleOrderByWithRelationInput | CropCycleOrderByWithRelationInput[]
+    cursor?: CropCycleWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CropCycleScalarFieldEnum | CropCycleScalarFieldEnum[]
   }
 
   /**
@@ -40366,6 +40616,2471 @@ export namespace Prisma {
 
 
   /**
+   * Model CropCycle
+   */
+
+  export type AggregateCropCycle = {
+    _count: CropCycleCountAggregateOutputType | null
+    _avg: CropCycleAvgAggregateOutputType | null
+    _sum: CropCycleSumAggregateOutputType | null
+    _min: CropCycleMinAggregateOutputType | null
+    _max: CropCycleMaxAggregateOutputType | null
+  }
+
+  export type CropCycleAvgAggregateOutputType = {
+    landSize: number | null
+  }
+
+  export type CropCycleSumAggregateOutputType = {
+    landSize: number | null
+  }
+
+  export type CropCycleMinAggregateOutputType = {
+    id: string | null
+    farmId: string | null
+    name: string | null
+    startDate: string | null
+    endDate: string | null
+    landSelection: string | null
+    landSize: number | null
+    landUnit: string | null
+    status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type CropCycleMaxAggregateOutputType = {
+    id: string | null
+    farmId: string | null
+    name: string | null
+    startDate: string | null
+    endDate: string | null
+    landSelection: string | null
+    landSize: number | null
+    landUnit: string | null
+    status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type CropCycleCountAggregateOutputType = {
+    id: number
+    farmId: number
+    name: number
+    startDate: number
+    endDate: number
+    landSelection: number
+    landSize: number
+    landUnit: number
+    status: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type CropCycleAvgAggregateInputType = {
+    landSize?: true
+  }
+
+  export type CropCycleSumAggregateInputType = {
+    landSize?: true
+  }
+
+  export type CropCycleMinAggregateInputType = {
+    id?: true
+    farmId?: true
+    name?: true
+    startDate?: true
+    endDate?: true
+    landSelection?: true
+    landSize?: true
+    landUnit?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type CropCycleMaxAggregateInputType = {
+    id?: true
+    farmId?: true
+    name?: true
+    startDate?: true
+    endDate?: true
+    landSelection?: true
+    landSize?: true
+    landUnit?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type CropCycleCountAggregateInputType = {
+    id?: true
+    farmId?: true
+    name?: true
+    startDate?: true
+    endDate?: true
+    landSelection?: true
+    landSize?: true
+    landUnit?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type CropCycleAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CropCycle to aggregate.
+     */
+    where?: CropCycleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CropCycles to fetch.
+     */
+    orderBy?: CropCycleOrderByWithRelationInput | CropCycleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CropCycleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CropCycles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CropCycles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CropCycles
+    **/
+    _count?: true | CropCycleCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CropCycleAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CropCycleSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CropCycleMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CropCycleMaxAggregateInputType
+  }
+
+  export type GetCropCycleAggregateType<T extends CropCycleAggregateArgs> = {
+        [P in keyof T & keyof AggregateCropCycle]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCropCycle[P]>
+      : GetScalarType<T[P], AggregateCropCycle[P]>
+  }
+
+
+
+
+  export type CropCycleGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CropCycleWhereInput
+    orderBy?: CropCycleOrderByWithAggregationInput | CropCycleOrderByWithAggregationInput[]
+    by: CropCycleScalarFieldEnum[] | CropCycleScalarFieldEnum
+    having?: CropCycleScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CropCycleCountAggregateInputType | true
+    _avg?: CropCycleAvgAggregateInputType
+    _sum?: CropCycleSumAggregateInputType
+    _min?: CropCycleMinAggregateInputType
+    _max?: CropCycleMaxAggregateInputType
+  }
+
+  export type CropCycleGroupByOutputType = {
+    id: string
+    farmId: string
+    name: string
+    startDate: string
+    endDate: string | null
+    landSelection: string
+    landSize: number | null
+    landUnit: string
+    status: string
+    createdAt: Date
+    updatedAt: Date
+    _count: CropCycleCountAggregateOutputType | null
+    _avg: CropCycleAvgAggregateOutputType | null
+    _sum: CropCycleSumAggregateOutputType | null
+    _min: CropCycleMinAggregateOutputType | null
+    _max: CropCycleMaxAggregateOutputType | null
+  }
+
+  type GetCropCycleGroupByPayload<T extends CropCycleGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CropCycleGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CropCycleGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CropCycleGroupByOutputType[P]>
+            : GetScalarType<T[P], CropCycleGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CropCycleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    farmId?: boolean
+    name?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    landSelection?: boolean
+    landSize?: boolean
+    landUnit?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+    crops?: boolean | CropCycle$cropsArgs<ExtArgs>
+    _count?: boolean | CropCycleCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["cropCycle"]>
+
+  export type CropCycleSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    farmId?: boolean
+    name?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    landSelection?: boolean
+    landSize?: boolean
+    landUnit?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["cropCycle"]>
+
+  export type CropCycleSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    farmId?: boolean
+    name?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    landSelection?: boolean
+    landSize?: boolean
+    landUnit?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["cropCycle"]>
+
+  export type CropCycleSelectScalar = {
+    id?: boolean
+    farmId?: boolean
+    name?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    landSelection?: boolean
+    landSize?: boolean
+    landUnit?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type CropCycleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "farmId" | "name" | "startDate" | "endDate" | "landSelection" | "landSize" | "landUnit" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["cropCycle"]>
+  export type CropCycleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+    crops?: boolean | CropCycle$cropsArgs<ExtArgs>
+    _count?: boolean | CropCycleCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type CropCycleIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }
+  export type CropCycleIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }
+
+  export type $CropCyclePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CropCycle"
+    objects: {
+      farm: Prisma.$FarmPayload<ExtArgs>
+      crops: Prisma.$CropPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      farmId: string
+      name: string
+      startDate: string
+      endDate: string | null
+      landSelection: string
+      landSize: number | null
+      landUnit: string
+      status: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["cropCycle"]>
+    composites: {}
+  }
+
+  type CropCycleGetPayload<S extends boolean | null | undefined | CropCycleDefaultArgs> = $Result.GetResult<Prisma.$CropCyclePayload, S>
+
+  type CropCycleCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CropCycleFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CropCycleCountAggregateInputType | true
+    }
+
+  export interface CropCycleDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CropCycle'], meta: { name: 'CropCycle' } }
+    /**
+     * Find zero or one CropCycle that matches the filter.
+     * @param {CropCycleFindUniqueArgs} args - Arguments to find a CropCycle
+     * @example
+     * // Get one CropCycle
+     * const cropCycle = await prisma.cropCycle.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CropCycleFindUniqueArgs>(args: SelectSubset<T, CropCycleFindUniqueArgs<ExtArgs>>): Prisma__CropCycleClient<$Result.GetResult<Prisma.$CropCyclePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CropCycle that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CropCycleFindUniqueOrThrowArgs} args - Arguments to find a CropCycle
+     * @example
+     * // Get one CropCycle
+     * const cropCycle = await prisma.cropCycle.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CropCycleFindUniqueOrThrowArgs>(args: SelectSubset<T, CropCycleFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CropCycleClient<$Result.GetResult<Prisma.$CropCyclePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CropCycle that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CropCycleFindFirstArgs} args - Arguments to find a CropCycle
+     * @example
+     * // Get one CropCycle
+     * const cropCycle = await prisma.cropCycle.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CropCycleFindFirstArgs>(args?: SelectSubset<T, CropCycleFindFirstArgs<ExtArgs>>): Prisma__CropCycleClient<$Result.GetResult<Prisma.$CropCyclePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CropCycle that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CropCycleFindFirstOrThrowArgs} args - Arguments to find a CropCycle
+     * @example
+     * // Get one CropCycle
+     * const cropCycle = await prisma.cropCycle.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CropCycleFindFirstOrThrowArgs>(args?: SelectSubset<T, CropCycleFindFirstOrThrowArgs<ExtArgs>>): Prisma__CropCycleClient<$Result.GetResult<Prisma.$CropCyclePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CropCycles that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CropCycleFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CropCycles
+     * const cropCycles = await prisma.cropCycle.findMany()
+     * 
+     * // Get first 10 CropCycles
+     * const cropCycles = await prisma.cropCycle.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const cropCycleWithIdOnly = await prisma.cropCycle.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CropCycleFindManyArgs>(args?: SelectSubset<T, CropCycleFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CropCyclePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CropCycle.
+     * @param {CropCycleCreateArgs} args - Arguments to create a CropCycle.
+     * @example
+     * // Create one CropCycle
+     * const CropCycle = await prisma.cropCycle.create({
+     *   data: {
+     *     // ... data to create a CropCycle
+     *   }
+     * })
+     * 
+     */
+    create<T extends CropCycleCreateArgs>(args: SelectSubset<T, CropCycleCreateArgs<ExtArgs>>): Prisma__CropCycleClient<$Result.GetResult<Prisma.$CropCyclePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CropCycles.
+     * @param {CropCycleCreateManyArgs} args - Arguments to create many CropCycles.
+     * @example
+     * // Create many CropCycles
+     * const cropCycle = await prisma.cropCycle.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CropCycleCreateManyArgs>(args?: SelectSubset<T, CropCycleCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CropCycles and returns the data saved in the database.
+     * @param {CropCycleCreateManyAndReturnArgs} args - Arguments to create many CropCycles.
+     * @example
+     * // Create many CropCycles
+     * const cropCycle = await prisma.cropCycle.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CropCycles and only return the `id`
+     * const cropCycleWithIdOnly = await prisma.cropCycle.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CropCycleCreateManyAndReturnArgs>(args?: SelectSubset<T, CropCycleCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CropCyclePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CropCycle.
+     * @param {CropCycleDeleteArgs} args - Arguments to delete one CropCycle.
+     * @example
+     * // Delete one CropCycle
+     * const CropCycle = await prisma.cropCycle.delete({
+     *   where: {
+     *     // ... filter to delete one CropCycle
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CropCycleDeleteArgs>(args: SelectSubset<T, CropCycleDeleteArgs<ExtArgs>>): Prisma__CropCycleClient<$Result.GetResult<Prisma.$CropCyclePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CropCycle.
+     * @param {CropCycleUpdateArgs} args - Arguments to update one CropCycle.
+     * @example
+     * // Update one CropCycle
+     * const cropCycle = await prisma.cropCycle.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CropCycleUpdateArgs>(args: SelectSubset<T, CropCycleUpdateArgs<ExtArgs>>): Prisma__CropCycleClient<$Result.GetResult<Prisma.$CropCyclePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CropCycles.
+     * @param {CropCycleDeleteManyArgs} args - Arguments to filter CropCycles to delete.
+     * @example
+     * // Delete a few CropCycles
+     * const { count } = await prisma.cropCycle.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CropCycleDeleteManyArgs>(args?: SelectSubset<T, CropCycleDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CropCycles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CropCycleUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CropCycles
+     * const cropCycle = await prisma.cropCycle.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CropCycleUpdateManyArgs>(args: SelectSubset<T, CropCycleUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CropCycles and returns the data updated in the database.
+     * @param {CropCycleUpdateManyAndReturnArgs} args - Arguments to update many CropCycles.
+     * @example
+     * // Update many CropCycles
+     * const cropCycle = await prisma.cropCycle.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CropCycles and only return the `id`
+     * const cropCycleWithIdOnly = await prisma.cropCycle.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CropCycleUpdateManyAndReturnArgs>(args: SelectSubset<T, CropCycleUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CropCyclePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CropCycle.
+     * @param {CropCycleUpsertArgs} args - Arguments to update or create a CropCycle.
+     * @example
+     * // Update or create a CropCycle
+     * const cropCycle = await prisma.cropCycle.upsert({
+     *   create: {
+     *     // ... data to create a CropCycle
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CropCycle we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CropCycleUpsertArgs>(args: SelectSubset<T, CropCycleUpsertArgs<ExtArgs>>): Prisma__CropCycleClient<$Result.GetResult<Prisma.$CropCyclePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CropCycles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CropCycleCountArgs} args - Arguments to filter CropCycles to count.
+     * @example
+     * // Count the number of CropCycles
+     * const count = await prisma.cropCycle.count({
+     *   where: {
+     *     // ... the filter for the CropCycles we want to count
+     *   }
+     * })
+    **/
+    count<T extends CropCycleCountArgs>(
+      args?: Subset<T, CropCycleCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CropCycleCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CropCycle.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CropCycleAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CropCycleAggregateArgs>(args: Subset<T, CropCycleAggregateArgs>): Prisma.PrismaPromise<GetCropCycleAggregateType<T>>
+
+    /**
+     * Group by CropCycle.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CropCycleGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CropCycleGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CropCycleGroupByArgs['orderBy'] }
+        : { orderBy?: CropCycleGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CropCycleGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCropCycleGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CropCycle model
+   */
+  readonly fields: CropCycleFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CropCycle.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CropCycleClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    farm<T extends FarmDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FarmDefaultArgs<ExtArgs>>): Prisma__FarmClient<$Result.GetResult<Prisma.$FarmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    crops<T extends CropCycle$cropsArgs<ExtArgs> = {}>(args?: Subset<T, CropCycle$cropsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CropPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CropCycle model
+   */
+  interface CropCycleFieldRefs {
+    readonly id: FieldRef<"CropCycle", 'String'>
+    readonly farmId: FieldRef<"CropCycle", 'String'>
+    readonly name: FieldRef<"CropCycle", 'String'>
+    readonly startDate: FieldRef<"CropCycle", 'String'>
+    readonly endDate: FieldRef<"CropCycle", 'String'>
+    readonly landSelection: FieldRef<"CropCycle", 'String'>
+    readonly landSize: FieldRef<"CropCycle", 'Float'>
+    readonly landUnit: FieldRef<"CropCycle", 'String'>
+    readonly status: FieldRef<"CropCycle", 'String'>
+    readonly createdAt: FieldRef<"CropCycle", 'DateTime'>
+    readonly updatedAt: FieldRef<"CropCycle", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CropCycle findUnique
+   */
+  export type CropCycleFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CropCycle
+     */
+    select?: CropCycleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CropCycle
+     */
+    omit?: CropCycleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropCycleInclude<ExtArgs> | null
+    /**
+     * Filter, which CropCycle to fetch.
+     */
+    where: CropCycleWhereUniqueInput
+  }
+
+  /**
+   * CropCycle findUniqueOrThrow
+   */
+  export type CropCycleFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CropCycle
+     */
+    select?: CropCycleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CropCycle
+     */
+    omit?: CropCycleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropCycleInclude<ExtArgs> | null
+    /**
+     * Filter, which CropCycle to fetch.
+     */
+    where: CropCycleWhereUniqueInput
+  }
+
+  /**
+   * CropCycle findFirst
+   */
+  export type CropCycleFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CropCycle
+     */
+    select?: CropCycleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CropCycle
+     */
+    omit?: CropCycleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropCycleInclude<ExtArgs> | null
+    /**
+     * Filter, which CropCycle to fetch.
+     */
+    where?: CropCycleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CropCycles to fetch.
+     */
+    orderBy?: CropCycleOrderByWithRelationInput | CropCycleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CropCycles.
+     */
+    cursor?: CropCycleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CropCycles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CropCycles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CropCycles.
+     */
+    distinct?: CropCycleScalarFieldEnum | CropCycleScalarFieldEnum[]
+  }
+
+  /**
+   * CropCycle findFirstOrThrow
+   */
+  export type CropCycleFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CropCycle
+     */
+    select?: CropCycleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CropCycle
+     */
+    omit?: CropCycleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropCycleInclude<ExtArgs> | null
+    /**
+     * Filter, which CropCycle to fetch.
+     */
+    where?: CropCycleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CropCycles to fetch.
+     */
+    orderBy?: CropCycleOrderByWithRelationInput | CropCycleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CropCycles.
+     */
+    cursor?: CropCycleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CropCycles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CropCycles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CropCycles.
+     */
+    distinct?: CropCycleScalarFieldEnum | CropCycleScalarFieldEnum[]
+  }
+
+  /**
+   * CropCycle findMany
+   */
+  export type CropCycleFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CropCycle
+     */
+    select?: CropCycleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CropCycle
+     */
+    omit?: CropCycleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropCycleInclude<ExtArgs> | null
+    /**
+     * Filter, which CropCycles to fetch.
+     */
+    where?: CropCycleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CropCycles to fetch.
+     */
+    orderBy?: CropCycleOrderByWithRelationInput | CropCycleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CropCycles.
+     */
+    cursor?: CropCycleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CropCycles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CropCycles.
+     */
+    skip?: number
+    distinct?: CropCycleScalarFieldEnum | CropCycleScalarFieldEnum[]
+  }
+
+  /**
+   * CropCycle create
+   */
+  export type CropCycleCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CropCycle
+     */
+    select?: CropCycleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CropCycle
+     */
+    omit?: CropCycleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropCycleInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CropCycle.
+     */
+    data: XOR<CropCycleCreateInput, CropCycleUncheckedCreateInput>
+  }
+
+  /**
+   * CropCycle createMany
+   */
+  export type CropCycleCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CropCycles.
+     */
+    data: CropCycleCreateManyInput | CropCycleCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CropCycle createManyAndReturn
+   */
+  export type CropCycleCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CropCycle
+     */
+    select?: CropCycleSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CropCycle
+     */
+    omit?: CropCycleOmit<ExtArgs> | null
+    /**
+     * The data used to create many CropCycles.
+     */
+    data: CropCycleCreateManyInput | CropCycleCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropCycleIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CropCycle update
+   */
+  export type CropCycleUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CropCycle
+     */
+    select?: CropCycleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CropCycle
+     */
+    omit?: CropCycleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropCycleInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CropCycle.
+     */
+    data: XOR<CropCycleUpdateInput, CropCycleUncheckedUpdateInput>
+    /**
+     * Choose, which CropCycle to update.
+     */
+    where: CropCycleWhereUniqueInput
+  }
+
+  /**
+   * CropCycle updateMany
+   */
+  export type CropCycleUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CropCycles.
+     */
+    data: XOR<CropCycleUpdateManyMutationInput, CropCycleUncheckedUpdateManyInput>
+    /**
+     * Filter which CropCycles to update
+     */
+    where?: CropCycleWhereInput
+    /**
+     * Limit how many CropCycles to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CropCycle updateManyAndReturn
+   */
+  export type CropCycleUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CropCycle
+     */
+    select?: CropCycleSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CropCycle
+     */
+    omit?: CropCycleOmit<ExtArgs> | null
+    /**
+     * The data used to update CropCycles.
+     */
+    data: XOR<CropCycleUpdateManyMutationInput, CropCycleUncheckedUpdateManyInput>
+    /**
+     * Filter which CropCycles to update
+     */
+    where?: CropCycleWhereInput
+    /**
+     * Limit how many CropCycles to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropCycleIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CropCycle upsert
+   */
+  export type CropCycleUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CropCycle
+     */
+    select?: CropCycleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CropCycle
+     */
+    omit?: CropCycleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropCycleInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CropCycle to update in case it exists.
+     */
+    where: CropCycleWhereUniqueInput
+    /**
+     * In case the CropCycle found by the `where` argument doesn't exist, create a new CropCycle with this data.
+     */
+    create: XOR<CropCycleCreateInput, CropCycleUncheckedCreateInput>
+    /**
+     * In case the CropCycle was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CropCycleUpdateInput, CropCycleUncheckedUpdateInput>
+  }
+
+  /**
+   * CropCycle delete
+   */
+  export type CropCycleDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CropCycle
+     */
+    select?: CropCycleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CropCycle
+     */
+    omit?: CropCycleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropCycleInclude<ExtArgs> | null
+    /**
+     * Filter which CropCycle to delete.
+     */
+    where: CropCycleWhereUniqueInput
+  }
+
+  /**
+   * CropCycle deleteMany
+   */
+  export type CropCycleDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CropCycles to delete
+     */
+    where?: CropCycleWhereInput
+    /**
+     * Limit how many CropCycles to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CropCycle.crops
+   */
+  export type CropCycle$cropsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Crop
+     */
+    select?: CropSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Crop
+     */
+    omit?: CropOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropInclude<ExtArgs> | null
+    where?: CropWhereInput
+    orderBy?: CropOrderByWithRelationInput | CropOrderByWithRelationInput[]
+    cursor?: CropWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CropScalarFieldEnum | CropScalarFieldEnum[]
+  }
+
+  /**
+   * CropCycle without action
+   */
+  export type CropCycleDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CropCycle
+     */
+    select?: CropCycleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CropCycle
+     */
+    omit?: CropCycleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropCycleInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Crop
+   */
+
+  export type AggregateCrop = {
+    _count: CropCountAggregateOutputType | null
+    _avg: CropAvgAggregateOutputType | null
+    _sum: CropSumAggregateOutputType | null
+    _min: CropMinAggregateOutputType | null
+    _max: CropMaxAggregateOutputType | null
+  }
+
+  export type CropAvgAggregateOutputType = {
+    areaSize: number | null
+    progress: number | null
+  }
+
+  export type CropSumAggregateOutputType = {
+    areaSize: number | null
+    progress: number | null
+  }
+
+  export type CropMinAggregateOutputType = {
+    id: string | null
+    cycleId: string | null
+    farmId: string | null
+    cropName: string | null
+    category: string | null
+    variety: string | null
+    areaSize: number | null
+    areaUnit: string | null
+    plantingDate: string | null
+    expectedHarvestDate: string | null
+    status: string | null
+    progress: number | null
+    currentActivity: string | null
+    icon: string | null
+    color: string | null
+    notes: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type CropMaxAggregateOutputType = {
+    id: string | null
+    cycleId: string | null
+    farmId: string | null
+    cropName: string | null
+    category: string | null
+    variety: string | null
+    areaSize: number | null
+    areaUnit: string | null
+    plantingDate: string | null
+    expectedHarvestDate: string | null
+    status: string | null
+    progress: number | null
+    currentActivity: string | null
+    icon: string | null
+    color: string | null
+    notes: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type CropCountAggregateOutputType = {
+    id: number
+    cycleId: number
+    farmId: number
+    cropName: number
+    category: number
+    variety: number
+    areaSize: number
+    areaUnit: number
+    plantingDate: number
+    expectedHarvestDate: number
+    status: number
+    progress: number
+    currentActivity: number
+    icon: number
+    color: number
+    notes: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type CropAvgAggregateInputType = {
+    areaSize?: true
+    progress?: true
+  }
+
+  export type CropSumAggregateInputType = {
+    areaSize?: true
+    progress?: true
+  }
+
+  export type CropMinAggregateInputType = {
+    id?: true
+    cycleId?: true
+    farmId?: true
+    cropName?: true
+    category?: true
+    variety?: true
+    areaSize?: true
+    areaUnit?: true
+    plantingDate?: true
+    expectedHarvestDate?: true
+    status?: true
+    progress?: true
+    currentActivity?: true
+    icon?: true
+    color?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type CropMaxAggregateInputType = {
+    id?: true
+    cycleId?: true
+    farmId?: true
+    cropName?: true
+    category?: true
+    variety?: true
+    areaSize?: true
+    areaUnit?: true
+    plantingDate?: true
+    expectedHarvestDate?: true
+    status?: true
+    progress?: true
+    currentActivity?: true
+    icon?: true
+    color?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type CropCountAggregateInputType = {
+    id?: true
+    cycleId?: true
+    farmId?: true
+    cropName?: true
+    category?: true
+    variety?: true
+    areaSize?: true
+    areaUnit?: true
+    plantingDate?: true
+    expectedHarvestDate?: true
+    status?: true
+    progress?: true
+    currentActivity?: true
+    icon?: true
+    color?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type CropAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Crop to aggregate.
+     */
+    where?: CropWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Crops to fetch.
+     */
+    orderBy?: CropOrderByWithRelationInput | CropOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CropWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Crops from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Crops.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Crops
+    **/
+    _count?: true | CropCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CropAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CropSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CropMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CropMaxAggregateInputType
+  }
+
+  export type GetCropAggregateType<T extends CropAggregateArgs> = {
+        [P in keyof T & keyof AggregateCrop]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCrop[P]>
+      : GetScalarType<T[P], AggregateCrop[P]>
+  }
+
+
+
+
+  export type CropGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CropWhereInput
+    orderBy?: CropOrderByWithAggregationInput | CropOrderByWithAggregationInput[]
+    by: CropScalarFieldEnum[] | CropScalarFieldEnum
+    having?: CropScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CropCountAggregateInputType | true
+    _avg?: CropAvgAggregateInputType
+    _sum?: CropSumAggregateInputType
+    _min?: CropMinAggregateInputType
+    _max?: CropMaxAggregateInputType
+  }
+
+  export type CropGroupByOutputType = {
+    id: string
+    cycleId: string
+    farmId: string
+    cropName: string
+    category: string | null
+    variety: string | null
+    areaSize: number
+    areaUnit: string
+    plantingDate: string
+    expectedHarvestDate: string
+    status: string
+    progress: number
+    currentActivity: string | null
+    icon: string | null
+    color: string | null
+    notes: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: CropCountAggregateOutputType | null
+    _avg: CropAvgAggregateOutputType | null
+    _sum: CropSumAggregateOutputType | null
+    _min: CropMinAggregateOutputType | null
+    _max: CropMaxAggregateOutputType | null
+  }
+
+  type GetCropGroupByPayload<T extends CropGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CropGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CropGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CropGroupByOutputType[P]>
+            : GetScalarType<T[P], CropGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CropSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cycleId?: boolean
+    farmId?: boolean
+    cropName?: boolean
+    category?: boolean
+    variety?: boolean
+    areaSize?: boolean
+    areaUnit?: boolean
+    plantingDate?: boolean
+    expectedHarvestDate?: boolean
+    status?: boolean
+    progress?: boolean
+    currentActivity?: boolean
+    icon?: boolean
+    color?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    cycle?: boolean | CropCycleDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["crop"]>
+
+  export type CropSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cycleId?: boolean
+    farmId?: boolean
+    cropName?: boolean
+    category?: boolean
+    variety?: boolean
+    areaSize?: boolean
+    areaUnit?: boolean
+    plantingDate?: boolean
+    expectedHarvestDate?: boolean
+    status?: boolean
+    progress?: boolean
+    currentActivity?: boolean
+    icon?: boolean
+    color?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    cycle?: boolean | CropCycleDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["crop"]>
+
+  export type CropSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cycleId?: boolean
+    farmId?: boolean
+    cropName?: boolean
+    category?: boolean
+    variety?: boolean
+    areaSize?: boolean
+    areaUnit?: boolean
+    plantingDate?: boolean
+    expectedHarvestDate?: boolean
+    status?: boolean
+    progress?: boolean
+    currentActivity?: boolean
+    icon?: boolean
+    color?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    cycle?: boolean | CropCycleDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["crop"]>
+
+  export type CropSelectScalar = {
+    id?: boolean
+    cycleId?: boolean
+    farmId?: boolean
+    cropName?: boolean
+    category?: boolean
+    variety?: boolean
+    areaSize?: boolean
+    areaUnit?: boolean
+    plantingDate?: boolean
+    expectedHarvestDate?: boolean
+    status?: boolean
+    progress?: boolean
+    currentActivity?: boolean
+    icon?: boolean
+    color?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type CropOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cycleId" | "farmId" | "cropName" | "category" | "variety" | "areaSize" | "areaUnit" | "plantingDate" | "expectedHarvestDate" | "status" | "progress" | "currentActivity" | "icon" | "color" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["crop"]>
+  export type CropInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    cycle?: boolean | CropCycleDefaultArgs<ExtArgs>
+  }
+  export type CropIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    cycle?: boolean | CropCycleDefaultArgs<ExtArgs>
+  }
+  export type CropIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    cycle?: boolean | CropCycleDefaultArgs<ExtArgs>
+  }
+
+  export type $CropPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Crop"
+    objects: {
+      cycle: Prisma.$CropCyclePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      cycleId: string
+      farmId: string
+      cropName: string
+      category: string | null
+      variety: string | null
+      areaSize: number
+      areaUnit: string
+      plantingDate: string
+      expectedHarvestDate: string
+      status: string
+      progress: number
+      currentActivity: string | null
+      icon: string | null
+      color: string | null
+      notes: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["crop"]>
+    composites: {}
+  }
+
+  type CropGetPayload<S extends boolean | null | undefined | CropDefaultArgs> = $Result.GetResult<Prisma.$CropPayload, S>
+
+  type CropCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CropFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CropCountAggregateInputType | true
+    }
+
+  export interface CropDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Crop'], meta: { name: 'Crop' } }
+    /**
+     * Find zero or one Crop that matches the filter.
+     * @param {CropFindUniqueArgs} args - Arguments to find a Crop
+     * @example
+     * // Get one Crop
+     * const crop = await prisma.crop.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CropFindUniqueArgs>(args: SelectSubset<T, CropFindUniqueArgs<ExtArgs>>): Prisma__CropClient<$Result.GetResult<Prisma.$CropPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Crop that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CropFindUniqueOrThrowArgs} args - Arguments to find a Crop
+     * @example
+     * // Get one Crop
+     * const crop = await prisma.crop.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CropFindUniqueOrThrowArgs>(args: SelectSubset<T, CropFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CropClient<$Result.GetResult<Prisma.$CropPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Crop that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CropFindFirstArgs} args - Arguments to find a Crop
+     * @example
+     * // Get one Crop
+     * const crop = await prisma.crop.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CropFindFirstArgs>(args?: SelectSubset<T, CropFindFirstArgs<ExtArgs>>): Prisma__CropClient<$Result.GetResult<Prisma.$CropPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Crop that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CropFindFirstOrThrowArgs} args - Arguments to find a Crop
+     * @example
+     * // Get one Crop
+     * const crop = await prisma.crop.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CropFindFirstOrThrowArgs>(args?: SelectSubset<T, CropFindFirstOrThrowArgs<ExtArgs>>): Prisma__CropClient<$Result.GetResult<Prisma.$CropPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Crops that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CropFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Crops
+     * const crops = await prisma.crop.findMany()
+     * 
+     * // Get first 10 Crops
+     * const crops = await prisma.crop.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const cropWithIdOnly = await prisma.crop.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CropFindManyArgs>(args?: SelectSubset<T, CropFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CropPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Crop.
+     * @param {CropCreateArgs} args - Arguments to create a Crop.
+     * @example
+     * // Create one Crop
+     * const Crop = await prisma.crop.create({
+     *   data: {
+     *     // ... data to create a Crop
+     *   }
+     * })
+     * 
+     */
+    create<T extends CropCreateArgs>(args: SelectSubset<T, CropCreateArgs<ExtArgs>>): Prisma__CropClient<$Result.GetResult<Prisma.$CropPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Crops.
+     * @param {CropCreateManyArgs} args - Arguments to create many Crops.
+     * @example
+     * // Create many Crops
+     * const crop = await prisma.crop.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CropCreateManyArgs>(args?: SelectSubset<T, CropCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Crops and returns the data saved in the database.
+     * @param {CropCreateManyAndReturnArgs} args - Arguments to create many Crops.
+     * @example
+     * // Create many Crops
+     * const crop = await prisma.crop.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Crops and only return the `id`
+     * const cropWithIdOnly = await prisma.crop.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CropCreateManyAndReturnArgs>(args?: SelectSubset<T, CropCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CropPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Crop.
+     * @param {CropDeleteArgs} args - Arguments to delete one Crop.
+     * @example
+     * // Delete one Crop
+     * const Crop = await prisma.crop.delete({
+     *   where: {
+     *     // ... filter to delete one Crop
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CropDeleteArgs>(args: SelectSubset<T, CropDeleteArgs<ExtArgs>>): Prisma__CropClient<$Result.GetResult<Prisma.$CropPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Crop.
+     * @param {CropUpdateArgs} args - Arguments to update one Crop.
+     * @example
+     * // Update one Crop
+     * const crop = await prisma.crop.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CropUpdateArgs>(args: SelectSubset<T, CropUpdateArgs<ExtArgs>>): Prisma__CropClient<$Result.GetResult<Prisma.$CropPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Crops.
+     * @param {CropDeleteManyArgs} args - Arguments to filter Crops to delete.
+     * @example
+     * // Delete a few Crops
+     * const { count } = await prisma.crop.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CropDeleteManyArgs>(args?: SelectSubset<T, CropDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Crops.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CropUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Crops
+     * const crop = await prisma.crop.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CropUpdateManyArgs>(args: SelectSubset<T, CropUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Crops and returns the data updated in the database.
+     * @param {CropUpdateManyAndReturnArgs} args - Arguments to update many Crops.
+     * @example
+     * // Update many Crops
+     * const crop = await prisma.crop.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Crops and only return the `id`
+     * const cropWithIdOnly = await prisma.crop.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CropUpdateManyAndReturnArgs>(args: SelectSubset<T, CropUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CropPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Crop.
+     * @param {CropUpsertArgs} args - Arguments to update or create a Crop.
+     * @example
+     * // Update or create a Crop
+     * const crop = await prisma.crop.upsert({
+     *   create: {
+     *     // ... data to create a Crop
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Crop we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CropUpsertArgs>(args: SelectSubset<T, CropUpsertArgs<ExtArgs>>): Prisma__CropClient<$Result.GetResult<Prisma.$CropPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Crops.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CropCountArgs} args - Arguments to filter Crops to count.
+     * @example
+     * // Count the number of Crops
+     * const count = await prisma.crop.count({
+     *   where: {
+     *     // ... the filter for the Crops we want to count
+     *   }
+     * })
+    **/
+    count<T extends CropCountArgs>(
+      args?: Subset<T, CropCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CropCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Crop.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CropAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CropAggregateArgs>(args: Subset<T, CropAggregateArgs>): Prisma.PrismaPromise<GetCropAggregateType<T>>
+
+    /**
+     * Group by Crop.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CropGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CropGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CropGroupByArgs['orderBy'] }
+        : { orderBy?: CropGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CropGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCropGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Crop model
+   */
+  readonly fields: CropFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Crop.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CropClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    cycle<T extends CropCycleDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CropCycleDefaultArgs<ExtArgs>>): Prisma__CropCycleClient<$Result.GetResult<Prisma.$CropCyclePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Crop model
+   */
+  interface CropFieldRefs {
+    readonly id: FieldRef<"Crop", 'String'>
+    readonly cycleId: FieldRef<"Crop", 'String'>
+    readonly farmId: FieldRef<"Crop", 'String'>
+    readonly cropName: FieldRef<"Crop", 'String'>
+    readonly category: FieldRef<"Crop", 'String'>
+    readonly variety: FieldRef<"Crop", 'String'>
+    readonly areaSize: FieldRef<"Crop", 'Float'>
+    readonly areaUnit: FieldRef<"Crop", 'String'>
+    readonly plantingDate: FieldRef<"Crop", 'String'>
+    readonly expectedHarvestDate: FieldRef<"Crop", 'String'>
+    readonly status: FieldRef<"Crop", 'String'>
+    readonly progress: FieldRef<"Crop", 'Int'>
+    readonly currentActivity: FieldRef<"Crop", 'String'>
+    readonly icon: FieldRef<"Crop", 'String'>
+    readonly color: FieldRef<"Crop", 'String'>
+    readonly notes: FieldRef<"Crop", 'String'>
+    readonly createdAt: FieldRef<"Crop", 'DateTime'>
+    readonly updatedAt: FieldRef<"Crop", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Crop findUnique
+   */
+  export type CropFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Crop
+     */
+    select?: CropSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Crop
+     */
+    omit?: CropOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropInclude<ExtArgs> | null
+    /**
+     * Filter, which Crop to fetch.
+     */
+    where: CropWhereUniqueInput
+  }
+
+  /**
+   * Crop findUniqueOrThrow
+   */
+  export type CropFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Crop
+     */
+    select?: CropSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Crop
+     */
+    omit?: CropOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropInclude<ExtArgs> | null
+    /**
+     * Filter, which Crop to fetch.
+     */
+    where: CropWhereUniqueInput
+  }
+
+  /**
+   * Crop findFirst
+   */
+  export type CropFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Crop
+     */
+    select?: CropSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Crop
+     */
+    omit?: CropOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropInclude<ExtArgs> | null
+    /**
+     * Filter, which Crop to fetch.
+     */
+    where?: CropWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Crops to fetch.
+     */
+    orderBy?: CropOrderByWithRelationInput | CropOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Crops.
+     */
+    cursor?: CropWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Crops from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Crops.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Crops.
+     */
+    distinct?: CropScalarFieldEnum | CropScalarFieldEnum[]
+  }
+
+  /**
+   * Crop findFirstOrThrow
+   */
+  export type CropFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Crop
+     */
+    select?: CropSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Crop
+     */
+    omit?: CropOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropInclude<ExtArgs> | null
+    /**
+     * Filter, which Crop to fetch.
+     */
+    where?: CropWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Crops to fetch.
+     */
+    orderBy?: CropOrderByWithRelationInput | CropOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Crops.
+     */
+    cursor?: CropWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Crops from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Crops.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Crops.
+     */
+    distinct?: CropScalarFieldEnum | CropScalarFieldEnum[]
+  }
+
+  /**
+   * Crop findMany
+   */
+  export type CropFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Crop
+     */
+    select?: CropSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Crop
+     */
+    omit?: CropOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropInclude<ExtArgs> | null
+    /**
+     * Filter, which Crops to fetch.
+     */
+    where?: CropWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Crops to fetch.
+     */
+    orderBy?: CropOrderByWithRelationInput | CropOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Crops.
+     */
+    cursor?: CropWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Crops from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Crops.
+     */
+    skip?: number
+    distinct?: CropScalarFieldEnum | CropScalarFieldEnum[]
+  }
+
+  /**
+   * Crop create
+   */
+  export type CropCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Crop
+     */
+    select?: CropSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Crop
+     */
+    omit?: CropOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Crop.
+     */
+    data: XOR<CropCreateInput, CropUncheckedCreateInput>
+  }
+
+  /**
+   * Crop createMany
+   */
+  export type CropCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Crops.
+     */
+    data: CropCreateManyInput | CropCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Crop createManyAndReturn
+   */
+  export type CropCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Crop
+     */
+    select?: CropSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Crop
+     */
+    omit?: CropOmit<ExtArgs> | null
+    /**
+     * The data used to create many Crops.
+     */
+    data: CropCreateManyInput | CropCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Crop update
+   */
+  export type CropUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Crop
+     */
+    select?: CropSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Crop
+     */
+    omit?: CropOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Crop.
+     */
+    data: XOR<CropUpdateInput, CropUncheckedUpdateInput>
+    /**
+     * Choose, which Crop to update.
+     */
+    where: CropWhereUniqueInput
+  }
+
+  /**
+   * Crop updateMany
+   */
+  export type CropUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Crops.
+     */
+    data: XOR<CropUpdateManyMutationInput, CropUncheckedUpdateManyInput>
+    /**
+     * Filter which Crops to update
+     */
+    where?: CropWhereInput
+    /**
+     * Limit how many Crops to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Crop updateManyAndReturn
+   */
+  export type CropUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Crop
+     */
+    select?: CropSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Crop
+     */
+    omit?: CropOmit<ExtArgs> | null
+    /**
+     * The data used to update Crops.
+     */
+    data: XOR<CropUpdateManyMutationInput, CropUncheckedUpdateManyInput>
+    /**
+     * Filter which Crops to update
+     */
+    where?: CropWhereInput
+    /**
+     * Limit how many Crops to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Crop upsert
+   */
+  export type CropUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Crop
+     */
+    select?: CropSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Crop
+     */
+    omit?: CropOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Crop to update in case it exists.
+     */
+    where: CropWhereUniqueInput
+    /**
+     * In case the Crop found by the `where` argument doesn't exist, create a new Crop with this data.
+     */
+    create: XOR<CropCreateInput, CropUncheckedCreateInput>
+    /**
+     * In case the Crop was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CropUpdateInput, CropUncheckedUpdateInput>
+  }
+
+  /**
+   * Crop delete
+   */
+  export type CropDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Crop
+     */
+    select?: CropSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Crop
+     */
+    omit?: CropOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropInclude<ExtArgs> | null
+    /**
+     * Filter which Crop to delete.
+     */
+    where: CropWhereUniqueInput
+  }
+
+  /**
+   * Crop deleteMany
+   */
+  export type CropDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Crops to delete
+     */
+    where?: CropWhereInput
+    /**
+     * Limit how many Crops to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Crop without action
+   */
+  export type CropDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Crop
+     */
+    select?: CropSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Crop
+     */
+    omit?: CropOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CropInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -40971,6 +43686,47 @@ export namespace Prisma {
   export type SaleListingScalarFieldEnum = (typeof SaleListingScalarFieldEnum)[keyof typeof SaleListingScalarFieldEnum]
 
 
+  export const CropCycleScalarFieldEnum: {
+    id: 'id',
+    farmId: 'farmId',
+    name: 'name',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    landSelection: 'landSelection',
+    landSize: 'landSize',
+    landUnit: 'landUnit',
+    status: 'status',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type CropCycleScalarFieldEnum = (typeof CropCycleScalarFieldEnum)[keyof typeof CropCycleScalarFieldEnum]
+
+
+  export const CropScalarFieldEnum: {
+    id: 'id',
+    cycleId: 'cycleId',
+    farmId: 'farmId',
+    cropName: 'cropName',
+    category: 'category',
+    variety: 'variety',
+    areaSize: 'areaSize',
+    areaUnit: 'areaUnit',
+    plantingDate: 'plantingDate',
+    expectedHarvestDate: 'expectedHarvestDate',
+    status: 'status',
+    progress: 'progress',
+    currentActivity: 'currentActivity',
+    icon: 'icon',
+    color: 'color',
+    notes: 'notes',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type CropScalarFieldEnum = (typeof CropScalarFieldEnum)[keyof typeof CropScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -41251,6 +44007,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordListRelationFilter
     treatmentRecords?: TreatmentRecordListRelationFilter
     saleListings?: SaleListingListRelationFilter
+    cropCycles?: CropCycleListRelationFilter
   }
 
   export type FarmOrderByWithRelationInput = {
@@ -41277,6 +44034,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordOrderByRelationAggregateInput
     treatmentRecords?: TreatmentRecordOrderByRelationAggregateInput
     saleListings?: SaleListingOrderByRelationAggregateInput
+    cropCycles?: CropCycleOrderByRelationAggregateInput
   }
 
   export type FarmWhereUniqueInput = Prisma.AtLeast<{
@@ -41306,6 +44064,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordListRelationFilter
     treatmentRecords?: TreatmentRecordListRelationFilter
     saleListings?: SaleListingListRelationFilter
+    cropCycles?: CropCycleListRelationFilter
   }, "id">
 
   export type FarmOrderByWithAggregationInput = {
@@ -44249,6 +47008,218 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"SaleListing"> | Date | string
   }
 
+  export type CropCycleWhereInput = {
+    AND?: CropCycleWhereInput | CropCycleWhereInput[]
+    OR?: CropCycleWhereInput[]
+    NOT?: CropCycleWhereInput | CropCycleWhereInput[]
+    id?: StringFilter<"CropCycle"> | string
+    farmId?: StringFilter<"CropCycle"> | string
+    name?: StringFilter<"CropCycle"> | string
+    startDate?: StringFilter<"CropCycle"> | string
+    endDate?: StringNullableFilter<"CropCycle"> | string | null
+    landSelection?: StringFilter<"CropCycle"> | string
+    landSize?: FloatNullableFilter<"CropCycle"> | number | null
+    landUnit?: StringFilter<"CropCycle"> | string
+    status?: StringFilter<"CropCycle"> | string
+    createdAt?: DateTimeFilter<"CropCycle"> | Date | string
+    updatedAt?: DateTimeFilter<"CropCycle"> | Date | string
+    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
+    crops?: CropListRelationFilter
+  }
+
+  export type CropCycleOrderByWithRelationInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    name?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    landSelection?: SortOrder
+    landSize?: SortOrderInput | SortOrder
+    landUnit?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    farm?: FarmOrderByWithRelationInput
+    crops?: CropOrderByRelationAggregateInput
+  }
+
+  export type CropCycleWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: CropCycleWhereInput | CropCycleWhereInput[]
+    OR?: CropCycleWhereInput[]
+    NOT?: CropCycleWhereInput | CropCycleWhereInput[]
+    farmId?: StringFilter<"CropCycle"> | string
+    name?: StringFilter<"CropCycle"> | string
+    startDate?: StringFilter<"CropCycle"> | string
+    endDate?: StringNullableFilter<"CropCycle"> | string | null
+    landSelection?: StringFilter<"CropCycle"> | string
+    landSize?: FloatNullableFilter<"CropCycle"> | number | null
+    landUnit?: StringFilter<"CropCycle"> | string
+    status?: StringFilter<"CropCycle"> | string
+    createdAt?: DateTimeFilter<"CropCycle"> | Date | string
+    updatedAt?: DateTimeFilter<"CropCycle"> | Date | string
+    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
+    crops?: CropListRelationFilter
+  }, "id">
+
+  export type CropCycleOrderByWithAggregationInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    name?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    landSelection?: SortOrder
+    landSize?: SortOrderInput | SortOrder
+    landUnit?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: CropCycleCountOrderByAggregateInput
+    _avg?: CropCycleAvgOrderByAggregateInput
+    _max?: CropCycleMaxOrderByAggregateInput
+    _min?: CropCycleMinOrderByAggregateInput
+    _sum?: CropCycleSumOrderByAggregateInput
+  }
+
+  export type CropCycleScalarWhereWithAggregatesInput = {
+    AND?: CropCycleScalarWhereWithAggregatesInput | CropCycleScalarWhereWithAggregatesInput[]
+    OR?: CropCycleScalarWhereWithAggregatesInput[]
+    NOT?: CropCycleScalarWhereWithAggregatesInput | CropCycleScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"CropCycle"> | string
+    farmId?: StringWithAggregatesFilter<"CropCycle"> | string
+    name?: StringWithAggregatesFilter<"CropCycle"> | string
+    startDate?: StringWithAggregatesFilter<"CropCycle"> | string
+    endDate?: StringNullableWithAggregatesFilter<"CropCycle"> | string | null
+    landSelection?: StringWithAggregatesFilter<"CropCycle"> | string
+    landSize?: FloatNullableWithAggregatesFilter<"CropCycle"> | number | null
+    landUnit?: StringWithAggregatesFilter<"CropCycle"> | string
+    status?: StringWithAggregatesFilter<"CropCycle"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"CropCycle"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"CropCycle"> | Date | string
+  }
+
+  export type CropWhereInput = {
+    AND?: CropWhereInput | CropWhereInput[]
+    OR?: CropWhereInput[]
+    NOT?: CropWhereInput | CropWhereInput[]
+    id?: StringFilter<"Crop"> | string
+    cycleId?: StringFilter<"Crop"> | string
+    farmId?: StringFilter<"Crop"> | string
+    cropName?: StringFilter<"Crop"> | string
+    category?: StringNullableFilter<"Crop"> | string | null
+    variety?: StringNullableFilter<"Crop"> | string | null
+    areaSize?: FloatFilter<"Crop"> | number
+    areaUnit?: StringFilter<"Crop"> | string
+    plantingDate?: StringFilter<"Crop"> | string
+    expectedHarvestDate?: StringFilter<"Crop"> | string
+    status?: StringFilter<"Crop"> | string
+    progress?: IntFilter<"Crop"> | number
+    currentActivity?: StringNullableFilter<"Crop"> | string | null
+    icon?: StringNullableFilter<"Crop"> | string | null
+    color?: StringNullableFilter<"Crop"> | string | null
+    notes?: StringNullableFilter<"Crop"> | string | null
+    createdAt?: DateTimeFilter<"Crop"> | Date | string
+    updatedAt?: DateTimeFilter<"Crop"> | Date | string
+    cycle?: XOR<CropCycleScalarRelationFilter, CropCycleWhereInput>
+  }
+
+  export type CropOrderByWithRelationInput = {
+    id?: SortOrder
+    cycleId?: SortOrder
+    farmId?: SortOrder
+    cropName?: SortOrder
+    category?: SortOrderInput | SortOrder
+    variety?: SortOrderInput | SortOrder
+    areaSize?: SortOrder
+    areaUnit?: SortOrder
+    plantingDate?: SortOrder
+    expectedHarvestDate?: SortOrder
+    status?: SortOrder
+    progress?: SortOrder
+    currentActivity?: SortOrderInput | SortOrder
+    icon?: SortOrderInput | SortOrder
+    color?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    cycle?: CropCycleOrderByWithRelationInput
+  }
+
+  export type CropWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: CropWhereInput | CropWhereInput[]
+    OR?: CropWhereInput[]
+    NOT?: CropWhereInput | CropWhereInput[]
+    cycleId?: StringFilter<"Crop"> | string
+    farmId?: StringFilter<"Crop"> | string
+    cropName?: StringFilter<"Crop"> | string
+    category?: StringNullableFilter<"Crop"> | string | null
+    variety?: StringNullableFilter<"Crop"> | string | null
+    areaSize?: FloatFilter<"Crop"> | number
+    areaUnit?: StringFilter<"Crop"> | string
+    plantingDate?: StringFilter<"Crop"> | string
+    expectedHarvestDate?: StringFilter<"Crop"> | string
+    status?: StringFilter<"Crop"> | string
+    progress?: IntFilter<"Crop"> | number
+    currentActivity?: StringNullableFilter<"Crop"> | string | null
+    icon?: StringNullableFilter<"Crop"> | string | null
+    color?: StringNullableFilter<"Crop"> | string | null
+    notes?: StringNullableFilter<"Crop"> | string | null
+    createdAt?: DateTimeFilter<"Crop"> | Date | string
+    updatedAt?: DateTimeFilter<"Crop"> | Date | string
+    cycle?: XOR<CropCycleScalarRelationFilter, CropCycleWhereInput>
+  }, "id">
+
+  export type CropOrderByWithAggregationInput = {
+    id?: SortOrder
+    cycleId?: SortOrder
+    farmId?: SortOrder
+    cropName?: SortOrder
+    category?: SortOrderInput | SortOrder
+    variety?: SortOrderInput | SortOrder
+    areaSize?: SortOrder
+    areaUnit?: SortOrder
+    plantingDate?: SortOrder
+    expectedHarvestDate?: SortOrder
+    status?: SortOrder
+    progress?: SortOrder
+    currentActivity?: SortOrderInput | SortOrder
+    icon?: SortOrderInput | SortOrder
+    color?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: CropCountOrderByAggregateInput
+    _avg?: CropAvgOrderByAggregateInput
+    _max?: CropMaxOrderByAggregateInput
+    _min?: CropMinOrderByAggregateInput
+    _sum?: CropSumOrderByAggregateInput
+  }
+
+  export type CropScalarWhereWithAggregatesInput = {
+    AND?: CropScalarWhereWithAggregatesInput | CropScalarWhereWithAggregatesInput[]
+    OR?: CropScalarWhereWithAggregatesInput[]
+    NOT?: CropScalarWhereWithAggregatesInput | CropScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Crop"> | string
+    cycleId?: StringWithAggregatesFilter<"Crop"> | string
+    farmId?: StringWithAggregatesFilter<"Crop"> | string
+    cropName?: StringWithAggregatesFilter<"Crop"> | string
+    category?: StringNullableWithAggregatesFilter<"Crop"> | string | null
+    variety?: StringNullableWithAggregatesFilter<"Crop"> | string | null
+    areaSize?: FloatWithAggregatesFilter<"Crop"> | number
+    areaUnit?: StringWithAggregatesFilter<"Crop"> | string
+    plantingDate?: StringWithAggregatesFilter<"Crop"> | string
+    expectedHarvestDate?: StringWithAggregatesFilter<"Crop"> | string
+    status?: StringWithAggregatesFilter<"Crop"> | string
+    progress?: IntWithAggregatesFilter<"Crop"> | number
+    currentActivity?: StringNullableWithAggregatesFilter<"Crop"> | string | null
+    icon?: StringNullableWithAggregatesFilter<"Crop"> | string | null
+    color?: StringNullableWithAggregatesFilter<"Crop"> | string | null
+    notes?: StringNullableWithAggregatesFilter<"Crop"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Crop"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Crop"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     firstName: string
@@ -44472,6 +47443,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateInput = {
@@ -44497,6 +47469,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUpdateInput = {
@@ -44522,6 +47495,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateInput = {
@@ -44547,6 +47521,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmCreateManyInput = {
@@ -47916,6 +50891,253 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type CropCycleCreateInput = {
+    id?: string
+    name: string
+    startDate: string
+    endDate?: string | null
+    landSelection: string
+    landSize?: number | null
+    landUnit?: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutCropCyclesInput
+    crops?: CropCreateNestedManyWithoutCycleInput
+  }
+
+  export type CropCycleUncheckedCreateInput = {
+    id?: string
+    farmId: string
+    name: string
+    startDate: string
+    endDate?: string | null
+    landSelection: string
+    landSize?: number | null
+    landUnit?: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    crops?: CropUncheckedCreateNestedManyWithoutCycleInput
+  }
+
+  export type CropCycleUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    landSelection?: StringFieldUpdateOperationsInput | string
+    landSize?: NullableFloatFieldUpdateOperationsInput | number | null
+    landUnit?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutCropCyclesNestedInput
+    crops?: CropUpdateManyWithoutCycleNestedInput
+  }
+
+  export type CropCycleUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    landSelection?: StringFieldUpdateOperationsInput | string
+    landSize?: NullableFloatFieldUpdateOperationsInput | number | null
+    landUnit?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    crops?: CropUncheckedUpdateManyWithoutCycleNestedInput
+  }
+
+  export type CropCycleCreateManyInput = {
+    id?: string
+    farmId: string
+    name: string
+    startDate: string
+    endDate?: string | null
+    landSelection: string
+    landSize?: number | null
+    landUnit?: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CropCycleUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    landSelection?: StringFieldUpdateOperationsInput | string
+    landSize?: NullableFloatFieldUpdateOperationsInput | number | null
+    landUnit?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CropCycleUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    landSelection?: StringFieldUpdateOperationsInput | string
+    landSize?: NullableFloatFieldUpdateOperationsInput | number | null
+    landUnit?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CropCreateInput = {
+    id?: string
+    farmId: string
+    cropName: string
+    category?: string | null
+    variety?: string | null
+    areaSize: number
+    areaUnit?: string
+    plantingDate: string
+    expectedHarvestDate: string
+    status?: string
+    progress?: number
+    currentActivity?: string | null
+    icon?: string | null
+    color?: string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cycle: CropCycleCreateNestedOneWithoutCropsInput
+  }
+
+  export type CropUncheckedCreateInput = {
+    id?: string
+    cycleId: string
+    farmId: string
+    cropName: string
+    category?: string | null
+    variety?: string | null
+    areaSize: number
+    areaUnit?: string
+    plantingDate: string
+    expectedHarvestDate: string
+    status?: string
+    progress?: number
+    currentActivity?: string | null
+    icon?: string | null
+    color?: string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CropUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    cropName?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    variety?: NullableStringFieldUpdateOperationsInput | string | null
+    areaSize?: FloatFieldUpdateOperationsInput | number
+    areaUnit?: StringFieldUpdateOperationsInput | string
+    plantingDate?: StringFieldUpdateOperationsInput | string
+    expectedHarvestDate?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    progress?: IntFieldUpdateOperationsInput | number
+    currentActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cycle?: CropCycleUpdateOneRequiredWithoutCropsNestedInput
+  }
+
+  export type CropUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cycleId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    cropName?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    variety?: NullableStringFieldUpdateOperationsInput | string | null
+    areaSize?: FloatFieldUpdateOperationsInput | number
+    areaUnit?: StringFieldUpdateOperationsInput | string
+    plantingDate?: StringFieldUpdateOperationsInput | string
+    expectedHarvestDate?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    progress?: IntFieldUpdateOperationsInput | number
+    currentActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CropCreateManyInput = {
+    id?: string
+    cycleId: string
+    farmId: string
+    cropName: string
+    category?: string | null
+    variety?: string | null
+    areaSize: number
+    areaUnit?: string
+    plantingDate: string
+    expectedHarvestDate: string
+    status?: string
+    progress?: number
+    currentActivity?: string | null
+    icon?: string | null
+    color?: string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CropUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    cropName?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    variety?: NullableStringFieldUpdateOperationsInput | string | null
+    areaSize?: FloatFieldUpdateOperationsInput | number
+    areaUnit?: StringFieldUpdateOperationsInput | string
+    plantingDate?: StringFieldUpdateOperationsInput | string
+    expectedHarvestDate?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    progress?: IntFieldUpdateOperationsInput | number
+    currentActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CropUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cycleId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    cropName?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    variety?: NullableStringFieldUpdateOperationsInput | string | null
+    areaSize?: FloatFieldUpdateOperationsInput | number
+    areaUnit?: StringFieldUpdateOperationsInput | string
+    plantingDate?: StringFieldUpdateOperationsInput | string
+    expectedHarvestDate?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    progress?: IntFieldUpdateOperationsInput | number
+    currentActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -48291,6 +51513,12 @@ export namespace Prisma {
     none?: SaleListingWhereInput
   }
 
+  export type CropCycleListRelationFilter = {
+    every?: CropCycleWhereInput
+    some?: CropCycleWhereInput
+    none?: CropCycleWhereInput
+  }
+
   export type EmployeeFarmOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -48308,6 +51536,10 @@ export namespace Prisma {
   }
 
   export type SaleListingOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CropCycleOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -50203,6 +53435,144 @@ export namespace Prisma {
     salePrice?: SortOrder
   }
 
+  export type CropListRelationFilter = {
+    every?: CropWhereInput
+    some?: CropWhereInput
+    none?: CropWhereInput
+  }
+
+  export type CropOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CropCycleCountOrderByAggregateInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    name?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    landSelection?: SortOrder
+    landSize?: SortOrder
+    landUnit?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CropCycleAvgOrderByAggregateInput = {
+    landSize?: SortOrder
+  }
+
+  export type CropCycleMaxOrderByAggregateInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    name?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    landSelection?: SortOrder
+    landSize?: SortOrder
+    landUnit?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CropCycleMinOrderByAggregateInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    name?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    landSelection?: SortOrder
+    landSize?: SortOrder
+    landUnit?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CropCycleSumOrderByAggregateInput = {
+    landSize?: SortOrder
+  }
+
+  export type CropCycleScalarRelationFilter = {
+    is?: CropCycleWhereInput
+    isNot?: CropCycleWhereInput
+  }
+
+  export type CropCountOrderByAggregateInput = {
+    id?: SortOrder
+    cycleId?: SortOrder
+    farmId?: SortOrder
+    cropName?: SortOrder
+    category?: SortOrder
+    variety?: SortOrder
+    areaSize?: SortOrder
+    areaUnit?: SortOrder
+    plantingDate?: SortOrder
+    expectedHarvestDate?: SortOrder
+    status?: SortOrder
+    progress?: SortOrder
+    currentActivity?: SortOrder
+    icon?: SortOrder
+    color?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CropAvgOrderByAggregateInput = {
+    areaSize?: SortOrder
+    progress?: SortOrder
+  }
+
+  export type CropMaxOrderByAggregateInput = {
+    id?: SortOrder
+    cycleId?: SortOrder
+    farmId?: SortOrder
+    cropName?: SortOrder
+    category?: SortOrder
+    variety?: SortOrder
+    areaSize?: SortOrder
+    areaUnit?: SortOrder
+    plantingDate?: SortOrder
+    expectedHarvestDate?: SortOrder
+    status?: SortOrder
+    progress?: SortOrder
+    currentActivity?: SortOrder
+    icon?: SortOrder
+    color?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CropMinOrderByAggregateInput = {
+    id?: SortOrder
+    cycleId?: SortOrder
+    farmId?: SortOrder
+    cropName?: SortOrder
+    category?: SortOrder
+    variety?: SortOrder
+    areaSize?: SortOrder
+    areaUnit?: SortOrder
+    plantingDate?: SortOrder
+    expectedHarvestDate?: SortOrder
+    status?: SortOrder
+    progress?: SortOrder
+    currentActivity?: SortOrder
+    icon?: SortOrder
+    color?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CropSumOrderByAggregateInput = {
+    areaSize?: SortOrder
+    progress?: SortOrder
+  }
+
   export type FarmCreateNestedManyWithoutUserInput = {
     create?: XOR<FarmCreateWithoutUserInput, FarmUncheckedCreateWithoutUserInput> | FarmCreateWithoutUserInput[] | FarmUncheckedCreateWithoutUserInput[]
     connectOrCreate?: FarmCreateOrConnectWithoutUserInput | FarmCreateOrConnectWithoutUserInput[]
@@ -50661,6 +54031,13 @@ export namespace Prisma {
     connect?: SaleListingWhereUniqueInput | SaleListingWhereUniqueInput[]
   }
 
+  export type CropCycleCreateNestedManyWithoutFarmInput = {
+    create?: XOR<CropCycleCreateWithoutFarmInput, CropCycleUncheckedCreateWithoutFarmInput> | CropCycleCreateWithoutFarmInput[] | CropCycleUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: CropCycleCreateOrConnectWithoutFarmInput | CropCycleCreateOrConnectWithoutFarmInput[]
+    createMany?: CropCycleCreateManyFarmInputEnvelope
+    connect?: CropCycleWhereUniqueInput | CropCycleWhereUniqueInput[]
+  }
+
   export type EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput = {
     create?: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput> | EmployeeFarmCreateWithoutFarmInput[] | EmployeeFarmUncheckedCreateWithoutFarmInput[]
     connectOrCreate?: EmployeeFarmCreateOrConnectWithoutFarmInput | EmployeeFarmCreateOrConnectWithoutFarmInput[]
@@ -50743,6 +54120,13 @@ export namespace Prisma {
     connectOrCreate?: SaleListingCreateOrConnectWithoutFarmInput | SaleListingCreateOrConnectWithoutFarmInput[]
     createMany?: SaleListingCreateManyFarmInputEnvelope
     connect?: SaleListingWhereUniqueInput | SaleListingWhereUniqueInput[]
+  }
+
+  export type CropCycleUncheckedCreateNestedManyWithoutFarmInput = {
+    create?: XOR<CropCycleCreateWithoutFarmInput, CropCycleUncheckedCreateWithoutFarmInput> | CropCycleCreateWithoutFarmInput[] | CropCycleUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: CropCycleCreateOrConnectWithoutFarmInput | CropCycleCreateOrConnectWithoutFarmInput[]
+    createMany?: CropCycleCreateManyFarmInputEnvelope
+    connect?: CropCycleWhereUniqueInput | CropCycleWhereUniqueInput[]
   }
 
   export type FloatFieldUpdateOperationsInput = {
@@ -50934,6 +54318,20 @@ export namespace Prisma {
     deleteMany?: SaleListingScalarWhereInput | SaleListingScalarWhereInput[]
   }
 
+  export type CropCycleUpdateManyWithoutFarmNestedInput = {
+    create?: XOR<CropCycleCreateWithoutFarmInput, CropCycleUncheckedCreateWithoutFarmInput> | CropCycleCreateWithoutFarmInput[] | CropCycleUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: CropCycleCreateOrConnectWithoutFarmInput | CropCycleCreateOrConnectWithoutFarmInput[]
+    upsert?: CropCycleUpsertWithWhereUniqueWithoutFarmInput | CropCycleUpsertWithWhereUniqueWithoutFarmInput[]
+    createMany?: CropCycleCreateManyFarmInputEnvelope
+    set?: CropCycleWhereUniqueInput | CropCycleWhereUniqueInput[]
+    disconnect?: CropCycleWhereUniqueInput | CropCycleWhereUniqueInput[]
+    delete?: CropCycleWhereUniqueInput | CropCycleWhereUniqueInput[]
+    connect?: CropCycleWhereUniqueInput | CropCycleWhereUniqueInput[]
+    update?: CropCycleUpdateWithWhereUniqueWithoutFarmInput | CropCycleUpdateWithWhereUniqueWithoutFarmInput[]
+    updateMany?: CropCycleUpdateManyWithWhereWithoutFarmInput | CropCycleUpdateManyWithWhereWithoutFarmInput[]
+    deleteMany?: CropCycleScalarWhereInput | CropCycleScalarWhereInput[]
+  }
+
   export type EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput = {
     create?: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput> | EmployeeFarmCreateWithoutFarmInput[] | EmployeeFarmUncheckedCreateWithoutFarmInput[]
     connectOrCreate?: EmployeeFarmCreateOrConnectWithoutFarmInput | EmployeeFarmCreateOrConnectWithoutFarmInput[]
@@ -51100,6 +54498,20 @@ export namespace Prisma {
     update?: SaleListingUpdateWithWhereUniqueWithoutFarmInput | SaleListingUpdateWithWhereUniqueWithoutFarmInput[]
     updateMany?: SaleListingUpdateManyWithWhereWithoutFarmInput | SaleListingUpdateManyWithWhereWithoutFarmInput[]
     deleteMany?: SaleListingScalarWhereInput | SaleListingScalarWhereInput[]
+  }
+
+  export type CropCycleUncheckedUpdateManyWithoutFarmNestedInput = {
+    create?: XOR<CropCycleCreateWithoutFarmInput, CropCycleUncheckedCreateWithoutFarmInput> | CropCycleCreateWithoutFarmInput[] | CropCycleUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: CropCycleCreateOrConnectWithoutFarmInput | CropCycleCreateOrConnectWithoutFarmInput[]
+    upsert?: CropCycleUpsertWithWhereUniqueWithoutFarmInput | CropCycleUpsertWithWhereUniqueWithoutFarmInput[]
+    createMany?: CropCycleCreateManyFarmInputEnvelope
+    set?: CropCycleWhereUniqueInput | CropCycleWhereUniqueInput[]
+    disconnect?: CropCycleWhereUniqueInput | CropCycleWhereUniqueInput[]
+    delete?: CropCycleWhereUniqueInput | CropCycleWhereUniqueInput[]
+    connect?: CropCycleWhereUniqueInput | CropCycleWhereUniqueInput[]
+    update?: CropCycleUpdateWithWhereUniqueWithoutFarmInput | CropCycleUpdateWithWhereUniqueWithoutFarmInput[]
+    updateMany?: CropCycleUpdateManyWithWhereWithoutFarmInput | CropCycleUpdateManyWithWhereWithoutFarmInput[]
+    deleteMany?: CropCycleScalarWhereInput | CropCycleScalarWhereInput[]
   }
 
   export type EmployeeBenefitCreateNestedManyWithoutEmployeeInput = {
@@ -52782,6 +56194,76 @@ export namespace Prisma {
     update?: XOR<XOR<FarmUpdateToOneWithWhereWithoutSaleListingsInput, FarmUpdateWithoutSaleListingsInput>, FarmUncheckedUpdateWithoutSaleListingsInput>
   }
 
+  export type FarmCreateNestedOneWithoutCropCyclesInput = {
+    create?: XOR<FarmCreateWithoutCropCyclesInput, FarmUncheckedCreateWithoutCropCyclesInput>
+    connectOrCreate?: FarmCreateOrConnectWithoutCropCyclesInput
+    connect?: FarmWhereUniqueInput
+  }
+
+  export type CropCreateNestedManyWithoutCycleInput = {
+    create?: XOR<CropCreateWithoutCycleInput, CropUncheckedCreateWithoutCycleInput> | CropCreateWithoutCycleInput[] | CropUncheckedCreateWithoutCycleInput[]
+    connectOrCreate?: CropCreateOrConnectWithoutCycleInput | CropCreateOrConnectWithoutCycleInput[]
+    createMany?: CropCreateManyCycleInputEnvelope
+    connect?: CropWhereUniqueInput | CropWhereUniqueInput[]
+  }
+
+  export type CropUncheckedCreateNestedManyWithoutCycleInput = {
+    create?: XOR<CropCreateWithoutCycleInput, CropUncheckedCreateWithoutCycleInput> | CropCreateWithoutCycleInput[] | CropUncheckedCreateWithoutCycleInput[]
+    connectOrCreate?: CropCreateOrConnectWithoutCycleInput | CropCreateOrConnectWithoutCycleInput[]
+    createMany?: CropCreateManyCycleInputEnvelope
+    connect?: CropWhereUniqueInput | CropWhereUniqueInput[]
+  }
+
+  export type FarmUpdateOneRequiredWithoutCropCyclesNestedInput = {
+    create?: XOR<FarmCreateWithoutCropCyclesInput, FarmUncheckedCreateWithoutCropCyclesInput>
+    connectOrCreate?: FarmCreateOrConnectWithoutCropCyclesInput
+    upsert?: FarmUpsertWithoutCropCyclesInput
+    connect?: FarmWhereUniqueInput
+    update?: XOR<XOR<FarmUpdateToOneWithWhereWithoutCropCyclesInput, FarmUpdateWithoutCropCyclesInput>, FarmUncheckedUpdateWithoutCropCyclesInput>
+  }
+
+  export type CropUpdateManyWithoutCycleNestedInput = {
+    create?: XOR<CropCreateWithoutCycleInput, CropUncheckedCreateWithoutCycleInput> | CropCreateWithoutCycleInput[] | CropUncheckedCreateWithoutCycleInput[]
+    connectOrCreate?: CropCreateOrConnectWithoutCycleInput | CropCreateOrConnectWithoutCycleInput[]
+    upsert?: CropUpsertWithWhereUniqueWithoutCycleInput | CropUpsertWithWhereUniqueWithoutCycleInput[]
+    createMany?: CropCreateManyCycleInputEnvelope
+    set?: CropWhereUniqueInput | CropWhereUniqueInput[]
+    disconnect?: CropWhereUniqueInput | CropWhereUniqueInput[]
+    delete?: CropWhereUniqueInput | CropWhereUniqueInput[]
+    connect?: CropWhereUniqueInput | CropWhereUniqueInput[]
+    update?: CropUpdateWithWhereUniqueWithoutCycleInput | CropUpdateWithWhereUniqueWithoutCycleInput[]
+    updateMany?: CropUpdateManyWithWhereWithoutCycleInput | CropUpdateManyWithWhereWithoutCycleInput[]
+    deleteMany?: CropScalarWhereInput | CropScalarWhereInput[]
+  }
+
+  export type CropUncheckedUpdateManyWithoutCycleNestedInput = {
+    create?: XOR<CropCreateWithoutCycleInput, CropUncheckedCreateWithoutCycleInput> | CropCreateWithoutCycleInput[] | CropUncheckedCreateWithoutCycleInput[]
+    connectOrCreate?: CropCreateOrConnectWithoutCycleInput | CropCreateOrConnectWithoutCycleInput[]
+    upsert?: CropUpsertWithWhereUniqueWithoutCycleInput | CropUpsertWithWhereUniqueWithoutCycleInput[]
+    createMany?: CropCreateManyCycleInputEnvelope
+    set?: CropWhereUniqueInput | CropWhereUniqueInput[]
+    disconnect?: CropWhereUniqueInput | CropWhereUniqueInput[]
+    delete?: CropWhereUniqueInput | CropWhereUniqueInput[]
+    connect?: CropWhereUniqueInput | CropWhereUniqueInput[]
+    update?: CropUpdateWithWhereUniqueWithoutCycleInput | CropUpdateWithWhereUniqueWithoutCycleInput[]
+    updateMany?: CropUpdateManyWithWhereWithoutCycleInput | CropUpdateManyWithWhereWithoutCycleInput[]
+    deleteMany?: CropScalarWhereInput | CropScalarWhereInput[]
+  }
+
+  export type CropCycleCreateNestedOneWithoutCropsInput = {
+    create?: XOR<CropCycleCreateWithoutCropsInput, CropCycleUncheckedCreateWithoutCropsInput>
+    connectOrCreate?: CropCycleCreateOrConnectWithoutCropsInput
+    connect?: CropCycleWhereUniqueInput
+  }
+
+  export type CropCycleUpdateOneRequiredWithoutCropsNestedInput = {
+    create?: XOR<CropCycleCreateWithoutCropsInput, CropCycleUncheckedCreateWithoutCropsInput>
+    connectOrCreate?: CropCycleCreateOrConnectWithoutCropsInput
+    upsert?: CropCycleUpsertWithoutCropsInput
+    connect?: CropCycleWhereUniqueInput
+    update?: XOR<XOR<CropCycleUpdateToOneWithWhereWithoutCropsInput, CropCycleUpdateWithoutCropsInput>, CropCycleUncheckedUpdateWithoutCropsInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -53037,6 +56519,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutUserInput = {
@@ -53061,6 +56544,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutUserInput = {
@@ -54361,6 +57845,44 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type CropCycleCreateWithoutFarmInput = {
+    id?: string
+    name: string
+    startDate: string
+    endDate?: string | null
+    landSelection: string
+    landSize?: number | null
+    landUnit?: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    crops?: CropCreateNestedManyWithoutCycleInput
+  }
+
+  export type CropCycleUncheckedCreateWithoutFarmInput = {
+    id?: string
+    name: string
+    startDate: string
+    endDate?: string | null
+    landSelection: string
+    landSize?: number | null
+    landUnit?: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    crops?: CropUncheckedCreateNestedManyWithoutCycleInput
+  }
+
+  export type CropCycleCreateOrConnectWithoutFarmInput = {
+    where: CropCycleWhereUniqueInput
+    create: XOR<CropCycleCreateWithoutFarmInput, CropCycleUncheckedCreateWithoutFarmInput>
+  }
+
+  export type CropCycleCreateManyFarmInputEnvelope = {
+    data: CropCycleCreateManyFarmInput | CropCycleCreateManyFarmInput[]
+    skipDuplicates?: boolean
+  }
+
   export type EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput = {
     where: EmployeeFarmWhereUniqueInput
     update: XOR<EmployeeFarmUpdateWithoutFarmInput, EmployeeFarmUncheckedUpdateWithoutFarmInput>
@@ -54740,6 +58262,39 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"SaleListing"> | Date | string
   }
 
+  export type CropCycleUpsertWithWhereUniqueWithoutFarmInput = {
+    where: CropCycleWhereUniqueInput
+    update: XOR<CropCycleUpdateWithoutFarmInput, CropCycleUncheckedUpdateWithoutFarmInput>
+    create: XOR<CropCycleCreateWithoutFarmInput, CropCycleUncheckedCreateWithoutFarmInput>
+  }
+
+  export type CropCycleUpdateWithWhereUniqueWithoutFarmInput = {
+    where: CropCycleWhereUniqueInput
+    data: XOR<CropCycleUpdateWithoutFarmInput, CropCycleUncheckedUpdateWithoutFarmInput>
+  }
+
+  export type CropCycleUpdateManyWithWhereWithoutFarmInput = {
+    where: CropCycleScalarWhereInput
+    data: XOR<CropCycleUpdateManyMutationInput, CropCycleUncheckedUpdateManyWithoutFarmInput>
+  }
+
+  export type CropCycleScalarWhereInput = {
+    AND?: CropCycleScalarWhereInput | CropCycleScalarWhereInput[]
+    OR?: CropCycleScalarWhereInput[]
+    NOT?: CropCycleScalarWhereInput | CropCycleScalarWhereInput[]
+    id?: StringFilter<"CropCycle"> | string
+    farmId?: StringFilter<"CropCycle"> | string
+    name?: StringFilter<"CropCycle"> | string
+    startDate?: StringFilter<"CropCycle"> | string
+    endDate?: StringNullableFilter<"CropCycle"> | string | null
+    landSelection?: StringFilter<"CropCycle"> | string
+    landSize?: FloatNullableFilter<"CropCycle"> | number | null
+    landUnit?: StringFilter<"CropCycle"> | string
+    status?: StringFilter<"CropCycle"> | string
+    createdAt?: DateTimeFilter<"CropCycle"> | Date | string
+    updatedAt?: DateTimeFilter<"CropCycle"> | Date | string
+  }
+
   export type EmployeeBenefitCreateWithoutEmployeeInput = {
     id?: string
     name: string
@@ -54915,6 +58470,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutEmployeesInput = {
@@ -54939,6 +58495,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutEmployeesInput = {
@@ -55044,6 +58601,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutEmployeesInput = {
@@ -55068,6 +58626,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type EmployeeCreateWithoutBenefitsInput = {
@@ -55216,6 +58775,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutLivestockInput = {
@@ -55240,6 +58800,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutLivestockInput = {
@@ -55930,6 +59491,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutLivestockInput = {
@@ -55954,6 +59516,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type MammalUpsertWithoutLivestockInput = {
@@ -57182,6 +60745,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutBreedingRecordsInput = {
@@ -57206,6 +60770,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutBreedingRecordsInput = {
@@ -57380,6 +60945,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutBreedingRecordsInput = {
@@ -57404,6 +60970,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type BreedingRecordCreateWithoutOffspringInput = {
@@ -57668,6 +61235,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutFeedingProgramsInput = {
@@ -57692,6 +61260,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutFeedingProgramsInput = {
@@ -57839,6 +61408,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutFeedingProgramsInput = {
@@ -57863,6 +61433,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type UserUpsertWithoutFeedingProgramsInput = {
@@ -58099,6 +61670,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutInventoriesInput = {
@@ -58123,6 +61695,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutInventoriesInput = {
@@ -58361,6 +61934,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutInventoriesInput = {
@@ -58385,6 +61959,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type GoodsInStockUpsertWithWhereUniqueWithoutInventoryInput = {
@@ -58883,6 +62458,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutAllergyRecordsInput = {
@@ -58907,6 +62483,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutAllergyRecordsInput = {
@@ -59067,6 +62644,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutAllergyRecordsInput = {
@@ -59091,6 +62669,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type UserUpsertWithoutAllergyRecordsInput = {
@@ -59247,6 +62826,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutBoosterRecordsInput = {
@@ -59271,6 +62851,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutBoosterRecordsInput = {
@@ -59431,6 +63012,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutBoosterRecordsInput = {
@@ -59455,6 +63037,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type UserUpsertWithoutBoosterRecordsInput = {
@@ -59611,6 +63194,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutVaccinationRecordsInput = {
@@ -59635,6 +63219,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutVaccinationRecordsInput = {
@@ -59795,6 +63380,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutVaccinationRecordsInput = {
@@ -59819,6 +63405,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type UserUpsertWithoutVaccinationRecordsInput = {
@@ -59975,6 +63562,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutDewormingRecordsInput = {
@@ -59999,6 +63587,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutDewormingRecordsInput = {
@@ -60159,6 +63748,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutDewormingRecordsInput = {
@@ -60183,6 +63773,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type UserUpsertWithoutDewormingRecordsInput = {
@@ -60339,6 +63930,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutGeneticDisorderRecordsInput = {
@@ -60363,6 +63955,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutGeneticDisorderRecordsInput = {
@@ -60523,6 +64116,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutGeneticDisorderRecordsInput = {
@@ -60547,6 +64141,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type UserUpsertWithoutGeneticDisorderRecordsInput = {
@@ -60703,6 +64298,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutTreatmentRecordsInput = {
@@ -60727,6 +64323,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutTreatmentRecordsInput = {
@@ -60887,6 +64484,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutTreatmentRecordsInput = {
@@ -60911,6 +64509,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type UserUpsertWithoutTreatmentRecordsInput = {
@@ -61067,6 +64666,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutSaleListingsInput = {
@@ -61091,6 +64691,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
+    cropCycles?: CropCycleUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutSaleListingsInput = {
@@ -61131,6 +64732,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutSaleListingsInput = {
@@ -61155,6 +64757,285 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUncheckedUpdateManyWithoutFarmNestedInput
+  }
+
+  export type FarmCreateWithoutCropCyclesInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
+    livestock?: LivestockCreateNestedManyWithoutFarmInput
+    breedingRecords?: BreedingRecordCreateNestedManyWithoutFarmInput
+    user: UserCreateNestedOneWithoutFarmsInput
+    feedingPrograms?: FeedingProgramCreateNestedManyWithoutFarmInput
+    inventories?: InventoryCreateNestedManyWithoutFarmInput
+    allergyRecords?: AllergyRecordCreateNestedManyWithoutFarmInput
+    boosterRecords?: BoosterRecordCreateNestedManyWithoutFarmInput
+    vaccinationRecords?: VaccinationRecordCreateNestedManyWithoutFarmInput
+    dewormingRecords?: DewormingRecordCreateNestedManyWithoutFarmInput
+    geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
+    treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingCreateNestedManyWithoutFarmInput
+  }
+
+  export type FarmUncheckedCreateWithoutCropCyclesInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
+    livestock?: LivestockUncheckedCreateNestedManyWithoutFarmInput
+    breedingRecords?: BreedingRecordUncheckedCreateNestedManyWithoutFarmInput
+    feedingPrograms?: FeedingProgramUncheckedCreateNestedManyWithoutFarmInput
+    inventories?: InventoryUncheckedCreateNestedManyWithoutFarmInput
+    allergyRecords?: AllergyRecordUncheckedCreateNestedManyWithoutFarmInput
+    boosterRecords?: BoosterRecordUncheckedCreateNestedManyWithoutFarmInput
+    vaccinationRecords?: VaccinationRecordUncheckedCreateNestedManyWithoutFarmInput
+    dewormingRecords?: DewormingRecordUncheckedCreateNestedManyWithoutFarmInput
+    geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
+    treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
+  }
+
+  export type FarmCreateOrConnectWithoutCropCyclesInput = {
+    where: FarmWhereUniqueInput
+    create: XOR<FarmCreateWithoutCropCyclesInput, FarmUncheckedCreateWithoutCropCyclesInput>
+  }
+
+  export type CropCreateWithoutCycleInput = {
+    id?: string
+    farmId: string
+    cropName: string
+    category?: string | null
+    variety?: string | null
+    areaSize: number
+    areaUnit?: string
+    plantingDate: string
+    expectedHarvestDate: string
+    status?: string
+    progress?: number
+    currentActivity?: string | null
+    icon?: string | null
+    color?: string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CropUncheckedCreateWithoutCycleInput = {
+    id?: string
+    farmId: string
+    cropName: string
+    category?: string | null
+    variety?: string | null
+    areaSize: number
+    areaUnit?: string
+    plantingDate: string
+    expectedHarvestDate: string
+    status?: string
+    progress?: number
+    currentActivity?: string | null
+    icon?: string | null
+    color?: string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CropCreateOrConnectWithoutCycleInput = {
+    where: CropWhereUniqueInput
+    create: XOR<CropCreateWithoutCycleInput, CropUncheckedCreateWithoutCycleInput>
+  }
+
+  export type CropCreateManyCycleInputEnvelope = {
+    data: CropCreateManyCycleInput | CropCreateManyCycleInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FarmUpsertWithoutCropCyclesInput = {
+    update: XOR<FarmUpdateWithoutCropCyclesInput, FarmUncheckedUpdateWithoutCropCyclesInput>
+    create: XOR<FarmCreateWithoutCropCyclesInput, FarmUncheckedCreateWithoutCropCyclesInput>
+    where?: FarmWhereInput
+  }
+
+  export type FarmUpdateToOneWithWhereWithoutCropCyclesInput = {
+    where?: FarmWhereInput
+    data: XOR<FarmUpdateWithoutCropCyclesInput, FarmUncheckedUpdateWithoutCropCyclesInput>
+  }
+
+  export type FarmUpdateWithoutCropCyclesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    county?: StringFieldUpdateOperationsInput | string
+    administrativeLocation?: StringFieldUpdateOperationsInput | string
+    size?: FloatFieldUpdateOperationsInput | number
+    ownership?: StringFieldUpdateOperationsInput | string
+    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: EmployeeFarmUpdateManyWithoutFarmNestedInput
+    livestock?: LivestockUpdateManyWithoutFarmNestedInput
+    breedingRecords?: BreedingRecordUpdateManyWithoutFarmNestedInput
+    user?: UserUpdateOneRequiredWithoutFarmsNestedInput
+    feedingPrograms?: FeedingProgramUpdateManyWithoutFarmNestedInput
+    inventories?: InventoryUpdateManyWithoutFarmNestedInput
+    allergyRecords?: AllergyRecordUpdateManyWithoutFarmNestedInput
+    boosterRecords?: BoosterRecordUpdateManyWithoutFarmNestedInput
+    vaccinationRecords?: VaccinationRecordUpdateManyWithoutFarmNestedInput
+    dewormingRecords?: DewormingRecordUpdateManyWithoutFarmNestedInput
+    geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
+    treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
+  }
+
+  export type FarmUncheckedUpdateWithoutCropCyclesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    county?: StringFieldUpdateOperationsInput | string
+    administrativeLocation?: StringFieldUpdateOperationsInput | string
+    size?: FloatFieldUpdateOperationsInput | number
+    ownership?: StringFieldUpdateOperationsInput | string
+    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput
+    livestock?: LivestockUncheckedUpdateManyWithoutFarmNestedInput
+    breedingRecords?: BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput
+    feedingPrograms?: FeedingProgramUncheckedUpdateManyWithoutFarmNestedInput
+    inventories?: InventoryUncheckedUpdateManyWithoutFarmNestedInput
+    allergyRecords?: AllergyRecordUncheckedUpdateManyWithoutFarmNestedInput
+    boosterRecords?: BoosterRecordUncheckedUpdateManyWithoutFarmNestedInput
+    vaccinationRecords?: VaccinationRecordUncheckedUpdateManyWithoutFarmNestedInput
+    dewormingRecords?: DewormingRecordUncheckedUpdateManyWithoutFarmNestedInput
+    geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
+    treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
+  }
+
+  export type CropUpsertWithWhereUniqueWithoutCycleInput = {
+    where: CropWhereUniqueInput
+    update: XOR<CropUpdateWithoutCycleInput, CropUncheckedUpdateWithoutCycleInput>
+    create: XOR<CropCreateWithoutCycleInput, CropUncheckedCreateWithoutCycleInput>
+  }
+
+  export type CropUpdateWithWhereUniqueWithoutCycleInput = {
+    where: CropWhereUniqueInput
+    data: XOR<CropUpdateWithoutCycleInput, CropUncheckedUpdateWithoutCycleInput>
+  }
+
+  export type CropUpdateManyWithWhereWithoutCycleInput = {
+    where: CropScalarWhereInput
+    data: XOR<CropUpdateManyMutationInput, CropUncheckedUpdateManyWithoutCycleInput>
+  }
+
+  export type CropScalarWhereInput = {
+    AND?: CropScalarWhereInput | CropScalarWhereInput[]
+    OR?: CropScalarWhereInput[]
+    NOT?: CropScalarWhereInput | CropScalarWhereInput[]
+    id?: StringFilter<"Crop"> | string
+    cycleId?: StringFilter<"Crop"> | string
+    farmId?: StringFilter<"Crop"> | string
+    cropName?: StringFilter<"Crop"> | string
+    category?: StringNullableFilter<"Crop"> | string | null
+    variety?: StringNullableFilter<"Crop"> | string | null
+    areaSize?: FloatFilter<"Crop"> | number
+    areaUnit?: StringFilter<"Crop"> | string
+    plantingDate?: StringFilter<"Crop"> | string
+    expectedHarvestDate?: StringFilter<"Crop"> | string
+    status?: StringFilter<"Crop"> | string
+    progress?: IntFilter<"Crop"> | number
+    currentActivity?: StringNullableFilter<"Crop"> | string | null
+    icon?: StringNullableFilter<"Crop"> | string | null
+    color?: StringNullableFilter<"Crop"> | string | null
+    notes?: StringNullableFilter<"Crop"> | string | null
+    createdAt?: DateTimeFilter<"Crop"> | Date | string
+    updatedAt?: DateTimeFilter<"Crop"> | Date | string
+  }
+
+  export type CropCycleCreateWithoutCropsInput = {
+    id?: string
+    name: string
+    startDate: string
+    endDate?: string | null
+    landSelection: string
+    landSize?: number | null
+    landUnit?: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutCropCyclesInput
+  }
+
+  export type CropCycleUncheckedCreateWithoutCropsInput = {
+    id?: string
+    farmId: string
+    name: string
+    startDate: string
+    endDate?: string | null
+    landSelection: string
+    landSize?: number | null
+    landUnit?: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CropCycleCreateOrConnectWithoutCropsInput = {
+    where: CropCycleWhereUniqueInput
+    create: XOR<CropCycleCreateWithoutCropsInput, CropCycleUncheckedCreateWithoutCropsInput>
+  }
+
+  export type CropCycleUpsertWithoutCropsInput = {
+    update: XOR<CropCycleUpdateWithoutCropsInput, CropCycleUncheckedUpdateWithoutCropsInput>
+    create: XOR<CropCycleCreateWithoutCropsInput, CropCycleUncheckedCreateWithoutCropsInput>
+    where?: CropCycleWhereInput
+  }
+
+  export type CropCycleUpdateToOneWithWhereWithoutCropsInput = {
+    where?: CropCycleWhereInput
+    data: XOR<CropCycleUpdateWithoutCropsInput, CropCycleUncheckedUpdateWithoutCropsInput>
+  }
+
+  export type CropCycleUpdateWithoutCropsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    landSelection?: StringFieldUpdateOperationsInput | string
+    landSize?: NullableFloatFieldUpdateOperationsInput | number | null
+    landUnit?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutCropCyclesNestedInput
+  }
+
+  export type CropCycleUncheckedUpdateWithoutCropsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    landSelection?: StringFieldUpdateOperationsInput | string
+    landSize?: NullableFloatFieldUpdateOperationsInput | number | null
+    landUnit?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FarmCreateManyUserInput = {
@@ -61316,6 +65197,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutUserInput = {
@@ -61340,6 +65222,7 @@ export namespace Prisma {
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
     saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
+    cropCycles?: CropCycleUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateManyWithoutUserInput = {
@@ -61946,6 +65829,19 @@ export namespace Prisma {
     receiptNumber?: string | null
     saleNotes?: string | null
     attachments?: SaleListingCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CropCycleCreateManyFarmInput = {
+    id?: string
+    name: string
+    startDate: string
+    endDate?: string | null
+    landSelection: string
+    landSize?: number | null
+    landUnit?: string
+    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -62647,6 +66543,47 @@ export namespace Prisma {
     receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
     saleNotes?: NullableStringFieldUpdateOperationsInput | string | null
     attachments?: SaleListingUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CropCycleUpdateWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    landSelection?: StringFieldUpdateOperationsInput | string
+    landSize?: NullableFloatFieldUpdateOperationsInput | number | null
+    landUnit?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    crops?: CropUpdateManyWithoutCycleNestedInput
+  }
+
+  export type CropCycleUncheckedUpdateWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    landSelection?: StringFieldUpdateOperationsInput | string
+    landSize?: NullableFloatFieldUpdateOperationsInput | number | null
+    landUnit?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    crops?: CropUncheckedUpdateManyWithoutCycleNestedInput
+  }
+
+  export type CropCycleUncheckedUpdateManyWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    landSelection?: StringFieldUpdateOperationsInput | string
+    landSize?: NullableFloatFieldUpdateOperationsInput | number | null
+    landUnit?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -63907,6 +67844,86 @@ export namespace Prisma {
     consumptionCost?: NullableFloatFieldUpdateOperationsInput | number | null
     lastMaintenanceDatePower?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextMaintenanceDatePower?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CropCreateManyCycleInput = {
+    id?: string
+    farmId: string
+    cropName: string
+    category?: string | null
+    variety?: string | null
+    areaSize: number
+    areaUnit?: string
+    plantingDate: string
+    expectedHarvestDate: string
+    status?: string
+    progress?: number
+    currentActivity?: string | null
+    icon?: string | null
+    color?: string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CropUpdateWithoutCycleInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    cropName?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    variety?: NullableStringFieldUpdateOperationsInput | string | null
+    areaSize?: FloatFieldUpdateOperationsInput | number
+    areaUnit?: StringFieldUpdateOperationsInput | string
+    plantingDate?: StringFieldUpdateOperationsInput | string
+    expectedHarvestDate?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    progress?: IntFieldUpdateOperationsInput | number
+    currentActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CropUncheckedUpdateWithoutCycleInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    cropName?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    variety?: NullableStringFieldUpdateOperationsInput | string | null
+    areaSize?: FloatFieldUpdateOperationsInput | number
+    areaUnit?: StringFieldUpdateOperationsInput | string
+    plantingDate?: StringFieldUpdateOperationsInput | string
+    expectedHarvestDate?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    progress?: IntFieldUpdateOperationsInput | number
+    currentActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CropUncheckedUpdateManyWithoutCycleInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    cropName?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    variety?: NullableStringFieldUpdateOperationsInput | string | null
+    areaSize?: FloatFieldUpdateOperationsInput | number
+    areaUnit?: StringFieldUpdateOperationsInput | string
+    plantingDate?: StringFieldUpdateOperationsInput | string
+    expectedHarvestDate?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    progress?: IntFieldUpdateOperationsInput | number
+    currentActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
