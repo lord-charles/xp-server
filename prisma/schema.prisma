@@ -692,6 +692,335 @@ model Crop {
   createdAt           DateTime  @default(now())
   updatedAt           DateTime  @updatedAt
 
+  soilPrepRecords   SoilPrepRecord[]
+  tillageRecords    TillageRecord[]
+  plantingRecords   PlantingRecord[]
+  fertilizerRecords FertilizerRecord[]
+  irrigationRecords IrrigationRecord[]
+  weedingRecords    WeedingRecord[]
+  chemicalRecords   ChemicalRecord[]
+  diseaseRecords    DiseaseRecord[]
+  pestRecords       PestRecord[]
+  harvestingRecords HarvestingRecord[]
+  processingRecords ProcessingRecord[]
+  lossRecords       LossRecord[]
+  saleRecords       CropSaleRecord[]
+  alerts            CropAlert[]
+
   @@index([cycleId])
+  @@index([farmId])
+}
+
+// ─── Phase 2: Soil Prep, Tillage, Planting ───────────────────────────────────
+
+model SoilPrepRecord {
+  id          String   @id @default(cuid())
+  cropId      String
+  crop        Crop     @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId      String
+  date        DateTime
+  tillageType String
+  area        Float
+  areaUnit    String   @default("acres")
+  labourType  String?
+  labourCost  Float?
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([cropId])
+  @@index([farmId])
+}
+
+model TillageRecord {
+  id        String   @id @default(cuid())
+  cropId    String
+  crop      Crop     @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId    String
+  date      DateTime
+  system    String
+  type      String
+  equipment String?
+  area      Float
+  areaUnit  String   @default("acres")
+  cost      Float?
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([cropId])
+  @@index([farmId])
+}
+
+model PlantingRecord {
+  id              String   @id @default(cuid())
+  cropId          String
+  crop            Crop     @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId          String
+  date            DateTime
+  method          String
+  seedName        String?
+  seedQuantity    Float?
+  seedUnit        String?
+  labourType      String?
+  numberOfWorkers Int?
+  labourCost      Float?
+  notes           String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([cropId])
+  @@index([farmId])
+}
+
+// ─── Phase 3: Fertilizers, Irrigation, Weeding, Chemicals ──────────────────
+
+model FertilizerRecord {
+  id                String    @id @default(cuid())
+  cropId            String
+  crop              Crop      @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId            String
+  date              DateTime
+  fertilizerType    String // organic | inorganic
+  fertilizerSource  String?
+  mode              String // basal | top-dressing | foliar | fertigation
+  applicationDate   DateTime?
+  applicationMethod String?
+  applicationTiming String?
+  dosage            Float?
+  dosageUnit        String    @default("kg")
+  coverage          Float?
+  coverageUnit      String    @default("acres")
+  equipment         String?
+  labourType        String?
+  numberOfWorkers   Int?
+  labourCost        Float?
+  notes             String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  @@index([cropId])
+  @@index([farmId])
+}
+
+model IrrigationRecord {
+  id                String   @id @default(cuid())
+  cropId            String
+  crop              Crop     @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId            String
+  date              DateTime
+  method            String // drip | sprinkler | flood | furrow | etc
+  soilMoisture      String?
+  waterSource       String?
+  volume            Float?
+  volumeUnit        String   @default("liters")
+  applicationMethod String?
+  systemCost        Float?
+  fuelCost          Float?
+  labourType        String?
+  numberOfWorkers   Int?
+  labourCost        Float?
+  hoursWorked       Float?
+  additionalCharges Float?
+  notes             String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([cropId])
+  @@index([farmId])
+}
+
+model WeedingRecord {
+  id                String   @id @default(cuid())
+  cropId            String
+  crop              Crop     @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId            String
+  date              DateTime
+  weedingType       String // manual | mechanical | chemical
+  herbicideName     String?
+  dosage            Float?
+  dosageUnit        String   @default("liters")
+  applicationMethod String?
+  labourType        String?
+  numberOfWorkers   Int?
+  labourCost        Float?
+  notes             String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([cropId])
+  @@index([farmId])
+}
+
+model ChemicalRecord {
+  id                String   @id @default(cuid())
+  cropId            String
+  crop              Crop     @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId            String
+  date              DateTime
+  chemicalName      String
+  chemicalType      String?
+  dosage            Float?
+  dosageUnit        String   @default("liters")
+  applicationMethod String?
+  labourType        String?
+  numberOfWorkers   Int?
+  labourCost        Float?
+  notes             String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([cropId])
+  @@index([farmId])
+}
+
+// ─── Phase 4: Diseases, Pests, Harvesting, Processing ──────────────────────
+
+model DiseaseRecord {
+  id              String    @id @default(cuid())
+  cropId          String
+  crop            Crop      @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId          String
+  date            DateTime
+  diseaseName     String
+  methodOfControl String // physical | mechanical | chemical
+  dateOfControl   DateTime?
+  methodDetail    String?
+  labourType      String?
+  numberOfWorkers Int?
+  labourCost      Float?
+  notes           String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([cropId])
+  @@index([farmId])
+}
+
+model PestRecord {
+  id              String    @id @default(cuid())
+  cropId          String
+  crop            Crop      @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId          String
+  date            DateTime
+  pestName        String
+  methodOfControl String
+  dateOfControl   DateTime?
+  methodDetail    String?
+  labourType      String?
+  numberOfWorkers Int?
+  labourCost      Float?
+  notes           String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([cropId])
+  @@index([farmId])
+}
+
+model HarvestingRecord {
+  id                    String   @id @default(cuid())
+  cropId                String
+  crop                  Crop     @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId                String
+  date                  DateTime
+  methodOfHarvesting    String // machine | human | animal
+  typeOfMachine         String?
+  fuelCost              Float?
+  sourceMachine         String?
+  operatorType          String?
+  sourceLabor           String?
+  workerName            String?
+  timeWorked            Float?
+  harvestedQuantity     Float?
+  harvestedQuantityUnit String   @default("kg")
+  harvestedQuality      String?
+  meansOfTransport      String?
+  numberOfTrips         Int?
+  costOfTransport       Float?
+  notes                 String?
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
+  @@index([cropId])
+  @@index([farmId])
+}
+
+model ProcessingRecord {
+  id                 String   @id @default(cuid())
+  cropId             String
+  crop               Crop     @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId             String
+  date               DateTime
+  processingType     String
+  processingMethod   String?
+  equipment          String?
+  labourType         String?
+  numberOfWorkers    Int?
+  labourCost         Float?
+  outputQuantity     Float?
+  outputQuantityUnit String   @default("kg")
+  outputQuality      String?
+  notes              String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  @@index([cropId])
+  @@index([farmId])
+}
+
+// ─── Phase 5: Losses, Crop Sales, Crop Alerts ────────────────────────────
+
+model LossRecord {
+  id           String   @id @default(cuid())
+  cropId       String
+  crop         Crop     @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId       String
+  date         DateTime
+  lossType     String
+  quantity     Float?
+  quantityUnit String   @default("kg")
+  cause        String?
+  notes        String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([cropId])
+  @@index([farmId])
+}
+
+model CropSaleRecord {
+  id            String   @id @default(cuid())
+  cropId        String
+  crop          Crop     @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId        String
+  date          DateTime
+  quantity      Float
+  quantityUnit  String   @default("kg")
+  pricePerUnit  Float
+  totalAmount   Float // computed: quantity * pricePerUnit
+  buyerName     String?
+  paymentMethod String?
+  notes         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([cropId])
+  @@index([farmId])
+}
+
+model CropAlert {
+  id        String   @id @default(cuid())
+  cropId    String
+  crop      Crop     @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId    String
+  alertType String
+  message   String
+  severity  String   @default("info") // info | warning | critical
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([cropId])
   @@index([farmId])
 }

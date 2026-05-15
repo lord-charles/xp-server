@@ -660,6 +660,256 @@ exports.Prisma.CropScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.SoilPrepRecordScalarFieldEnum = {
+  id: 'id',
+  cropId: 'cropId',
+  farmId: 'farmId',
+  date: 'date',
+  tillageType: 'tillageType',
+  area: 'area',
+  areaUnit: 'areaUnit',
+  labourType: 'labourType',
+  labourCost: 'labourCost',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.TillageRecordScalarFieldEnum = {
+  id: 'id',
+  cropId: 'cropId',
+  farmId: 'farmId',
+  date: 'date',
+  system: 'system',
+  type: 'type',
+  equipment: 'equipment',
+  area: 'area',
+  areaUnit: 'areaUnit',
+  cost: 'cost',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PlantingRecordScalarFieldEnum = {
+  id: 'id',
+  cropId: 'cropId',
+  farmId: 'farmId',
+  date: 'date',
+  method: 'method',
+  seedName: 'seedName',
+  seedQuantity: 'seedQuantity',
+  seedUnit: 'seedUnit',
+  labourType: 'labourType',
+  numberOfWorkers: 'numberOfWorkers',
+  labourCost: 'labourCost',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.FertilizerRecordScalarFieldEnum = {
+  id: 'id',
+  cropId: 'cropId',
+  farmId: 'farmId',
+  date: 'date',
+  fertilizerType: 'fertilizerType',
+  fertilizerSource: 'fertilizerSource',
+  mode: 'mode',
+  applicationDate: 'applicationDate',
+  applicationMethod: 'applicationMethod',
+  applicationTiming: 'applicationTiming',
+  dosage: 'dosage',
+  dosageUnit: 'dosageUnit',
+  coverage: 'coverage',
+  coverageUnit: 'coverageUnit',
+  equipment: 'equipment',
+  labourType: 'labourType',
+  numberOfWorkers: 'numberOfWorkers',
+  labourCost: 'labourCost',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.IrrigationRecordScalarFieldEnum = {
+  id: 'id',
+  cropId: 'cropId',
+  farmId: 'farmId',
+  date: 'date',
+  method: 'method',
+  soilMoisture: 'soilMoisture',
+  waterSource: 'waterSource',
+  volume: 'volume',
+  volumeUnit: 'volumeUnit',
+  applicationMethod: 'applicationMethod',
+  systemCost: 'systemCost',
+  fuelCost: 'fuelCost',
+  labourType: 'labourType',
+  numberOfWorkers: 'numberOfWorkers',
+  labourCost: 'labourCost',
+  hoursWorked: 'hoursWorked',
+  additionalCharges: 'additionalCharges',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.WeedingRecordScalarFieldEnum = {
+  id: 'id',
+  cropId: 'cropId',
+  farmId: 'farmId',
+  date: 'date',
+  weedingType: 'weedingType',
+  herbicideName: 'herbicideName',
+  dosage: 'dosage',
+  dosageUnit: 'dosageUnit',
+  applicationMethod: 'applicationMethod',
+  labourType: 'labourType',
+  numberOfWorkers: 'numberOfWorkers',
+  labourCost: 'labourCost',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ChemicalRecordScalarFieldEnum = {
+  id: 'id',
+  cropId: 'cropId',
+  farmId: 'farmId',
+  date: 'date',
+  chemicalName: 'chemicalName',
+  chemicalType: 'chemicalType',
+  dosage: 'dosage',
+  dosageUnit: 'dosageUnit',
+  applicationMethod: 'applicationMethod',
+  labourType: 'labourType',
+  numberOfWorkers: 'numberOfWorkers',
+  labourCost: 'labourCost',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.DiseaseRecordScalarFieldEnum = {
+  id: 'id',
+  cropId: 'cropId',
+  farmId: 'farmId',
+  date: 'date',
+  diseaseName: 'diseaseName',
+  methodOfControl: 'methodOfControl',
+  dateOfControl: 'dateOfControl',
+  methodDetail: 'methodDetail',
+  labourType: 'labourType',
+  numberOfWorkers: 'numberOfWorkers',
+  labourCost: 'labourCost',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PestRecordScalarFieldEnum = {
+  id: 'id',
+  cropId: 'cropId',
+  farmId: 'farmId',
+  date: 'date',
+  pestName: 'pestName',
+  methodOfControl: 'methodOfControl',
+  dateOfControl: 'dateOfControl',
+  methodDetail: 'methodDetail',
+  labourType: 'labourType',
+  numberOfWorkers: 'numberOfWorkers',
+  labourCost: 'labourCost',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.HarvestingRecordScalarFieldEnum = {
+  id: 'id',
+  cropId: 'cropId',
+  farmId: 'farmId',
+  date: 'date',
+  methodOfHarvesting: 'methodOfHarvesting',
+  typeOfMachine: 'typeOfMachine',
+  fuelCost: 'fuelCost',
+  sourceMachine: 'sourceMachine',
+  operatorType: 'operatorType',
+  sourceLabor: 'sourceLabor',
+  workerName: 'workerName',
+  timeWorked: 'timeWorked',
+  harvestedQuantity: 'harvestedQuantity',
+  harvestedQuantityUnit: 'harvestedQuantityUnit',
+  harvestedQuality: 'harvestedQuality',
+  meansOfTransport: 'meansOfTransport',
+  numberOfTrips: 'numberOfTrips',
+  costOfTransport: 'costOfTransport',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ProcessingRecordScalarFieldEnum = {
+  id: 'id',
+  cropId: 'cropId',
+  farmId: 'farmId',
+  date: 'date',
+  processingType: 'processingType',
+  processingMethod: 'processingMethod',
+  equipment: 'equipment',
+  labourType: 'labourType',
+  numberOfWorkers: 'numberOfWorkers',
+  labourCost: 'labourCost',
+  outputQuantity: 'outputQuantity',
+  outputQuantityUnit: 'outputQuantityUnit',
+  outputQuality: 'outputQuality',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.LossRecordScalarFieldEnum = {
+  id: 'id',
+  cropId: 'cropId',
+  farmId: 'farmId',
+  date: 'date',
+  lossType: 'lossType',
+  quantity: 'quantity',
+  quantityUnit: 'quantityUnit',
+  cause: 'cause',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CropSaleRecordScalarFieldEnum = {
+  id: 'id',
+  cropId: 'cropId',
+  farmId: 'farmId',
+  date: 'date',
+  quantity: 'quantity',
+  quantityUnit: 'quantityUnit',
+  pricePerUnit: 'pricePerUnit',
+  totalAmount: 'totalAmount',
+  buyerName: 'buyerName',
+  paymentMethod: 'paymentMethod',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CropAlertScalarFieldEnum = {
+  id: 'id',
+  cropId: 'cropId',
+  farmId: 'farmId',
+  alertType: 'alertType',
+  message: 'message',
+  severity: 'severity',
+  isRead: 'isRead',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -707,7 +957,21 @@ exports.Prisma.ModelName = {
   TreatmentRecord: 'TreatmentRecord',
   SaleListing: 'SaleListing',
   CropCycle: 'CropCycle',
-  Crop: 'Crop'
+  Crop: 'Crop',
+  SoilPrepRecord: 'SoilPrepRecord',
+  TillageRecord: 'TillageRecord',
+  PlantingRecord: 'PlantingRecord',
+  FertilizerRecord: 'FertilizerRecord',
+  IrrigationRecord: 'IrrigationRecord',
+  WeedingRecord: 'WeedingRecord',
+  ChemicalRecord: 'ChemicalRecord',
+  DiseaseRecord: 'DiseaseRecord',
+  PestRecord: 'PestRecord',
+  HarvestingRecord: 'HarvestingRecord',
+  ProcessingRecord: 'ProcessingRecord',
+  LossRecord: 'LossRecord',
+  CropSaleRecord: 'CropSaleRecord',
+  CropAlert: 'CropAlert'
 };
 
 /**
