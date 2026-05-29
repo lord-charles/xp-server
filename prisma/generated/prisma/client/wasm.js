@@ -708,6 +708,64 @@ exports.Prisma.PlantingRecordScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.SoilDataRecordScalarFieldEnum = {
+  id: 'id',
+  cropId: 'cropId',
+  farmId: 'farmId',
+  date: 'date',
+  soilType: 'soilType',
+  soilTypeNote: 'soilTypeNote',
+  soilPH: 'soilPH',
+  soilPHNote: 'soilPHNote',
+  moistureContent: 'moistureContent',
+  moistureNote: 'moistureNote',
+  organicMatter: 'organicMatter',
+  organicNote: 'organicNote',
+  nitrogen: 'nitrogen',
+  phosphorus: 'phosphorus',
+  potassium: 'potassium',
+  nutrientsNote: 'nutrientsNote',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.FieldConditionRecordScalarFieldEnum = {
+  id: 'id',
+  cropId: 'cropId',
+  farmId: 'farmId',
+  date: 'date',
+  topography: 'topography',
+  topographyNote: 'topographyNote',
+  drainage: 'drainage',
+  drainageNote: 'drainageNote',
+  previousCropResidue: 'previousCropResidue',
+  residueNote: 'residueNote',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.WeatherDataRecordScalarFieldEnum = {
+  id: 'id',
+  cropId: 'cropId',
+  farmId: 'farmId',
+  date: 'date',
+  temperatureType: 'temperatureType',
+  temperatureValue: 'temperatureValue',
+  temperatureNote: 'temperatureNote',
+  precipitationType: 'precipitationType',
+  precipitationValue: 'precipitationValue',
+  precipitationNote: 'precipitationNote',
+  windType: 'windType',
+  windValue: 'windValue',
+  windNote: 'windNote',
+  humidityType: 'humidityType',
+  humidityValue: 'humidityValue',
+  humidityNote: 'humidityNote',
+  locationName: 'locationName',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.FertilizerRecordScalarFieldEnum = {
   id: 'id',
   cropId: 'cropId',
@@ -863,6 +921,24 @@ exports.Prisma.ProcessingRecordScalarFieldEnum = {
   outputQuantity: 'outputQuantity',
   outputQuantityUnit: 'outputQuantityUnit',
   outputQuality: 'outputQuality',
+  dateOfPestControl: 'dateOfPestControl',
+  pestIdentified: 'pestIdentified',
+  methodOfControl: 'methodOfControl',
+  pesticideSource: 'pesticideSource',
+  brandName: 'brandName',
+  methodOfApplication: 'methodOfApplication',
+  amountAppliedPest: 'amountAppliedPest',
+  serialNumber: 'serialNumber',
+  dateOfPurchase: 'dateOfPurchase',
+  seller: 'seller',
+  quantityPurchased: 'quantityPurchased',
+  purchasePrice: 'purchasePrice',
+  transportCost: 'transportCost',
+  dateOfStorage: 'dateOfStorage',
+  finalQuantity: 'finalQuantity',
+  finalQuality: 'finalQuality',
+  typeOfStorage: 'typeOfStorage',
+  miscellaneousCostsIncurred: 'miscellaneousCostsIncurred',
   notes: 'notes',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -961,6 +1037,9 @@ exports.Prisma.ModelName = {
   SoilPrepRecord: 'SoilPrepRecord',
   TillageRecord: 'TillageRecord',
   PlantingRecord: 'PlantingRecord',
+  SoilDataRecord: 'SoilDataRecord',
+  FieldConditionRecord: 'FieldConditionRecord',
+  WeatherDataRecord: 'WeatherDataRecord',
   FertilizerRecord: 'FertilizerRecord',
   IrrigationRecord: 'IrrigationRecord',
   WeedingRecord: 'WeedingRecord',

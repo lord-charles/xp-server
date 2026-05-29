@@ -23,6 +23,32 @@ export class ProcessingService {
         labourCost: dto.labourCost,
         outputQuantity: dto.outputQuantity,
         outputQuality: dto.outputQuality,
+        // Pest Control Fields
+        dateOfPestControl: dto.dateOfPestControl
+          ? new Date(dto.dateOfPestControl)
+          : undefined,
+        pestIdentified: dto.pestIdentified,
+        methodOfControl: dto.methodOfControl,
+        pesticideSource: dto.pesticideSource,
+        brandName: dto.brandName,
+        methodOfApplication: dto.methodOfApplication,
+        amountAppliedPest: dto.amountAppliedPest,
+        serialNumber: dto.serialNumber,
+        dateOfPurchase: dto.dateOfPurchase
+          ? new Date(dto.dateOfPurchase)
+          : undefined,
+        seller: dto.seller,
+        quantityPurchased: dto.quantityPurchased,
+        purchasePrice: dto.purchasePrice,
+        transportCost: dto.transportCost,
+        // Storage Fields
+        dateOfStorage: dto.dateOfStorage
+          ? new Date(dto.dateOfStorage)
+          : undefined,
+        finalQuantity: dto.finalQuantity,
+        finalQuality: dto.finalQuality,
+        typeOfStorage: dto.typeOfStorage,
+        miscellaneousCostsIncurred: dto.miscellaneousCostsIncurred,
         notes: dto.notes,
       },
     });
@@ -85,6 +111,32 @@ export class ProcessingService {
         labourCost: dto.labourCost,
         outputQuantity: dto.outputQuantity,
         outputQuality: dto.outputQuality,
+        // Pest Control Fields
+        dateOfPestControl: dto.dateOfPestControl
+          ? new Date(dto.dateOfPestControl)
+          : undefined,
+        pestIdentified: dto.pestIdentified,
+        methodOfControl: dto.methodOfControl,
+        pesticideSource: dto.pesticideSource,
+        brandName: dto.brandName,
+        methodOfApplication: dto.methodOfApplication,
+        amountAppliedPest: dto.amountAppliedPest,
+        serialNumber: dto.serialNumber,
+        dateOfPurchase: dto.dateOfPurchase
+          ? new Date(dto.dateOfPurchase)
+          : undefined,
+        seller: dto.seller,
+        quantityPurchased: dto.quantityPurchased,
+        purchasePrice: dto.purchasePrice,
+        transportCost: dto.transportCost,
+        // Storage Fields
+        dateOfStorage: dto.dateOfStorage
+          ? new Date(dto.dateOfStorage)
+          : undefined,
+        finalQuantity: dto.finalQuantity,
+        finalQuality: dto.finalQuality,
+        typeOfStorage: dto.typeOfStorage,
+        miscellaneousCostsIncurred: dto.miscellaneousCostsIncurred,
         notes: dto.notes,
       },
     });

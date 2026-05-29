@@ -692,20 +692,23 @@ model Crop {
   createdAt           DateTime  @default(now())
   updatedAt           DateTime  @updatedAt
 
-  soilPrepRecords   SoilPrepRecord[]
-  tillageRecords    TillageRecord[]
-  plantingRecords   PlantingRecord[]
-  fertilizerRecords FertilizerRecord[]
-  irrigationRecords IrrigationRecord[]
-  weedingRecords    WeedingRecord[]
-  chemicalRecords   ChemicalRecord[]
-  diseaseRecords    DiseaseRecord[]
-  pestRecords       PestRecord[]
-  harvestingRecords HarvestingRecord[]
-  processingRecords ProcessingRecord[]
-  lossRecords       LossRecord[]
-  saleRecords       CropSaleRecord[]
-  alerts            CropAlert[]
+  soilPrepRecords       SoilPrepRecord[]
+  tillageRecords        TillageRecord[]
+  plantingRecords       PlantingRecord[]
+  soilDataRecords       SoilDataRecord[]
+  fieldConditionRecords FieldConditionRecord[]
+  weatherDataRecords    WeatherDataRecord[]
+  fertilizerRecords     FertilizerRecord[]
+  irrigationRecords     IrrigationRecord[]
+  weedingRecords        WeedingRecord[]
+  chemicalRecords       ChemicalRecord[]
+  diseaseRecords        DiseaseRecord[]
+  pestRecords           PestRecord[]
+  harvestingRecords     HarvestingRecord[]
+  processingRecords     ProcessingRecord[]
+  lossRecords           LossRecord[]
+  saleRecords           CropSaleRecord[]
+  alerts                CropAlert[]
 
   @@index([cycleId])
   @@index([farmId])
@@ -768,6 +771,78 @@ model PlantingRecord {
   notes           String?
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
+
+  @@index([cropId])
+  @@index([farmId])
+}
+
+// ─── Soil Data Collection ────────────────────────────────────────────────────
+
+model SoilDataRecord {
+  id              String   @id @default(cuid())
+  cropId          String
+  crop            Crop     @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId          String
+  date            DateTime
+  soilType        String // sandy | loamy | clay
+  soilTypeNote    String?
+  soilPH          String // acid | neutral | alkaline
+  soilPHNote      String?
+  moistureContent String // dry | moist | wet
+  moistureNote    String?
+  organicMatter   String // low | medium | high
+  organicNote     String?
+  nitrogen        Boolean  @default(false)
+  phosphorus      Boolean  @default(false)
+  potassium       Boolean  @default(false)
+  nutrientsNote   String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([cropId])
+  @@index([farmId])
+}
+
+model FieldConditionRecord {
+  id                  String   @id @default(cuid())
+  cropId              String
+  crop                Crop     @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId              String
+  date                DateTime
+  topography          String // flat | sloped | hilly
+  topographyNote      String?
+  drainage            String // well-drained | poorly-drained | waterlogged
+  drainageNote        String?
+  previousCropResidue String // low | medium | high
+  residueNote         String?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@index([cropId])
+  @@index([farmId])
+}
+
+model WeatherDataRecord {
+  id                 String   @id @default(cuid())
+  cropId             String
+  crop               Crop     @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId             String
+  date               DateTime
+  temperatureType    String // current | historical | forecasted
+  temperatureValue   Float
+  temperatureNote    String?
+  precipitationType  String // rainfall-amount | rainfall-pattern | forecasted-precipitation
+  precipitationValue Float
+  precipitationNote  String?
+  windType           String // current-wind | historical-wind | forecasted-wind
+  windValue          Float
+  windNote           String?
+  humidityType       String // current-humidity | historical-humidity | forecasted-humidity
+  humidityValue      Float
+  humidityNote       String?
+  locationName       String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
 
   @@index([cropId])
   @@index([farmId])
@@ -961,9 +1036,32 @@ model ProcessingRecord {
   outputQuantity     Float?
   outputQuantityUnit String   @default("kg")
   outputQuality      String?
-  notes              String?
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
+
+  // Pest Control Fields (Step 2)
+  dateOfPestControl   DateTime?
+  pestIdentified      String?
+  methodOfControl     String?
+  pesticideSource     String?
+  brandName           String?
+  methodOfApplication String?
+  amountAppliedPest   String?
+  serialNumber        String?
+  dateOfPurchase      DateTime?
+  seller              String?
+  quantityPurchased   String?
+  purchasePrice       Float?
+  transportCost       Float?
+
+  // Storage Fields (Step 3)
+  dateOfStorage              DateTime?
+  finalQuantity              Float?
+  finalQuality               String?
+  typeOfStorage              String?
+  miscellaneousCostsIncurred Float?
+
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([cropId])
   @@index([farmId])

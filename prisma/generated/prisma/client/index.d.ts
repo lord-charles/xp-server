@@ -184,6 +184,21 @@ export type TillageRecord = $Result.DefaultSelection<Prisma.$TillageRecordPayloa
  */
 export type PlantingRecord = $Result.DefaultSelection<Prisma.$PlantingRecordPayload>
 /**
+ * Model SoilDataRecord
+ * 
+ */
+export type SoilDataRecord = $Result.DefaultSelection<Prisma.$SoilDataRecordPayload>
+/**
+ * Model FieldConditionRecord
+ * 
+ */
+export type FieldConditionRecord = $Result.DefaultSelection<Prisma.$FieldConditionRecordPayload>
+/**
+ * Model WeatherDataRecord
+ * 
+ */
+export type WeatherDataRecord = $Result.DefaultSelection<Prisma.$WeatherDataRecordPayload>
+/**
  * Model FertilizerRecord
  * 
  */
@@ -703,6 +718,36 @@ export class PrismaClient<
     * ```
     */
   get plantingRecord(): Prisma.PlantingRecordDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.soilDataRecord`: Exposes CRUD operations for the **SoilDataRecord** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SoilDataRecords
+    * const soilDataRecords = await prisma.soilDataRecord.findMany()
+    * ```
+    */
+  get soilDataRecord(): Prisma.SoilDataRecordDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.fieldConditionRecord`: Exposes CRUD operations for the **FieldConditionRecord** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FieldConditionRecords
+    * const fieldConditionRecords = await prisma.fieldConditionRecord.findMany()
+    * ```
+    */
+  get fieldConditionRecord(): Prisma.FieldConditionRecordDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.weatherDataRecord`: Exposes CRUD operations for the **WeatherDataRecord** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more WeatherDataRecords
+    * const weatherDataRecords = await prisma.weatherDataRecord.findMany()
+    * ```
+    */
+  get weatherDataRecord(): Prisma.WeatherDataRecordDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.fertilizerRecord`: Exposes CRUD operations for the **FertilizerRecord** model.
@@ -1287,6 +1332,9 @@ export namespace Prisma {
     SoilPrepRecord: 'SoilPrepRecord',
     TillageRecord: 'TillageRecord',
     PlantingRecord: 'PlantingRecord',
+    SoilDataRecord: 'SoilDataRecord',
+    FieldConditionRecord: 'FieldConditionRecord',
+    WeatherDataRecord: 'WeatherDataRecord',
     FertilizerRecord: 'FertilizerRecord',
     IrrigationRecord: 'IrrigationRecord',
     WeedingRecord: 'WeedingRecord',
@@ -1316,7 +1364,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "farm" | "employee" | "employeeFarm" | "employeeBenefit" | "livestock" | "mammal" | "poultry" | "mortality" | "healthEvent" | "transfer" | "sale" | "breedingRecord" | "offspring" | "feedingProgram" | "feedDetails" | "inventory" | "goodsInStock" | "machinery" | "utility" | "water" | "power" | "allergyRecord" | "boosterRecord" | "vaccinationRecord" | "dewormingRecord" | "geneticDisorderRecord" | "treatmentRecord" | "saleListing" | "cropCycle" | "crop" | "soilPrepRecord" | "tillageRecord" | "plantingRecord" | "fertilizerRecord" | "irrigationRecord" | "weedingRecord" | "chemicalRecord" | "diseaseRecord" | "pestRecord" | "harvestingRecord" | "processingRecord" | "lossRecord" | "cropSaleRecord" | "cropAlert"
+      modelProps: "user" | "farm" | "employee" | "employeeFarm" | "employeeBenefit" | "livestock" | "mammal" | "poultry" | "mortality" | "healthEvent" | "transfer" | "sale" | "breedingRecord" | "offspring" | "feedingProgram" | "feedDetails" | "inventory" | "goodsInStock" | "machinery" | "utility" | "water" | "power" | "allergyRecord" | "boosterRecord" | "vaccinationRecord" | "dewormingRecord" | "geneticDisorderRecord" | "treatmentRecord" | "saleListing" | "cropCycle" | "crop" | "soilPrepRecord" | "tillageRecord" | "plantingRecord" | "soilDataRecord" | "fieldConditionRecord" | "weatherDataRecord" | "fertilizerRecord" | "irrigationRecord" | "weedingRecord" | "chemicalRecord" | "diseaseRecord" | "pestRecord" | "harvestingRecord" | "processingRecord" | "lossRecord" | "cropSaleRecord" | "cropAlert"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -3836,6 +3884,228 @@ export namespace Prisma {
           }
         }
       }
+      SoilDataRecord: {
+        payload: Prisma.$SoilDataRecordPayload<ExtArgs>
+        fields: Prisma.SoilDataRecordFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SoilDataRecordFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SoilDataRecordPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SoilDataRecordFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SoilDataRecordPayload>
+          }
+          findFirst: {
+            args: Prisma.SoilDataRecordFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SoilDataRecordPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SoilDataRecordFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SoilDataRecordPayload>
+          }
+          findMany: {
+            args: Prisma.SoilDataRecordFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SoilDataRecordPayload>[]
+          }
+          create: {
+            args: Prisma.SoilDataRecordCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SoilDataRecordPayload>
+          }
+          createMany: {
+            args: Prisma.SoilDataRecordCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SoilDataRecordCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SoilDataRecordPayload>[]
+          }
+          delete: {
+            args: Prisma.SoilDataRecordDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SoilDataRecordPayload>
+          }
+          update: {
+            args: Prisma.SoilDataRecordUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SoilDataRecordPayload>
+          }
+          deleteMany: {
+            args: Prisma.SoilDataRecordDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SoilDataRecordUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SoilDataRecordUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SoilDataRecordPayload>[]
+          }
+          upsert: {
+            args: Prisma.SoilDataRecordUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SoilDataRecordPayload>
+          }
+          aggregate: {
+            args: Prisma.SoilDataRecordAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSoilDataRecord>
+          }
+          groupBy: {
+            args: Prisma.SoilDataRecordGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SoilDataRecordGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SoilDataRecordCountArgs<ExtArgs>
+            result: $Utils.Optional<SoilDataRecordCountAggregateOutputType> | number
+          }
+        }
+      }
+      FieldConditionRecord: {
+        payload: Prisma.$FieldConditionRecordPayload<ExtArgs>
+        fields: Prisma.FieldConditionRecordFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FieldConditionRecordFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FieldConditionRecordPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FieldConditionRecordFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FieldConditionRecordPayload>
+          }
+          findFirst: {
+            args: Prisma.FieldConditionRecordFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FieldConditionRecordPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FieldConditionRecordFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FieldConditionRecordPayload>
+          }
+          findMany: {
+            args: Prisma.FieldConditionRecordFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FieldConditionRecordPayload>[]
+          }
+          create: {
+            args: Prisma.FieldConditionRecordCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FieldConditionRecordPayload>
+          }
+          createMany: {
+            args: Prisma.FieldConditionRecordCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FieldConditionRecordCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FieldConditionRecordPayload>[]
+          }
+          delete: {
+            args: Prisma.FieldConditionRecordDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FieldConditionRecordPayload>
+          }
+          update: {
+            args: Prisma.FieldConditionRecordUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FieldConditionRecordPayload>
+          }
+          deleteMany: {
+            args: Prisma.FieldConditionRecordDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FieldConditionRecordUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.FieldConditionRecordUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FieldConditionRecordPayload>[]
+          }
+          upsert: {
+            args: Prisma.FieldConditionRecordUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FieldConditionRecordPayload>
+          }
+          aggregate: {
+            args: Prisma.FieldConditionRecordAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFieldConditionRecord>
+          }
+          groupBy: {
+            args: Prisma.FieldConditionRecordGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FieldConditionRecordGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FieldConditionRecordCountArgs<ExtArgs>
+            result: $Utils.Optional<FieldConditionRecordCountAggregateOutputType> | number
+          }
+        }
+      }
+      WeatherDataRecord: {
+        payload: Prisma.$WeatherDataRecordPayload<ExtArgs>
+        fields: Prisma.WeatherDataRecordFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.WeatherDataRecordFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeatherDataRecordPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.WeatherDataRecordFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeatherDataRecordPayload>
+          }
+          findFirst: {
+            args: Prisma.WeatherDataRecordFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeatherDataRecordPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.WeatherDataRecordFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeatherDataRecordPayload>
+          }
+          findMany: {
+            args: Prisma.WeatherDataRecordFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeatherDataRecordPayload>[]
+          }
+          create: {
+            args: Prisma.WeatherDataRecordCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeatherDataRecordPayload>
+          }
+          createMany: {
+            args: Prisma.WeatherDataRecordCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.WeatherDataRecordCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeatherDataRecordPayload>[]
+          }
+          delete: {
+            args: Prisma.WeatherDataRecordDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeatherDataRecordPayload>
+          }
+          update: {
+            args: Prisma.WeatherDataRecordUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeatherDataRecordPayload>
+          }
+          deleteMany: {
+            args: Prisma.WeatherDataRecordDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.WeatherDataRecordUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.WeatherDataRecordUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeatherDataRecordPayload>[]
+          }
+          upsert: {
+            args: Prisma.WeatherDataRecordUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeatherDataRecordPayload>
+          }
+          aggregate: {
+            args: Prisma.WeatherDataRecordAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateWeatherDataRecord>
+          }
+          groupBy: {
+            args: Prisma.WeatherDataRecordGroupByArgs<ExtArgs>
+            result: $Utils.Optional<WeatherDataRecordGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.WeatherDataRecordCountArgs<ExtArgs>
+            result: $Utils.Optional<WeatherDataRecordCountAggregateOutputType> | number
+          }
+        }
+      }
       FertilizerRecord: {
         payload: Prisma.$FertilizerRecordPayload<ExtArgs>
         fields: Prisma.FertilizerRecordFieldRefs
@@ -4768,6 +5038,9 @@ export namespace Prisma {
     soilPrepRecord?: SoilPrepRecordOmit
     tillageRecord?: TillageRecordOmit
     plantingRecord?: PlantingRecordOmit
+    soilDataRecord?: SoilDataRecordOmit
+    fieldConditionRecord?: FieldConditionRecordOmit
+    weatherDataRecord?: WeatherDataRecordOmit
     fertilizerRecord?: FertilizerRecordOmit
     irrigationRecord?: IrrigationRecordOmit
     weedingRecord?: WeedingRecordOmit
@@ -5430,6 +5703,9 @@ export namespace Prisma {
     soilPrepRecords: number
     tillageRecords: number
     plantingRecords: number
+    soilDataRecords: number
+    fieldConditionRecords: number
+    weatherDataRecords: number
     fertilizerRecords: number
     irrigationRecords: number
     weedingRecords: number
@@ -5447,6 +5723,9 @@ export namespace Prisma {
     soilPrepRecords?: boolean | CropCountOutputTypeCountSoilPrepRecordsArgs
     tillageRecords?: boolean | CropCountOutputTypeCountTillageRecordsArgs
     plantingRecords?: boolean | CropCountOutputTypeCountPlantingRecordsArgs
+    soilDataRecords?: boolean | CropCountOutputTypeCountSoilDataRecordsArgs
+    fieldConditionRecords?: boolean | CropCountOutputTypeCountFieldConditionRecordsArgs
+    weatherDataRecords?: boolean | CropCountOutputTypeCountWeatherDataRecordsArgs
     fertilizerRecords?: boolean | CropCountOutputTypeCountFertilizerRecordsArgs
     irrigationRecords?: boolean | CropCountOutputTypeCountIrrigationRecordsArgs
     weedingRecords?: boolean | CropCountOutputTypeCountWeedingRecordsArgs
@@ -5490,6 +5769,27 @@ export namespace Prisma {
    */
   export type CropCountOutputTypeCountPlantingRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PlantingRecordWhereInput
+  }
+
+  /**
+   * CropCountOutputType without action
+   */
+  export type CropCountOutputTypeCountSoilDataRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SoilDataRecordWhereInput
+  }
+
+  /**
+   * CropCountOutputType without action
+   */
+  export type CropCountOutputTypeCountFieldConditionRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FieldConditionRecordWhereInput
+  }
+
+  /**
+   * CropCountOutputType without action
+   */
+  export type CropCountOutputTypeCountWeatherDataRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WeatherDataRecordWhereInput
   }
 
   /**
@@ -43547,6 +43847,9 @@ export namespace Prisma {
     soilPrepRecords?: boolean | Crop$soilPrepRecordsArgs<ExtArgs>
     tillageRecords?: boolean | Crop$tillageRecordsArgs<ExtArgs>
     plantingRecords?: boolean | Crop$plantingRecordsArgs<ExtArgs>
+    soilDataRecords?: boolean | Crop$soilDataRecordsArgs<ExtArgs>
+    fieldConditionRecords?: boolean | Crop$fieldConditionRecordsArgs<ExtArgs>
+    weatherDataRecords?: boolean | Crop$weatherDataRecordsArgs<ExtArgs>
     fertilizerRecords?: boolean | Crop$fertilizerRecordsArgs<ExtArgs>
     irrigationRecords?: boolean | Crop$irrigationRecordsArgs<ExtArgs>
     weedingRecords?: boolean | Crop$weedingRecordsArgs<ExtArgs>
@@ -43632,6 +43935,9 @@ export namespace Prisma {
     soilPrepRecords?: boolean | Crop$soilPrepRecordsArgs<ExtArgs>
     tillageRecords?: boolean | Crop$tillageRecordsArgs<ExtArgs>
     plantingRecords?: boolean | Crop$plantingRecordsArgs<ExtArgs>
+    soilDataRecords?: boolean | Crop$soilDataRecordsArgs<ExtArgs>
+    fieldConditionRecords?: boolean | Crop$fieldConditionRecordsArgs<ExtArgs>
+    weatherDataRecords?: boolean | Crop$weatherDataRecordsArgs<ExtArgs>
     fertilizerRecords?: boolean | Crop$fertilizerRecordsArgs<ExtArgs>
     irrigationRecords?: boolean | Crop$irrigationRecordsArgs<ExtArgs>
     weedingRecords?: boolean | Crop$weedingRecordsArgs<ExtArgs>
@@ -43659,6 +43965,9 @@ export namespace Prisma {
       soilPrepRecords: Prisma.$SoilPrepRecordPayload<ExtArgs>[]
       tillageRecords: Prisma.$TillageRecordPayload<ExtArgs>[]
       plantingRecords: Prisma.$PlantingRecordPayload<ExtArgs>[]
+      soilDataRecords: Prisma.$SoilDataRecordPayload<ExtArgs>[]
+      fieldConditionRecords: Prisma.$FieldConditionRecordPayload<ExtArgs>[]
+      weatherDataRecords: Prisma.$WeatherDataRecordPayload<ExtArgs>[]
       fertilizerRecords: Prisma.$FertilizerRecordPayload<ExtArgs>[]
       irrigationRecords: Prisma.$IrrigationRecordPayload<ExtArgs>[]
       weedingRecords: Prisma.$WeedingRecordPayload<ExtArgs>[]
@@ -44088,6 +44397,9 @@ export namespace Prisma {
     soilPrepRecords<T extends Crop$soilPrepRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$soilPrepRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SoilPrepRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     tillageRecords<T extends Crop$tillageRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$tillageRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TillageRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     plantingRecords<T extends Crop$plantingRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$plantingRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlantingRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    soilDataRecords<T extends Crop$soilDataRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$soilDataRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SoilDataRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    fieldConditionRecords<T extends Crop$fieldConditionRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$fieldConditionRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FieldConditionRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    weatherDataRecords<T extends Crop$weatherDataRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$weatherDataRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeatherDataRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     fertilizerRecords<T extends Crop$fertilizerRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$fertilizerRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FertilizerRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     irrigationRecords<T extends Crop$irrigationRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$irrigationRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IrrigationRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     weedingRecords<T extends Crop$weedingRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$weedingRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeedingRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -44611,6 +44923,78 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: PlantingRecordScalarFieldEnum | PlantingRecordScalarFieldEnum[]
+  }
+
+  /**
+   * Crop.soilDataRecords
+   */
+  export type Crop$soilDataRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SoilDataRecord
+     */
+    select?: SoilDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SoilDataRecord
+     */
+    omit?: SoilDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SoilDataRecordInclude<ExtArgs> | null
+    where?: SoilDataRecordWhereInput
+    orderBy?: SoilDataRecordOrderByWithRelationInput | SoilDataRecordOrderByWithRelationInput[]
+    cursor?: SoilDataRecordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SoilDataRecordScalarFieldEnum | SoilDataRecordScalarFieldEnum[]
+  }
+
+  /**
+   * Crop.fieldConditionRecords
+   */
+  export type Crop$fieldConditionRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FieldConditionRecord
+     */
+    select?: FieldConditionRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FieldConditionRecord
+     */
+    omit?: FieldConditionRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FieldConditionRecordInclude<ExtArgs> | null
+    where?: FieldConditionRecordWhereInput
+    orderBy?: FieldConditionRecordOrderByWithRelationInput | FieldConditionRecordOrderByWithRelationInput[]
+    cursor?: FieldConditionRecordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FieldConditionRecordScalarFieldEnum | FieldConditionRecordScalarFieldEnum[]
+  }
+
+  /**
+   * Crop.weatherDataRecords
+   */
+  export type Crop$weatherDataRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeatherDataRecord
+     */
+    select?: WeatherDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeatherDataRecord
+     */
+    omit?: WeatherDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeatherDataRecordInclude<ExtArgs> | null
+    where?: WeatherDataRecordWhereInput
+    orderBy?: WeatherDataRecordOrderByWithRelationInput | WeatherDataRecordOrderByWithRelationInput[]
+    cursor?: WeatherDataRecordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: WeatherDataRecordScalarFieldEnum | WeatherDataRecordScalarFieldEnum[]
   }
 
   /**
@@ -48497,6 +48881,3668 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: PlantingRecordInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SoilDataRecord
+   */
+
+  export type AggregateSoilDataRecord = {
+    _count: SoilDataRecordCountAggregateOutputType | null
+    _min: SoilDataRecordMinAggregateOutputType | null
+    _max: SoilDataRecordMaxAggregateOutputType | null
+  }
+
+  export type SoilDataRecordMinAggregateOutputType = {
+    id: string | null
+    cropId: string | null
+    farmId: string | null
+    date: Date | null
+    soilType: string | null
+    soilTypeNote: string | null
+    soilPH: string | null
+    soilPHNote: string | null
+    moistureContent: string | null
+    moistureNote: string | null
+    organicMatter: string | null
+    organicNote: string | null
+    nitrogen: boolean | null
+    phosphorus: boolean | null
+    potassium: boolean | null
+    nutrientsNote: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SoilDataRecordMaxAggregateOutputType = {
+    id: string | null
+    cropId: string | null
+    farmId: string | null
+    date: Date | null
+    soilType: string | null
+    soilTypeNote: string | null
+    soilPH: string | null
+    soilPHNote: string | null
+    moistureContent: string | null
+    moistureNote: string | null
+    organicMatter: string | null
+    organicNote: string | null
+    nitrogen: boolean | null
+    phosphorus: boolean | null
+    potassium: boolean | null
+    nutrientsNote: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SoilDataRecordCountAggregateOutputType = {
+    id: number
+    cropId: number
+    farmId: number
+    date: number
+    soilType: number
+    soilTypeNote: number
+    soilPH: number
+    soilPHNote: number
+    moistureContent: number
+    moistureNote: number
+    organicMatter: number
+    organicNote: number
+    nitrogen: number
+    phosphorus: number
+    potassium: number
+    nutrientsNote: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type SoilDataRecordMinAggregateInputType = {
+    id?: true
+    cropId?: true
+    farmId?: true
+    date?: true
+    soilType?: true
+    soilTypeNote?: true
+    soilPH?: true
+    soilPHNote?: true
+    moistureContent?: true
+    moistureNote?: true
+    organicMatter?: true
+    organicNote?: true
+    nitrogen?: true
+    phosphorus?: true
+    potassium?: true
+    nutrientsNote?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SoilDataRecordMaxAggregateInputType = {
+    id?: true
+    cropId?: true
+    farmId?: true
+    date?: true
+    soilType?: true
+    soilTypeNote?: true
+    soilPH?: true
+    soilPHNote?: true
+    moistureContent?: true
+    moistureNote?: true
+    organicMatter?: true
+    organicNote?: true
+    nitrogen?: true
+    phosphorus?: true
+    potassium?: true
+    nutrientsNote?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SoilDataRecordCountAggregateInputType = {
+    id?: true
+    cropId?: true
+    farmId?: true
+    date?: true
+    soilType?: true
+    soilTypeNote?: true
+    soilPH?: true
+    soilPHNote?: true
+    moistureContent?: true
+    moistureNote?: true
+    organicMatter?: true
+    organicNote?: true
+    nitrogen?: true
+    phosphorus?: true
+    potassium?: true
+    nutrientsNote?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type SoilDataRecordAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SoilDataRecord to aggregate.
+     */
+    where?: SoilDataRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SoilDataRecords to fetch.
+     */
+    orderBy?: SoilDataRecordOrderByWithRelationInput | SoilDataRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SoilDataRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SoilDataRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SoilDataRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SoilDataRecords
+    **/
+    _count?: true | SoilDataRecordCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SoilDataRecordMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SoilDataRecordMaxAggregateInputType
+  }
+
+  export type GetSoilDataRecordAggregateType<T extends SoilDataRecordAggregateArgs> = {
+        [P in keyof T & keyof AggregateSoilDataRecord]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSoilDataRecord[P]>
+      : GetScalarType<T[P], AggregateSoilDataRecord[P]>
+  }
+
+
+
+
+  export type SoilDataRecordGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SoilDataRecordWhereInput
+    orderBy?: SoilDataRecordOrderByWithAggregationInput | SoilDataRecordOrderByWithAggregationInput[]
+    by: SoilDataRecordScalarFieldEnum[] | SoilDataRecordScalarFieldEnum
+    having?: SoilDataRecordScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SoilDataRecordCountAggregateInputType | true
+    _min?: SoilDataRecordMinAggregateInputType
+    _max?: SoilDataRecordMaxAggregateInputType
+  }
+
+  export type SoilDataRecordGroupByOutputType = {
+    id: string
+    cropId: string
+    farmId: string
+    date: Date
+    soilType: string
+    soilTypeNote: string | null
+    soilPH: string
+    soilPHNote: string | null
+    moistureContent: string
+    moistureNote: string | null
+    organicMatter: string
+    organicNote: string | null
+    nitrogen: boolean
+    phosphorus: boolean
+    potassium: boolean
+    nutrientsNote: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: SoilDataRecordCountAggregateOutputType | null
+    _min: SoilDataRecordMinAggregateOutputType | null
+    _max: SoilDataRecordMaxAggregateOutputType | null
+  }
+
+  type GetSoilDataRecordGroupByPayload<T extends SoilDataRecordGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SoilDataRecordGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SoilDataRecordGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SoilDataRecordGroupByOutputType[P]>
+            : GetScalarType<T[P], SoilDataRecordGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SoilDataRecordSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    date?: boolean
+    soilType?: boolean
+    soilTypeNote?: boolean
+    soilPH?: boolean
+    soilPHNote?: boolean
+    moistureContent?: boolean
+    moistureNote?: boolean
+    organicMatter?: boolean
+    organicNote?: boolean
+    nitrogen?: boolean
+    phosphorus?: boolean
+    potassium?: boolean
+    nutrientsNote?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["soilDataRecord"]>
+
+  export type SoilDataRecordSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    date?: boolean
+    soilType?: boolean
+    soilTypeNote?: boolean
+    soilPH?: boolean
+    soilPHNote?: boolean
+    moistureContent?: boolean
+    moistureNote?: boolean
+    organicMatter?: boolean
+    organicNote?: boolean
+    nitrogen?: boolean
+    phosphorus?: boolean
+    potassium?: boolean
+    nutrientsNote?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["soilDataRecord"]>
+
+  export type SoilDataRecordSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    date?: boolean
+    soilType?: boolean
+    soilTypeNote?: boolean
+    soilPH?: boolean
+    soilPHNote?: boolean
+    moistureContent?: boolean
+    moistureNote?: boolean
+    organicMatter?: boolean
+    organicNote?: boolean
+    nitrogen?: boolean
+    phosphorus?: boolean
+    potassium?: boolean
+    nutrientsNote?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["soilDataRecord"]>
+
+  export type SoilDataRecordSelectScalar = {
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    date?: boolean
+    soilType?: boolean
+    soilTypeNote?: boolean
+    soilPH?: boolean
+    soilPHNote?: boolean
+    moistureContent?: boolean
+    moistureNote?: boolean
+    organicMatter?: boolean
+    organicNote?: boolean
+    nitrogen?: boolean
+    phosphorus?: boolean
+    potassium?: boolean
+    nutrientsNote?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type SoilDataRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cropId" | "farmId" | "date" | "soilType" | "soilTypeNote" | "soilPH" | "soilPHNote" | "moistureContent" | "moistureNote" | "organicMatter" | "organicNote" | "nitrogen" | "phosphorus" | "potassium" | "nutrientsNote" | "createdAt" | "updatedAt", ExtArgs["result"]["soilDataRecord"]>
+  export type SoilDataRecordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }
+  export type SoilDataRecordIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }
+  export type SoilDataRecordIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }
+
+  export type $SoilDataRecordPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SoilDataRecord"
+    objects: {
+      crop: Prisma.$CropPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      cropId: string
+      farmId: string
+      date: Date
+      soilType: string
+      soilTypeNote: string | null
+      soilPH: string
+      soilPHNote: string | null
+      moistureContent: string
+      moistureNote: string | null
+      organicMatter: string
+      organicNote: string | null
+      nitrogen: boolean
+      phosphorus: boolean
+      potassium: boolean
+      nutrientsNote: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["soilDataRecord"]>
+    composites: {}
+  }
+
+  type SoilDataRecordGetPayload<S extends boolean | null | undefined | SoilDataRecordDefaultArgs> = $Result.GetResult<Prisma.$SoilDataRecordPayload, S>
+
+  type SoilDataRecordCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SoilDataRecordFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SoilDataRecordCountAggregateInputType | true
+    }
+
+  export interface SoilDataRecordDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SoilDataRecord'], meta: { name: 'SoilDataRecord' } }
+    /**
+     * Find zero or one SoilDataRecord that matches the filter.
+     * @param {SoilDataRecordFindUniqueArgs} args - Arguments to find a SoilDataRecord
+     * @example
+     * // Get one SoilDataRecord
+     * const soilDataRecord = await prisma.soilDataRecord.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SoilDataRecordFindUniqueArgs>(args: SelectSubset<T, SoilDataRecordFindUniqueArgs<ExtArgs>>): Prisma__SoilDataRecordClient<$Result.GetResult<Prisma.$SoilDataRecordPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SoilDataRecord that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SoilDataRecordFindUniqueOrThrowArgs} args - Arguments to find a SoilDataRecord
+     * @example
+     * // Get one SoilDataRecord
+     * const soilDataRecord = await prisma.soilDataRecord.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SoilDataRecordFindUniqueOrThrowArgs>(args: SelectSubset<T, SoilDataRecordFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SoilDataRecordClient<$Result.GetResult<Prisma.$SoilDataRecordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SoilDataRecord that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SoilDataRecordFindFirstArgs} args - Arguments to find a SoilDataRecord
+     * @example
+     * // Get one SoilDataRecord
+     * const soilDataRecord = await prisma.soilDataRecord.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SoilDataRecordFindFirstArgs>(args?: SelectSubset<T, SoilDataRecordFindFirstArgs<ExtArgs>>): Prisma__SoilDataRecordClient<$Result.GetResult<Prisma.$SoilDataRecordPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SoilDataRecord that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SoilDataRecordFindFirstOrThrowArgs} args - Arguments to find a SoilDataRecord
+     * @example
+     * // Get one SoilDataRecord
+     * const soilDataRecord = await prisma.soilDataRecord.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SoilDataRecordFindFirstOrThrowArgs>(args?: SelectSubset<T, SoilDataRecordFindFirstOrThrowArgs<ExtArgs>>): Prisma__SoilDataRecordClient<$Result.GetResult<Prisma.$SoilDataRecordPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SoilDataRecords that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SoilDataRecordFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SoilDataRecords
+     * const soilDataRecords = await prisma.soilDataRecord.findMany()
+     * 
+     * // Get first 10 SoilDataRecords
+     * const soilDataRecords = await prisma.soilDataRecord.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const soilDataRecordWithIdOnly = await prisma.soilDataRecord.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SoilDataRecordFindManyArgs>(args?: SelectSubset<T, SoilDataRecordFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SoilDataRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SoilDataRecord.
+     * @param {SoilDataRecordCreateArgs} args - Arguments to create a SoilDataRecord.
+     * @example
+     * // Create one SoilDataRecord
+     * const SoilDataRecord = await prisma.soilDataRecord.create({
+     *   data: {
+     *     // ... data to create a SoilDataRecord
+     *   }
+     * })
+     * 
+     */
+    create<T extends SoilDataRecordCreateArgs>(args: SelectSubset<T, SoilDataRecordCreateArgs<ExtArgs>>): Prisma__SoilDataRecordClient<$Result.GetResult<Prisma.$SoilDataRecordPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SoilDataRecords.
+     * @param {SoilDataRecordCreateManyArgs} args - Arguments to create many SoilDataRecords.
+     * @example
+     * // Create many SoilDataRecords
+     * const soilDataRecord = await prisma.soilDataRecord.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SoilDataRecordCreateManyArgs>(args?: SelectSubset<T, SoilDataRecordCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SoilDataRecords and returns the data saved in the database.
+     * @param {SoilDataRecordCreateManyAndReturnArgs} args - Arguments to create many SoilDataRecords.
+     * @example
+     * // Create many SoilDataRecords
+     * const soilDataRecord = await prisma.soilDataRecord.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many SoilDataRecords and only return the `id`
+     * const soilDataRecordWithIdOnly = await prisma.soilDataRecord.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SoilDataRecordCreateManyAndReturnArgs>(args?: SelectSubset<T, SoilDataRecordCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SoilDataRecordPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a SoilDataRecord.
+     * @param {SoilDataRecordDeleteArgs} args - Arguments to delete one SoilDataRecord.
+     * @example
+     * // Delete one SoilDataRecord
+     * const SoilDataRecord = await prisma.soilDataRecord.delete({
+     *   where: {
+     *     // ... filter to delete one SoilDataRecord
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SoilDataRecordDeleteArgs>(args: SelectSubset<T, SoilDataRecordDeleteArgs<ExtArgs>>): Prisma__SoilDataRecordClient<$Result.GetResult<Prisma.$SoilDataRecordPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SoilDataRecord.
+     * @param {SoilDataRecordUpdateArgs} args - Arguments to update one SoilDataRecord.
+     * @example
+     * // Update one SoilDataRecord
+     * const soilDataRecord = await prisma.soilDataRecord.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SoilDataRecordUpdateArgs>(args: SelectSubset<T, SoilDataRecordUpdateArgs<ExtArgs>>): Prisma__SoilDataRecordClient<$Result.GetResult<Prisma.$SoilDataRecordPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SoilDataRecords.
+     * @param {SoilDataRecordDeleteManyArgs} args - Arguments to filter SoilDataRecords to delete.
+     * @example
+     * // Delete a few SoilDataRecords
+     * const { count } = await prisma.soilDataRecord.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SoilDataRecordDeleteManyArgs>(args?: SelectSubset<T, SoilDataRecordDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SoilDataRecords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SoilDataRecordUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SoilDataRecords
+     * const soilDataRecord = await prisma.soilDataRecord.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SoilDataRecordUpdateManyArgs>(args: SelectSubset<T, SoilDataRecordUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SoilDataRecords and returns the data updated in the database.
+     * @param {SoilDataRecordUpdateManyAndReturnArgs} args - Arguments to update many SoilDataRecords.
+     * @example
+     * // Update many SoilDataRecords
+     * const soilDataRecord = await prisma.soilDataRecord.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more SoilDataRecords and only return the `id`
+     * const soilDataRecordWithIdOnly = await prisma.soilDataRecord.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SoilDataRecordUpdateManyAndReturnArgs>(args: SelectSubset<T, SoilDataRecordUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SoilDataRecordPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one SoilDataRecord.
+     * @param {SoilDataRecordUpsertArgs} args - Arguments to update or create a SoilDataRecord.
+     * @example
+     * // Update or create a SoilDataRecord
+     * const soilDataRecord = await prisma.soilDataRecord.upsert({
+     *   create: {
+     *     // ... data to create a SoilDataRecord
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SoilDataRecord we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SoilDataRecordUpsertArgs>(args: SelectSubset<T, SoilDataRecordUpsertArgs<ExtArgs>>): Prisma__SoilDataRecordClient<$Result.GetResult<Prisma.$SoilDataRecordPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SoilDataRecords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SoilDataRecordCountArgs} args - Arguments to filter SoilDataRecords to count.
+     * @example
+     * // Count the number of SoilDataRecords
+     * const count = await prisma.soilDataRecord.count({
+     *   where: {
+     *     // ... the filter for the SoilDataRecords we want to count
+     *   }
+     * })
+    **/
+    count<T extends SoilDataRecordCountArgs>(
+      args?: Subset<T, SoilDataRecordCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SoilDataRecordCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SoilDataRecord.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SoilDataRecordAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SoilDataRecordAggregateArgs>(args: Subset<T, SoilDataRecordAggregateArgs>): Prisma.PrismaPromise<GetSoilDataRecordAggregateType<T>>
+
+    /**
+     * Group by SoilDataRecord.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SoilDataRecordGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SoilDataRecordGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SoilDataRecordGroupByArgs['orderBy'] }
+        : { orderBy?: SoilDataRecordGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SoilDataRecordGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSoilDataRecordGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SoilDataRecord model
+   */
+  readonly fields: SoilDataRecordFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SoilDataRecord.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SoilDataRecordClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    crop<T extends CropDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CropDefaultArgs<ExtArgs>>): Prisma__CropClient<$Result.GetResult<Prisma.$CropPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SoilDataRecord model
+   */
+  interface SoilDataRecordFieldRefs {
+    readonly id: FieldRef<"SoilDataRecord", 'String'>
+    readonly cropId: FieldRef<"SoilDataRecord", 'String'>
+    readonly farmId: FieldRef<"SoilDataRecord", 'String'>
+    readonly date: FieldRef<"SoilDataRecord", 'DateTime'>
+    readonly soilType: FieldRef<"SoilDataRecord", 'String'>
+    readonly soilTypeNote: FieldRef<"SoilDataRecord", 'String'>
+    readonly soilPH: FieldRef<"SoilDataRecord", 'String'>
+    readonly soilPHNote: FieldRef<"SoilDataRecord", 'String'>
+    readonly moistureContent: FieldRef<"SoilDataRecord", 'String'>
+    readonly moistureNote: FieldRef<"SoilDataRecord", 'String'>
+    readonly organicMatter: FieldRef<"SoilDataRecord", 'String'>
+    readonly organicNote: FieldRef<"SoilDataRecord", 'String'>
+    readonly nitrogen: FieldRef<"SoilDataRecord", 'Boolean'>
+    readonly phosphorus: FieldRef<"SoilDataRecord", 'Boolean'>
+    readonly potassium: FieldRef<"SoilDataRecord", 'Boolean'>
+    readonly nutrientsNote: FieldRef<"SoilDataRecord", 'String'>
+    readonly createdAt: FieldRef<"SoilDataRecord", 'DateTime'>
+    readonly updatedAt: FieldRef<"SoilDataRecord", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SoilDataRecord findUnique
+   */
+  export type SoilDataRecordFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SoilDataRecord
+     */
+    select?: SoilDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SoilDataRecord
+     */
+    omit?: SoilDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SoilDataRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which SoilDataRecord to fetch.
+     */
+    where: SoilDataRecordWhereUniqueInput
+  }
+
+  /**
+   * SoilDataRecord findUniqueOrThrow
+   */
+  export type SoilDataRecordFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SoilDataRecord
+     */
+    select?: SoilDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SoilDataRecord
+     */
+    omit?: SoilDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SoilDataRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which SoilDataRecord to fetch.
+     */
+    where: SoilDataRecordWhereUniqueInput
+  }
+
+  /**
+   * SoilDataRecord findFirst
+   */
+  export type SoilDataRecordFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SoilDataRecord
+     */
+    select?: SoilDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SoilDataRecord
+     */
+    omit?: SoilDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SoilDataRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which SoilDataRecord to fetch.
+     */
+    where?: SoilDataRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SoilDataRecords to fetch.
+     */
+    orderBy?: SoilDataRecordOrderByWithRelationInput | SoilDataRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SoilDataRecords.
+     */
+    cursor?: SoilDataRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SoilDataRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SoilDataRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SoilDataRecords.
+     */
+    distinct?: SoilDataRecordScalarFieldEnum | SoilDataRecordScalarFieldEnum[]
+  }
+
+  /**
+   * SoilDataRecord findFirstOrThrow
+   */
+  export type SoilDataRecordFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SoilDataRecord
+     */
+    select?: SoilDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SoilDataRecord
+     */
+    omit?: SoilDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SoilDataRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which SoilDataRecord to fetch.
+     */
+    where?: SoilDataRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SoilDataRecords to fetch.
+     */
+    orderBy?: SoilDataRecordOrderByWithRelationInput | SoilDataRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SoilDataRecords.
+     */
+    cursor?: SoilDataRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SoilDataRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SoilDataRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SoilDataRecords.
+     */
+    distinct?: SoilDataRecordScalarFieldEnum | SoilDataRecordScalarFieldEnum[]
+  }
+
+  /**
+   * SoilDataRecord findMany
+   */
+  export type SoilDataRecordFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SoilDataRecord
+     */
+    select?: SoilDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SoilDataRecord
+     */
+    omit?: SoilDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SoilDataRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which SoilDataRecords to fetch.
+     */
+    where?: SoilDataRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SoilDataRecords to fetch.
+     */
+    orderBy?: SoilDataRecordOrderByWithRelationInput | SoilDataRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SoilDataRecords.
+     */
+    cursor?: SoilDataRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SoilDataRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SoilDataRecords.
+     */
+    skip?: number
+    distinct?: SoilDataRecordScalarFieldEnum | SoilDataRecordScalarFieldEnum[]
+  }
+
+  /**
+   * SoilDataRecord create
+   */
+  export type SoilDataRecordCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SoilDataRecord
+     */
+    select?: SoilDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SoilDataRecord
+     */
+    omit?: SoilDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SoilDataRecordInclude<ExtArgs> | null
+    /**
+     * The data needed to create a SoilDataRecord.
+     */
+    data: XOR<SoilDataRecordCreateInput, SoilDataRecordUncheckedCreateInput>
+  }
+
+  /**
+   * SoilDataRecord createMany
+   */
+  export type SoilDataRecordCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SoilDataRecords.
+     */
+    data: SoilDataRecordCreateManyInput | SoilDataRecordCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SoilDataRecord createManyAndReturn
+   */
+  export type SoilDataRecordCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SoilDataRecord
+     */
+    select?: SoilDataRecordSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SoilDataRecord
+     */
+    omit?: SoilDataRecordOmit<ExtArgs> | null
+    /**
+     * The data used to create many SoilDataRecords.
+     */
+    data: SoilDataRecordCreateManyInput | SoilDataRecordCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SoilDataRecordIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * SoilDataRecord update
+   */
+  export type SoilDataRecordUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SoilDataRecord
+     */
+    select?: SoilDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SoilDataRecord
+     */
+    omit?: SoilDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SoilDataRecordInclude<ExtArgs> | null
+    /**
+     * The data needed to update a SoilDataRecord.
+     */
+    data: XOR<SoilDataRecordUpdateInput, SoilDataRecordUncheckedUpdateInput>
+    /**
+     * Choose, which SoilDataRecord to update.
+     */
+    where: SoilDataRecordWhereUniqueInput
+  }
+
+  /**
+   * SoilDataRecord updateMany
+   */
+  export type SoilDataRecordUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SoilDataRecords.
+     */
+    data: XOR<SoilDataRecordUpdateManyMutationInput, SoilDataRecordUncheckedUpdateManyInput>
+    /**
+     * Filter which SoilDataRecords to update
+     */
+    where?: SoilDataRecordWhereInput
+    /**
+     * Limit how many SoilDataRecords to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SoilDataRecord updateManyAndReturn
+   */
+  export type SoilDataRecordUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SoilDataRecord
+     */
+    select?: SoilDataRecordSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SoilDataRecord
+     */
+    omit?: SoilDataRecordOmit<ExtArgs> | null
+    /**
+     * The data used to update SoilDataRecords.
+     */
+    data: XOR<SoilDataRecordUpdateManyMutationInput, SoilDataRecordUncheckedUpdateManyInput>
+    /**
+     * Filter which SoilDataRecords to update
+     */
+    where?: SoilDataRecordWhereInput
+    /**
+     * Limit how many SoilDataRecords to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SoilDataRecordIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * SoilDataRecord upsert
+   */
+  export type SoilDataRecordUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SoilDataRecord
+     */
+    select?: SoilDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SoilDataRecord
+     */
+    omit?: SoilDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SoilDataRecordInclude<ExtArgs> | null
+    /**
+     * The filter to search for the SoilDataRecord to update in case it exists.
+     */
+    where: SoilDataRecordWhereUniqueInput
+    /**
+     * In case the SoilDataRecord found by the `where` argument doesn't exist, create a new SoilDataRecord with this data.
+     */
+    create: XOR<SoilDataRecordCreateInput, SoilDataRecordUncheckedCreateInput>
+    /**
+     * In case the SoilDataRecord was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SoilDataRecordUpdateInput, SoilDataRecordUncheckedUpdateInput>
+  }
+
+  /**
+   * SoilDataRecord delete
+   */
+  export type SoilDataRecordDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SoilDataRecord
+     */
+    select?: SoilDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SoilDataRecord
+     */
+    omit?: SoilDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SoilDataRecordInclude<ExtArgs> | null
+    /**
+     * Filter which SoilDataRecord to delete.
+     */
+    where: SoilDataRecordWhereUniqueInput
+  }
+
+  /**
+   * SoilDataRecord deleteMany
+   */
+  export type SoilDataRecordDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SoilDataRecords to delete
+     */
+    where?: SoilDataRecordWhereInput
+    /**
+     * Limit how many SoilDataRecords to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SoilDataRecord without action
+   */
+  export type SoilDataRecordDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SoilDataRecord
+     */
+    select?: SoilDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SoilDataRecord
+     */
+    omit?: SoilDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SoilDataRecordInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model FieldConditionRecord
+   */
+
+  export type AggregateFieldConditionRecord = {
+    _count: FieldConditionRecordCountAggregateOutputType | null
+    _min: FieldConditionRecordMinAggregateOutputType | null
+    _max: FieldConditionRecordMaxAggregateOutputType | null
+  }
+
+  export type FieldConditionRecordMinAggregateOutputType = {
+    id: string | null
+    cropId: string | null
+    farmId: string | null
+    date: Date | null
+    topography: string | null
+    topographyNote: string | null
+    drainage: string | null
+    drainageNote: string | null
+    previousCropResidue: string | null
+    residueNote: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FieldConditionRecordMaxAggregateOutputType = {
+    id: string | null
+    cropId: string | null
+    farmId: string | null
+    date: Date | null
+    topography: string | null
+    topographyNote: string | null
+    drainage: string | null
+    drainageNote: string | null
+    previousCropResidue: string | null
+    residueNote: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FieldConditionRecordCountAggregateOutputType = {
+    id: number
+    cropId: number
+    farmId: number
+    date: number
+    topography: number
+    topographyNote: number
+    drainage: number
+    drainageNote: number
+    previousCropResidue: number
+    residueNote: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type FieldConditionRecordMinAggregateInputType = {
+    id?: true
+    cropId?: true
+    farmId?: true
+    date?: true
+    topography?: true
+    topographyNote?: true
+    drainage?: true
+    drainageNote?: true
+    previousCropResidue?: true
+    residueNote?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FieldConditionRecordMaxAggregateInputType = {
+    id?: true
+    cropId?: true
+    farmId?: true
+    date?: true
+    topography?: true
+    topographyNote?: true
+    drainage?: true
+    drainageNote?: true
+    previousCropResidue?: true
+    residueNote?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FieldConditionRecordCountAggregateInputType = {
+    id?: true
+    cropId?: true
+    farmId?: true
+    date?: true
+    topography?: true
+    topographyNote?: true
+    drainage?: true
+    drainageNote?: true
+    previousCropResidue?: true
+    residueNote?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type FieldConditionRecordAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FieldConditionRecord to aggregate.
+     */
+    where?: FieldConditionRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FieldConditionRecords to fetch.
+     */
+    orderBy?: FieldConditionRecordOrderByWithRelationInput | FieldConditionRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FieldConditionRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FieldConditionRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FieldConditionRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned FieldConditionRecords
+    **/
+    _count?: true | FieldConditionRecordCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FieldConditionRecordMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FieldConditionRecordMaxAggregateInputType
+  }
+
+  export type GetFieldConditionRecordAggregateType<T extends FieldConditionRecordAggregateArgs> = {
+        [P in keyof T & keyof AggregateFieldConditionRecord]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFieldConditionRecord[P]>
+      : GetScalarType<T[P], AggregateFieldConditionRecord[P]>
+  }
+
+
+
+
+  export type FieldConditionRecordGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FieldConditionRecordWhereInput
+    orderBy?: FieldConditionRecordOrderByWithAggregationInput | FieldConditionRecordOrderByWithAggregationInput[]
+    by: FieldConditionRecordScalarFieldEnum[] | FieldConditionRecordScalarFieldEnum
+    having?: FieldConditionRecordScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FieldConditionRecordCountAggregateInputType | true
+    _min?: FieldConditionRecordMinAggregateInputType
+    _max?: FieldConditionRecordMaxAggregateInputType
+  }
+
+  export type FieldConditionRecordGroupByOutputType = {
+    id: string
+    cropId: string
+    farmId: string
+    date: Date
+    topography: string
+    topographyNote: string | null
+    drainage: string
+    drainageNote: string | null
+    previousCropResidue: string
+    residueNote: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: FieldConditionRecordCountAggregateOutputType | null
+    _min: FieldConditionRecordMinAggregateOutputType | null
+    _max: FieldConditionRecordMaxAggregateOutputType | null
+  }
+
+  type GetFieldConditionRecordGroupByPayload<T extends FieldConditionRecordGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FieldConditionRecordGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FieldConditionRecordGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FieldConditionRecordGroupByOutputType[P]>
+            : GetScalarType<T[P], FieldConditionRecordGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FieldConditionRecordSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    date?: boolean
+    topography?: boolean
+    topographyNote?: boolean
+    drainage?: boolean
+    drainageNote?: boolean
+    previousCropResidue?: boolean
+    residueNote?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["fieldConditionRecord"]>
+
+  export type FieldConditionRecordSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    date?: boolean
+    topography?: boolean
+    topographyNote?: boolean
+    drainage?: boolean
+    drainageNote?: boolean
+    previousCropResidue?: boolean
+    residueNote?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["fieldConditionRecord"]>
+
+  export type FieldConditionRecordSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    date?: boolean
+    topography?: boolean
+    topographyNote?: boolean
+    drainage?: boolean
+    drainageNote?: boolean
+    previousCropResidue?: boolean
+    residueNote?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["fieldConditionRecord"]>
+
+  export type FieldConditionRecordSelectScalar = {
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    date?: boolean
+    topography?: boolean
+    topographyNote?: boolean
+    drainage?: boolean
+    drainageNote?: boolean
+    previousCropResidue?: boolean
+    residueNote?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type FieldConditionRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cropId" | "farmId" | "date" | "topography" | "topographyNote" | "drainage" | "drainageNote" | "previousCropResidue" | "residueNote" | "createdAt" | "updatedAt", ExtArgs["result"]["fieldConditionRecord"]>
+  export type FieldConditionRecordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }
+  export type FieldConditionRecordIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }
+  export type FieldConditionRecordIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }
+
+  export type $FieldConditionRecordPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FieldConditionRecord"
+    objects: {
+      crop: Prisma.$CropPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      cropId: string
+      farmId: string
+      date: Date
+      topography: string
+      topographyNote: string | null
+      drainage: string
+      drainageNote: string | null
+      previousCropResidue: string
+      residueNote: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["fieldConditionRecord"]>
+    composites: {}
+  }
+
+  type FieldConditionRecordGetPayload<S extends boolean | null | undefined | FieldConditionRecordDefaultArgs> = $Result.GetResult<Prisma.$FieldConditionRecordPayload, S>
+
+  type FieldConditionRecordCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FieldConditionRecordFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FieldConditionRecordCountAggregateInputType | true
+    }
+
+  export interface FieldConditionRecordDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FieldConditionRecord'], meta: { name: 'FieldConditionRecord' } }
+    /**
+     * Find zero or one FieldConditionRecord that matches the filter.
+     * @param {FieldConditionRecordFindUniqueArgs} args - Arguments to find a FieldConditionRecord
+     * @example
+     * // Get one FieldConditionRecord
+     * const fieldConditionRecord = await prisma.fieldConditionRecord.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FieldConditionRecordFindUniqueArgs>(args: SelectSubset<T, FieldConditionRecordFindUniqueArgs<ExtArgs>>): Prisma__FieldConditionRecordClient<$Result.GetResult<Prisma.$FieldConditionRecordPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one FieldConditionRecord that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FieldConditionRecordFindUniqueOrThrowArgs} args - Arguments to find a FieldConditionRecord
+     * @example
+     * // Get one FieldConditionRecord
+     * const fieldConditionRecord = await prisma.fieldConditionRecord.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FieldConditionRecordFindUniqueOrThrowArgs>(args: SelectSubset<T, FieldConditionRecordFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FieldConditionRecordClient<$Result.GetResult<Prisma.$FieldConditionRecordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FieldConditionRecord that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FieldConditionRecordFindFirstArgs} args - Arguments to find a FieldConditionRecord
+     * @example
+     * // Get one FieldConditionRecord
+     * const fieldConditionRecord = await prisma.fieldConditionRecord.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FieldConditionRecordFindFirstArgs>(args?: SelectSubset<T, FieldConditionRecordFindFirstArgs<ExtArgs>>): Prisma__FieldConditionRecordClient<$Result.GetResult<Prisma.$FieldConditionRecordPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FieldConditionRecord that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FieldConditionRecordFindFirstOrThrowArgs} args - Arguments to find a FieldConditionRecord
+     * @example
+     * // Get one FieldConditionRecord
+     * const fieldConditionRecord = await prisma.fieldConditionRecord.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FieldConditionRecordFindFirstOrThrowArgs>(args?: SelectSubset<T, FieldConditionRecordFindFirstOrThrowArgs<ExtArgs>>): Prisma__FieldConditionRecordClient<$Result.GetResult<Prisma.$FieldConditionRecordPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more FieldConditionRecords that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FieldConditionRecordFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FieldConditionRecords
+     * const fieldConditionRecords = await prisma.fieldConditionRecord.findMany()
+     * 
+     * // Get first 10 FieldConditionRecords
+     * const fieldConditionRecords = await prisma.fieldConditionRecord.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const fieldConditionRecordWithIdOnly = await prisma.fieldConditionRecord.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FieldConditionRecordFindManyArgs>(args?: SelectSubset<T, FieldConditionRecordFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FieldConditionRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a FieldConditionRecord.
+     * @param {FieldConditionRecordCreateArgs} args - Arguments to create a FieldConditionRecord.
+     * @example
+     * // Create one FieldConditionRecord
+     * const FieldConditionRecord = await prisma.fieldConditionRecord.create({
+     *   data: {
+     *     // ... data to create a FieldConditionRecord
+     *   }
+     * })
+     * 
+     */
+    create<T extends FieldConditionRecordCreateArgs>(args: SelectSubset<T, FieldConditionRecordCreateArgs<ExtArgs>>): Prisma__FieldConditionRecordClient<$Result.GetResult<Prisma.$FieldConditionRecordPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many FieldConditionRecords.
+     * @param {FieldConditionRecordCreateManyArgs} args - Arguments to create many FieldConditionRecords.
+     * @example
+     * // Create many FieldConditionRecords
+     * const fieldConditionRecord = await prisma.fieldConditionRecord.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FieldConditionRecordCreateManyArgs>(args?: SelectSubset<T, FieldConditionRecordCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many FieldConditionRecords and returns the data saved in the database.
+     * @param {FieldConditionRecordCreateManyAndReturnArgs} args - Arguments to create many FieldConditionRecords.
+     * @example
+     * // Create many FieldConditionRecords
+     * const fieldConditionRecord = await prisma.fieldConditionRecord.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many FieldConditionRecords and only return the `id`
+     * const fieldConditionRecordWithIdOnly = await prisma.fieldConditionRecord.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FieldConditionRecordCreateManyAndReturnArgs>(args?: SelectSubset<T, FieldConditionRecordCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FieldConditionRecordPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a FieldConditionRecord.
+     * @param {FieldConditionRecordDeleteArgs} args - Arguments to delete one FieldConditionRecord.
+     * @example
+     * // Delete one FieldConditionRecord
+     * const FieldConditionRecord = await prisma.fieldConditionRecord.delete({
+     *   where: {
+     *     // ... filter to delete one FieldConditionRecord
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FieldConditionRecordDeleteArgs>(args: SelectSubset<T, FieldConditionRecordDeleteArgs<ExtArgs>>): Prisma__FieldConditionRecordClient<$Result.GetResult<Prisma.$FieldConditionRecordPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one FieldConditionRecord.
+     * @param {FieldConditionRecordUpdateArgs} args - Arguments to update one FieldConditionRecord.
+     * @example
+     * // Update one FieldConditionRecord
+     * const fieldConditionRecord = await prisma.fieldConditionRecord.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FieldConditionRecordUpdateArgs>(args: SelectSubset<T, FieldConditionRecordUpdateArgs<ExtArgs>>): Prisma__FieldConditionRecordClient<$Result.GetResult<Prisma.$FieldConditionRecordPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more FieldConditionRecords.
+     * @param {FieldConditionRecordDeleteManyArgs} args - Arguments to filter FieldConditionRecords to delete.
+     * @example
+     * // Delete a few FieldConditionRecords
+     * const { count } = await prisma.fieldConditionRecord.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FieldConditionRecordDeleteManyArgs>(args?: SelectSubset<T, FieldConditionRecordDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FieldConditionRecords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FieldConditionRecordUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FieldConditionRecords
+     * const fieldConditionRecord = await prisma.fieldConditionRecord.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FieldConditionRecordUpdateManyArgs>(args: SelectSubset<T, FieldConditionRecordUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FieldConditionRecords and returns the data updated in the database.
+     * @param {FieldConditionRecordUpdateManyAndReturnArgs} args - Arguments to update many FieldConditionRecords.
+     * @example
+     * // Update many FieldConditionRecords
+     * const fieldConditionRecord = await prisma.fieldConditionRecord.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more FieldConditionRecords and only return the `id`
+     * const fieldConditionRecordWithIdOnly = await prisma.fieldConditionRecord.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends FieldConditionRecordUpdateManyAndReturnArgs>(args: SelectSubset<T, FieldConditionRecordUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FieldConditionRecordPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one FieldConditionRecord.
+     * @param {FieldConditionRecordUpsertArgs} args - Arguments to update or create a FieldConditionRecord.
+     * @example
+     * // Update or create a FieldConditionRecord
+     * const fieldConditionRecord = await prisma.fieldConditionRecord.upsert({
+     *   create: {
+     *     // ... data to create a FieldConditionRecord
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FieldConditionRecord we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FieldConditionRecordUpsertArgs>(args: SelectSubset<T, FieldConditionRecordUpsertArgs<ExtArgs>>): Prisma__FieldConditionRecordClient<$Result.GetResult<Prisma.$FieldConditionRecordPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of FieldConditionRecords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FieldConditionRecordCountArgs} args - Arguments to filter FieldConditionRecords to count.
+     * @example
+     * // Count the number of FieldConditionRecords
+     * const count = await prisma.fieldConditionRecord.count({
+     *   where: {
+     *     // ... the filter for the FieldConditionRecords we want to count
+     *   }
+     * })
+    **/
+    count<T extends FieldConditionRecordCountArgs>(
+      args?: Subset<T, FieldConditionRecordCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FieldConditionRecordCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FieldConditionRecord.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FieldConditionRecordAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FieldConditionRecordAggregateArgs>(args: Subset<T, FieldConditionRecordAggregateArgs>): Prisma.PrismaPromise<GetFieldConditionRecordAggregateType<T>>
+
+    /**
+     * Group by FieldConditionRecord.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FieldConditionRecordGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FieldConditionRecordGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FieldConditionRecordGroupByArgs['orderBy'] }
+        : { orderBy?: FieldConditionRecordGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FieldConditionRecordGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFieldConditionRecordGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the FieldConditionRecord model
+   */
+  readonly fields: FieldConditionRecordFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for FieldConditionRecord.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FieldConditionRecordClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    crop<T extends CropDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CropDefaultArgs<ExtArgs>>): Prisma__CropClient<$Result.GetResult<Prisma.$CropPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the FieldConditionRecord model
+   */
+  interface FieldConditionRecordFieldRefs {
+    readonly id: FieldRef<"FieldConditionRecord", 'String'>
+    readonly cropId: FieldRef<"FieldConditionRecord", 'String'>
+    readonly farmId: FieldRef<"FieldConditionRecord", 'String'>
+    readonly date: FieldRef<"FieldConditionRecord", 'DateTime'>
+    readonly topography: FieldRef<"FieldConditionRecord", 'String'>
+    readonly topographyNote: FieldRef<"FieldConditionRecord", 'String'>
+    readonly drainage: FieldRef<"FieldConditionRecord", 'String'>
+    readonly drainageNote: FieldRef<"FieldConditionRecord", 'String'>
+    readonly previousCropResidue: FieldRef<"FieldConditionRecord", 'String'>
+    readonly residueNote: FieldRef<"FieldConditionRecord", 'String'>
+    readonly createdAt: FieldRef<"FieldConditionRecord", 'DateTime'>
+    readonly updatedAt: FieldRef<"FieldConditionRecord", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * FieldConditionRecord findUnique
+   */
+  export type FieldConditionRecordFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FieldConditionRecord
+     */
+    select?: FieldConditionRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FieldConditionRecord
+     */
+    omit?: FieldConditionRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FieldConditionRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which FieldConditionRecord to fetch.
+     */
+    where: FieldConditionRecordWhereUniqueInput
+  }
+
+  /**
+   * FieldConditionRecord findUniqueOrThrow
+   */
+  export type FieldConditionRecordFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FieldConditionRecord
+     */
+    select?: FieldConditionRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FieldConditionRecord
+     */
+    omit?: FieldConditionRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FieldConditionRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which FieldConditionRecord to fetch.
+     */
+    where: FieldConditionRecordWhereUniqueInput
+  }
+
+  /**
+   * FieldConditionRecord findFirst
+   */
+  export type FieldConditionRecordFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FieldConditionRecord
+     */
+    select?: FieldConditionRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FieldConditionRecord
+     */
+    omit?: FieldConditionRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FieldConditionRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which FieldConditionRecord to fetch.
+     */
+    where?: FieldConditionRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FieldConditionRecords to fetch.
+     */
+    orderBy?: FieldConditionRecordOrderByWithRelationInput | FieldConditionRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FieldConditionRecords.
+     */
+    cursor?: FieldConditionRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FieldConditionRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FieldConditionRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FieldConditionRecords.
+     */
+    distinct?: FieldConditionRecordScalarFieldEnum | FieldConditionRecordScalarFieldEnum[]
+  }
+
+  /**
+   * FieldConditionRecord findFirstOrThrow
+   */
+  export type FieldConditionRecordFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FieldConditionRecord
+     */
+    select?: FieldConditionRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FieldConditionRecord
+     */
+    omit?: FieldConditionRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FieldConditionRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which FieldConditionRecord to fetch.
+     */
+    where?: FieldConditionRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FieldConditionRecords to fetch.
+     */
+    orderBy?: FieldConditionRecordOrderByWithRelationInput | FieldConditionRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FieldConditionRecords.
+     */
+    cursor?: FieldConditionRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FieldConditionRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FieldConditionRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FieldConditionRecords.
+     */
+    distinct?: FieldConditionRecordScalarFieldEnum | FieldConditionRecordScalarFieldEnum[]
+  }
+
+  /**
+   * FieldConditionRecord findMany
+   */
+  export type FieldConditionRecordFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FieldConditionRecord
+     */
+    select?: FieldConditionRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FieldConditionRecord
+     */
+    omit?: FieldConditionRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FieldConditionRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which FieldConditionRecords to fetch.
+     */
+    where?: FieldConditionRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FieldConditionRecords to fetch.
+     */
+    orderBy?: FieldConditionRecordOrderByWithRelationInput | FieldConditionRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing FieldConditionRecords.
+     */
+    cursor?: FieldConditionRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FieldConditionRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FieldConditionRecords.
+     */
+    skip?: number
+    distinct?: FieldConditionRecordScalarFieldEnum | FieldConditionRecordScalarFieldEnum[]
+  }
+
+  /**
+   * FieldConditionRecord create
+   */
+  export type FieldConditionRecordCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FieldConditionRecord
+     */
+    select?: FieldConditionRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FieldConditionRecord
+     */
+    omit?: FieldConditionRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FieldConditionRecordInclude<ExtArgs> | null
+    /**
+     * The data needed to create a FieldConditionRecord.
+     */
+    data: XOR<FieldConditionRecordCreateInput, FieldConditionRecordUncheckedCreateInput>
+  }
+
+  /**
+   * FieldConditionRecord createMany
+   */
+  export type FieldConditionRecordCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FieldConditionRecords.
+     */
+    data: FieldConditionRecordCreateManyInput | FieldConditionRecordCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * FieldConditionRecord createManyAndReturn
+   */
+  export type FieldConditionRecordCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FieldConditionRecord
+     */
+    select?: FieldConditionRecordSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FieldConditionRecord
+     */
+    omit?: FieldConditionRecordOmit<ExtArgs> | null
+    /**
+     * The data used to create many FieldConditionRecords.
+     */
+    data: FieldConditionRecordCreateManyInput | FieldConditionRecordCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FieldConditionRecordIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FieldConditionRecord update
+   */
+  export type FieldConditionRecordUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FieldConditionRecord
+     */
+    select?: FieldConditionRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FieldConditionRecord
+     */
+    omit?: FieldConditionRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FieldConditionRecordInclude<ExtArgs> | null
+    /**
+     * The data needed to update a FieldConditionRecord.
+     */
+    data: XOR<FieldConditionRecordUpdateInput, FieldConditionRecordUncheckedUpdateInput>
+    /**
+     * Choose, which FieldConditionRecord to update.
+     */
+    where: FieldConditionRecordWhereUniqueInput
+  }
+
+  /**
+   * FieldConditionRecord updateMany
+   */
+  export type FieldConditionRecordUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FieldConditionRecords.
+     */
+    data: XOR<FieldConditionRecordUpdateManyMutationInput, FieldConditionRecordUncheckedUpdateManyInput>
+    /**
+     * Filter which FieldConditionRecords to update
+     */
+    where?: FieldConditionRecordWhereInput
+    /**
+     * Limit how many FieldConditionRecords to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * FieldConditionRecord updateManyAndReturn
+   */
+  export type FieldConditionRecordUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FieldConditionRecord
+     */
+    select?: FieldConditionRecordSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FieldConditionRecord
+     */
+    omit?: FieldConditionRecordOmit<ExtArgs> | null
+    /**
+     * The data used to update FieldConditionRecords.
+     */
+    data: XOR<FieldConditionRecordUpdateManyMutationInput, FieldConditionRecordUncheckedUpdateManyInput>
+    /**
+     * Filter which FieldConditionRecords to update
+     */
+    where?: FieldConditionRecordWhereInput
+    /**
+     * Limit how many FieldConditionRecords to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FieldConditionRecordIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FieldConditionRecord upsert
+   */
+  export type FieldConditionRecordUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FieldConditionRecord
+     */
+    select?: FieldConditionRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FieldConditionRecord
+     */
+    omit?: FieldConditionRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FieldConditionRecordInclude<ExtArgs> | null
+    /**
+     * The filter to search for the FieldConditionRecord to update in case it exists.
+     */
+    where: FieldConditionRecordWhereUniqueInput
+    /**
+     * In case the FieldConditionRecord found by the `where` argument doesn't exist, create a new FieldConditionRecord with this data.
+     */
+    create: XOR<FieldConditionRecordCreateInput, FieldConditionRecordUncheckedCreateInput>
+    /**
+     * In case the FieldConditionRecord was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FieldConditionRecordUpdateInput, FieldConditionRecordUncheckedUpdateInput>
+  }
+
+  /**
+   * FieldConditionRecord delete
+   */
+  export type FieldConditionRecordDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FieldConditionRecord
+     */
+    select?: FieldConditionRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FieldConditionRecord
+     */
+    omit?: FieldConditionRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FieldConditionRecordInclude<ExtArgs> | null
+    /**
+     * Filter which FieldConditionRecord to delete.
+     */
+    where: FieldConditionRecordWhereUniqueInput
+  }
+
+  /**
+   * FieldConditionRecord deleteMany
+   */
+  export type FieldConditionRecordDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FieldConditionRecords to delete
+     */
+    where?: FieldConditionRecordWhereInput
+    /**
+     * Limit how many FieldConditionRecords to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * FieldConditionRecord without action
+   */
+  export type FieldConditionRecordDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FieldConditionRecord
+     */
+    select?: FieldConditionRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FieldConditionRecord
+     */
+    omit?: FieldConditionRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FieldConditionRecordInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model WeatherDataRecord
+   */
+
+  export type AggregateWeatherDataRecord = {
+    _count: WeatherDataRecordCountAggregateOutputType | null
+    _avg: WeatherDataRecordAvgAggregateOutputType | null
+    _sum: WeatherDataRecordSumAggregateOutputType | null
+    _min: WeatherDataRecordMinAggregateOutputType | null
+    _max: WeatherDataRecordMaxAggregateOutputType | null
+  }
+
+  export type WeatherDataRecordAvgAggregateOutputType = {
+    temperatureValue: number | null
+    precipitationValue: number | null
+    windValue: number | null
+    humidityValue: number | null
+  }
+
+  export type WeatherDataRecordSumAggregateOutputType = {
+    temperatureValue: number | null
+    precipitationValue: number | null
+    windValue: number | null
+    humidityValue: number | null
+  }
+
+  export type WeatherDataRecordMinAggregateOutputType = {
+    id: string | null
+    cropId: string | null
+    farmId: string | null
+    date: Date | null
+    temperatureType: string | null
+    temperatureValue: number | null
+    temperatureNote: string | null
+    precipitationType: string | null
+    precipitationValue: number | null
+    precipitationNote: string | null
+    windType: string | null
+    windValue: number | null
+    windNote: string | null
+    humidityType: string | null
+    humidityValue: number | null
+    humidityNote: string | null
+    locationName: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type WeatherDataRecordMaxAggregateOutputType = {
+    id: string | null
+    cropId: string | null
+    farmId: string | null
+    date: Date | null
+    temperatureType: string | null
+    temperatureValue: number | null
+    temperatureNote: string | null
+    precipitationType: string | null
+    precipitationValue: number | null
+    precipitationNote: string | null
+    windType: string | null
+    windValue: number | null
+    windNote: string | null
+    humidityType: string | null
+    humidityValue: number | null
+    humidityNote: string | null
+    locationName: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type WeatherDataRecordCountAggregateOutputType = {
+    id: number
+    cropId: number
+    farmId: number
+    date: number
+    temperatureType: number
+    temperatureValue: number
+    temperatureNote: number
+    precipitationType: number
+    precipitationValue: number
+    precipitationNote: number
+    windType: number
+    windValue: number
+    windNote: number
+    humidityType: number
+    humidityValue: number
+    humidityNote: number
+    locationName: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type WeatherDataRecordAvgAggregateInputType = {
+    temperatureValue?: true
+    precipitationValue?: true
+    windValue?: true
+    humidityValue?: true
+  }
+
+  export type WeatherDataRecordSumAggregateInputType = {
+    temperatureValue?: true
+    precipitationValue?: true
+    windValue?: true
+    humidityValue?: true
+  }
+
+  export type WeatherDataRecordMinAggregateInputType = {
+    id?: true
+    cropId?: true
+    farmId?: true
+    date?: true
+    temperatureType?: true
+    temperatureValue?: true
+    temperatureNote?: true
+    precipitationType?: true
+    precipitationValue?: true
+    precipitationNote?: true
+    windType?: true
+    windValue?: true
+    windNote?: true
+    humidityType?: true
+    humidityValue?: true
+    humidityNote?: true
+    locationName?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type WeatherDataRecordMaxAggregateInputType = {
+    id?: true
+    cropId?: true
+    farmId?: true
+    date?: true
+    temperatureType?: true
+    temperatureValue?: true
+    temperatureNote?: true
+    precipitationType?: true
+    precipitationValue?: true
+    precipitationNote?: true
+    windType?: true
+    windValue?: true
+    windNote?: true
+    humidityType?: true
+    humidityValue?: true
+    humidityNote?: true
+    locationName?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type WeatherDataRecordCountAggregateInputType = {
+    id?: true
+    cropId?: true
+    farmId?: true
+    date?: true
+    temperatureType?: true
+    temperatureValue?: true
+    temperatureNote?: true
+    precipitationType?: true
+    precipitationValue?: true
+    precipitationNote?: true
+    windType?: true
+    windValue?: true
+    windNote?: true
+    humidityType?: true
+    humidityValue?: true
+    humidityNote?: true
+    locationName?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type WeatherDataRecordAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which WeatherDataRecord to aggregate.
+     */
+    where?: WeatherDataRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WeatherDataRecords to fetch.
+     */
+    orderBy?: WeatherDataRecordOrderByWithRelationInput | WeatherDataRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: WeatherDataRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WeatherDataRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WeatherDataRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned WeatherDataRecords
+    **/
+    _count?: true | WeatherDataRecordCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: WeatherDataRecordAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: WeatherDataRecordSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: WeatherDataRecordMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: WeatherDataRecordMaxAggregateInputType
+  }
+
+  export type GetWeatherDataRecordAggregateType<T extends WeatherDataRecordAggregateArgs> = {
+        [P in keyof T & keyof AggregateWeatherDataRecord]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateWeatherDataRecord[P]>
+      : GetScalarType<T[P], AggregateWeatherDataRecord[P]>
+  }
+
+
+
+
+  export type WeatherDataRecordGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WeatherDataRecordWhereInput
+    orderBy?: WeatherDataRecordOrderByWithAggregationInput | WeatherDataRecordOrderByWithAggregationInput[]
+    by: WeatherDataRecordScalarFieldEnum[] | WeatherDataRecordScalarFieldEnum
+    having?: WeatherDataRecordScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: WeatherDataRecordCountAggregateInputType | true
+    _avg?: WeatherDataRecordAvgAggregateInputType
+    _sum?: WeatherDataRecordSumAggregateInputType
+    _min?: WeatherDataRecordMinAggregateInputType
+    _max?: WeatherDataRecordMaxAggregateInputType
+  }
+
+  export type WeatherDataRecordGroupByOutputType = {
+    id: string
+    cropId: string
+    farmId: string
+    date: Date
+    temperatureType: string
+    temperatureValue: number
+    temperatureNote: string | null
+    precipitationType: string
+    precipitationValue: number
+    precipitationNote: string | null
+    windType: string
+    windValue: number
+    windNote: string | null
+    humidityType: string
+    humidityValue: number
+    humidityNote: string | null
+    locationName: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: WeatherDataRecordCountAggregateOutputType | null
+    _avg: WeatherDataRecordAvgAggregateOutputType | null
+    _sum: WeatherDataRecordSumAggregateOutputType | null
+    _min: WeatherDataRecordMinAggregateOutputType | null
+    _max: WeatherDataRecordMaxAggregateOutputType | null
+  }
+
+  type GetWeatherDataRecordGroupByPayload<T extends WeatherDataRecordGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<WeatherDataRecordGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof WeatherDataRecordGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], WeatherDataRecordGroupByOutputType[P]>
+            : GetScalarType<T[P], WeatherDataRecordGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type WeatherDataRecordSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    date?: boolean
+    temperatureType?: boolean
+    temperatureValue?: boolean
+    temperatureNote?: boolean
+    precipitationType?: boolean
+    precipitationValue?: boolean
+    precipitationNote?: boolean
+    windType?: boolean
+    windValue?: boolean
+    windNote?: boolean
+    humidityType?: boolean
+    humidityValue?: boolean
+    humidityNote?: boolean
+    locationName?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["weatherDataRecord"]>
+
+  export type WeatherDataRecordSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    date?: boolean
+    temperatureType?: boolean
+    temperatureValue?: boolean
+    temperatureNote?: boolean
+    precipitationType?: boolean
+    precipitationValue?: boolean
+    precipitationNote?: boolean
+    windType?: boolean
+    windValue?: boolean
+    windNote?: boolean
+    humidityType?: boolean
+    humidityValue?: boolean
+    humidityNote?: boolean
+    locationName?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["weatherDataRecord"]>
+
+  export type WeatherDataRecordSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    date?: boolean
+    temperatureType?: boolean
+    temperatureValue?: boolean
+    temperatureNote?: boolean
+    precipitationType?: boolean
+    precipitationValue?: boolean
+    precipitationNote?: boolean
+    windType?: boolean
+    windValue?: boolean
+    windNote?: boolean
+    humidityType?: boolean
+    humidityValue?: boolean
+    humidityNote?: boolean
+    locationName?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["weatherDataRecord"]>
+
+  export type WeatherDataRecordSelectScalar = {
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    date?: boolean
+    temperatureType?: boolean
+    temperatureValue?: boolean
+    temperatureNote?: boolean
+    precipitationType?: boolean
+    precipitationValue?: boolean
+    precipitationNote?: boolean
+    windType?: boolean
+    windValue?: boolean
+    windNote?: boolean
+    humidityType?: boolean
+    humidityValue?: boolean
+    humidityNote?: boolean
+    locationName?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type WeatherDataRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cropId" | "farmId" | "date" | "temperatureType" | "temperatureValue" | "temperatureNote" | "precipitationType" | "precipitationValue" | "precipitationNote" | "windType" | "windValue" | "windNote" | "humidityType" | "humidityValue" | "humidityNote" | "locationName" | "createdAt" | "updatedAt", ExtArgs["result"]["weatherDataRecord"]>
+  export type WeatherDataRecordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }
+  export type WeatherDataRecordIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }
+  export type WeatherDataRecordIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }
+
+  export type $WeatherDataRecordPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "WeatherDataRecord"
+    objects: {
+      crop: Prisma.$CropPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      cropId: string
+      farmId: string
+      date: Date
+      temperatureType: string
+      temperatureValue: number
+      temperatureNote: string | null
+      precipitationType: string
+      precipitationValue: number
+      precipitationNote: string | null
+      windType: string
+      windValue: number
+      windNote: string | null
+      humidityType: string
+      humidityValue: number
+      humidityNote: string | null
+      locationName: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["weatherDataRecord"]>
+    composites: {}
+  }
+
+  type WeatherDataRecordGetPayload<S extends boolean | null | undefined | WeatherDataRecordDefaultArgs> = $Result.GetResult<Prisma.$WeatherDataRecordPayload, S>
+
+  type WeatherDataRecordCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<WeatherDataRecordFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: WeatherDataRecordCountAggregateInputType | true
+    }
+
+  export interface WeatherDataRecordDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['WeatherDataRecord'], meta: { name: 'WeatherDataRecord' } }
+    /**
+     * Find zero or one WeatherDataRecord that matches the filter.
+     * @param {WeatherDataRecordFindUniqueArgs} args - Arguments to find a WeatherDataRecord
+     * @example
+     * // Get one WeatherDataRecord
+     * const weatherDataRecord = await prisma.weatherDataRecord.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends WeatherDataRecordFindUniqueArgs>(args: SelectSubset<T, WeatherDataRecordFindUniqueArgs<ExtArgs>>): Prisma__WeatherDataRecordClient<$Result.GetResult<Prisma.$WeatherDataRecordPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one WeatherDataRecord that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {WeatherDataRecordFindUniqueOrThrowArgs} args - Arguments to find a WeatherDataRecord
+     * @example
+     * // Get one WeatherDataRecord
+     * const weatherDataRecord = await prisma.weatherDataRecord.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends WeatherDataRecordFindUniqueOrThrowArgs>(args: SelectSubset<T, WeatherDataRecordFindUniqueOrThrowArgs<ExtArgs>>): Prisma__WeatherDataRecordClient<$Result.GetResult<Prisma.$WeatherDataRecordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first WeatherDataRecord that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeatherDataRecordFindFirstArgs} args - Arguments to find a WeatherDataRecord
+     * @example
+     * // Get one WeatherDataRecord
+     * const weatherDataRecord = await prisma.weatherDataRecord.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends WeatherDataRecordFindFirstArgs>(args?: SelectSubset<T, WeatherDataRecordFindFirstArgs<ExtArgs>>): Prisma__WeatherDataRecordClient<$Result.GetResult<Prisma.$WeatherDataRecordPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first WeatherDataRecord that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeatherDataRecordFindFirstOrThrowArgs} args - Arguments to find a WeatherDataRecord
+     * @example
+     * // Get one WeatherDataRecord
+     * const weatherDataRecord = await prisma.weatherDataRecord.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends WeatherDataRecordFindFirstOrThrowArgs>(args?: SelectSubset<T, WeatherDataRecordFindFirstOrThrowArgs<ExtArgs>>): Prisma__WeatherDataRecordClient<$Result.GetResult<Prisma.$WeatherDataRecordPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more WeatherDataRecords that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeatherDataRecordFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all WeatherDataRecords
+     * const weatherDataRecords = await prisma.weatherDataRecord.findMany()
+     * 
+     * // Get first 10 WeatherDataRecords
+     * const weatherDataRecords = await prisma.weatherDataRecord.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const weatherDataRecordWithIdOnly = await prisma.weatherDataRecord.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends WeatherDataRecordFindManyArgs>(args?: SelectSubset<T, WeatherDataRecordFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeatherDataRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a WeatherDataRecord.
+     * @param {WeatherDataRecordCreateArgs} args - Arguments to create a WeatherDataRecord.
+     * @example
+     * // Create one WeatherDataRecord
+     * const WeatherDataRecord = await prisma.weatherDataRecord.create({
+     *   data: {
+     *     // ... data to create a WeatherDataRecord
+     *   }
+     * })
+     * 
+     */
+    create<T extends WeatherDataRecordCreateArgs>(args: SelectSubset<T, WeatherDataRecordCreateArgs<ExtArgs>>): Prisma__WeatherDataRecordClient<$Result.GetResult<Prisma.$WeatherDataRecordPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many WeatherDataRecords.
+     * @param {WeatherDataRecordCreateManyArgs} args - Arguments to create many WeatherDataRecords.
+     * @example
+     * // Create many WeatherDataRecords
+     * const weatherDataRecord = await prisma.weatherDataRecord.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends WeatherDataRecordCreateManyArgs>(args?: SelectSubset<T, WeatherDataRecordCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many WeatherDataRecords and returns the data saved in the database.
+     * @param {WeatherDataRecordCreateManyAndReturnArgs} args - Arguments to create many WeatherDataRecords.
+     * @example
+     * // Create many WeatherDataRecords
+     * const weatherDataRecord = await prisma.weatherDataRecord.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many WeatherDataRecords and only return the `id`
+     * const weatherDataRecordWithIdOnly = await prisma.weatherDataRecord.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends WeatherDataRecordCreateManyAndReturnArgs>(args?: SelectSubset<T, WeatherDataRecordCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeatherDataRecordPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a WeatherDataRecord.
+     * @param {WeatherDataRecordDeleteArgs} args - Arguments to delete one WeatherDataRecord.
+     * @example
+     * // Delete one WeatherDataRecord
+     * const WeatherDataRecord = await prisma.weatherDataRecord.delete({
+     *   where: {
+     *     // ... filter to delete one WeatherDataRecord
+     *   }
+     * })
+     * 
+     */
+    delete<T extends WeatherDataRecordDeleteArgs>(args: SelectSubset<T, WeatherDataRecordDeleteArgs<ExtArgs>>): Prisma__WeatherDataRecordClient<$Result.GetResult<Prisma.$WeatherDataRecordPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one WeatherDataRecord.
+     * @param {WeatherDataRecordUpdateArgs} args - Arguments to update one WeatherDataRecord.
+     * @example
+     * // Update one WeatherDataRecord
+     * const weatherDataRecord = await prisma.weatherDataRecord.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends WeatherDataRecordUpdateArgs>(args: SelectSubset<T, WeatherDataRecordUpdateArgs<ExtArgs>>): Prisma__WeatherDataRecordClient<$Result.GetResult<Prisma.$WeatherDataRecordPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more WeatherDataRecords.
+     * @param {WeatherDataRecordDeleteManyArgs} args - Arguments to filter WeatherDataRecords to delete.
+     * @example
+     * // Delete a few WeatherDataRecords
+     * const { count } = await prisma.weatherDataRecord.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends WeatherDataRecordDeleteManyArgs>(args?: SelectSubset<T, WeatherDataRecordDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more WeatherDataRecords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeatherDataRecordUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many WeatherDataRecords
+     * const weatherDataRecord = await prisma.weatherDataRecord.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends WeatherDataRecordUpdateManyArgs>(args: SelectSubset<T, WeatherDataRecordUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more WeatherDataRecords and returns the data updated in the database.
+     * @param {WeatherDataRecordUpdateManyAndReturnArgs} args - Arguments to update many WeatherDataRecords.
+     * @example
+     * // Update many WeatherDataRecords
+     * const weatherDataRecord = await prisma.weatherDataRecord.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more WeatherDataRecords and only return the `id`
+     * const weatherDataRecordWithIdOnly = await prisma.weatherDataRecord.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends WeatherDataRecordUpdateManyAndReturnArgs>(args: SelectSubset<T, WeatherDataRecordUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeatherDataRecordPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one WeatherDataRecord.
+     * @param {WeatherDataRecordUpsertArgs} args - Arguments to update or create a WeatherDataRecord.
+     * @example
+     * // Update or create a WeatherDataRecord
+     * const weatherDataRecord = await prisma.weatherDataRecord.upsert({
+     *   create: {
+     *     // ... data to create a WeatherDataRecord
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the WeatherDataRecord we want to update
+     *   }
+     * })
+     */
+    upsert<T extends WeatherDataRecordUpsertArgs>(args: SelectSubset<T, WeatherDataRecordUpsertArgs<ExtArgs>>): Prisma__WeatherDataRecordClient<$Result.GetResult<Prisma.$WeatherDataRecordPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of WeatherDataRecords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeatherDataRecordCountArgs} args - Arguments to filter WeatherDataRecords to count.
+     * @example
+     * // Count the number of WeatherDataRecords
+     * const count = await prisma.weatherDataRecord.count({
+     *   where: {
+     *     // ... the filter for the WeatherDataRecords we want to count
+     *   }
+     * })
+    **/
+    count<T extends WeatherDataRecordCountArgs>(
+      args?: Subset<T, WeatherDataRecordCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], WeatherDataRecordCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a WeatherDataRecord.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeatherDataRecordAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends WeatherDataRecordAggregateArgs>(args: Subset<T, WeatherDataRecordAggregateArgs>): Prisma.PrismaPromise<GetWeatherDataRecordAggregateType<T>>
+
+    /**
+     * Group by WeatherDataRecord.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeatherDataRecordGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends WeatherDataRecordGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: WeatherDataRecordGroupByArgs['orderBy'] }
+        : { orderBy?: WeatherDataRecordGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, WeatherDataRecordGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWeatherDataRecordGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the WeatherDataRecord model
+   */
+  readonly fields: WeatherDataRecordFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for WeatherDataRecord.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__WeatherDataRecordClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    crop<T extends CropDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CropDefaultArgs<ExtArgs>>): Prisma__CropClient<$Result.GetResult<Prisma.$CropPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the WeatherDataRecord model
+   */
+  interface WeatherDataRecordFieldRefs {
+    readonly id: FieldRef<"WeatherDataRecord", 'String'>
+    readonly cropId: FieldRef<"WeatherDataRecord", 'String'>
+    readonly farmId: FieldRef<"WeatherDataRecord", 'String'>
+    readonly date: FieldRef<"WeatherDataRecord", 'DateTime'>
+    readonly temperatureType: FieldRef<"WeatherDataRecord", 'String'>
+    readonly temperatureValue: FieldRef<"WeatherDataRecord", 'Float'>
+    readonly temperatureNote: FieldRef<"WeatherDataRecord", 'String'>
+    readonly precipitationType: FieldRef<"WeatherDataRecord", 'String'>
+    readonly precipitationValue: FieldRef<"WeatherDataRecord", 'Float'>
+    readonly precipitationNote: FieldRef<"WeatherDataRecord", 'String'>
+    readonly windType: FieldRef<"WeatherDataRecord", 'String'>
+    readonly windValue: FieldRef<"WeatherDataRecord", 'Float'>
+    readonly windNote: FieldRef<"WeatherDataRecord", 'String'>
+    readonly humidityType: FieldRef<"WeatherDataRecord", 'String'>
+    readonly humidityValue: FieldRef<"WeatherDataRecord", 'Float'>
+    readonly humidityNote: FieldRef<"WeatherDataRecord", 'String'>
+    readonly locationName: FieldRef<"WeatherDataRecord", 'String'>
+    readonly createdAt: FieldRef<"WeatherDataRecord", 'DateTime'>
+    readonly updatedAt: FieldRef<"WeatherDataRecord", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * WeatherDataRecord findUnique
+   */
+  export type WeatherDataRecordFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeatherDataRecord
+     */
+    select?: WeatherDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeatherDataRecord
+     */
+    omit?: WeatherDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeatherDataRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which WeatherDataRecord to fetch.
+     */
+    where: WeatherDataRecordWhereUniqueInput
+  }
+
+  /**
+   * WeatherDataRecord findUniqueOrThrow
+   */
+  export type WeatherDataRecordFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeatherDataRecord
+     */
+    select?: WeatherDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeatherDataRecord
+     */
+    omit?: WeatherDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeatherDataRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which WeatherDataRecord to fetch.
+     */
+    where: WeatherDataRecordWhereUniqueInput
+  }
+
+  /**
+   * WeatherDataRecord findFirst
+   */
+  export type WeatherDataRecordFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeatherDataRecord
+     */
+    select?: WeatherDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeatherDataRecord
+     */
+    omit?: WeatherDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeatherDataRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which WeatherDataRecord to fetch.
+     */
+    where?: WeatherDataRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WeatherDataRecords to fetch.
+     */
+    orderBy?: WeatherDataRecordOrderByWithRelationInput | WeatherDataRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for WeatherDataRecords.
+     */
+    cursor?: WeatherDataRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WeatherDataRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WeatherDataRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of WeatherDataRecords.
+     */
+    distinct?: WeatherDataRecordScalarFieldEnum | WeatherDataRecordScalarFieldEnum[]
+  }
+
+  /**
+   * WeatherDataRecord findFirstOrThrow
+   */
+  export type WeatherDataRecordFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeatherDataRecord
+     */
+    select?: WeatherDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeatherDataRecord
+     */
+    omit?: WeatherDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeatherDataRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which WeatherDataRecord to fetch.
+     */
+    where?: WeatherDataRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WeatherDataRecords to fetch.
+     */
+    orderBy?: WeatherDataRecordOrderByWithRelationInput | WeatherDataRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for WeatherDataRecords.
+     */
+    cursor?: WeatherDataRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WeatherDataRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WeatherDataRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of WeatherDataRecords.
+     */
+    distinct?: WeatherDataRecordScalarFieldEnum | WeatherDataRecordScalarFieldEnum[]
+  }
+
+  /**
+   * WeatherDataRecord findMany
+   */
+  export type WeatherDataRecordFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeatherDataRecord
+     */
+    select?: WeatherDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeatherDataRecord
+     */
+    omit?: WeatherDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeatherDataRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which WeatherDataRecords to fetch.
+     */
+    where?: WeatherDataRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WeatherDataRecords to fetch.
+     */
+    orderBy?: WeatherDataRecordOrderByWithRelationInput | WeatherDataRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing WeatherDataRecords.
+     */
+    cursor?: WeatherDataRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WeatherDataRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WeatherDataRecords.
+     */
+    skip?: number
+    distinct?: WeatherDataRecordScalarFieldEnum | WeatherDataRecordScalarFieldEnum[]
+  }
+
+  /**
+   * WeatherDataRecord create
+   */
+  export type WeatherDataRecordCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeatherDataRecord
+     */
+    select?: WeatherDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeatherDataRecord
+     */
+    omit?: WeatherDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeatherDataRecordInclude<ExtArgs> | null
+    /**
+     * The data needed to create a WeatherDataRecord.
+     */
+    data: XOR<WeatherDataRecordCreateInput, WeatherDataRecordUncheckedCreateInput>
+  }
+
+  /**
+   * WeatherDataRecord createMany
+   */
+  export type WeatherDataRecordCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many WeatherDataRecords.
+     */
+    data: WeatherDataRecordCreateManyInput | WeatherDataRecordCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * WeatherDataRecord createManyAndReturn
+   */
+  export type WeatherDataRecordCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeatherDataRecord
+     */
+    select?: WeatherDataRecordSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeatherDataRecord
+     */
+    omit?: WeatherDataRecordOmit<ExtArgs> | null
+    /**
+     * The data used to create many WeatherDataRecords.
+     */
+    data: WeatherDataRecordCreateManyInput | WeatherDataRecordCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeatherDataRecordIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * WeatherDataRecord update
+   */
+  export type WeatherDataRecordUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeatherDataRecord
+     */
+    select?: WeatherDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeatherDataRecord
+     */
+    omit?: WeatherDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeatherDataRecordInclude<ExtArgs> | null
+    /**
+     * The data needed to update a WeatherDataRecord.
+     */
+    data: XOR<WeatherDataRecordUpdateInput, WeatherDataRecordUncheckedUpdateInput>
+    /**
+     * Choose, which WeatherDataRecord to update.
+     */
+    where: WeatherDataRecordWhereUniqueInput
+  }
+
+  /**
+   * WeatherDataRecord updateMany
+   */
+  export type WeatherDataRecordUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update WeatherDataRecords.
+     */
+    data: XOR<WeatherDataRecordUpdateManyMutationInput, WeatherDataRecordUncheckedUpdateManyInput>
+    /**
+     * Filter which WeatherDataRecords to update
+     */
+    where?: WeatherDataRecordWhereInput
+    /**
+     * Limit how many WeatherDataRecords to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * WeatherDataRecord updateManyAndReturn
+   */
+  export type WeatherDataRecordUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeatherDataRecord
+     */
+    select?: WeatherDataRecordSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeatherDataRecord
+     */
+    omit?: WeatherDataRecordOmit<ExtArgs> | null
+    /**
+     * The data used to update WeatherDataRecords.
+     */
+    data: XOR<WeatherDataRecordUpdateManyMutationInput, WeatherDataRecordUncheckedUpdateManyInput>
+    /**
+     * Filter which WeatherDataRecords to update
+     */
+    where?: WeatherDataRecordWhereInput
+    /**
+     * Limit how many WeatherDataRecords to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeatherDataRecordIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * WeatherDataRecord upsert
+   */
+  export type WeatherDataRecordUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeatherDataRecord
+     */
+    select?: WeatherDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeatherDataRecord
+     */
+    omit?: WeatherDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeatherDataRecordInclude<ExtArgs> | null
+    /**
+     * The filter to search for the WeatherDataRecord to update in case it exists.
+     */
+    where: WeatherDataRecordWhereUniqueInput
+    /**
+     * In case the WeatherDataRecord found by the `where` argument doesn't exist, create a new WeatherDataRecord with this data.
+     */
+    create: XOR<WeatherDataRecordCreateInput, WeatherDataRecordUncheckedCreateInput>
+    /**
+     * In case the WeatherDataRecord was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<WeatherDataRecordUpdateInput, WeatherDataRecordUncheckedUpdateInput>
+  }
+
+  /**
+   * WeatherDataRecord delete
+   */
+  export type WeatherDataRecordDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeatherDataRecord
+     */
+    select?: WeatherDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeatherDataRecord
+     */
+    omit?: WeatherDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeatherDataRecordInclude<ExtArgs> | null
+    /**
+     * Filter which WeatherDataRecord to delete.
+     */
+    where: WeatherDataRecordWhereUniqueInput
+  }
+
+  /**
+   * WeatherDataRecord deleteMany
+   */
+  export type WeatherDataRecordDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which WeatherDataRecords to delete
+     */
+    where?: WeatherDataRecordWhereInput
+    /**
+     * Limit how many WeatherDataRecords to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * WeatherDataRecord without action
+   */
+  export type WeatherDataRecordDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeatherDataRecord
+     */
+    select?: WeatherDataRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeatherDataRecord
+     */
+    omit?: WeatherDataRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeatherDataRecordInclude<ExtArgs> | null
   }
 
 
@@ -57341,12 +61387,20 @@ export namespace Prisma {
     numberOfWorkers: number | null
     labourCost: number | null
     outputQuantity: number | null
+    purchasePrice: number | null
+    transportCost: number | null
+    finalQuantity: number | null
+    miscellaneousCostsIncurred: number | null
   }
 
   export type ProcessingRecordSumAggregateOutputType = {
     numberOfWorkers: number | null
     labourCost: number | null
     outputQuantity: number | null
+    purchasePrice: number | null
+    transportCost: number | null
+    finalQuantity: number | null
+    miscellaneousCostsIncurred: number | null
   }
 
   export type ProcessingRecordMinAggregateOutputType = {
@@ -57363,6 +61417,24 @@ export namespace Prisma {
     outputQuantity: number | null
     outputQuantityUnit: string | null
     outputQuality: string | null
+    dateOfPestControl: Date | null
+    pestIdentified: string | null
+    methodOfControl: string | null
+    pesticideSource: string | null
+    brandName: string | null
+    methodOfApplication: string | null
+    amountAppliedPest: string | null
+    serialNumber: string | null
+    dateOfPurchase: Date | null
+    seller: string | null
+    quantityPurchased: string | null
+    purchasePrice: number | null
+    transportCost: number | null
+    dateOfStorage: Date | null
+    finalQuantity: number | null
+    finalQuality: string | null
+    typeOfStorage: string | null
+    miscellaneousCostsIncurred: number | null
     notes: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -57382,6 +61454,24 @@ export namespace Prisma {
     outputQuantity: number | null
     outputQuantityUnit: string | null
     outputQuality: string | null
+    dateOfPestControl: Date | null
+    pestIdentified: string | null
+    methodOfControl: string | null
+    pesticideSource: string | null
+    brandName: string | null
+    methodOfApplication: string | null
+    amountAppliedPest: string | null
+    serialNumber: string | null
+    dateOfPurchase: Date | null
+    seller: string | null
+    quantityPurchased: string | null
+    purchasePrice: number | null
+    transportCost: number | null
+    dateOfStorage: Date | null
+    finalQuantity: number | null
+    finalQuality: string | null
+    typeOfStorage: string | null
+    miscellaneousCostsIncurred: number | null
     notes: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -57401,6 +61491,24 @@ export namespace Prisma {
     outputQuantity: number
     outputQuantityUnit: number
     outputQuality: number
+    dateOfPestControl: number
+    pestIdentified: number
+    methodOfControl: number
+    pesticideSource: number
+    brandName: number
+    methodOfApplication: number
+    amountAppliedPest: number
+    serialNumber: number
+    dateOfPurchase: number
+    seller: number
+    quantityPurchased: number
+    purchasePrice: number
+    transportCost: number
+    dateOfStorage: number
+    finalQuantity: number
+    finalQuality: number
+    typeOfStorage: number
+    miscellaneousCostsIncurred: number
     notes: number
     createdAt: number
     updatedAt: number
@@ -57412,12 +61520,20 @@ export namespace Prisma {
     numberOfWorkers?: true
     labourCost?: true
     outputQuantity?: true
+    purchasePrice?: true
+    transportCost?: true
+    finalQuantity?: true
+    miscellaneousCostsIncurred?: true
   }
 
   export type ProcessingRecordSumAggregateInputType = {
     numberOfWorkers?: true
     labourCost?: true
     outputQuantity?: true
+    purchasePrice?: true
+    transportCost?: true
+    finalQuantity?: true
+    miscellaneousCostsIncurred?: true
   }
 
   export type ProcessingRecordMinAggregateInputType = {
@@ -57434,6 +61550,24 @@ export namespace Prisma {
     outputQuantity?: true
     outputQuantityUnit?: true
     outputQuality?: true
+    dateOfPestControl?: true
+    pestIdentified?: true
+    methodOfControl?: true
+    pesticideSource?: true
+    brandName?: true
+    methodOfApplication?: true
+    amountAppliedPest?: true
+    serialNumber?: true
+    dateOfPurchase?: true
+    seller?: true
+    quantityPurchased?: true
+    purchasePrice?: true
+    transportCost?: true
+    dateOfStorage?: true
+    finalQuantity?: true
+    finalQuality?: true
+    typeOfStorage?: true
+    miscellaneousCostsIncurred?: true
     notes?: true
     createdAt?: true
     updatedAt?: true
@@ -57453,6 +61587,24 @@ export namespace Prisma {
     outputQuantity?: true
     outputQuantityUnit?: true
     outputQuality?: true
+    dateOfPestControl?: true
+    pestIdentified?: true
+    methodOfControl?: true
+    pesticideSource?: true
+    brandName?: true
+    methodOfApplication?: true
+    amountAppliedPest?: true
+    serialNumber?: true
+    dateOfPurchase?: true
+    seller?: true
+    quantityPurchased?: true
+    purchasePrice?: true
+    transportCost?: true
+    dateOfStorage?: true
+    finalQuantity?: true
+    finalQuality?: true
+    typeOfStorage?: true
+    miscellaneousCostsIncurred?: true
     notes?: true
     createdAt?: true
     updatedAt?: true
@@ -57472,6 +61624,24 @@ export namespace Prisma {
     outputQuantity?: true
     outputQuantityUnit?: true
     outputQuality?: true
+    dateOfPestControl?: true
+    pestIdentified?: true
+    methodOfControl?: true
+    pesticideSource?: true
+    brandName?: true
+    methodOfApplication?: true
+    amountAppliedPest?: true
+    serialNumber?: true
+    dateOfPurchase?: true
+    seller?: true
+    quantityPurchased?: true
+    purchasePrice?: true
+    transportCost?: true
+    dateOfStorage?: true
+    finalQuantity?: true
+    finalQuality?: true
+    typeOfStorage?: true
+    miscellaneousCostsIncurred?: true
     notes?: true
     createdAt?: true
     updatedAt?: true
@@ -57578,6 +61748,24 @@ export namespace Prisma {
     outputQuantity: number | null
     outputQuantityUnit: string
     outputQuality: string | null
+    dateOfPestControl: Date | null
+    pestIdentified: string | null
+    methodOfControl: string | null
+    pesticideSource: string | null
+    brandName: string | null
+    methodOfApplication: string | null
+    amountAppliedPest: string | null
+    serialNumber: string | null
+    dateOfPurchase: Date | null
+    seller: string | null
+    quantityPurchased: string | null
+    purchasePrice: number | null
+    transportCost: number | null
+    dateOfStorage: Date | null
+    finalQuantity: number | null
+    finalQuality: string | null
+    typeOfStorage: string | null
+    miscellaneousCostsIncurred: number | null
     notes: string | null
     createdAt: Date
     updatedAt: Date
@@ -57616,6 +61804,24 @@ export namespace Prisma {
     outputQuantity?: boolean
     outputQuantityUnit?: boolean
     outputQuality?: boolean
+    dateOfPestControl?: boolean
+    pestIdentified?: boolean
+    methodOfControl?: boolean
+    pesticideSource?: boolean
+    brandName?: boolean
+    methodOfApplication?: boolean
+    amountAppliedPest?: boolean
+    serialNumber?: boolean
+    dateOfPurchase?: boolean
+    seller?: boolean
+    quantityPurchased?: boolean
+    purchasePrice?: boolean
+    transportCost?: boolean
+    dateOfStorage?: boolean
+    finalQuantity?: boolean
+    finalQuality?: boolean
+    typeOfStorage?: boolean
+    miscellaneousCostsIncurred?: boolean
     notes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -57636,6 +61842,24 @@ export namespace Prisma {
     outputQuantity?: boolean
     outputQuantityUnit?: boolean
     outputQuality?: boolean
+    dateOfPestControl?: boolean
+    pestIdentified?: boolean
+    methodOfControl?: boolean
+    pesticideSource?: boolean
+    brandName?: boolean
+    methodOfApplication?: boolean
+    amountAppliedPest?: boolean
+    serialNumber?: boolean
+    dateOfPurchase?: boolean
+    seller?: boolean
+    quantityPurchased?: boolean
+    purchasePrice?: boolean
+    transportCost?: boolean
+    dateOfStorage?: boolean
+    finalQuantity?: boolean
+    finalQuality?: boolean
+    typeOfStorage?: boolean
+    miscellaneousCostsIncurred?: boolean
     notes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -57656,6 +61880,24 @@ export namespace Prisma {
     outputQuantity?: boolean
     outputQuantityUnit?: boolean
     outputQuality?: boolean
+    dateOfPestControl?: boolean
+    pestIdentified?: boolean
+    methodOfControl?: boolean
+    pesticideSource?: boolean
+    brandName?: boolean
+    methodOfApplication?: boolean
+    amountAppliedPest?: boolean
+    serialNumber?: boolean
+    dateOfPurchase?: boolean
+    seller?: boolean
+    quantityPurchased?: boolean
+    purchasePrice?: boolean
+    transportCost?: boolean
+    dateOfStorage?: boolean
+    finalQuantity?: boolean
+    finalQuality?: boolean
+    typeOfStorage?: boolean
+    miscellaneousCostsIncurred?: boolean
     notes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -57676,12 +61918,30 @@ export namespace Prisma {
     outputQuantity?: boolean
     outputQuantityUnit?: boolean
     outputQuality?: boolean
+    dateOfPestControl?: boolean
+    pestIdentified?: boolean
+    methodOfControl?: boolean
+    pesticideSource?: boolean
+    brandName?: boolean
+    methodOfApplication?: boolean
+    amountAppliedPest?: boolean
+    serialNumber?: boolean
+    dateOfPurchase?: boolean
+    seller?: boolean
+    quantityPurchased?: boolean
+    purchasePrice?: boolean
+    transportCost?: boolean
+    dateOfStorage?: boolean
+    finalQuantity?: boolean
+    finalQuality?: boolean
+    typeOfStorage?: boolean
+    miscellaneousCostsIncurred?: boolean
     notes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type ProcessingRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cropId" | "farmId" | "date" | "processingType" | "processingMethod" | "equipment" | "labourType" | "numberOfWorkers" | "labourCost" | "outputQuantity" | "outputQuantityUnit" | "outputQuality" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["processingRecord"]>
+  export type ProcessingRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cropId" | "farmId" | "date" | "processingType" | "processingMethod" | "equipment" | "labourType" | "numberOfWorkers" | "labourCost" | "outputQuantity" | "outputQuantityUnit" | "outputQuality" | "dateOfPestControl" | "pestIdentified" | "methodOfControl" | "pesticideSource" | "brandName" | "methodOfApplication" | "amountAppliedPest" | "serialNumber" | "dateOfPurchase" | "seller" | "quantityPurchased" | "purchasePrice" | "transportCost" | "dateOfStorage" | "finalQuantity" | "finalQuality" | "typeOfStorage" | "miscellaneousCostsIncurred" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["processingRecord"]>
   export type ProcessingRecordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     crop?: boolean | CropDefaultArgs<ExtArgs>
   }
@@ -57711,6 +61971,24 @@ export namespace Prisma {
       outputQuantity: number | null
       outputQuantityUnit: string
       outputQuality: string | null
+      dateOfPestControl: Date | null
+      pestIdentified: string | null
+      methodOfControl: string | null
+      pesticideSource: string | null
+      brandName: string | null
+      methodOfApplication: string | null
+      amountAppliedPest: string | null
+      serialNumber: string | null
+      dateOfPurchase: Date | null
+      seller: string | null
+      quantityPurchased: string | null
+      purchasePrice: number | null
+      transportCost: number | null
+      dateOfStorage: Date | null
+      finalQuantity: number | null
+      finalQuality: string | null
+      typeOfStorage: string | null
+      miscellaneousCostsIncurred: number | null
       notes: string | null
       createdAt: Date
       updatedAt: Date
@@ -58151,6 +62429,24 @@ export namespace Prisma {
     readonly outputQuantity: FieldRef<"ProcessingRecord", 'Float'>
     readonly outputQuantityUnit: FieldRef<"ProcessingRecord", 'String'>
     readonly outputQuality: FieldRef<"ProcessingRecord", 'String'>
+    readonly dateOfPestControl: FieldRef<"ProcessingRecord", 'DateTime'>
+    readonly pestIdentified: FieldRef<"ProcessingRecord", 'String'>
+    readonly methodOfControl: FieldRef<"ProcessingRecord", 'String'>
+    readonly pesticideSource: FieldRef<"ProcessingRecord", 'String'>
+    readonly brandName: FieldRef<"ProcessingRecord", 'String'>
+    readonly methodOfApplication: FieldRef<"ProcessingRecord", 'String'>
+    readonly amountAppliedPest: FieldRef<"ProcessingRecord", 'String'>
+    readonly serialNumber: FieldRef<"ProcessingRecord", 'String'>
+    readonly dateOfPurchase: FieldRef<"ProcessingRecord", 'DateTime'>
+    readonly seller: FieldRef<"ProcessingRecord", 'String'>
+    readonly quantityPurchased: FieldRef<"ProcessingRecord", 'String'>
+    readonly purchasePrice: FieldRef<"ProcessingRecord", 'Float'>
+    readonly transportCost: FieldRef<"ProcessingRecord", 'Float'>
+    readonly dateOfStorage: FieldRef<"ProcessingRecord", 'DateTime'>
+    readonly finalQuantity: FieldRef<"ProcessingRecord", 'Float'>
+    readonly finalQuality: FieldRef<"ProcessingRecord", 'String'>
+    readonly typeOfStorage: FieldRef<"ProcessingRecord", 'String'>
+    readonly miscellaneousCostsIncurred: FieldRef<"ProcessingRecord", 'Float'>
     readonly notes: FieldRef<"ProcessingRecord", 'String'>
     readonly createdAt: FieldRef<"ProcessingRecord", 'DateTime'>
     readonly updatedAt: FieldRef<"ProcessingRecord", 'DateTime'>
@@ -62756,6 +67052,73 @@ export namespace Prisma {
   export type PlantingRecordScalarFieldEnum = (typeof PlantingRecordScalarFieldEnum)[keyof typeof PlantingRecordScalarFieldEnum]
 
 
+  export const SoilDataRecordScalarFieldEnum: {
+    id: 'id',
+    cropId: 'cropId',
+    farmId: 'farmId',
+    date: 'date',
+    soilType: 'soilType',
+    soilTypeNote: 'soilTypeNote',
+    soilPH: 'soilPH',
+    soilPHNote: 'soilPHNote',
+    moistureContent: 'moistureContent',
+    moistureNote: 'moistureNote',
+    organicMatter: 'organicMatter',
+    organicNote: 'organicNote',
+    nitrogen: 'nitrogen',
+    phosphorus: 'phosphorus',
+    potassium: 'potassium',
+    nutrientsNote: 'nutrientsNote',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type SoilDataRecordScalarFieldEnum = (typeof SoilDataRecordScalarFieldEnum)[keyof typeof SoilDataRecordScalarFieldEnum]
+
+
+  export const FieldConditionRecordScalarFieldEnum: {
+    id: 'id',
+    cropId: 'cropId',
+    farmId: 'farmId',
+    date: 'date',
+    topography: 'topography',
+    topographyNote: 'topographyNote',
+    drainage: 'drainage',
+    drainageNote: 'drainageNote',
+    previousCropResidue: 'previousCropResidue',
+    residueNote: 'residueNote',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type FieldConditionRecordScalarFieldEnum = (typeof FieldConditionRecordScalarFieldEnum)[keyof typeof FieldConditionRecordScalarFieldEnum]
+
+
+  export const WeatherDataRecordScalarFieldEnum: {
+    id: 'id',
+    cropId: 'cropId',
+    farmId: 'farmId',
+    date: 'date',
+    temperatureType: 'temperatureType',
+    temperatureValue: 'temperatureValue',
+    temperatureNote: 'temperatureNote',
+    precipitationType: 'precipitationType',
+    precipitationValue: 'precipitationValue',
+    precipitationNote: 'precipitationNote',
+    windType: 'windType',
+    windValue: 'windValue',
+    windNote: 'windNote',
+    humidityType: 'humidityType',
+    humidityValue: 'humidityValue',
+    humidityNote: 'humidityNote',
+    locationName: 'locationName',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type WeatherDataRecordScalarFieldEnum = (typeof WeatherDataRecordScalarFieldEnum)[keyof typeof WeatherDataRecordScalarFieldEnum]
+
+
   export const FertilizerRecordScalarFieldEnum: {
     id: 'id',
     cropId: 'cropId',
@@ -62932,6 +67295,24 @@ export namespace Prisma {
     outputQuantity: 'outputQuantity',
     outputQuantityUnit: 'outputQuantityUnit',
     outputQuality: 'outputQuality',
+    dateOfPestControl: 'dateOfPestControl',
+    pestIdentified: 'pestIdentified',
+    methodOfControl: 'methodOfControl',
+    pesticideSource: 'pesticideSource',
+    brandName: 'brandName',
+    methodOfApplication: 'methodOfApplication',
+    amountAppliedPest: 'amountAppliedPest',
+    serialNumber: 'serialNumber',
+    dateOfPurchase: 'dateOfPurchase',
+    seller: 'seller',
+    quantityPurchased: 'quantityPurchased',
+    purchasePrice: 'purchasePrice',
+    transportCost: 'transportCost',
+    dateOfStorage: 'dateOfStorage',
+    finalQuantity: 'finalQuantity',
+    finalQuality: 'finalQuality',
+    typeOfStorage: 'typeOfStorage',
+    miscellaneousCostsIncurred: 'miscellaneousCostsIncurred',
     notes: 'notes',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -66388,6 +70769,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordListRelationFilter
     tillageRecords?: TillageRecordListRelationFilter
     plantingRecords?: PlantingRecordListRelationFilter
+    soilDataRecords?: SoilDataRecordListRelationFilter
+    fieldConditionRecords?: FieldConditionRecordListRelationFilter
+    weatherDataRecords?: WeatherDataRecordListRelationFilter
     fertilizerRecords?: FertilizerRecordListRelationFilter
     irrigationRecords?: IrrigationRecordListRelationFilter
     weedingRecords?: WeedingRecordListRelationFilter
@@ -66424,6 +70808,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordOrderByRelationAggregateInput
     tillageRecords?: TillageRecordOrderByRelationAggregateInput
     plantingRecords?: PlantingRecordOrderByRelationAggregateInput
+    soilDataRecords?: SoilDataRecordOrderByRelationAggregateInput
+    fieldConditionRecords?: FieldConditionRecordOrderByRelationAggregateInput
+    weatherDataRecords?: WeatherDataRecordOrderByRelationAggregateInput
     fertilizerRecords?: FertilizerRecordOrderByRelationAggregateInput
     irrigationRecords?: IrrigationRecordOrderByRelationAggregateInput
     weedingRecords?: WeedingRecordOrderByRelationAggregateInput
@@ -66463,6 +70850,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordListRelationFilter
     tillageRecords?: TillageRecordListRelationFilter
     plantingRecords?: PlantingRecordListRelationFilter
+    soilDataRecords?: SoilDataRecordListRelationFilter
+    fieldConditionRecords?: FieldConditionRecordListRelationFilter
+    weatherDataRecords?: WeatherDataRecordListRelationFilter
     fertilizerRecords?: FertilizerRecordListRelationFilter
     irrigationRecords?: IrrigationRecordListRelationFilter
     weedingRecords?: WeedingRecordListRelationFilter
@@ -66815,6 +71205,343 @@ export namespace Prisma {
     notes?: StringNullableWithAggregatesFilter<"PlantingRecord"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"PlantingRecord"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"PlantingRecord"> | Date | string
+  }
+
+  export type SoilDataRecordWhereInput = {
+    AND?: SoilDataRecordWhereInput | SoilDataRecordWhereInput[]
+    OR?: SoilDataRecordWhereInput[]
+    NOT?: SoilDataRecordWhereInput | SoilDataRecordWhereInput[]
+    id?: StringFilter<"SoilDataRecord"> | string
+    cropId?: StringFilter<"SoilDataRecord"> | string
+    farmId?: StringFilter<"SoilDataRecord"> | string
+    date?: DateTimeFilter<"SoilDataRecord"> | Date | string
+    soilType?: StringFilter<"SoilDataRecord"> | string
+    soilTypeNote?: StringNullableFilter<"SoilDataRecord"> | string | null
+    soilPH?: StringFilter<"SoilDataRecord"> | string
+    soilPHNote?: StringNullableFilter<"SoilDataRecord"> | string | null
+    moistureContent?: StringFilter<"SoilDataRecord"> | string
+    moistureNote?: StringNullableFilter<"SoilDataRecord"> | string | null
+    organicMatter?: StringFilter<"SoilDataRecord"> | string
+    organicNote?: StringNullableFilter<"SoilDataRecord"> | string | null
+    nitrogen?: BoolFilter<"SoilDataRecord"> | boolean
+    phosphorus?: BoolFilter<"SoilDataRecord"> | boolean
+    potassium?: BoolFilter<"SoilDataRecord"> | boolean
+    nutrientsNote?: StringNullableFilter<"SoilDataRecord"> | string | null
+    createdAt?: DateTimeFilter<"SoilDataRecord"> | Date | string
+    updatedAt?: DateTimeFilter<"SoilDataRecord"> | Date | string
+    crop?: XOR<CropScalarRelationFilter, CropWhereInput>
+  }
+
+  export type SoilDataRecordOrderByWithRelationInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    soilType?: SortOrder
+    soilTypeNote?: SortOrderInput | SortOrder
+    soilPH?: SortOrder
+    soilPHNote?: SortOrderInput | SortOrder
+    moistureContent?: SortOrder
+    moistureNote?: SortOrderInput | SortOrder
+    organicMatter?: SortOrder
+    organicNote?: SortOrderInput | SortOrder
+    nitrogen?: SortOrder
+    phosphorus?: SortOrder
+    potassium?: SortOrder
+    nutrientsNote?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    crop?: CropOrderByWithRelationInput
+  }
+
+  export type SoilDataRecordWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SoilDataRecordWhereInput | SoilDataRecordWhereInput[]
+    OR?: SoilDataRecordWhereInput[]
+    NOT?: SoilDataRecordWhereInput | SoilDataRecordWhereInput[]
+    cropId?: StringFilter<"SoilDataRecord"> | string
+    farmId?: StringFilter<"SoilDataRecord"> | string
+    date?: DateTimeFilter<"SoilDataRecord"> | Date | string
+    soilType?: StringFilter<"SoilDataRecord"> | string
+    soilTypeNote?: StringNullableFilter<"SoilDataRecord"> | string | null
+    soilPH?: StringFilter<"SoilDataRecord"> | string
+    soilPHNote?: StringNullableFilter<"SoilDataRecord"> | string | null
+    moistureContent?: StringFilter<"SoilDataRecord"> | string
+    moistureNote?: StringNullableFilter<"SoilDataRecord"> | string | null
+    organicMatter?: StringFilter<"SoilDataRecord"> | string
+    organicNote?: StringNullableFilter<"SoilDataRecord"> | string | null
+    nitrogen?: BoolFilter<"SoilDataRecord"> | boolean
+    phosphorus?: BoolFilter<"SoilDataRecord"> | boolean
+    potassium?: BoolFilter<"SoilDataRecord"> | boolean
+    nutrientsNote?: StringNullableFilter<"SoilDataRecord"> | string | null
+    createdAt?: DateTimeFilter<"SoilDataRecord"> | Date | string
+    updatedAt?: DateTimeFilter<"SoilDataRecord"> | Date | string
+    crop?: XOR<CropScalarRelationFilter, CropWhereInput>
+  }, "id">
+
+  export type SoilDataRecordOrderByWithAggregationInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    soilType?: SortOrder
+    soilTypeNote?: SortOrderInput | SortOrder
+    soilPH?: SortOrder
+    soilPHNote?: SortOrderInput | SortOrder
+    moistureContent?: SortOrder
+    moistureNote?: SortOrderInput | SortOrder
+    organicMatter?: SortOrder
+    organicNote?: SortOrderInput | SortOrder
+    nitrogen?: SortOrder
+    phosphorus?: SortOrder
+    potassium?: SortOrder
+    nutrientsNote?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: SoilDataRecordCountOrderByAggregateInput
+    _max?: SoilDataRecordMaxOrderByAggregateInput
+    _min?: SoilDataRecordMinOrderByAggregateInput
+  }
+
+  export type SoilDataRecordScalarWhereWithAggregatesInput = {
+    AND?: SoilDataRecordScalarWhereWithAggregatesInput | SoilDataRecordScalarWhereWithAggregatesInput[]
+    OR?: SoilDataRecordScalarWhereWithAggregatesInput[]
+    NOT?: SoilDataRecordScalarWhereWithAggregatesInput | SoilDataRecordScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"SoilDataRecord"> | string
+    cropId?: StringWithAggregatesFilter<"SoilDataRecord"> | string
+    farmId?: StringWithAggregatesFilter<"SoilDataRecord"> | string
+    date?: DateTimeWithAggregatesFilter<"SoilDataRecord"> | Date | string
+    soilType?: StringWithAggregatesFilter<"SoilDataRecord"> | string
+    soilTypeNote?: StringNullableWithAggregatesFilter<"SoilDataRecord"> | string | null
+    soilPH?: StringWithAggregatesFilter<"SoilDataRecord"> | string
+    soilPHNote?: StringNullableWithAggregatesFilter<"SoilDataRecord"> | string | null
+    moistureContent?: StringWithAggregatesFilter<"SoilDataRecord"> | string
+    moistureNote?: StringNullableWithAggregatesFilter<"SoilDataRecord"> | string | null
+    organicMatter?: StringWithAggregatesFilter<"SoilDataRecord"> | string
+    organicNote?: StringNullableWithAggregatesFilter<"SoilDataRecord"> | string | null
+    nitrogen?: BoolWithAggregatesFilter<"SoilDataRecord"> | boolean
+    phosphorus?: BoolWithAggregatesFilter<"SoilDataRecord"> | boolean
+    potassium?: BoolWithAggregatesFilter<"SoilDataRecord"> | boolean
+    nutrientsNote?: StringNullableWithAggregatesFilter<"SoilDataRecord"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"SoilDataRecord"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"SoilDataRecord"> | Date | string
+  }
+
+  export type FieldConditionRecordWhereInput = {
+    AND?: FieldConditionRecordWhereInput | FieldConditionRecordWhereInput[]
+    OR?: FieldConditionRecordWhereInput[]
+    NOT?: FieldConditionRecordWhereInput | FieldConditionRecordWhereInput[]
+    id?: StringFilter<"FieldConditionRecord"> | string
+    cropId?: StringFilter<"FieldConditionRecord"> | string
+    farmId?: StringFilter<"FieldConditionRecord"> | string
+    date?: DateTimeFilter<"FieldConditionRecord"> | Date | string
+    topography?: StringFilter<"FieldConditionRecord"> | string
+    topographyNote?: StringNullableFilter<"FieldConditionRecord"> | string | null
+    drainage?: StringFilter<"FieldConditionRecord"> | string
+    drainageNote?: StringNullableFilter<"FieldConditionRecord"> | string | null
+    previousCropResidue?: StringFilter<"FieldConditionRecord"> | string
+    residueNote?: StringNullableFilter<"FieldConditionRecord"> | string | null
+    createdAt?: DateTimeFilter<"FieldConditionRecord"> | Date | string
+    updatedAt?: DateTimeFilter<"FieldConditionRecord"> | Date | string
+    crop?: XOR<CropScalarRelationFilter, CropWhereInput>
+  }
+
+  export type FieldConditionRecordOrderByWithRelationInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    topography?: SortOrder
+    topographyNote?: SortOrderInput | SortOrder
+    drainage?: SortOrder
+    drainageNote?: SortOrderInput | SortOrder
+    previousCropResidue?: SortOrder
+    residueNote?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    crop?: CropOrderByWithRelationInput
+  }
+
+  export type FieldConditionRecordWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: FieldConditionRecordWhereInput | FieldConditionRecordWhereInput[]
+    OR?: FieldConditionRecordWhereInput[]
+    NOT?: FieldConditionRecordWhereInput | FieldConditionRecordWhereInput[]
+    cropId?: StringFilter<"FieldConditionRecord"> | string
+    farmId?: StringFilter<"FieldConditionRecord"> | string
+    date?: DateTimeFilter<"FieldConditionRecord"> | Date | string
+    topography?: StringFilter<"FieldConditionRecord"> | string
+    topographyNote?: StringNullableFilter<"FieldConditionRecord"> | string | null
+    drainage?: StringFilter<"FieldConditionRecord"> | string
+    drainageNote?: StringNullableFilter<"FieldConditionRecord"> | string | null
+    previousCropResidue?: StringFilter<"FieldConditionRecord"> | string
+    residueNote?: StringNullableFilter<"FieldConditionRecord"> | string | null
+    createdAt?: DateTimeFilter<"FieldConditionRecord"> | Date | string
+    updatedAt?: DateTimeFilter<"FieldConditionRecord"> | Date | string
+    crop?: XOR<CropScalarRelationFilter, CropWhereInput>
+  }, "id">
+
+  export type FieldConditionRecordOrderByWithAggregationInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    topography?: SortOrder
+    topographyNote?: SortOrderInput | SortOrder
+    drainage?: SortOrder
+    drainageNote?: SortOrderInput | SortOrder
+    previousCropResidue?: SortOrder
+    residueNote?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: FieldConditionRecordCountOrderByAggregateInput
+    _max?: FieldConditionRecordMaxOrderByAggregateInput
+    _min?: FieldConditionRecordMinOrderByAggregateInput
+  }
+
+  export type FieldConditionRecordScalarWhereWithAggregatesInput = {
+    AND?: FieldConditionRecordScalarWhereWithAggregatesInput | FieldConditionRecordScalarWhereWithAggregatesInput[]
+    OR?: FieldConditionRecordScalarWhereWithAggregatesInput[]
+    NOT?: FieldConditionRecordScalarWhereWithAggregatesInput | FieldConditionRecordScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"FieldConditionRecord"> | string
+    cropId?: StringWithAggregatesFilter<"FieldConditionRecord"> | string
+    farmId?: StringWithAggregatesFilter<"FieldConditionRecord"> | string
+    date?: DateTimeWithAggregatesFilter<"FieldConditionRecord"> | Date | string
+    topography?: StringWithAggregatesFilter<"FieldConditionRecord"> | string
+    topographyNote?: StringNullableWithAggregatesFilter<"FieldConditionRecord"> | string | null
+    drainage?: StringWithAggregatesFilter<"FieldConditionRecord"> | string
+    drainageNote?: StringNullableWithAggregatesFilter<"FieldConditionRecord"> | string | null
+    previousCropResidue?: StringWithAggregatesFilter<"FieldConditionRecord"> | string
+    residueNote?: StringNullableWithAggregatesFilter<"FieldConditionRecord"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"FieldConditionRecord"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"FieldConditionRecord"> | Date | string
+  }
+
+  export type WeatherDataRecordWhereInput = {
+    AND?: WeatherDataRecordWhereInput | WeatherDataRecordWhereInput[]
+    OR?: WeatherDataRecordWhereInput[]
+    NOT?: WeatherDataRecordWhereInput | WeatherDataRecordWhereInput[]
+    id?: StringFilter<"WeatherDataRecord"> | string
+    cropId?: StringFilter<"WeatherDataRecord"> | string
+    farmId?: StringFilter<"WeatherDataRecord"> | string
+    date?: DateTimeFilter<"WeatherDataRecord"> | Date | string
+    temperatureType?: StringFilter<"WeatherDataRecord"> | string
+    temperatureValue?: FloatFilter<"WeatherDataRecord"> | number
+    temperatureNote?: StringNullableFilter<"WeatherDataRecord"> | string | null
+    precipitationType?: StringFilter<"WeatherDataRecord"> | string
+    precipitationValue?: FloatFilter<"WeatherDataRecord"> | number
+    precipitationNote?: StringNullableFilter<"WeatherDataRecord"> | string | null
+    windType?: StringFilter<"WeatherDataRecord"> | string
+    windValue?: FloatFilter<"WeatherDataRecord"> | number
+    windNote?: StringNullableFilter<"WeatherDataRecord"> | string | null
+    humidityType?: StringFilter<"WeatherDataRecord"> | string
+    humidityValue?: FloatFilter<"WeatherDataRecord"> | number
+    humidityNote?: StringNullableFilter<"WeatherDataRecord"> | string | null
+    locationName?: StringNullableFilter<"WeatherDataRecord"> | string | null
+    createdAt?: DateTimeFilter<"WeatherDataRecord"> | Date | string
+    updatedAt?: DateTimeFilter<"WeatherDataRecord"> | Date | string
+    crop?: XOR<CropScalarRelationFilter, CropWhereInput>
+  }
+
+  export type WeatherDataRecordOrderByWithRelationInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    temperatureType?: SortOrder
+    temperatureValue?: SortOrder
+    temperatureNote?: SortOrderInput | SortOrder
+    precipitationType?: SortOrder
+    precipitationValue?: SortOrder
+    precipitationNote?: SortOrderInput | SortOrder
+    windType?: SortOrder
+    windValue?: SortOrder
+    windNote?: SortOrderInput | SortOrder
+    humidityType?: SortOrder
+    humidityValue?: SortOrder
+    humidityNote?: SortOrderInput | SortOrder
+    locationName?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    crop?: CropOrderByWithRelationInput
+  }
+
+  export type WeatherDataRecordWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: WeatherDataRecordWhereInput | WeatherDataRecordWhereInput[]
+    OR?: WeatherDataRecordWhereInput[]
+    NOT?: WeatherDataRecordWhereInput | WeatherDataRecordWhereInput[]
+    cropId?: StringFilter<"WeatherDataRecord"> | string
+    farmId?: StringFilter<"WeatherDataRecord"> | string
+    date?: DateTimeFilter<"WeatherDataRecord"> | Date | string
+    temperatureType?: StringFilter<"WeatherDataRecord"> | string
+    temperatureValue?: FloatFilter<"WeatherDataRecord"> | number
+    temperatureNote?: StringNullableFilter<"WeatherDataRecord"> | string | null
+    precipitationType?: StringFilter<"WeatherDataRecord"> | string
+    precipitationValue?: FloatFilter<"WeatherDataRecord"> | number
+    precipitationNote?: StringNullableFilter<"WeatherDataRecord"> | string | null
+    windType?: StringFilter<"WeatherDataRecord"> | string
+    windValue?: FloatFilter<"WeatherDataRecord"> | number
+    windNote?: StringNullableFilter<"WeatherDataRecord"> | string | null
+    humidityType?: StringFilter<"WeatherDataRecord"> | string
+    humidityValue?: FloatFilter<"WeatherDataRecord"> | number
+    humidityNote?: StringNullableFilter<"WeatherDataRecord"> | string | null
+    locationName?: StringNullableFilter<"WeatherDataRecord"> | string | null
+    createdAt?: DateTimeFilter<"WeatherDataRecord"> | Date | string
+    updatedAt?: DateTimeFilter<"WeatherDataRecord"> | Date | string
+    crop?: XOR<CropScalarRelationFilter, CropWhereInput>
+  }, "id">
+
+  export type WeatherDataRecordOrderByWithAggregationInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    temperatureType?: SortOrder
+    temperatureValue?: SortOrder
+    temperatureNote?: SortOrderInput | SortOrder
+    precipitationType?: SortOrder
+    precipitationValue?: SortOrder
+    precipitationNote?: SortOrderInput | SortOrder
+    windType?: SortOrder
+    windValue?: SortOrder
+    windNote?: SortOrderInput | SortOrder
+    humidityType?: SortOrder
+    humidityValue?: SortOrder
+    humidityNote?: SortOrderInput | SortOrder
+    locationName?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: WeatherDataRecordCountOrderByAggregateInput
+    _avg?: WeatherDataRecordAvgOrderByAggregateInput
+    _max?: WeatherDataRecordMaxOrderByAggregateInput
+    _min?: WeatherDataRecordMinOrderByAggregateInput
+    _sum?: WeatherDataRecordSumOrderByAggregateInput
+  }
+
+  export type WeatherDataRecordScalarWhereWithAggregatesInput = {
+    AND?: WeatherDataRecordScalarWhereWithAggregatesInput | WeatherDataRecordScalarWhereWithAggregatesInput[]
+    OR?: WeatherDataRecordScalarWhereWithAggregatesInput[]
+    NOT?: WeatherDataRecordScalarWhereWithAggregatesInput | WeatherDataRecordScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"WeatherDataRecord"> | string
+    cropId?: StringWithAggregatesFilter<"WeatherDataRecord"> | string
+    farmId?: StringWithAggregatesFilter<"WeatherDataRecord"> | string
+    date?: DateTimeWithAggregatesFilter<"WeatherDataRecord"> | Date | string
+    temperatureType?: StringWithAggregatesFilter<"WeatherDataRecord"> | string
+    temperatureValue?: FloatWithAggregatesFilter<"WeatherDataRecord"> | number
+    temperatureNote?: StringNullableWithAggregatesFilter<"WeatherDataRecord"> | string | null
+    precipitationType?: StringWithAggregatesFilter<"WeatherDataRecord"> | string
+    precipitationValue?: FloatWithAggregatesFilter<"WeatherDataRecord"> | number
+    precipitationNote?: StringNullableWithAggregatesFilter<"WeatherDataRecord"> | string | null
+    windType?: StringWithAggregatesFilter<"WeatherDataRecord"> | string
+    windValue?: FloatWithAggregatesFilter<"WeatherDataRecord"> | number
+    windNote?: StringNullableWithAggregatesFilter<"WeatherDataRecord"> | string | null
+    humidityType?: StringWithAggregatesFilter<"WeatherDataRecord"> | string
+    humidityValue?: FloatWithAggregatesFilter<"WeatherDataRecord"> | number
+    humidityNote?: StringNullableWithAggregatesFilter<"WeatherDataRecord"> | string | null
+    locationName?: StringNullableWithAggregatesFilter<"WeatherDataRecord"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"WeatherDataRecord"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"WeatherDataRecord"> | Date | string
   }
 
   export type FertilizerRecordWhereInput = {
@@ -67658,6 +72385,24 @@ export namespace Prisma {
     outputQuantity?: FloatNullableFilter<"ProcessingRecord"> | number | null
     outputQuantityUnit?: StringFilter<"ProcessingRecord"> | string
     outputQuality?: StringNullableFilter<"ProcessingRecord"> | string | null
+    dateOfPestControl?: DateTimeNullableFilter<"ProcessingRecord"> | Date | string | null
+    pestIdentified?: StringNullableFilter<"ProcessingRecord"> | string | null
+    methodOfControl?: StringNullableFilter<"ProcessingRecord"> | string | null
+    pesticideSource?: StringNullableFilter<"ProcessingRecord"> | string | null
+    brandName?: StringNullableFilter<"ProcessingRecord"> | string | null
+    methodOfApplication?: StringNullableFilter<"ProcessingRecord"> | string | null
+    amountAppliedPest?: StringNullableFilter<"ProcessingRecord"> | string | null
+    serialNumber?: StringNullableFilter<"ProcessingRecord"> | string | null
+    dateOfPurchase?: DateTimeNullableFilter<"ProcessingRecord"> | Date | string | null
+    seller?: StringNullableFilter<"ProcessingRecord"> | string | null
+    quantityPurchased?: StringNullableFilter<"ProcessingRecord"> | string | null
+    purchasePrice?: FloatNullableFilter<"ProcessingRecord"> | number | null
+    transportCost?: FloatNullableFilter<"ProcessingRecord"> | number | null
+    dateOfStorage?: DateTimeNullableFilter<"ProcessingRecord"> | Date | string | null
+    finalQuantity?: FloatNullableFilter<"ProcessingRecord"> | number | null
+    finalQuality?: StringNullableFilter<"ProcessingRecord"> | string | null
+    typeOfStorage?: StringNullableFilter<"ProcessingRecord"> | string | null
+    miscellaneousCostsIncurred?: FloatNullableFilter<"ProcessingRecord"> | number | null
     notes?: StringNullableFilter<"ProcessingRecord"> | string | null
     createdAt?: DateTimeFilter<"ProcessingRecord"> | Date | string
     updatedAt?: DateTimeFilter<"ProcessingRecord"> | Date | string
@@ -67678,6 +72423,24 @@ export namespace Prisma {
     outputQuantity?: SortOrderInput | SortOrder
     outputQuantityUnit?: SortOrder
     outputQuality?: SortOrderInput | SortOrder
+    dateOfPestControl?: SortOrderInput | SortOrder
+    pestIdentified?: SortOrderInput | SortOrder
+    methodOfControl?: SortOrderInput | SortOrder
+    pesticideSource?: SortOrderInput | SortOrder
+    brandName?: SortOrderInput | SortOrder
+    methodOfApplication?: SortOrderInput | SortOrder
+    amountAppliedPest?: SortOrderInput | SortOrder
+    serialNumber?: SortOrderInput | SortOrder
+    dateOfPurchase?: SortOrderInput | SortOrder
+    seller?: SortOrderInput | SortOrder
+    quantityPurchased?: SortOrderInput | SortOrder
+    purchasePrice?: SortOrderInput | SortOrder
+    transportCost?: SortOrderInput | SortOrder
+    dateOfStorage?: SortOrderInput | SortOrder
+    finalQuantity?: SortOrderInput | SortOrder
+    finalQuality?: SortOrderInput | SortOrder
+    typeOfStorage?: SortOrderInput | SortOrder
+    miscellaneousCostsIncurred?: SortOrderInput | SortOrder
     notes?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -67701,6 +72464,24 @@ export namespace Prisma {
     outputQuantity?: FloatNullableFilter<"ProcessingRecord"> | number | null
     outputQuantityUnit?: StringFilter<"ProcessingRecord"> | string
     outputQuality?: StringNullableFilter<"ProcessingRecord"> | string | null
+    dateOfPestControl?: DateTimeNullableFilter<"ProcessingRecord"> | Date | string | null
+    pestIdentified?: StringNullableFilter<"ProcessingRecord"> | string | null
+    methodOfControl?: StringNullableFilter<"ProcessingRecord"> | string | null
+    pesticideSource?: StringNullableFilter<"ProcessingRecord"> | string | null
+    brandName?: StringNullableFilter<"ProcessingRecord"> | string | null
+    methodOfApplication?: StringNullableFilter<"ProcessingRecord"> | string | null
+    amountAppliedPest?: StringNullableFilter<"ProcessingRecord"> | string | null
+    serialNumber?: StringNullableFilter<"ProcessingRecord"> | string | null
+    dateOfPurchase?: DateTimeNullableFilter<"ProcessingRecord"> | Date | string | null
+    seller?: StringNullableFilter<"ProcessingRecord"> | string | null
+    quantityPurchased?: StringNullableFilter<"ProcessingRecord"> | string | null
+    purchasePrice?: FloatNullableFilter<"ProcessingRecord"> | number | null
+    transportCost?: FloatNullableFilter<"ProcessingRecord"> | number | null
+    dateOfStorage?: DateTimeNullableFilter<"ProcessingRecord"> | Date | string | null
+    finalQuantity?: FloatNullableFilter<"ProcessingRecord"> | number | null
+    finalQuality?: StringNullableFilter<"ProcessingRecord"> | string | null
+    typeOfStorage?: StringNullableFilter<"ProcessingRecord"> | string | null
+    miscellaneousCostsIncurred?: FloatNullableFilter<"ProcessingRecord"> | number | null
     notes?: StringNullableFilter<"ProcessingRecord"> | string | null
     createdAt?: DateTimeFilter<"ProcessingRecord"> | Date | string
     updatedAt?: DateTimeFilter<"ProcessingRecord"> | Date | string
@@ -67721,6 +72502,24 @@ export namespace Prisma {
     outputQuantity?: SortOrderInput | SortOrder
     outputQuantityUnit?: SortOrder
     outputQuality?: SortOrderInput | SortOrder
+    dateOfPestControl?: SortOrderInput | SortOrder
+    pestIdentified?: SortOrderInput | SortOrder
+    methodOfControl?: SortOrderInput | SortOrder
+    pesticideSource?: SortOrderInput | SortOrder
+    brandName?: SortOrderInput | SortOrder
+    methodOfApplication?: SortOrderInput | SortOrder
+    amountAppliedPest?: SortOrderInput | SortOrder
+    serialNumber?: SortOrderInput | SortOrder
+    dateOfPurchase?: SortOrderInput | SortOrder
+    seller?: SortOrderInput | SortOrder
+    quantityPurchased?: SortOrderInput | SortOrder
+    purchasePrice?: SortOrderInput | SortOrder
+    transportCost?: SortOrderInput | SortOrder
+    dateOfStorage?: SortOrderInput | SortOrder
+    finalQuantity?: SortOrderInput | SortOrder
+    finalQuality?: SortOrderInput | SortOrder
+    typeOfStorage?: SortOrderInput | SortOrder
+    miscellaneousCostsIncurred?: SortOrderInput | SortOrder
     notes?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -67748,6 +72547,24 @@ export namespace Prisma {
     outputQuantity?: FloatNullableWithAggregatesFilter<"ProcessingRecord"> | number | null
     outputQuantityUnit?: StringWithAggregatesFilter<"ProcessingRecord"> | string
     outputQuality?: StringNullableWithAggregatesFilter<"ProcessingRecord"> | string | null
+    dateOfPestControl?: DateTimeNullableWithAggregatesFilter<"ProcessingRecord"> | Date | string | null
+    pestIdentified?: StringNullableWithAggregatesFilter<"ProcessingRecord"> | string | null
+    methodOfControl?: StringNullableWithAggregatesFilter<"ProcessingRecord"> | string | null
+    pesticideSource?: StringNullableWithAggregatesFilter<"ProcessingRecord"> | string | null
+    brandName?: StringNullableWithAggregatesFilter<"ProcessingRecord"> | string | null
+    methodOfApplication?: StringNullableWithAggregatesFilter<"ProcessingRecord"> | string | null
+    amountAppliedPest?: StringNullableWithAggregatesFilter<"ProcessingRecord"> | string | null
+    serialNumber?: StringNullableWithAggregatesFilter<"ProcessingRecord"> | string | null
+    dateOfPurchase?: DateTimeNullableWithAggregatesFilter<"ProcessingRecord"> | Date | string | null
+    seller?: StringNullableWithAggregatesFilter<"ProcessingRecord"> | string | null
+    quantityPurchased?: StringNullableWithAggregatesFilter<"ProcessingRecord"> | string | null
+    purchasePrice?: FloatNullableWithAggregatesFilter<"ProcessingRecord"> | number | null
+    transportCost?: FloatNullableWithAggregatesFilter<"ProcessingRecord"> | number | null
+    dateOfStorage?: DateTimeNullableWithAggregatesFilter<"ProcessingRecord"> | Date | string | null
+    finalQuantity?: FloatNullableWithAggregatesFilter<"ProcessingRecord"> | number | null
+    finalQuality?: StringNullableWithAggregatesFilter<"ProcessingRecord"> | string | null
+    typeOfStorage?: StringNullableWithAggregatesFilter<"ProcessingRecord"> | string | null
+    miscellaneousCostsIncurred?: FloatNullableWithAggregatesFilter<"ProcessingRecord"> | number | null
     notes?: StringNullableWithAggregatesFilter<"ProcessingRecord"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"ProcessingRecord"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"ProcessingRecord"> | Date | string
@@ -71806,6 +76623,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
@@ -71841,6 +76661,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
@@ -71876,6 +76699,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
@@ -71911,6 +76737,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -72315,6 +77144,409 @@ export namespace Prisma {
     numberOfWorkers?: NullableIntFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SoilDataRecordCreateInput = {
+    id?: string
+    farmId: string
+    date: Date | string
+    soilType: string
+    soilTypeNote?: string | null
+    soilPH: string
+    soilPHNote?: string | null
+    moistureContent: string
+    moistureNote?: string | null
+    organicMatter: string
+    organicNote?: string | null
+    nitrogen?: boolean
+    phosphorus?: boolean
+    potassium?: boolean
+    nutrientsNote?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    crop: CropCreateNestedOneWithoutSoilDataRecordsInput
+  }
+
+  export type SoilDataRecordUncheckedCreateInput = {
+    id?: string
+    cropId: string
+    farmId: string
+    date: Date | string
+    soilType: string
+    soilTypeNote?: string | null
+    soilPH: string
+    soilPHNote?: string | null
+    moistureContent: string
+    moistureNote?: string | null
+    organicMatter: string
+    organicNote?: string | null
+    nitrogen?: boolean
+    phosphorus?: boolean
+    potassium?: boolean
+    nutrientsNote?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SoilDataRecordUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    soilType?: StringFieldUpdateOperationsInput | string
+    soilTypeNote?: NullableStringFieldUpdateOperationsInput | string | null
+    soilPH?: StringFieldUpdateOperationsInput | string
+    soilPHNote?: NullableStringFieldUpdateOperationsInput | string | null
+    moistureContent?: StringFieldUpdateOperationsInput | string
+    moistureNote?: NullableStringFieldUpdateOperationsInput | string | null
+    organicMatter?: StringFieldUpdateOperationsInput | string
+    organicNote?: NullableStringFieldUpdateOperationsInput | string | null
+    nitrogen?: BoolFieldUpdateOperationsInput | boolean
+    phosphorus?: BoolFieldUpdateOperationsInput | boolean
+    potassium?: BoolFieldUpdateOperationsInput | boolean
+    nutrientsNote?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    crop?: CropUpdateOneRequiredWithoutSoilDataRecordsNestedInput
+  }
+
+  export type SoilDataRecordUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cropId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    soilType?: StringFieldUpdateOperationsInput | string
+    soilTypeNote?: NullableStringFieldUpdateOperationsInput | string | null
+    soilPH?: StringFieldUpdateOperationsInput | string
+    soilPHNote?: NullableStringFieldUpdateOperationsInput | string | null
+    moistureContent?: StringFieldUpdateOperationsInput | string
+    moistureNote?: NullableStringFieldUpdateOperationsInput | string | null
+    organicMatter?: StringFieldUpdateOperationsInput | string
+    organicNote?: NullableStringFieldUpdateOperationsInput | string | null
+    nitrogen?: BoolFieldUpdateOperationsInput | boolean
+    phosphorus?: BoolFieldUpdateOperationsInput | boolean
+    potassium?: BoolFieldUpdateOperationsInput | boolean
+    nutrientsNote?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SoilDataRecordCreateManyInput = {
+    id?: string
+    cropId: string
+    farmId: string
+    date: Date | string
+    soilType: string
+    soilTypeNote?: string | null
+    soilPH: string
+    soilPHNote?: string | null
+    moistureContent: string
+    moistureNote?: string | null
+    organicMatter: string
+    organicNote?: string | null
+    nitrogen?: boolean
+    phosphorus?: boolean
+    potassium?: boolean
+    nutrientsNote?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SoilDataRecordUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    soilType?: StringFieldUpdateOperationsInput | string
+    soilTypeNote?: NullableStringFieldUpdateOperationsInput | string | null
+    soilPH?: StringFieldUpdateOperationsInput | string
+    soilPHNote?: NullableStringFieldUpdateOperationsInput | string | null
+    moistureContent?: StringFieldUpdateOperationsInput | string
+    moistureNote?: NullableStringFieldUpdateOperationsInput | string | null
+    organicMatter?: StringFieldUpdateOperationsInput | string
+    organicNote?: NullableStringFieldUpdateOperationsInput | string | null
+    nitrogen?: BoolFieldUpdateOperationsInput | boolean
+    phosphorus?: BoolFieldUpdateOperationsInput | boolean
+    potassium?: BoolFieldUpdateOperationsInput | boolean
+    nutrientsNote?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SoilDataRecordUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cropId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    soilType?: StringFieldUpdateOperationsInput | string
+    soilTypeNote?: NullableStringFieldUpdateOperationsInput | string | null
+    soilPH?: StringFieldUpdateOperationsInput | string
+    soilPHNote?: NullableStringFieldUpdateOperationsInput | string | null
+    moistureContent?: StringFieldUpdateOperationsInput | string
+    moistureNote?: NullableStringFieldUpdateOperationsInput | string | null
+    organicMatter?: StringFieldUpdateOperationsInput | string
+    organicNote?: NullableStringFieldUpdateOperationsInput | string | null
+    nitrogen?: BoolFieldUpdateOperationsInput | boolean
+    phosphorus?: BoolFieldUpdateOperationsInput | boolean
+    potassium?: BoolFieldUpdateOperationsInput | boolean
+    nutrientsNote?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FieldConditionRecordCreateInput = {
+    id?: string
+    farmId: string
+    date: Date | string
+    topography: string
+    topographyNote?: string | null
+    drainage: string
+    drainageNote?: string | null
+    previousCropResidue: string
+    residueNote?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    crop: CropCreateNestedOneWithoutFieldConditionRecordsInput
+  }
+
+  export type FieldConditionRecordUncheckedCreateInput = {
+    id?: string
+    cropId: string
+    farmId: string
+    date: Date | string
+    topography: string
+    topographyNote?: string | null
+    drainage: string
+    drainageNote?: string | null
+    previousCropResidue: string
+    residueNote?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FieldConditionRecordUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    topography?: StringFieldUpdateOperationsInput | string
+    topographyNote?: NullableStringFieldUpdateOperationsInput | string | null
+    drainage?: StringFieldUpdateOperationsInput | string
+    drainageNote?: NullableStringFieldUpdateOperationsInput | string | null
+    previousCropResidue?: StringFieldUpdateOperationsInput | string
+    residueNote?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    crop?: CropUpdateOneRequiredWithoutFieldConditionRecordsNestedInput
+  }
+
+  export type FieldConditionRecordUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cropId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    topography?: StringFieldUpdateOperationsInput | string
+    topographyNote?: NullableStringFieldUpdateOperationsInput | string | null
+    drainage?: StringFieldUpdateOperationsInput | string
+    drainageNote?: NullableStringFieldUpdateOperationsInput | string | null
+    previousCropResidue?: StringFieldUpdateOperationsInput | string
+    residueNote?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FieldConditionRecordCreateManyInput = {
+    id?: string
+    cropId: string
+    farmId: string
+    date: Date | string
+    topography: string
+    topographyNote?: string | null
+    drainage: string
+    drainageNote?: string | null
+    previousCropResidue: string
+    residueNote?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FieldConditionRecordUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    topography?: StringFieldUpdateOperationsInput | string
+    topographyNote?: NullableStringFieldUpdateOperationsInput | string | null
+    drainage?: StringFieldUpdateOperationsInput | string
+    drainageNote?: NullableStringFieldUpdateOperationsInput | string | null
+    previousCropResidue?: StringFieldUpdateOperationsInput | string
+    residueNote?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FieldConditionRecordUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cropId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    topography?: StringFieldUpdateOperationsInput | string
+    topographyNote?: NullableStringFieldUpdateOperationsInput | string | null
+    drainage?: StringFieldUpdateOperationsInput | string
+    drainageNote?: NullableStringFieldUpdateOperationsInput | string | null
+    previousCropResidue?: StringFieldUpdateOperationsInput | string
+    residueNote?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WeatherDataRecordCreateInput = {
+    id?: string
+    farmId: string
+    date: Date | string
+    temperatureType: string
+    temperatureValue: number
+    temperatureNote?: string | null
+    precipitationType: string
+    precipitationValue: number
+    precipitationNote?: string | null
+    windType: string
+    windValue: number
+    windNote?: string | null
+    humidityType: string
+    humidityValue: number
+    humidityNote?: string | null
+    locationName?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    crop: CropCreateNestedOneWithoutWeatherDataRecordsInput
+  }
+
+  export type WeatherDataRecordUncheckedCreateInput = {
+    id?: string
+    cropId: string
+    farmId: string
+    date: Date | string
+    temperatureType: string
+    temperatureValue: number
+    temperatureNote?: string | null
+    precipitationType: string
+    precipitationValue: number
+    precipitationNote?: string | null
+    windType: string
+    windValue: number
+    windNote?: string | null
+    humidityType: string
+    humidityValue: number
+    humidityNote?: string | null
+    locationName?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WeatherDataRecordUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    temperatureType?: StringFieldUpdateOperationsInput | string
+    temperatureValue?: FloatFieldUpdateOperationsInput | number
+    temperatureNote?: NullableStringFieldUpdateOperationsInput | string | null
+    precipitationType?: StringFieldUpdateOperationsInput | string
+    precipitationValue?: FloatFieldUpdateOperationsInput | number
+    precipitationNote?: NullableStringFieldUpdateOperationsInput | string | null
+    windType?: StringFieldUpdateOperationsInput | string
+    windValue?: FloatFieldUpdateOperationsInput | number
+    windNote?: NullableStringFieldUpdateOperationsInput | string | null
+    humidityType?: StringFieldUpdateOperationsInput | string
+    humidityValue?: FloatFieldUpdateOperationsInput | number
+    humidityNote?: NullableStringFieldUpdateOperationsInput | string | null
+    locationName?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    crop?: CropUpdateOneRequiredWithoutWeatherDataRecordsNestedInput
+  }
+
+  export type WeatherDataRecordUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cropId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    temperatureType?: StringFieldUpdateOperationsInput | string
+    temperatureValue?: FloatFieldUpdateOperationsInput | number
+    temperatureNote?: NullableStringFieldUpdateOperationsInput | string | null
+    precipitationType?: StringFieldUpdateOperationsInput | string
+    precipitationValue?: FloatFieldUpdateOperationsInput | number
+    precipitationNote?: NullableStringFieldUpdateOperationsInput | string | null
+    windType?: StringFieldUpdateOperationsInput | string
+    windValue?: FloatFieldUpdateOperationsInput | number
+    windNote?: NullableStringFieldUpdateOperationsInput | string | null
+    humidityType?: StringFieldUpdateOperationsInput | string
+    humidityValue?: FloatFieldUpdateOperationsInput | number
+    humidityNote?: NullableStringFieldUpdateOperationsInput | string | null
+    locationName?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WeatherDataRecordCreateManyInput = {
+    id?: string
+    cropId: string
+    farmId: string
+    date: Date | string
+    temperatureType: string
+    temperatureValue: number
+    temperatureNote?: string | null
+    precipitationType: string
+    precipitationValue: number
+    precipitationNote?: string | null
+    windType: string
+    windValue: number
+    windNote?: string | null
+    humidityType: string
+    humidityValue: number
+    humidityNote?: string | null
+    locationName?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WeatherDataRecordUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    temperatureType?: StringFieldUpdateOperationsInput | string
+    temperatureValue?: FloatFieldUpdateOperationsInput | number
+    temperatureNote?: NullableStringFieldUpdateOperationsInput | string | null
+    precipitationType?: StringFieldUpdateOperationsInput | string
+    precipitationValue?: FloatFieldUpdateOperationsInput | number
+    precipitationNote?: NullableStringFieldUpdateOperationsInput | string | null
+    windType?: StringFieldUpdateOperationsInput | string
+    windValue?: FloatFieldUpdateOperationsInput | number
+    windNote?: NullableStringFieldUpdateOperationsInput | string | null
+    humidityType?: StringFieldUpdateOperationsInput | string
+    humidityValue?: FloatFieldUpdateOperationsInput | number
+    humidityNote?: NullableStringFieldUpdateOperationsInput | string | null
+    locationName?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WeatherDataRecordUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cropId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    temperatureType?: StringFieldUpdateOperationsInput | string
+    temperatureValue?: FloatFieldUpdateOperationsInput | number
+    temperatureNote?: NullableStringFieldUpdateOperationsInput | string | null
+    precipitationType?: StringFieldUpdateOperationsInput | string
+    precipitationValue?: FloatFieldUpdateOperationsInput | number
+    precipitationNote?: NullableStringFieldUpdateOperationsInput | string | null
+    windType?: StringFieldUpdateOperationsInput | string
+    windValue?: FloatFieldUpdateOperationsInput | number
+    windNote?: NullableStringFieldUpdateOperationsInput | string | null
+    humidityType?: StringFieldUpdateOperationsInput | string
+    humidityValue?: FloatFieldUpdateOperationsInput | number
+    humidityNote?: NullableStringFieldUpdateOperationsInput | string | null
+    locationName?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -73312,6 +78544,24 @@ export namespace Prisma {
     outputQuantity?: number | null
     outputQuantityUnit?: string
     outputQuality?: string | null
+    dateOfPestControl?: Date | string | null
+    pestIdentified?: string | null
+    methodOfControl?: string | null
+    pesticideSource?: string | null
+    brandName?: string | null
+    methodOfApplication?: string | null
+    amountAppliedPest?: string | null
+    serialNumber?: string | null
+    dateOfPurchase?: Date | string | null
+    seller?: string | null
+    quantityPurchased?: string | null
+    purchasePrice?: number | null
+    transportCost?: number | null
+    dateOfStorage?: Date | string | null
+    finalQuantity?: number | null
+    finalQuality?: string | null
+    typeOfStorage?: string | null
+    miscellaneousCostsIncurred?: number | null
     notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -73332,6 +78582,24 @@ export namespace Prisma {
     outputQuantity?: number | null
     outputQuantityUnit?: string
     outputQuality?: string | null
+    dateOfPestControl?: Date | string | null
+    pestIdentified?: string | null
+    methodOfControl?: string | null
+    pesticideSource?: string | null
+    brandName?: string | null
+    methodOfApplication?: string | null
+    amountAppliedPest?: string | null
+    serialNumber?: string | null
+    dateOfPurchase?: Date | string | null
+    seller?: string | null
+    quantityPurchased?: string | null
+    purchasePrice?: number | null
+    transportCost?: number | null
+    dateOfStorage?: Date | string | null
+    finalQuantity?: number | null
+    finalQuality?: string | null
+    typeOfStorage?: string | null
+    miscellaneousCostsIncurred?: number | null
     notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -73350,6 +78618,24 @@ export namespace Prisma {
     outputQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
     outputQuantityUnit?: StringFieldUpdateOperationsInput | string
     outputQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfPestControl?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pestIdentified?: NullableStringFieldUpdateOperationsInput | string | null
+    methodOfControl?: NullableStringFieldUpdateOperationsInput | string | null
+    pesticideSource?: NullableStringFieldUpdateOperationsInput | string | null
+    brandName?: NullableStringFieldUpdateOperationsInput | string | null
+    methodOfApplication?: NullableStringFieldUpdateOperationsInput | string | null
+    amountAppliedPest?: NullableStringFieldUpdateOperationsInput | string | null
+    serialNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfPurchase?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableStringFieldUpdateOperationsInput | string | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    dateOfStorage?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    finalQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    typeOfStorage?: NullableStringFieldUpdateOperationsInput | string | null
+    miscellaneousCostsIncurred?: NullableFloatFieldUpdateOperationsInput | number | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -73370,6 +78656,24 @@ export namespace Prisma {
     outputQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
     outputQuantityUnit?: StringFieldUpdateOperationsInput | string
     outputQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfPestControl?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pestIdentified?: NullableStringFieldUpdateOperationsInput | string | null
+    methodOfControl?: NullableStringFieldUpdateOperationsInput | string | null
+    pesticideSource?: NullableStringFieldUpdateOperationsInput | string | null
+    brandName?: NullableStringFieldUpdateOperationsInput | string | null
+    methodOfApplication?: NullableStringFieldUpdateOperationsInput | string | null
+    amountAppliedPest?: NullableStringFieldUpdateOperationsInput | string | null
+    serialNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfPurchase?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableStringFieldUpdateOperationsInput | string | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    dateOfStorage?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    finalQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    typeOfStorage?: NullableStringFieldUpdateOperationsInput | string | null
+    miscellaneousCostsIncurred?: NullableFloatFieldUpdateOperationsInput | number | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -73389,6 +78693,24 @@ export namespace Prisma {
     outputQuantity?: number | null
     outputQuantityUnit?: string
     outputQuality?: string | null
+    dateOfPestControl?: Date | string | null
+    pestIdentified?: string | null
+    methodOfControl?: string | null
+    pesticideSource?: string | null
+    brandName?: string | null
+    methodOfApplication?: string | null
+    amountAppliedPest?: string | null
+    serialNumber?: string | null
+    dateOfPurchase?: Date | string | null
+    seller?: string | null
+    quantityPurchased?: string | null
+    purchasePrice?: number | null
+    transportCost?: number | null
+    dateOfStorage?: Date | string | null
+    finalQuantity?: number | null
+    finalQuality?: string | null
+    typeOfStorage?: string | null
+    miscellaneousCostsIncurred?: number | null
     notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -73407,6 +78729,24 @@ export namespace Prisma {
     outputQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
     outputQuantityUnit?: StringFieldUpdateOperationsInput | string
     outputQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfPestControl?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pestIdentified?: NullableStringFieldUpdateOperationsInput | string | null
+    methodOfControl?: NullableStringFieldUpdateOperationsInput | string | null
+    pesticideSource?: NullableStringFieldUpdateOperationsInput | string | null
+    brandName?: NullableStringFieldUpdateOperationsInput | string | null
+    methodOfApplication?: NullableStringFieldUpdateOperationsInput | string | null
+    amountAppliedPest?: NullableStringFieldUpdateOperationsInput | string | null
+    serialNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfPurchase?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableStringFieldUpdateOperationsInput | string | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    dateOfStorage?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    finalQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    typeOfStorage?: NullableStringFieldUpdateOperationsInput | string | null
+    miscellaneousCostsIncurred?: NullableFloatFieldUpdateOperationsInput | number | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -73426,6 +78766,24 @@ export namespace Prisma {
     outputQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
     outputQuantityUnit?: StringFieldUpdateOperationsInput | string
     outputQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfPestControl?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pestIdentified?: NullableStringFieldUpdateOperationsInput | string | null
+    methodOfControl?: NullableStringFieldUpdateOperationsInput | string | null
+    pesticideSource?: NullableStringFieldUpdateOperationsInput | string | null
+    brandName?: NullableStringFieldUpdateOperationsInput | string | null
+    methodOfApplication?: NullableStringFieldUpdateOperationsInput | string | null
+    amountAppliedPest?: NullableStringFieldUpdateOperationsInput | string | null
+    serialNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfPurchase?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableStringFieldUpdateOperationsInput | string | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    dateOfStorage?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    finalQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    typeOfStorage?: NullableStringFieldUpdateOperationsInput | string | null
+    miscellaneousCostsIncurred?: NullableFloatFieldUpdateOperationsInput | number | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -76102,6 +81460,24 @@ export namespace Prisma {
     none?: PlantingRecordWhereInput
   }
 
+  export type SoilDataRecordListRelationFilter = {
+    every?: SoilDataRecordWhereInput
+    some?: SoilDataRecordWhereInput
+    none?: SoilDataRecordWhereInput
+  }
+
+  export type FieldConditionRecordListRelationFilter = {
+    every?: FieldConditionRecordWhereInput
+    some?: FieldConditionRecordWhereInput
+    none?: FieldConditionRecordWhereInput
+  }
+
+  export type WeatherDataRecordListRelationFilter = {
+    every?: WeatherDataRecordWhereInput
+    some?: WeatherDataRecordWhereInput
+    none?: WeatherDataRecordWhereInput
+  }
+
   export type FertilizerRecordListRelationFilter = {
     every?: FertilizerRecordWhereInput
     some?: FertilizerRecordWhereInput
@@ -76177,6 +81553,18 @@ export namespace Prisma {
   }
 
   export type PlantingRecordOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SoilDataRecordOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type FieldConditionRecordOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type WeatherDataRecordOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -76476,6 +81864,194 @@ export namespace Prisma {
     seedQuantity?: SortOrder
     numberOfWorkers?: SortOrder
     labourCost?: SortOrder
+  }
+
+  export type SoilDataRecordCountOrderByAggregateInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    soilType?: SortOrder
+    soilTypeNote?: SortOrder
+    soilPH?: SortOrder
+    soilPHNote?: SortOrder
+    moistureContent?: SortOrder
+    moistureNote?: SortOrder
+    organicMatter?: SortOrder
+    organicNote?: SortOrder
+    nitrogen?: SortOrder
+    phosphorus?: SortOrder
+    potassium?: SortOrder
+    nutrientsNote?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SoilDataRecordMaxOrderByAggregateInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    soilType?: SortOrder
+    soilTypeNote?: SortOrder
+    soilPH?: SortOrder
+    soilPHNote?: SortOrder
+    moistureContent?: SortOrder
+    moistureNote?: SortOrder
+    organicMatter?: SortOrder
+    organicNote?: SortOrder
+    nitrogen?: SortOrder
+    phosphorus?: SortOrder
+    potassium?: SortOrder
+    nutrientsNote?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SoilDataRecordMinOrderByAggregateInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    soilType?: SortOrder
+    soilTypeNote?: SortOrder
+    soilPH?: SortOrder
+    soilPHNote?: SortOrder
+    moistureContent?: SortOrder
+    moistureNote?: SortOrder
+    organicMatter?: SortOrder
+    organicNote?: SortOrder
+    nitrogen?: SortOrder
+    phosphorus?: SortOrder
+    potassium?: SortOrder
+    nutrientsNote?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FieldConditionRecordCountOrderByAggregateInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    topography?: SortOrder
+    topographyNote?: SortOrder
+    drainage?: SortOrder
+    drainageNote?: SortOrder
+    previousCropResidue?: SortOrder
+    residueNote?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FieldConditionRecordMaxOrderByAggregateInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    topography?: SortOrder
+    topographyNote?: SortOrder
+    drainage?: SortOrder
+    drainageNote?: SortOrder
+    previousCropResidue?: SortOrder
+    residueNote?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FieldConditionRecordMinOrderByAggregateInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    topography?: SortOrder
+    topographyNote?: SortOrder
+    drainage?: SortOrder
+    drainageNote?: SortOrder
+    previousCropResidue?: SortOrder
+    residueNote?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WeatherDataRecordCountOrderByAggregateInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    temperatureType?: SortOrder
+    temperatureValue?: SortOrder
+    temperatureNote?: SortOrder
+    precipitationType?: SortOrder
+    precipitationValue?: SortOrder
+    precipitationNote?: SortOrder
+    windType?: SortOrder
+    windValue?: SortOrder
+    windNote?: SortOrder
+    humidityType?: SortOrder
+    humidityValue?: SortOrder
+    humidityNote?: SortOrder
+    locationName?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WeatherDataRecordAvgOrderByAggregateInput = {
+    temperatureValue?: SortOrder
+    precipitationValue?: SortOrder
+    windValue?: SortOrder
+    humidityValue?: SortOrder
+  }
+
+  export type WeatherDataRecordMaxOrderByAggregateInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    temperatureType?: SortOrder
+    temperatureValue?: SortOrder
+    temperatureNote?: SortOrder
+    precipitationType?: SortOrder
+    precipitationValue?: SortOrder
+    precipitationNote?: SortOrder
+    windType?: SortOrder
+    windValue?: SortOrder
+    windNote?: SortOrder
+    humidityType?: SortOrder
+    humidityValue?: SortOrder
+    humidityNote?: SortOrder
+    locationName?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WeatherDataRecordMinOrderByAggregateInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    temperatureType?: SortOrder
+    temperatureValue?: SortOrder
+    temperatureNote?: SortOrder
+    precipitationType?: SortOrder
+    precipitationValue?: SortOrder
+    precipitationNote?: SortOrder
+    windType?: SortOrder
+    windValue?: SortOrder
+    windNote?: SortOrder
+    humidityType?: SortOrder
+    humidityValue?: SortOrder
+    humidityNote?: SortOrder
+    locationName?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WeatherDataRecordSumOrderByAggregateInput = {
+    temperatureValue?: SortOrder
+    precipitationValue?: SortOrder
+    windValue?: SortOrder
+    humidityValue?: SortOrder
   }
 
   export type FertilizerRecordCountOrderByAggregateInput = {
@@ -77009,6 +82585,24 @@ export namespace Prisma {
     outputQuantity?: SortOrder
     outputQuantityUnit?: SortOrder
     outputQuality?: SortOrder
+    dateOfPestControl?: SortOrder
+    pestIdentified?: SortOrder
+    methodOfControl?: SortOrder
+    pesticideSource?: SortOrder
+    brandName?: SortOrder
+    methodOfApplication?: SortOrder
+    amountAppliedPest?: SortOrder
+    serialNumber?: SortOrder
+    dateOfPurchase?: SortOrder
+    seller?: SortOrder
+    quantityPurchased?: SortOrder
+    purchasePrice?: SortOrder
+    transportCost?: SortOrder
+    dateOfStorage?: SortOrder
+    finalQuantity?: SortOrder
+    finalQuality?: SortOrder
+    typeOfStorage?: SortOrder
+    miscellaneousCostsIncurred?: SortOrder
     notes?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -77018,6 +82612,10 @@ export namespace Prisma {
     numberOfWorkers?: SortOrder
     labourCost?: SortOrder
     outputQuantity?: SortOrder
+    purchasePrice?: SortOrder
+    transportCost?: SortOrder
+    finalQuantity?: SortOrder
+    miscellaneousCostsIncurred?: SortOrder
   }
 
   export type ProcessingRecordMaxOrderByAggregateInput = {
@@ -77034,6 +82632,24 @@ export namespace Prisma {
     outputQuantity?: SortOrder
     outputQuantityUnit?: SortOrder
     outputQuality?: SortOrder
+    dateOfPestControl?: SortOrder
+    pestIdentified?: SortOrder
+    methodOfControl?: SortOrder
+    pesticideSource?: SortOrder
+    brandName?: SortOrder
+    methodOfApplication?: SortOrder
+    amountAppliedPest?: SortOrder
+    serialNumber?: SortOrder
+    dateOfPurchase?: SortOrder
+    seller?: SortOrder
+    quantityPurchased?: SortOrder
+    purchasePrice?: SortOrder
+    transportCost?: SortOrder
+    dateOfStorage?: SortOrder
+    finalQuantity?: SortOrder
+    finalQuality?: SortOrder
+    typeOfStorage?: SortOrder
+    miscellaneousCostsIncurred?: SortOrder
     notes?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -77053,6 +82669,24 @@ export namespace Prisma {
     outputQuantity?: SortOrder
     outputQuantityUnit?: SortOrder
     outputQuality?: SortOrder
+    dateOfPestControl?: SortOrder
+    pestIdentified?: SortOrder
+    methodOfControl?: SortOrder
+    pesticideSource?: SortOrder
+    brandName?: SortOrder
+    methodOfApplication?: SortOrder
+    amountAppliedPest?: SortOrder
+    serialNumber?: SortOrder
+    dateOfPurchase?: SortOrder
+    seller?: SortOrder
+    quantityPurchased?: SortOrder
+    purchasePrice?: SortOrder
+    transportCost?: SortOrder
+    dateOfStorage?: SortOrder
+    finalQuantity?: SortOrder
+    finalQuality?: SortOrder
+    typeOfStorage?: SortOrder
+    miscellaneousCostsIncurred?: SortOrder
     notes?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -77062,6 +82696,10 @@ export namespace Prisma {
     numberOfWorkers?: SortOrder
     labourCost?: SortOrder
     outputQuantity?: SortOrder
+    purchasePrice?: SortOrder
+    transportCost?: SortOrder
+    finalQuantity?: SortOrder
+    miscellaneousCostsIncurred?: SortOrder
   }
 
   export type LossRecordCountOrderByAggregateInput = {
@@ -79914,6 +85552,27 @@ export namespace Prisma {
     connect?: PlantingRecordWhereUniqueInput | PlantingRecordWhereUniqueInput[]
   }
 
+  export type SoilDataRecordCreateNestedManyWithoutCropInput = {
+    create?: XOR<SoilDataRecordCreateWithoutCropInput, SoilDataRecordUncheckedCreateWithoutCropInput> | SoilDataRecordCreateWithoutCropInput[] | SoilDataRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: SoilDataRecordCreateOrConnectWithoutCropInput | SoilDataRecordCreateOrConnectWithoutCropInput[]
+    createMany?: SoilDataRecordCreateManyCropInputEnvelope
+    connect?: SoilDataRecordWhereUniqueInput | SoilDataRecordWhereUniqueInput[]
+  }
+
+  export type FieldConditionRecordCreateNestedManyWithoutCropInput = {
+    create?: XOR<FieldConditionRecordCreateWithoutCropInput, FieldConditionRecordUncheckedCreateWithoutCropInput> | FieldConditionRecordCreateWithoutCropInput[] | FieldConditionRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: FieldConditionRecordCreateOrConnectWithoutCropInput | FieldConditionRecordCreateOrConnectWithoutCropInput[]
+    createMany?: FieldConditionRecordCreateManyCropInputEnvelope
+    connect?: FieldConditionRecordWhereUniqueInput | FieldConditionRecordWhereUniqueInput[]
+  }
+
+  export type WeatherDataRecordCreateNestedManyWithoutCropInput = {
+    create?: XOR<WeatherDataRecordCreateWithoutCropInput, WeatherDataRecordUncheckedCreateWithoutCropInput> | WeatherDataRecordCreateWithoutCropInput[] | WeatherDataRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: WeatherDataRecordCreateOrConnectWithoutCropInput | WeatherDataRecordCreateOrConnectWithoutCropInput[]
+    createMany?: WeatherDataRecordCreateManyCropInputEnvelope
+    connect?: WeatherDataRecordWhereUniqueInput | WeatherDataRecordWhereUniqueInput[]
+  }
+
   export type FertilizerRecordCreateNestedManyWithoutCropInput = {
     create?: XOR<FertilizerRecordCreateWithoutCropInput, FertilizerRecordUncheckedCreateWithoutCropInput> | FertilizerRecordCreateWithoutCropInput[] | FertilizerRecordUncheckedCreateWithoutCropInput[]
     connectOrCreate?: FertilizerRecordCreateOrConnectWithoutCropInput | FertilizerRecordCreateOrConnectWithoutCropInput[]
@@ -80010,6 +85669,27 @@ export namespace Prisma {
     connectOrCreate?: PlantingRecordCreateOrConnectWithoutCropInput | PlantingRecordCreateOrConnectWithoutCropInput[]
     createMany?: PlantingRecordCreateManyCropInputEnvelope
     connect?: PlantingRecordWhereUniqueInput | PlantingRecordWhereUniqueInput[]
+  }
+
+  export type SoilDataRecordUncheckedCreateNestedManyWithoutCropInput = {
+    create?: XOR<SoilDataRecordCreateWithoutCropInput, SoilDataRecordUncheckedCreateWithoutCropInput> | SoilDataRecordCreateWithoutCropInput[] | SoilDataRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: SoilDataRecordCreateOrConnectWithoutCropInput | SoilDataRecordCreateOrConnectWithoutCropInput[]
+    createMany?: SoilDataRecordCreateManyCropInputEnvelope
+    connect?: SoilDataRecordWhereUniqueInput | SoilDataRecordWhereUniqueInput[]
+  }
+
+  export type FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput = {
+    create?: XOR<FieldConditionRecordCreateWithoutCropInput, FieldConditionRecordUncheckedCreateWithoutCropInput> | FieldConditionRecordCreateWithoutCropInput[] | FieldConditionRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: FieldConditionRecordCreateOrConnectWithoutCropInput | FieldConditionRecordCreateOrConnectWithoutCropInput[]
+    createMany?: FieldConditionRecordCreateManyCropInputEnvelope
+    connect?: FieldConditionRecordWhereUniqueInput | FieldConditionRecordWhereUniqueInput[]
+  }
+
+  export type WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput = {
+    create?: XOR<WeatherDataRecordCreateWithoutCropInput, WeatherDataRecordUncheckedCreateWithoutCropInput> | WeatherDataRecordCreateWithoutCropInput[] | WeatherDataRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: WeatherDataRecordCreateOrConnectWithoutCropInput | WeatherDataRecordCreateOrConnectWithoutCropInput[]
+    createMany?: WeatherDataRecordCreateManyCropInputEnvelope
+    connect?: WeatherDataRecordWhereUniqueInput | WeatherDataRecordWhereUniqueInput[]
   }
 
   export type FertilizerRecordUncheckedCreateNestedManyWithoutCropInput = {
@@ -80137,6 +85817,48 @@ export namespace Prisma {
     update?: PlantingRecordUpdateWithWhereUniqueWithoutCropInput | PlantingRecordUpdateWithWhereUniqueWithoutCropInput[]
     updateMany?: PlantingRecordUpdateManyWithWhereWithoutCropInput | PlantingRecordUpdateManyWithWhereWithoutCropInput[]
     deleteMany?: PlantingRecordScalarWhereInput | PlantingRecordScalarWhereInput[]
+  }
+
+  export type SoilDataRecordUpdateManyWithoutCropNestedInput = {
+    create?: XOR<SoilDataRecordCreateWithoutCropInput, SoilDataRecordUncheckedCreateWithoutCropInput> | SoilDataRecordCreateWithoutCropInput[] | SoilDataRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: SoilDataRecordCreateOrConnectWithoutCropInput | SoilDataRecordCreateOrConnectWithoutCropInput[]
+    upsert?: SoilDataRecordUpsertWithWhereUniqueWithoutCropInput | SoilDataRecordUpsertWithWhereUniqueWithoutCropInput[]
+    createMany?: SoilDataRecordCreateManyCropInputEnvelope
+    set?: SoilDataRecordWhereUniqueInput | SoilDataRecordWhereUniqueInput[]
+    disconnect?: SoilDataRecordWhereUniqueInput | SoilDataRecordWhereUniqueInput[]
+    delete?: SoilDataRecordWhereUniqueInput | SoilDataRecordWhereUniqueInput[]
+    connect?: SoilDataRecordWhereUniqueInput | SoilDataRecordWhereUniqueInput[]
+    update?: SoilDataRecordUpdateWithWhereUniqueWithoutCropInput | SoilDataRecordUpdateWithWhereUniqueWithoutCropInput[]
+    updateMany?: SoilDataRecordUpdateManyWithWhereWithoutCropInput | SoilDataRecordUpdateManyWithWhereWithoutCropInput[]
+    deleteMany?: SoilDataRecordScalarWhereInput | SoilDataRecordScalarWhereInput[]
+  }
+
+  export type FieldConditionRecordUpdateManyWithoutCropNestedInput = {
+    create?: XOR<FieldConditionRecordCreateWithoutCropInput, FieldConditionRecordUncheckedCreateWithoutCropInput> | FieldConditionRecordCreateWithoutCropInput[] | FieldConditionRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: FieldConditionRecordCreateOrConnectWithoutCropInput | FieldConditionRecordCreateOrConnectWithoutCropInput[]
+    upsert?: FieldConditionRecordUpsertWithWhereUniqueWithoutCropInput | FieldConditionRecordUpsertWithWhereUniqueWithoutCropInput[]
+    createMany?: FieldConditionRecordCreateManyCropInputEnvelope
+    set?: FieldConditionRecordWhereUniqueInput | FieldConditionRecordWhereUniqueInput[]
+    disconnect?: FieldConditionRecordWhereUniqueInput | FieldConditionRecordWhereUniqueInput[]
+    delete?: FieldConditionRecordWhereUniqueInput | FieldConditionRecordWhereUniqueInput[]
+    connect?: FieldConditionRecordWhereUniqueInput | FieldConditionRecordWhereUniqueInput[]
+    update?: FieldConditionRecordUpdateWithWhereUniqueWithoutCropInput | FieldConditionRecordUpdateWithWhereUniqueWithoutCropInput[]
+    updateMany?: FieldConditionRecordUpdateManyWithWhereWithoutCropInput | FieldConditionRecordUpdateManyWithWhereWithoutCropInput[]
+    deleteMany?: FieldConditionRecordScalarWhereInput | FieldConditionRecordScalarWhereInput[]
+  }
+
+  export type WeatherDataRecordUpdateManyWithoutCropNestedInput = {
+    create?: XOR<WeatherDataRecordCreateWithoutCropInput, WeatherDataRecordUncheckedCreateWithoutCropInput> | WeatherDataRecordCreateWithoutCropInput[] | WeatherDataRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: WeatherDataRecordCreateOrConnectWithoutCropInput | WeatherDataRecordCreateOrConnectWithoutCropInput[]
+    upsert?: WeatherDataRecordUpsertWithWhereUniqueWithoutCropInput | WeatherDataRecordUpsertWithWhereUniqueWithoutCropInput[]
+    createMany?: WeatherDataRecordCreateManyCropInputEnvelope
+    set?: WeatherDataRecordWhereUniqueInput | WeatherDataRecordWhereUniqueInput[]
+    disconnect?: WeatherDataRecordWhereUniqueInput | WeatherDataRecordWhereUniqueInput[]
+    delete?: WeatherDataRecordWhereUniqueInput | WeatherDataRecordWhereUniqueInput[]
+    connect?: WeatherDataRecordWhereUniqueInput | WeatherDataRecordWhereUniqueInput[]
+    update?: WeatherDataRecordUpdateWithWhereUniqueWithoutCropInput | WeatherDataRecordUpdateWithWhereUniqueWithoutCropInput[]
+    updateMany?: WeatherDataRecordUpdateManyWithWhereWithoutCropInput | WeatherDataRecordUpdateManyWithWhereWithoutCropInput[]
+    deleteMany?: WeatherDataRecordScalarWhereInput | WeatherDataRecordScalarWhereInput[]
   }
 
   export type FertilizerRecordUpdateManyWithoutCropNestedInput = {
@@ -80335,6 +86057,48 @@ export namespace Prisma {
     deleteMany?: PlantingRecordScalarWhereInput | PlantingRecordScalarWhereInput[]
   }
 
+  export type SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput = {
+    create?: XOR<SoilDataRecordCreateWithoutCropInput, SoilDataRecordUncheckedCreateWithoutCropInput> | SoilDataRecordCreateWithoutCropInput[] | SoilDataRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: SoilDataRecordCreateOrConnectWithoutCropInput | SoilDataRecordCreateOrConnectWithoutCropInput[]
+    upsert?: SoilDataRecordUpsertWithWhereUniqueWithoutCropInput | SoilDataRecordUpsertWithWhereUniqueWithoutCropInput[]
+    createMany?: SoilDataRecordCreateManyCropInputEnvelope
+    set?: SoilDataRecordWhereUniqueInput | SoilDataRecordWhereUniqueInput[]
+    disconnect?: SoilDataRecordWhereUniqueInput | SoilDataRecordWhereUniqueInput[]
+    delete?: SoilDataRecordWhereUniqueInput | SoilDataRecordWhereUniqueInput[]
+    connect?: SoilDataRecordWhereUniqueInput | SoilDataRecordWhereUniqueInput[]
+    update?: SoilDataRecordUpdateWithWhereUniqueWithoutCropInput | SoilDataRecordUpdateWithWhereUniqueWithoutCropInput[]
+    updateMany?: SoilDataRecordUpdateManyWithWhereWithoutCropInput | SoilDataRecordUpdateManyWithWhereWithoutCropInput[]
+    deleteMany?: SoilDataRecordScalarWhereInput | SoilDataRecordScalarWhereInput[]
+  }
+
+  export type FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput = {
+    create?: XOR<FieldConditionRecordCreateWithoutCropInput, FieldConditionRecordUncheckedCreateWithoutCropInput> | FieldConditionRecordCreateWithoutCropInput[] | FieldConditionRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: FieldConditionRecordCreateOrConnectWithoutCropInput | FieldConditionRecordCreateOrConnectWithoutCropInput[]
+    upsert?: FieldConditionRecordUpsertWithWhereUniqueWithoutCropInput | FieldConditionRecordUpsertWithWhereUniqueWithoutCropInput[]
+    createMany?: FieldConditionRecordCreateManyCropInputEnvelope
+    set?: FieldConditionRecordWhereUniqueInput | FieldConditionRecordWhereUniqueInput[]
+    disconnect?: FieldConditionRecordWhereUniqueInput | FieldConditionRecordWhereUniqueInput[]
+    delete?: FieldConditionRecordWhereUniqueInput | FieldConditionRecordWhereUniqueInput[]
+    connect?: FieldConditionRecordWhereUniqueInput | FieldConditionRecordWhereUniqueInput[]
+    update?: FieldConditionRecordUpdateWithWhereUniqueWithoutCropInput | FieldConditionRecordUpdateWithWhereUniqueWithoutCropInput[]
+    updateMany?: FieldConditionRecordUpdateManyWithWhereWithoutCropInput | FieldConditionRecordUpdateManyWithWhereWithoutCropInput[]
+    deleteMany?: FieldConditionRecordScalarWhereInput | FieldConditionRecordScalarWhereInput[]
+  }
+
+  export type WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput = {
+    create?: XOR<WeatherDataRecordCreateWithoutCropInput, WeatherDataRecordUncheckedCreateWithoutCropInput> | WeatherDataRecordCreateWithoutCropInput[] | WeatherDataRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: WeatherDataRecordCreateOrConnectWithoutCropInput | WeatherDataRecordCreateOrConnectWithoutCropInput[]
+    upsert?: WeatherDataRecordUpsertWithWhereUniqueWithoutCropInput | WeatherDataRecordUpsertWithWhereUniqueWithoutCropInput[]
+    createMany?: WeatherDataRecordCreateManyCropInputEnvelope
+    set?: WeatherDataRecordWhereUniqueInput | WeatherDataRecordWhereUniqueInput[]
+    disconnect?: WeatherDataRecordWhereUniqueInput | WeatherDataRecordWhereUniqueInput[]
+    delete?: WeatherDataRecordWhereUniqueInput | WeatherDataRecordWhereUniqueInput[]
+    connect?: WeatherDataRecordWhereUniqueInput | WeatherDataRecordWhereUniqueInput[]
+    update?: WeatherDataRecordUpdateWithWhereUniqueWithoutCropInput | WeatherDataRecordUpdateWithWhereUniqueWithoutCropInput[]
+    updateMany?: WeatherDataRecordUpdateManyWithWhereWithoutCropInput | WeatherDataRecordUpdateManyWithWhereWithoutCropInput[]
+    deleteMany?: WeatherDataRecordScalarWhereInput | WeatherDataRecordScalarWhereInput[]
+  }
+
   export type FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput = {
     create?: XOR<FertilizerRecordCreateWithoutCropInput, FertilizerRecordUncheckedCreateWithoutCropInput> | FertilizerRecordCreateWithoutCropInput[] | FertilizerRecordUncheckedCreateWithoutCropInput[]
     connectOrCreate?: FertilizerRecordCreateOrConnectWithoutCropInput | FertilizerRecordCreateOrConnectWithoutCropInput[]
@@ -80529,6 +86293,48 @@ export namespace Prisma {
     upsert?: CropUpsertWithoutPlantingRecordsInput
     connect?: CropWhereUniqueInput
     update?: XOR<XOR<CropUpdateToOneWithWhereWithoutPlantingRecordsInput, CropUpdateWithoutPlantingRecordsInput>, CropUncheckedUpdateWithoutPlantingRecordsInput>
+  }
+
+  export type CropCreateNestedOneWithoutSoilDataRecordsInput = {
+    create?: XOR<CropCreateWithoutSoilDataRecordsInput, CropUncheckedCreateWithoutSoilDataRecordsInput>
+    connectOrCreate?: CropCreateOrConnectWithoutSoilDataRecordsInput
+    connect?: CropWhereUniqueInput
+  }
+
+  export type CropUpdateOneRequiredWithoutSoilDataRecordsNestedInput = {
+    create?: XOR<CropCreateWithoutSoilDataRecordsInput, CropUncheckedCreateWithoutSoilDataRecordsInput>
+    connectOrCreate?: CropCreateOrConnectWithoutSoilDataRecordsInput
+    upsert?: CropUpsertWithoutSoilDataRecordsInput
+    connect?: CropWhereUniqueInput
+    update?: XOR<XOR<CropUpdateToOneWithWhereWithoutSoilDataRecordsInput, CropUpdateWithoutSoilDataRecordsInput>, CropUncheckedUpdateWithoutSoilDataRecordsInput>
+  }
+
+  export type CropCreateNestedOneWithoutFieldConditionRecordsInput = {
+    create?: XOR<CropCreateWithoutFieldConditionRecordsInput, CropUncheckedCreateWithoutFieldConditionRecordsInput>
+    connectOrCreate?: CropCreateOrConnectWithoutFieldConditionRecordsInput
+    connect?: CropWhereUniqueInput
+  }
+
+  export type CropUpdateOneRequiredWithoutFieldConditionRecordsNestedInput = {
+    create?: XOR<CropCreateWithoutFieldConditionRecordsInput, CropUncheckedCreateWithoutFieldConditionRecordsInput>
+    connectOrCreate?: CropCreateOrConnectWithoutFieldConditionRecordsInput
+    upsert?: CropUpsertWithoutFieldConditionRecordsInput
+    connect?: CropWhereUniqueInput
+    update?: XOR<XOR<CropUpdateToOneWithWhereWithoutFieldConditionRecordsInput, CropUpdateWithoutFieldConditionRecordsInput>, CropUncheckedUpdateWithoutFieldConditionRecordsInput>
+  }
+
+  export type CropCreateNestedOneWithoutWeatherDataRecordsInput = {
+    create?: XOR<CropCreateWithoutWeatherDataRecordsInput, CropUncheckedCreateWithoutWeatherDataRecordsInput>
+    connectOrCreate?: CropCreateOrConnectWithoutWeatherDataRecordsInput
+    connect?: CropWhereUniqueInput
+  }
+
+  export type CropUpdateOneRequiredWithoutWeatherDataRecordsNestedInput = {
+    create?: XOR<CropCreateWithoutWeatherDataRecordsInput, CropUncheckedCreateWithoutWeatherDataRecordsInput>
+    connectOrCreate?: CropCreateOrConnectWithoutWeatherDataRecordsInput
+    upsert?: CropUpsertWithoutWeatherDataRecordsInput
+    connect?: CropWhereUniqueInput
+    update?: XOR<XOR<CropUpdateToOneWithWhereWithoutWeatherDataRecordsInput, CropUpdateWithoutWeatherDataRecordsInput>, CropUncheckedUpdateWithoutWeatherDataRecordsInput>
   }
 
   export type CropCreateNestedOneWithoutFertilizerRecordsInput = {
@@ -89257,6 +95063,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
@@ -89291,6 +95100,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
@@ -89565,6 +95377,146 @@ export namespace Prisma {
 
   export type PlantingRecordCreateManyCropInputEnvelope = {
     data: PlantingRecordCreateManyCropInput | PlantingRecordCreateManyCropInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SoilDataRecordCreateWithoutCropInput = {
+    id?: string
+    farmId: string
+    date: Date | string
+    soilType: string
+    soilTypeNote?: string | null
+    soilPH: string
+    soilPHNote?: string | null
+    moistureContent: string
+    moistureNote?: string | null
+    organicMatter: string
+    organicNote?: string | null
+    nitrogen?: boolean
+    phosphorus?: boolean
+    potassium?: boolean
+    nutrientsNote?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SoilDataRecordUncheckedCreateWithoutCropInput = {
+    id?: string
+    farmId: string
+    date: Date | string
+    soilType: string
+    soilTypeNote?: string | null
+    soilPH: string
+    soilPHNote?: string | null
+    moistureContent: string
+    moistureNote?: string | null
+    organicMatter: string
+    organicNote?: string | null
+    nitrogen?: boolean
+    phosphorus?: boolean
+    potassium?: boolean
+    nutrientsNote?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SoilDataRecordCreateOrConnectWithoutCropInput = {
+    where: SoilDataRecordWhereUniqueInput
+    create: XOR<SoilDataRecordCreateWithoutCropInput, SoilDataRecordUncheckedCreateWithoutCropInput>
+  }
+
+  export type SoilDataRecordCreateManyCropInputEnvelope = {
+    data: SoilDataRecordCreateManyCropInput | SoilDataRecordCreateManyCropInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FieldConditionRecordCreateWithoutCropInput = {
+    id?: string
+    farmId: string
+    date: Date | string
+    topography: string
+    topographyNote?: string | null
+    drainage: string
+    drainageNote?: string | null
+    previousCropResidue: string
+    residueNote?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FieldConditionRecordUncheckedCreateWithoutCropInput = {
+    id?: string
+    farmId: string
+    date: Date | string
+    topography: string
+    topographyNote?: string | null
+    drainage: string
+    drainageNote?: string | null
+    previousCropResidue: string
+    residueNote?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FieldConditionRecordCreateOrConnectWithoutCropInput = {
+    where: FieldConditionRecordWhereUniqueInput
+    create: XOR<FieldConditionRecordCreateWithoutCropInput, FieldConditionRecordUncheckedCreateWithoutCropInput>
+  }
+
+  export type FieldConditionRecordCreateManyCropInputEnvelope = {
+    data: FieldConditionRecordCreateManyCropInput | FieldConditionRecordCreateManyCropInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type WeatherDataRecordCreateWithoutCropInput = {
+    id?: string
+    farmId: string
+    date: Date | string
+    temperatureType: string
+    temperatureValue: number
+    temperatureNote?: string | null
+    precipitationType: string
+    precipitationValue: number
+    precipitationNote?: string | null
+    windType: string
+    windValue: number
+    windNote?: string | null
+    humidityType: string
+    humidityValue: number
+    humidityNote?: string | null
+    locationName?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WeatherDataRecordUncheckedCreateWithoutCropInput = {
+    id?: string
+    farmId: string
+    date: Date | string
+    temperatureType: string
+    temperatureValue: number
+    temperatureNote?: string | null
+    precipitationType: string
+    precipitationValue: number
+    precipitationNote?: string | null
+    windType: string
+    windValue: number
+    windNote?: string | null
+    humidityType: string
+    humidityValue: number
+    humidityNote?: string | null
+    locationName?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WeatherDataRecordCreateOrConnectWithoutCropInput = {
+    where: WeatherDataRecordWhereUniqueInput
+    create: XOR<WeatherDataRecordCreateWithoutCropInput, WeatherDataRecordUncheckedCreateWithoutCropInput>
+  }
+
+  export type WeatherDataRecordCreateManyCropInputEnvelope = {
+    data: WeatherDataRecordCreateManyCropInput | WeatherDataRecordCreateManyCropInput[]
     skipDuplicates?: boolean
   }
 
@@ -89919,6 +95871,24 @@ export namespace Prisma {
     outputQuantity?: number | null
     outputQuantityUnit?: string
     outputQuality?: string | null
+    dateOfPestControl?: Date | string | null
+    pestIdentified?: string | null
+    methodOfControl?: string | null
+    pesticideSource?: string | null
+    brandName?: string | null
+    methodOfApplication?: string | null
+    amountAppliedPest?: string | null
+    serialNumber?: string | null
+    dateOfPurchase?: Date | string | null
+    seller?: string | null
+    quantityPurchased?: string | null
+    purchasePrice?: number | null
+    transportCost?: number | null
+    dateOfStorage?: Date | string | null
+    finalQuantity?: number | null
+    finalQuality?: string | null
+    typeOfStorage?: string | null
+    miscellaneousCostsIncurred?: number | null
     notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -89937,6 +95907,24 @@ export namespace Prisma {
     outputQuantity?: number | null
     outputQuantityUnit?: string
     outputQuality?: string | null
+    dateOfPestControl?: Date | string | null
+    pestIdentified?: string | null
+    methodOfControl?: string | null
+    pesticideSource?: string | null
+    brandName?: string | null
+    methodOfApplication?: string | null
+    amountAppliedPest?: string | null
+    serialNumber?: string | null
+    dateOfPurchase?: Date | string | null
+    seller?: string | null
+    quantityPurchased?: string | null
+    purchasePrice?: number | null
+    transportCost?: number | null
+    dateOfStorage?: Date | string | null
+    finalQuantity?: number | null
+    finalQuality?: string | null
+    typeOfStorage?: string | null
+    miscellaneousCostsIncurred?: number | null
     notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -90202,6 +96190,121 @@ export namespace Prisma {
     notes?: StringNullableFilter<"PlantingRecord"> | string | null
     createdAt?: DateTimeFilter<"PlantingRecord"> | Date | string
     updatedAt?: DateTimeFilter<"PlantingRecord"> | Date | string
+  }
+
+  export type SoilDataRecordUpsertWithWhereUniqueWithoutCropInput = {
+    where: SoilDataRecordWhereUniqueInput
+    update: XOR<SoilDataRecordUpdateWithoutCropInput, SoilDataRecordUncheckedUpdateWithoutCropInput>
+    create: XOR<SoilDataRecordCreateWithoutCropInput, SoilDataRecordUncheckedCreateWithoutCropInput>
+  }
+
+  export type SoilDataRecordUpdateWithWhereUniqueWithoutCropInput = {
+    where: SoilDataRecordWhereUniqueInput
+    data: XOR<SoilDataRecordUpdateWithoutCropInput, SoilDataRecordUncheckedUpdateWithoutCropInput>
+  }
+
+  export type SoilDataRecordUpdateManyWithWhereWithoutCropInput = {
+    where: SoilDataRecordScalarWhereInput
+    data: XOR<SoilDataRecordUpdateManyMutationInput, SoilDataRecordUncheckedUpdateManyWithoutCropInput>
+  }
+
+  export type SoilDataRecordScalarWhereInput = {
+    AND?: SoilDataRecordScalarWhereInput | SoilDataRecordScalarWhereInput[]
+    OR?: SoilDataRecordScalarWhereInput[]
+    NOT?: SoilDataRecordScalarWhereInput | SoilDataRecordScalarWhereInput[]
+    id?: StringFilter<"SoilDataRecord"> | string
+    cropId?: StringFilter<"SoilDataRecord"> | string
+    farmId?: StringFilter<"SoilDataRecord"> | string
+    date?: DateTimeFilter<"SoilDataRecord"> | Date | string
+    soilType?: StringFilter<"SoilDataRecord"> | string
+    soilTypeNote?: StringNullableFilter<"SoilDataRecord"> | string | null
+    soilPH?: StringFilter<"SoilDataRecord"> | string
+    soilPHNote?: StringNullableFilter<"SoilDataRecord"> | string | null
+    moistureContent?: StringFilter<"SoilDataRecord"> | string
+    moistureNote?: StringNullableFilter<"SoilDataRecord"> | string | null
+    organicMatter?: StringFilter<"SoilDataRecord"> | string
+    organicNote?: StringNullableFilter<"SoilDataRecord"> | string | null
+    nitrogen?: BoolFilter<"SoilDataRecord"> | boolean
+    phosphorus?: BoolFilter<"SoilDataRecord"> | boolean
+    potassium?: BoolFilter<"SoilDataRecord"> | boolean
+    nutrientsNote?: StringNullableFilter<"SoilDataRecord"> | string | null
+    createdAt?: DateTimeFilter<"SoilDataRecord"> | Date | string
+    updatedAt?: DateTimeFilter<"SoilDataRecord"> | Date | string
+  }
+
+  export type FieldConditionRecordUpsertWithWhereUniqueWithoutCropInput = {
+    where: FieldConditionRecordWhereUniqueInput
+    update: XOR<FieldConditionRecordUpdateWithoutCropInput, FieldConditionRecordUncheckedUpdateWithoutCropInput>
+    create: XOR<FieldConditionRecordCreateWithoutCropInput, FieldConditionRecordUncheckedCreateWithoutCropInput>
+  }
+
+  export type FieldConditionRecordUpdateWithWhereUniqueWithoutCropInput = {
+    where: FieldConditionRecordWhereUniqueInput
+    data: XOR<FieldConditionRecordUpdateWithoutCropInput, FieldConditionRecordUncheckedUpdateWithoutCropInput>
+  }
+
+  export type FieldConditionRecordUpdateManyWithWhereWithoutCropInput = {
+    where: FieldConditionRecordScalarWhereInput
+    data: XOR<FieldConditionRecordUpdateManyMutationInput, FieldConditionRecordUncheckedUpdateManyWithoutCropInput>
+  }
+
+  export type FieldConditionRecordScalarWhereInput = {
+    AND?: FieldConditionRecordScalarWhereInput | FieldConditionRecordScalarWhereInput[]
+    OR?: FieldConditionRecordScalarWhereInput[]
+    NOT?: FieldConditionRecordScalarWhereInput | FieldConditionRecordScalarWhereInput[]
+    id?: StringFilter<"FieldConditionRecord"> | string
+    cropId?: StringFilter<"FieldConditionRecord"> | string
+    farmId?: StringFilter<"FieldConditionRecord"> | string
+    date?: DateTimeFilter<"FieldConditionRecord"> | Date | string
+    topography?: StringFilter<"FieldConditionRecord"> | string
+    topographyNote?: StringNullableFilter<"FieldConditionRecord"> | string | null
+    drainage?: StringFilter<"FieldConditionRecord"> | string
+    drainageNote?: StringNullableFilter<"FieldConditionRecord"> | string | null
+    previousCropResidue?: StringFilter<"FieldConditionRecord"> | string
+    residueNote?: StringNullableFilter<"FieldConditionRecord"> | string | null
+    createdAt?: DateTimeFilter<"FieldConditionRecord"> | Date | string
+    updatedAt?: DateTimeFilter<"FieldConditionRecord"> | Date | string
+  }
+
+  export type WeatherDataRecordUpsertWithWhereUniqueWithoutCropInput = {
+    where: WeatherDataRecordWhereUniqueInput
+    update: XOR<WeatherDataRecordUpdateWithoutCropInput, WeatherDataRecordUncheckedUpdateWithoutCropInput>
+    create: XOR<WeatherDataRecordCreateWithoutCropInput, WeatherDataRecordUncheckedCreateWithoutCropInput>
+  }
+
+  export type WeatherDataRecordUpdateWithWhereUniqueWithoutCropInput = {
+    where: WeatherDataRecordWhereUniqueInput
+    data: XOR<WeatherDataRecordUpdateWithoutCropInput, WeatherDataRecordUncheckedUpdateWithoutCropInput>
+  }
+
+  export type WeatherDataRecordUpdateManyWithWhereWithoutCropInput = {
+    where: WeatherDataRecordScalarWhereInput
+    data: XOR<WeatherDataRecordUpdateManyMutationInput, WeatherDataRecordUncheckedUpdateManyWithoutCropInput>
+  }
+
+  export type WeatherDataRecordScalarWhereInput = {
+    AND?: WeatherDataRecordScalarWhereInput | WeatherDataRecordScalarWhereInput[]
+    OR?: WeatherDataRecordScalarWhereInput[]
+    NOT?: WeatherDataRecordScalarWhereInput | WeatherDataRecordScalarWhereInput[]
+    id?: StringFilter<"WeatherDataRecord"> | string
+    cropId?: StringFilter<"WeatherDataRecord"> | string
+    farmId?: StringFilter<"WeatherDataRecord"> | string
+    date?: DateTimeFilter<"WeatherDataRecord"> | Date | string
+    temperatureType?: StringFilter<"WeatherDataRecord"> | string
+    temperatureValue?: FloatFilter<"WeatherDataRecord"> | number
+    temperatureNote?: StringNullableFilter<"WeatherDataRecord"> | string | null
+    precipitationType?: StringFilter<"WeatherDataRecord"> | string
+    precipitationValue?: FloatFilter<"WeatherDataRecord"> | number
+    precipitationNote?: StringNullableFilter<"WeatherDataRecord"> | string | null
+    windType?: StringFilter<"WeatherDataRecord"> | string
+    windValue?: FloatFilter<"WeatherDataRecord"> | number
+    windNote?: StringNullableFilter<"WeatherDataRecord"> | string | null
+    humidityType?: StringFilter<"WeatherDataRecord"> | string
+    humidityValue?: FloatFilter<"WeatherDataRecord"> | number
+    humidityNote?: StringNullableFilter<"WeatherDataRecord"> | string | null
+    locationName?: StringNullableFilter<"WeatherDataRecord"> | string | null
+    createdAt?: DateTimeFilter<"WeatherDataRecord"> | Date | string
+    updatedAt?: DateTimeFilter<"WeatherDataRecord"> | Date | string
   }
 
   export type FertilizerRecordUpsertWithWhereUniqueWithoutCropInput = {
@@ -90511,6 +96614,24 @@ export namespace Prisma {
     outputQuantity?: FloatNullableFilter<"ProcessingRecord"> | number | null
     outputQuantityUnit?: StringFilter<"ProcessingRecord"> | string
     outputQuality?: StringNullableFilter<"ProcessingRecord"> | string | null
+    dateOfPestControl?: DateTimeNullableFilter<"ProcessingRecord"> | Date | string | null
+    pestIdentified?: StringNullableFilter<"ProcessingRecord"> | string | null
+    methodOfControl?: StringNullableFilter<"ProcessingRecord"> | string | null
+    pesticideSource?: StringNullableFilter<"ProcessingRecord"> | string | null
+    brandName?: StringNullableFilter<"ProcessingRecord"> | string | null
+    methodOfApplication?: StringNullableFilter<"ProcessingRecord"> | string | null
+    amountAppliedPest?: StringNullableFilter<"ProcessingRecord"> | string | null
+    serialNumber?: StringNullableFilter<"ProcessingRecord"> | string | null
+    dateOfPurchase?: DateTimeNullableFilter<"ProcessingRecord"> | Date | string | null
+    seller?: StringNullableFilter<"ProcessingRecord"> | string | null
+    quantityPurchased?: StringNullableFilter<"ProcessingRecord"> | string | null
+    purchasePrice?: FloatNullableFilter<"ProcessingRecord"> | number | null
+    transportCost?: FloatNullableFilter<"ProcessingRecord"> | number | null
+    dateOfStorage?: DateTimeNullableFilter<"ProcessingRecord"> | Date | string | null
+    finalQuantity?: FloatNullableFilter<"ProcessingRecord"> | number | null
+    finalQuality?: StringNullableFilter<"ProcessingRecord"> | string | null
+    typeOfStorage?: StringNullableFilter<"ProcessingRecord"> | string | null
+    miscellaneousCostsIncurred?: FloatNullableFilter<"ProcessingRecord"> | number | null
     notes?: StringNullableFilter<"ProcessingRecord"> | string | null
     createdAt?: DateTimeFilter<"ProcessingRecord"> | Date | string
     updatedAt?: DateTimeFilter<"ProcessingRecord"> | Date | string
@@ -90636,6 +96757,9 @@ export namespace Prisma {
     cycle: CropCycleCreateNestedOneWithoutCropsInput
     tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
@@ -90670,6 +96794,9 @@ export namespace Prisma {
     updatedAt?: Date | string
     tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
@@ -90720,6 +96847,9 @@ export namespace Prisma {
     cycle?: CropCycleUpdateOneRequiredWithoutCropsNestedInput
     tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
@@ -90754,6 +96884,9 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -90788,6 +96921,9 @@ export namespace Prisma {
     cycle: CropCycleCreateNestedOneWithoutCropsInput
     soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
@@ -90822,6 +96958,9 @@ export namespace Prisma {
     updatedAt?: Date | string
     soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
@@ -90872,6 +97011,9 @@ export namespace Prisma {
     cycle?: CropCycleUpdateOneRequiredWithoutCropsNestedInput
     soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
@@ -90906,6 +97048,9 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -90940,6 +97085,9 @@ export namespace Prisma {
     cycle: CropCycleCreateNestedOneWithoutCropsInput
     soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
@@ -90974,6 +97122,9 @@ export namespace Prisma {
     updatedAt?: Date | string
     soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
@@ -91024,6 +97175,9 @@ export namespace Prisma {
     cycle?: CropCycleUpdateOneRequiredWithoutCropsNestedInput
     soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
@@ -91058,6 +97212,501 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
+    irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
+    weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
+    chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
+    diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
+    pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
+    processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
+    lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
+    saleRecords?: CropSaleRecordUncheckedUpdateManyWithoutCropNestedInput
+    alerts?: CropAlertUncheckedUpdateManyWithoutCropNestedInput
+  }
+
+  export type CropCreateWithoutSoilDataRecordsInput = {
+    id?: string
+    farmId: string
+    cropName: string
+    category?: string | null
+    variety?: string | null
+    areaSize: number
+    areaUnit?: string
+    plantingDate: string
+    expectedHarvestDate: string
+    status?: string
+    progress?: number
+    currentActivity?: string | null
+    icon?: string | null
+    color?: string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cycle: CropCycleCreateNestedOneWithoutCropsInput
+    soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
+    tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
+    plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
+    fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
+    irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
+    weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
+    chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
+    diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
+    pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
+    processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
+    lossRecords?: LossRecordCreateNestedManyWithoutCropInput
+    saleRecords?: CropSaleRecordCreateNestedManyWithoutCropInput
+    alerts?: CropAlertCreateNestedManyWithoutCropInput
+  }
+
+  export type CropUncheckedCreateWithoutSoilDataRecordsInput = {
+    id?: string
+    cycleId: string
+    farmId: string
+    cropName: string
+    category?: string | null
+    variety?: string | null
+    areaSize: number
+    areaUnit?: string
+    plantingDate: string
+    expectedHarvestDate: string
+    status?: string
+    progress?: number
+    currentActivity?: string | null
+    icon?: string | null
+    color?: string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
+    tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
+    plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
+    irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
+    weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
+    chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
+    diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
+    pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
+    processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
+    lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
+    saleRecords?: CropSaleRecordUncheckedCreateNestedManyWithoutCropInput
+    alerts?: CropAlertUncheckedCreateNestedManyWithoutCropInput
+  }
+
+  export type CropCreateOrConnectWithoutSoilDataRecordsInput = {
+    where: CropWhereUniqueInput
+    create: XOR<CropCreateWithoutSoilDataRecordsInput, CropUncheckedCreateWithoutSoilDataRecordsInput>
+  }
+
+  export type CropUpsertWithoutSoilDataRecordsInput = {
+    update: XOR<CropUpdateWithoutSoilDataRecordsInput, CropUncheckedUpdateWithoutSoilDataRecordsInput>
+    create: XOR<CropCreateWithoutSoilDataRecordsInput, CropUncheckedCreateWithoutSoilDataRecordsInput>
+    where?: CropWhereInput
+  }
+
+  export type CropUpdateToOneWithWhereWithoutSoilDataRecordsInput = {
+    where?: CropWhereInput
+    data: XOR<CropUpdateWithoutSoilDataRecordsInput, CropUncheckedUpdateWithoutSoilDataRecordsInput>
+  }
+
+  export type CropUpdateWithoutSoilDataRecordsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    cropName?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    variety?: NullableStringFieldUpdateOperationsInput | string | null
+    areaSize?: FloatFieldUpdateOperationsInput | number
+    areaUnit?: StringFieldUpdateOperationsInput | string
+    plantingDate?: StringFieldUpdateOperationsInput | string
+    expectedHarvestDate?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    progress?: IntFieldUpdateOperationsInput | number
+    currentActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cycle?: CropCycleUpdateOneRequiredWithoutCropsNestedInput
+    soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
+    tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
+    plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
+    fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
+    irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
+    weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
+    chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
+    diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
+    pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
+    processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
+    lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
+    saleRecords?: CropSaleRecordUpdateManyWithoutCropNestedInput
+    alerts?: CropAlertUpdateManyWithoutCropNestedInput
+  }
+
+  export type CropUncheckedUpdateWithoutSoilDataRecordsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cycleId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    cropName?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    variety?: NullableStringFieldUpdateOperationsInput | string | null
+    areaSize?: FloatFieldUpdateOperationsInput | number
+    areaUnit?: StringFieldUpdateOperationsInput | string
+    plantingDate?: StringFieldUpdateOperationsInput | string
+    expectedHarvestDate?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    progress?: IntFieldUpdateOperationsInput | number
+    currentActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
+    tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
+    plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
+    irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
+    weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
+    chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
+    diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
+    pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
+    processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
+    lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
+    saleRecords?: CropSaleRecordUncheckedUpdateManyWithoutCropNestedInput
+    alerts?: CropAlertUncheckedUpdateManyWithoutCropNestedInput
+  }
+
+  export type CropCreateWithoutFieldConditionRecordsInput = {
+    id?: string
+    farmId: string
+    cropName: string
+    category?: string | null
+    variety?: string | null
+    areaSize: number
+    areaUnit?: string
+    plantingDate: string
+    expectedHarvestDate: string
+    status?: string
+    progress?: number
+    currentActivity?: string | null
+    icon?: string | null
+    color?: string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cycle: CropCycleCreateNestedOneWithoutCropsInput
+    soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
+    tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
+    plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
+    fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
+    irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
+    weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
+    chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
+    diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
+    pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
+    processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
+    lossRecords?: LossRecordCreateNestedManyWithoutCropInput
+    saleRecords?: CropSaleRecordCreateNestedManyWithoutCropInput
+    alerts?: CropAlertCreateNestedManyWithoutCropInput
+  }
+
+  export type CropUncheckedCreateWithoutFieldConditionRecordsInput = {
+    id?: string
+    cycleId: string
+    farmId: string
+    cropName: string
+    category?: string | null
+    variety?: string | null
+    areaSize: number
+    areaUnit?: string
+    plantingDate: string
+    expectedHarvestDate: string
+    status?: string
+    progress?: number
+    currentActivity?: string | null
+    icon?: string | null
+    color?: string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
+    tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
+    plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
+    irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
+    weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
+    chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
+    diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
+    pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
+    processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
+    lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
+    saleRecords?: CropSaleRecordUncheckedCreateNestedManyWithoutCropInput
+    alerts?: CropAlertUncheckedCreateNestedManyWithoutCropInput
+  }
+
+  export type CropCreateOrConnectWithoutFieldConditionRecordsInput = {
+    where: CropWhereUniqueInput
+    create: XOR<CropCreateWithoutFieldConditionRecordsInput, CropUncheckedCreateWithoutFieldConditionRecordsInput>
+  }
+
+  export type CropUpsertWithoutFieldConditionRecordsInput = {
+    update: XOR<CropUpdateWithoutFieldConditionRecordsInput, CropUncheckedUpdateWithoutFieldConditionRecordsInput>
+    create: XOR<CropCreateWithoutFieldConditionRecordsInput, CropUncheckedCreateWithoutFieldConditionRecordsInput>
+    where?: CropWhereInput
+  }
+
+  export type CropUpdateToOneWithWhereWithoutFieldConditionRecordsInput = {
+    where?: CropWhereInput
+    data: XOR<CropUpdateWithoutFieldConditionRecordsInput, CropUncheckedUpdateWithoutFieldConditionRecordsInput>
+  }
+
+  export type CropUpdateWithoutFieldConditionRecordsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    cropName?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    variety?: NullableStringFieldUpdateOperationsInput | string | null
+    areaSize?: FloatFieldUpdateOperationsInput | number
+    areaUnit?: StringFieldUpdateOperationsInput | string
+    plantingDate?: StringFieldUpdateOperationsInput | string
+    expectedHarvestDate?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    progress?: IntFieldUpdateOperationsInput | number
+    currentActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cycle?: CropCycleUpdateOneRequiredWithoutCropsNestedInput
+    soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
+    tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
+    plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
+    fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
+    irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
+    weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
+    chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
+    diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
+    pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
+    processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
+    lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
+    saleRecords?: CropSaleRecordUpdateManyWithoutCropNestedInput
+    alerts?: CropAlertUpdateManyWithoutCropNestedInput
+  }
+
+  export type CropUncheckedUpdateWithoutFieldConditionRecordsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cycleId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    cropName?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    variety?: NullableStringFieldUpdateOperationsInput | string | null
+    areaSize?: FloatFieldUpdateOperationsInput | number
+    areaUnit?: StringFieldUpdateOperationsInput | string
+    plantingDate?: StringFieldUpdateOperationsInput | string
+    expectedHarvestDate?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    progress?: IntFieldUpdateOperationsInput | number
+    currentActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
+    tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
+    plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
+    irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
+    weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
+    chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
+    diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
+    pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
+    processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
+    lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
+    saleRecords?: CropSaleRecordUncheckedUpdateManyWithoutCropNestedInput
+    alerts?: CropAlertUncheckedUpdateManyWithoutCropNestedInput
+  }
+
+  export type CropCreateWithoutWeatherDataRecordsInput = {
+    id?: string
+    farmId: string
+    cropName: string
+    category?: string | null
+    variety?: string | null
+    areaSize: number
+    areaUnit?: string
+    plantingDate: string
+    expectedHarvestDate: string
+    status?: string
+    progress?: number
+    currentActivity?: string | null
+    icon?: string | null
+    color?: string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cycle: CropCycleCreateNestedOneWithoutCropsInput
+    soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
+    tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
+    plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
+    irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
+    weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
+    chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
+    diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
+    pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
+    processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
+    lossRecords?: LossRecordCreateNestedManyWithoutCropInput
+    saleRecords?: CropSaleRecordCreateNestedManyWithoutCropInput
+    alerts?: CropAlertCreateNestedManyWithoutCropInput
+  }
+
+  export type CropUncheckedCreateWithoutWeatherDataRecordsInput = {
+    id?: string
+    cycleId: string
+    farmId: string
+    cropName: string
+    category?: string | null
+    variety?: string | null
+    areaSize: number
+    areaUnit?: string
+    plantingDate: string
+    expectedHarvestDate: string
+    status?: string
+    progress?: number
+    currentActivity?: string | null
+    icon?: string | null
+    color?: string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
+    tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
+    plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
+    irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
+    weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
+    chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
+    diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
+    pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
+    processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
+    lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
+    saleRecords?: CropSaleRecordUncheckedCreateNestedManyWithoutCropInput
+    alerts?: CropAlertUncheckedCreateNestedManyWithoutCropInput
+  }
+
+  export type CropCreateOrConnectWithoutWeatherDataRecordsInput = {
+    where: CropWhereUniqueInput
+    create: XOR<CropCreateWithoutWeatherDataRecordsInput, CropUncheckedCreateWithoutWeatherDataRecordsInput>
+  }
+
+  export type CropUpsertWithoutWeatherDataRecordsInput = {
+    update: XOR<CropUpdateWithoutWeatherDataRecordsInput, CropUncheckedUpdateWithoutWeatherDataRecordsInput>
+    create: XOR<CropCreateWithoutWeatherDataRecordsInput, CropUncheckedCreateWithoutWeatherDataRecordsInput>
+    where?: CropWhereInput
+  }
+
+  export type CropUpdateToOneWithWhereWithoutWeatherDataRecordsInput = {
+    where?: CropWhereInput
+    data: XOR<CropUpdateWithoutWeatherDataRecordsInput, CropUncheckedUpdateWithoutWeatherDataRecordsInput>
+  }
+
+  export type CropUpdateWithoutWeatherDataRecordsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    cropName?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    variety?: NullableStringFieldUpdateOperationsInput | string | null
+    areaSize?: FloatFieldUpdateOperationsInput | number
+    areaUnit?: StringFieldUpdateOperationsInput | string
+    plantingDate?: StringFieldUpdateOperationsInput | string
+    expectedHarvestDate?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    progress?: IntFieldUpdateOperationsInput | number
+    currentActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cycle?: CropCycleUpdateOneRequiredWithoutCropsNestedInput
+    soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
+    tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
+    plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
+    irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
+    weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
+    chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
+    diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
+    pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
+    processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
+    lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
+    saleRecords?: CropSaleRecordUpdateManyWithoutCropNestedInput
+    alerts?: CropAlertUpdateManyWithoutCropNestedInput
+  }
+
+  export type CropUncheckedUpdateWithoutWeatherDataRecordsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cycleId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    cropName?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    variety?: NullableStringFieldUpdateOperationsInput | string | null
+    areaSize?: FloatFieldUpdateOperationsInput | number
+    areaUnit?: StringFieldUpdateOperationsInput | string
+    plantingDate?: StringFieldUpdateOperationsInput | string
+    expectedHarvestDate?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    progress?: IntFieldUpdateOperationsInput | number
+    currentActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
+    tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
+    plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -91093,6 +97742,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
@@ -91127,6 +97779,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
@@ -91177,6 +97832,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
@@ -91211,6 +97869,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -91245,6 +97906,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
@@ -91279,6 +97943,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
@@ -91329,6 +97996,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
@@ -91363,6 +98033,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -91397,6 +98070,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
@@ -91431,6 +98107,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
@@ -91481,6 +98160,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
@@ -91515,6 +98197,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -91549,6 +98234,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
@@ -91583,6 +98271,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
@@ -91633,6 +98324,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
@@ -91667,6 +98361,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -91701,6 +98398,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
@@ -91735,6 +98435,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
@@ -91785,6 +98488,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
@@ -91819,6 +98525,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -91853,6 +98562,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
@@ -91887,6 +98599,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
@@ -91937,6 +98652,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
@@ -91971,6 +98689,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -92005,6 +98726,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
@@ -92039,6 +98763,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
@@ -92089,6 +98816,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
@@ -92123,6 +98853,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -92157,6 +98890,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
@@ -92191,6 +98927,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
@@ -92241,6 +98980,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
@@ -92275,6 +99017,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -92309,6 +99054,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
@@ -92343,6 +99091,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
@@ -92393,6 +99144,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
@@ -92427,6 +99181,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -92461,6 +99218,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
@@ -92495,6 +99255,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
@@ -92545,6 +99308,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
@@ -92579,6 +99345,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -92613,6 +99382,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
@@ -92647,6 +99419,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
     tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
     plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
     fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
     irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
     weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
@@ -92697,6 +99472,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
@@ -92731,6 +99509,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -95594,6 +102375,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
@@ -95628,6 +102412,9 @@ export namespace Prisma {
     soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
     tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
     plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
     fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
     irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
     weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -95702,6 +102489,61 @@ export namespace Prisma {
     numberOfWorkers?: number | null
     labourCost?: number | null
     notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SoilDataRecordCreateManyCropInput = {
+    id?: string
+    farmId: string
+    date: Date | string
+    soilType: string
+    soilTypeNote?: string | null
+    soilPH: string
+    soilPHNote?: string | null
+    moistureContent: string
+    moistureNote?: string | null
+    organicMatter: string
+    organicNote?: string | null
+    nitrogen?: boolean
+    phosphorus?: boolean
+    potassium?: boolean
+    nutrientsNote?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FieldConditionRecordCreateManyCropInput = {
+    id?: string
+    farmId: string
+    date: Date | string
+    topography: string
+    topographyNote?: string | null
+    drainage: string
+    drainageNote?: string | null
+    previousCropResidue: string
+    residueNote?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WeatherDataRecordCreateManyCropInput = {
+    id?: string
+    farmId: string
+    date: Date | string
+    temperatureType: string
+    temperatureValue: number
+    temperatureNote?: string | null
+    precipitationType: string
+    precipitationValue: number
+    precipitationNote?: string | null
+    windType: string
+    windValue: number
+    windNote?: string | null
+    humidityType: string
+    humidityValue: number
+    humidityNote?: string | null
+    locationName?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -95853,6 +102695,24 @@ export namespace Prisma {
     outputQuantity?: number | null
     outputQuantityUnit?: string
     outputQuality?: string | null
+    dateOfPestControl?: Date | string | null
+    pestIdentified?: string | null
+    methodOfControl?: string | null
+    pesticideSource?: string | null
+    brandName?: string | null
+    methodOfApplication?: string | null
+    amountAppliedPest?: string | null
+    serialNumber?: string | null
+    dateOfPurchase?: Date | string | null
+    seller?: string | null
+    quantityPurchased?: string | null
+    purchasePrice?: number | null
+    transportCost?: number | null
+    dateOfStorage?: Date | string | null
+    finalQuantity?: number | null
+    finalQuality?: string | null
+    typeOfStorage?: string | null
+    miscellaneousCostsIncurred?: number | null
     notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -96028,6 +102888,171 @@ export namespace Prisma {
     numberOfWorkers?: NullableIntFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SoilDataRecordUpdateWithoutCropInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    soilType?: StringFieldUpdateOperationsInput | string
+    soilTypeNote?: NullableStringFieldUpdateOperationsInput | string | null
+    soilPH?: StringFieldUpdateOperationsInput | string
+    soilPHNote?: NullableStringFieldUpdateOperationsInput | string | null
+    moistureContent?: StringFieldUpdateOperationsInput | string
+    moistureNote?: NullableStringFieldUpdateOperationsInput | string | null
+    organicMatter?: StringFieldUpdateOperationsInput | string
+    organicNote?: NullableStringFieldUpdateOperationsInput | string | null
+    nitrogen?: BoolFieldUpdateOperationsInput | boolean
+    phosphorus?: BoolFieldUpdateOperationsInput | boolean
+    potassium?: BoolFieldUpdateOperationsInput | boolean
+    nutrientsNote?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SoilDataRecordUncheckedUpdateWithoutCropInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    soilType?: StringFieldUpdateOperationsInput | string
+    soilTypeNote?: NullableStringFieldUpdateOperationsInput | string | null
+    soilPH?: StringFieldUpdateOperationsInput | string
+    soilPHNote?: NullableStringFieldUpdateOperationsInput | string | null
+    moistureContent?: StringFieldUpdateOperationsInput | string
+    moistureNote?: NullableStringFieldUpdateOperationsInput | string | null
+    organicMatter?: StringFieldUpdateOperationsInput | string
+    organicNote?: NullableStringFieldUpdateOperationsInput | string | null
+    nitrogen?: BoolFieldUpdateOperationsInput | boolean
+    phosphorus?: BoolFieldUpdateOperationsInput | boolean
+    potassium?: BoolFieldUpdateOperationsInput | boolean
+    nutrientsNote?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SoilDataRecordUncheckedUpdateManyWithoutCropInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    soilType?: StringFieldUpdateOperationsInput | string
+    soilTypeNote?: NullableStringFieldUpdateOperationsInput | string | null
+    soilPH?: StringFieldUpdateOperationsInput | string
+    soilPHNote?: NullableStringFieldUpdateOperationsInput | string | null
+    moistureContent?: StringFieldUpdateOperationsInput | string
+    moistureNote?: NullableStringFieldUpdateOperationsInput | string | null
+    organicMatter?: StringFieldUpdateOperationsInput | string
+    organicNote?: NullableStringFieldUpdateOperationsInput | string | null
+    nitrogen?: BoolFieldUpdateOperationsInput | boolean
+    phosphorus?: BoolFieldUpdateOperationsInput | boolean
+    potassium?: BoolFieldUpdateOperationsInput | boolean
+    nutrientsNote?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FieldConditionRecordUpdateWithoutCropInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    topography?: StringFieldUpdateOperationsInput | string
+    topographyNote?: NullableStringFieldUpdateOperationsInput | string | null
+    drainage?: StringFieldUpdateOperationsInput | string
+    drainageNote?: NullableStringFieldUpdateOperationsInput | string | null
+    previousCropResidue?: StringFieldUpdateOperationsInput | string
+    residueNote?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FieldConditionRecordUncheckedUpdateWithoutCropInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    topography?: StringFieldUpdateOperationsInput | string
+    topographyNote?: NullableStringFieldUpdateOperationsInput | string | null
+    drainage?: StringFieldUpdateOperationsInput | string
+    drainageNote?: NullableStringFieldUpdateOperationsInput | string | null
+    previousCropResidue?: StringFieldUpdateOperationsInput | string
+    residueNote?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FieldConditionRecordUncheckedUpdateManyWithoutCropInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    topography?: StringFieldUpdateOperationsInput | string
+    topographyNote?: NullableStringFieldUpdateOperationsInput | string | null
+    drainage?: StringFieldUpdateOperationsInput | string
+    drainageNote?: NullableStringFieldUpdateOperationsInput | string | null
+    previousCropResidue?: StringFieldUpdateOperationsInput | string
+    residueNote?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WeatherDataRecordUpdateWithoutCropInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    temperatureType?: StringFieldUpdateOperationsInput | string
+    temperatureValue?: FloatFieldUpdateOperationsInput | number
+    temperatureNote?: NullableStringFieldUpdateOperationsInput | string | null
+    precipitationType?: StringFieldUpdateOperationsInput | string
+    precipitationValue?: FloatFieldUpdateOperationsInput | number
+    precipitationNote?: NullableStringFieldUpdateOperationsInput | string | null
+    windType?: StringFieldUpdateOperationsInput | string
+    windValue?: FloatFieldUpdateOperationsInput | number
+    windNote?: NullableStringFieldUpdateOperationsInput | string | null
+    humidityType?: StringFieldUpdateOperationsInput | string
+    humidityValue?: FloatFieldUpdateOperationsInput | number
+    humidityNote?: NullableStringFieldUpdateOperationsInput | string | null
+    locationName?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WeatherDataRecordUncheckedUpdateWithoutCropInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    temperatureType?: StringFieldUpdateOperationsInput | string
+    temperatureValue?: FloatFieldUpdateOperationsInput | number
+    temperatureNote?: NullableStringFieldUpdateOperationsInput | string | null
+    precipitationType?: StringFieldUpdateOperationsInput | string
+    precipitationValue?: FloatFieldUpdateOperationsInput | number
+    precipitationNote?: NullableStringFieldUpdateOperationsInput | string | null
+    windType?: StringFieldUpdateOperationsInput | string
+    windValue?: FloatFieldUpdateOperationsInput | number
+    windNote?: NullableStringFieldUpdateOperationsInput | string | null
+    humidityType?: StringFieldUpdateOperationsInput | string
+    humidityValue?: FloatFieldUpdateOperationsInput | number
+    humidityNote?: NullableStringFieldUpdateOperationsInput | string | null
+    locationName?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WeatherDataRecordUncheckedUpdateManyWithoutCropInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    temperatureType?: StringFieldUpdateOperationsInput | string
+    temperatureValue?: FloatFieldUpdateOperationsInput | number
+    temperatureNote?: NullableStringFieldUpdateOperationsInput | string | null
+    precipitationType?: StringFieldUpdateOperationsInput | string
+    precipitationValue?: FloatFieldUpdateOperationsInput | number
+    precipitationNote?: NullableStringFieldUpdateOperationsInput | string | null
+    windType?: StringFieldUpdateOperationsInput | string
+    windValue?: FloatFieldUpdateOperationsInput | number
+    windNote?: NullableStringFieldUpdateOperationsInput | string | null
+    humidityType?: StringFieldUpdateOperationsInput | string
+    humidityValue?: FloatFieldUpdateOperationsInput | number
+    humidityNote?: NullableStringFieldUpdateOperationsInput | string | null
+    locationName?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -96447,6 +103472,24 @@ export namespace Prisma {
     outputQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
     outputQuantityUnit?: StringFieldUpdateOperationsInput | string
     outputQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfPestControl?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pestIdentified?: NullableStringFieldUpdateOperationsInput | string | null
+    methodOfControl?: NullableStringFieldUpdateOperationsInput | string | null
+    pesticideSource?: NullableStringFieldUpdateOperationsInput | string | null
+    brandName?: NullableStringFieldUpdateOperationsInput | string | null
+    methodOfApplication?: NullableStringFieldUpdateOperationsInput | string | null
+    amountAppliedPest?: NullableStringFieldUpdateOperationsInput | string | null
+    serialNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfPurchase?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableStringFieldUpdateOperationsInput | string | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    dateOfStorage?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    finalQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    typeOfStorage?: NullableStringFieldUpdateOperationsInput | string | null
+    miscellaneousCostsIncurred?: NullableFloatFieldUpdateOperationsInput | number | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -96465,6 +103508,24 @@ export namespace Prisma {
     outputQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
     outputQuantityUnit?: StringFieldUpdateOperationsInput | string
     outputQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfPestControl?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pestIdentified?: NullableStringFieldUpdateOperationsInput | string | null
+    methodOfControl?: NullableStringFieldUpdateOperationsInput | string | null
+    pesticideSource?: NullableStringFieldUpdateOperationsInput | string | null
+    brandName?: NullableStringFieldUpdateOperationsInput | string | null
+    methodOfApplication?: NullableStringFieldUpdateOperationsInput | string | null
+    amountAppliedPest?: NullableStringFieldUpdateOperationsInput | string | null
+    serialNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfPurchase?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableStringFieldUpdateOperationsInput | string | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    dateOfStorage?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    finalQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    typeOfStorage?: NullableStringFieldUpdateOperationsInput | string | null
+    miscellaneousCostsIncurred?: NullableFloatFieldUpdateOperationsInput | number | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -96483,6 +103544,24 @@ export namespace Prisma {
     outputQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
     outputQuantityUnit?: StringFieldUpdateOperationsInput | string
     outputQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfPestControl?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pestIdentified?: NullableStringFieldUpdateOperationsInput | string | null
+    methodOfControl?: NullableStringFieldUpdateOperationsInput | string | null
+    pesticideSource?: NullableStringFieldUpdateOperationsInput | string | null
+    brandName?: NullableStringFieldUpdateOperationsInput | string | null
+    methodOfApplication?: NullableStringFieldUpdateOperationsInput | string | null
+    amountAppliedPest?: NullableStringFieldUpdateOperationsInput | string | null
+    serialNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfPurchase?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableStringFieldUpdateOperationsInput | string | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    dateOfStorage?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalQuantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    finalQuality?: NullableStringFieldUpdateOperationsInput | string | null
+    typeOfStorage?: NullableStringFieldUpdateOperationsInput | string | null
+    miscellaneousCostsIncurred?: NullableFloatFieldUpdateOperationsInput | number | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string

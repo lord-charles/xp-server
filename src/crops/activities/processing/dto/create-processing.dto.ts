@@ -5,6 +5,7 @@ import {
   IsOptional,
   IsNumber,
   IsDateString,
+  IsIn,
 } from 'class-validator';
 
 export class CreateProcessingDto {
@@ -44,7 +45,7 @@ export class CreateProcessingDto {
     example: 'human',
     enum: ['machine', 'human', 'animal'],
   })
-  @IsString()
+  @IsIn(['machine', 'human', 'animal'])
   @IsOptional()
   labourType?: string;
 
@@ -67,6 +68,140 @@ export class CreateProcessingDto {
   @IsString()
   @IsOptional()
   outputQuality?: string;
+
+  // ─── Pest Control Fields (Step 2) ───────────────────────────────────────
+  @ApiPropertyOptional({
+    example: '2026-02-16T00:00:00.000Z',
+    description: 'Date of pest control during processing',
+  })
+  @IsDateString()
+  @IsOptional()
+  dateOfPestControl?: string;
+
+  @ApiPropertyOptional({ example: 'Weevils' })
+  @IsString()
+  @IsOptional()
+  pestIdentified?: string;
+
+  @ApiPropertyOptional({
+    example: 'pesticides',
+    enum: ['wood-ash', 'carbonating', 'polythene-lined-bags', 'pesticides'],
+  })
+  @IsIn(['wood-ash', 'carbonating', 'polythene-lined-bags', 'pesticides'])
+  @IsOptional()
+  methodOfControl?: string;
+
+  @ApiPropertyOptional({
+    example: 'newly-purchased',
+    enum: ['newly-purchased', 'existing-in-inventory'],
+  })
+  @IsIn(['newly-purchased', 'existing-in-inventory'])
+  @IsOptional()
+  pesticideSource?: string;
+
+  @ApiPropertyOptional({ example: 'Actellic' })
+  @IsString()
+  @IsOptional()
+  brandName?: string;
+
+  @ApiPropertyOptional({ example: 'Dusting' })
+  @IsString()
+  @IsOptional()
+  methodOfApplication?: string;
+
+  @ApiPropertyOptional({ example: '2kg' })
+  @IsString()
+  @IsOptional()
+  amountAppliedPest?: string;
+
+  @ApiPropertyOptional({ example: 'ABC123' })
+  @IsString()
+  @IsOptional()
+  serialNumber?: string;
+
+  @ApiPropertyOptional({
+    example: '2026-02-01T00:00:00.000Z',
+    description: 'Date pesticide was purchased',
+  })
+  @IsDateString()
+  @IsOptional()
+  dateOfPurchase?: string;
+
+  @ApiPropertyOptional({ example: 'Agrovet' })
+  @IsString()
+  @IsOptional()
+  seller?: string;
+
+  @ApiPropertyOptional({ example: '5kg' })
+  @IsString()
+  @IsOptional()
+  quantityPurchased?: string;
+
+  @ApiPropertyOptional({ example: 2500 })
+  @IsNumber()
+  @IsOptional()
+  purchasePrice?: number;
+
+  @ApiPropertyOptional({ example: 500 })
+  @IsNumber()
+  @IsOptional()
+  transportCost?: number;
+
+  // ─── Storage Fields (Step 3) ────────────────────────────────────────────
+  @ApiPropertyOptional({
+    example: '2026-02-20T00:00:00.000Z',
+    description: 'Date of storage',
+  })
+  @IsDateString()
+  @IsOptional()
+  dateOfStorage?: string;
+
+  @ApiPropertyOptional({ example: 450 })
+  @IsNumber()
+  @IsOptional()
+  finalQuantity?: number;
+
+  @ApiPropertyOptional({ example: 'Grade A' })
+  @IsString()
+  @IsOptional()
+  finalQuality?: string;
+
+  @ApiPropertyOptional({
+    example: 'warehouses',
+    enum: [
+      'refrigerated-rooms',
+      'cold-chain-trucks',
+      'polythene-lined-bags',
+      'clay-pots',
+      'plastic-pots',
+      'glass-pots',
+      'silos',
+      'warehouses',
+      'barns',
+      'granaries',
+      'other',
+    ],
+  })
+  @IsIn([
+    'refrigerated-rooms',
+    'cold-chain-trucks',
+    'polythene-lined-bags',
+    'clay-pots',
+    'plastic-pots',
+    'glass-pots',
+    'silos',
+    'warehouses',
+    'barns',
+    'granaries',
+    'other',
+  ])
+  @IsOptional()
+  typeOfStorage?: string;
+
+  @ApiPropertyOptional({ example: 1000 })
+  @IsNumber()
+  @IsOptional()
+  miscellaneousCostsIncurred?: number;
 
   @ApiPropertyOptional()
   @IsString()

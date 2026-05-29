@@ -15,6 +15,14 @@ import { TillageService } from './activities/tillage/tillage.service';
 import { PlantingController } from './activities/planting/planting.controller';
 import { PlantingService } from './activities/planting/planting.service';
 
+// Soil Data Collection
+import { SoilDataController } from './activities/soil-data/soil-data.controller';
+import { SoilDataService } from './activities/soil-data/soil-data.service';
+import { FieldConditionsController } from './activities/field-conditions/field-conditions.controller';
+import { FieldConditionsService } from './activities/field-conditions/field-conditions.service';
+import { WeatherDataController } from './activities/weather-data/weather-data.controller';
+import { WeatherDataService } from './activities/weather-data/weather-data.service';
+
 // Phase 3
 import { FertilizersController } from './activities/fertilizers/fertilizers.controller';
 import { FertilizersService } from './activities/fertilizers/fertilizers.service';
@@ -53,6 +61,10 @@ import { CropAlertsService } from './activities/crop-alerts/crop-alerts.service'
     SoilPrepController,
     TillageController,
     PlantingController,
+    // Soil Data Collection
+    SoilDataController,
+    FieldConditionsController,
+    WeatherDataController,
     // Phase 3
     FertilizersController,
     IrrigationController,
@@ -76,6 +88,10 @@ import { CropAlertsService } from './activities/crop-alerts/crop-alerts.service'
     SoilPrepService,
     TillageService,
     PlantingService,
+    // Soil Data Collection
+    SoilDataService,
+    FieldConditionsService,
+    WeatherDataService,
     // Phase 3
     FertilizersService,
     IrrigationService,
