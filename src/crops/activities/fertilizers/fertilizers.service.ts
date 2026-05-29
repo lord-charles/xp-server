@@ -20,12 +20,14 @@ export class FertilizersService {
         mode: dto.mode,
         applicationDate: dto.applicationDate
           ? new Date(dto.applicationDate)
-          : null,
+          : undefined,
         applicationMethod: dto.applicationMethod,
         applicationTiming: dto.applicationTiming,
-        dosage: dto.dosage,
-        coverage: dto.coverage,
-        equipment: dto.equipment,
+        quantity: dto.quantity,
+        quantityUnit: dto.quantityUnit,
+        areaApplied: dto.areaApplied,
+        areaUnit: dto.areaUnit,
+        equipment: dto.equipment || [],
         labourType: dto.labourType,
         numberOfWorkers: dto.numberOfWorkers,
         labourCost: dto.labourCost,
@@ -56,7 +58,7 @@ export class FertilizersService {
       orderBy: { date: 'desc' },
     });
 
-    const totalDosage = records.reduce((s, r) => s + (r.dosage ?? 0), 0);
+    const totalQuantity = records.reduce((s, r) => s + (r.quantity ?? 0), 0);
     const totalLabourCost = records.reduce(
       (s, r) => s + (r.labourCost ?? 0),
       0,
@@ -67,7 +69,7 @@ export class FertilizersService {
       records,
       stats: {
         count: records.length,
-        totalDosageKg: +totalDosage.toFixed(2),
+        totalQuantity: +totalQuantity.toFixed(2),
         totalLabourCost,
         lastDate: lastRecord ? lastRecord.date : null,
       },
@@ -92,8 +94,10 @@ export class FertilizersService {
           : undefined,
         applicationMethod: dto.applicationMethod,
         applicationTiming: dto.applicationTiming,
-        dosage: dto.dosage,
-        coverage: dto.coverage,
+        quantity: dto.quantity,
+        quantityUnit: dto.quantityUnit,
+        areaApplied: dto.areaApplied,
+        areaUnit: dto.areaUnit,
         equipment: dto.equipment,
         labourType: dto.labourType,
         numberOfWorkers: dto.numberOfWorkers,

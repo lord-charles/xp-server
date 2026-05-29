@@ -52559,15 +52559,15 @@ export namespace Prisma {
   }
 
   export type FertilizerRecordAvgAggregateOutputType = {
-    dosage: number | null
-    coverage: number | null
+    quantity: number | null
+    areaApplied: number | null
     numberOfWorkers: number | null
     labourCost: number | null
   }
 
   export type FertilizerRecordSumAggregateOutputType = {
-    dosage: number | null
-    coverage: number | null
+    quantity: number | null
+    areaApplied: number | null
     numberOfWorkers: number | null
     labourCost: number | null
   }
@@ -52583,11 +52583,10 @@ export namespace Prisma {
     applicationDate: Date | null
     applicationMethod: string | null
     applicationTiming: string | null
-    dosage: number | null
-    dosageUnit: string | null
-    coverage: number | null
-    coverageUnit: string | null
-    equipment: string | null
+    quantity: number | null
+    quantityUnit: string | null
+    areaApplied: number | null
+    areaUnit: string | null
     labourType: string | null
     numberOfWorkers: number | null
     labourCost: number | null
@@ -52607,11 +52606,10 @@ export namespace Prisma {
     applicationDate: Date | null
     applicationMethod: string | null
     applicationTiming: string | null
-    dosage: number | null
-    dosageUnit: string | null
-    coverage: number | null
-    coverageUnit: string | null
-    equipment: string | null
+    quantity: number | null
+    quantityUnit: string | null
+    areaApplied: number | null
+    areaUnit: string | null
     labourType: string | null
     numberOfWorkers: number | null
     labourCost: number | null
@@ -52631,10 +52629,10 @@ export namespace Prisma {
     applicationDate: number
     applicationMethod: number
     applicationTiming: number
-    dosage: number
-    dosageUnit: number
-    coverage: number
-    coverageUnit: number
+    quantity: number
+    quantityUnit: number
+    areaApplied: number
+    areaUnit: number
     equipment: number
     labourType: number
     numberOfWorkers: number
@@ -52647,15 +52645,15 @@ export namespace Prisma {
 
 
   export type FertilizerRecordAvgAggregateInputType = {
-    dosage?: true
-    coverage?: true
+    quantity?: true
+    areaApplied?: true
     numberOfWorkers?: true
     labourCost?: true
   }
 
   export type FertilizerRecordSumAggregateInputType = {
-    dosage?: true
-    coverage?: true
+    quantity?: true
+    areaApplied?: true
     numberOfWorkers?: true
     labourCost?: true
   }
@@ -52671,11 +52669,10 @@ export namespace Prisma {
     applicationDate?: true
     applicationMethod?: true
     applicationTiming?: true
-    dosage?: true
-    dosageUnit?: true
-    coverage?: true
-    coverageUnit?: true
-    equipment?: true
+    quantity?: true
+    quantityUnit?: true
+    areaApplied?: true
+    areaUnit?: true
     labourType?: true
     numberOfWorkers?: true
     labourCost?: true
@@ -52695,11 +52692,10 @@ export namespace Prisma {
     applicationDate?: true
     applicationMethod?: true
     applicationTiming?: true
-    dosage?: true
-    dosageUnit?: true
-    coverage?: true
-    coverageUnit?: true
-    equipment?: true
+    quantity?: true
+    quantityUnit?: true
+    areaApplied?: true
+    areaUnit?: true
     labourType?: true
     numberOfWorkers?: true
     labourCost?: true
@@ -52719,10 +52715,10 @@ export namespace Prisma {
     applicationDate?: true
     applicationMethod?: true
     applicationTiming?: true
-    dosage?: true
-    dosageUnit?: true
-    coverage?: true
-    coverageUnit?: true
+    quantity?: true
+    quantityUnit?: true
+    areaApplied?: true
+    areaUnit?: true
     equipment?: true
     labourType?: true
     numberOfWorkers?: true
@@ -52830,11 +52826,11 @@ export namespace Prisma {
     applicationDate: Date | null
     applicationMethod: string | null
     applicationTiming: string | null
-    dosage: number | null
-    dosageUnit: string
-    coverage: number | null
-    coverageUnit: string
-    equipment: string | null
+    quantity: number | null
+    quantityUnit: string | null
+    areaApplied: number | null
+    areaUnit: string | null
+    equipment: string[]
     labourType: string | null
     numberOfWorkers: number | null
     labourCost: number | null
@@ -52873,10 +52869,10 @@ export namespace Prisma {
     applicationDate?: boolean
     applicationMethod?: boolean
     applicationTiming?: boolean
-    dosage?: boolean
-    dosageUnit?: boolean
-    coverage?: boolean
-    coverageUnit?: boolean
+    quantity?: boolean
+    quantityUnit?: boolean
+    areaApplied?: boolean
+    areaUnit?: boolean
     equipment?: boolean
     labourType?: boolean
     numberOfWorkers?: boolean
@@ -52898,10 +52894,10 @@ export namespace Prisma {
     applicationDate?: boolean
     applicationMethod?: boolean
     applicationTiming?: boolean
-    dosage?: boolean
-    dosageUnit?: boolean
-    coverage?: boolean
-    coverageUnit?: boolean
+    quantity?: boolean
+    quantityUnit?: boolean
+    areaApplied?: boolean
+    areaUnit?: boolean
     equipment?: boolean
     labourType?: boolean
     numberOfWorkers?: boolean
@@ -52923,10 +52919,10 @@ export namespace Prisma {
     applicationDate?: boolean
     applicationMethod?: boolean
     applicationTiming?: boolean
-    dosage?: boolean
-    dosageUnit?: boolean
-    coverage?: boolean
-    coverageUnit?: boolean
+    quantity?: boolean
+    quantityUnit?: boolean
+    areaApplied?: boolean
+    areaUnit?: boolean
     equipment?: boolean
     labourType?: boolean
     numberOfWorkers?: boolean
@@ -52948,10 +52944,10 @@ export namespace Prisma {
     applicationDate?: boolean
     applicationMethod?: boolean
     applicationTiming?: boolean
-    dosage?: boolean
-    dosageUnit?: boolean
-    coverage?: boolean
-    coverageUnit?: boolean
+    quantity?: boolean
+    quantityUnit?: boolean
+    areaApplied?: boolean
+    areaUnit?: boolean
     equipment?: boolean
     labourType?: boolean
     numberOfWorkers?: boolean
@@ -52961,7 +52957,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type FertilizerRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cropId" | "farmId" | "date" | "fertilizerType" | "fertilizerSource" | "mode" | "applicationDate" | "applicationMethod" | "applicationTiming" | "dosage" | "dosageUnit" | "coverage" | "coverageUnit" | "equipment" | "labourType" | "numberOfWorkers" | "labourCost" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["fertilizerRecord"]>
+  export type FertilizerRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cropId" | "farmId" | "date" | "fertilizerType" | "fertilizerSource" | "mode" | "applicationDate" | "applicationMethod" | "applicationTiming" | "quantity" | "quantityUnit" | "areaApplied" | "areaUnit" | "equipment" | "labourType" | "numberOfWorkers" | "labourCost" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["fertilizerRecord"]>
   export type FertilizerRecordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     crop?: boolean | CropDefaultArgs<ExtArgs>
   }
@@ -52988,11 +52984,11 @@ export namespace Prisma {
       applicationDate: Date | null
       applicationMethod: string | null
       applicationTiming: string | null
-      dosage: number | null
-      dosageUnit: string
-      coverage: number | null
-      coverageUnit: string
-      equipment: string | null
+      quantity: number | null
+      quantityUnit: string | null
+      areaApplied: number | null
+      areaUnit: string | null
+      equipment: string[]
       labourType: string | null
       numberOfWorkers: number | null
       labourCost: number | null
@@ -53433,11 +53429,11 @@ export namespace Prisma {
     readonly applicationDate: FieldRef<"FertilizerRecord", 'DateTime'>
     readonly applicationMethod: FieldRef<"FertilizerRecord", 'String'>
     readonly applicationTiming: FieldRef<"FertilizerRecord", 'String'>
-    readonly dosage: FieldRef<"FertilizerRecord", 'Float'>
-    readonly dosageUnit: FieldRef<"FertilizerRecord", 'String'>
-    readonly coverage: FieldRef<"FertilizerRecord", 'Float'>
-    readonly coverageUnit: FieldRef<"FertilizerRecord", 'String'>
-    readonly equipment: FieldRef<"FertilizerRecord", 'String'>
+    readonly quantity: FieldRef<"FertilizerRecord", 'Float'>
+    readonly quantityUnit: FieldRef<"FertilizerRecord", 'String'>
+    readonly areaApplied: FieldRef<"FertilizerRecord", 'Float'>
+    readonly areaUnit: FieldRef<"FertilizerRecord", 'String'>
+    readonly equipment: FieldRef<"FertilizerRecord", 'String[]'>
     readonly labourType: FieldRef<"FertilizerRecord", 'String'>
     readonly numberOfWorkers: FieldRef<"FertilizerRecord", 'Int'>
     readonly labourCost: FieldRef<"FertilizerRecord", 'Float'>
@@ -67130,10 +67126,10 @@ export namespace Prisma {
     applicationDate: 'applicationDate',
     applicationMethod: 'applicationMethod',
     applicationTiming: 'applicationTiming',
-    dosage: 'dosage',
-    dosageUnit: 'dosageUnit',
-    coverage: 'coverage',
-    coverageUnit: 'coverageUnit',
+    quantity: 'quantity',
+    quantityUnit: 'quantityUnit',
+    areaApplied: 'areaApplied',
+    areaUnit: 'areaUnit',
     equipment: 'equipment',
     labourType: 'labourType',
     numberOfWorkers: 'numberOfWorkers',
@@ -71558,11 +71554,11 @@ export namespace Prisma {
     applicationDate?: DateTimeNullableFilter<"FertilizerRecord"> | Date | string | null
     applicationMethod?: StringNullableFilter<"FertilizerRecord"> | string | null
     applicationTiming?: StringNullableFilter<"FertilizerRecord"> | string | null
-    dosage?: FloatNullableFilter<"FertilizerRecord"> | number | null
-    dosageUnit?: StringFilter<"FertilizerRecord"> | string
-    coverage?: FloatNullableFilter<"FertilizerRecord"> | number | null
-    coverageUnit?: StringFilter<"FertilizerRecord"> | string
-    equipment?: StringNullableFilter<"FertilizerRecord"> | string | null
+    quantity?: FloatNullableFilter<"FertilizerRecord"> | number | null
+    quantityUnit?: StringNullableFilter<"FertilizerRecord"> | string | null
+    areaApplied?: FloatNullableFilter<"FertilizerRecord"> | number | null
+    areaUnit?: StringNullableFilter<"FertilizerRecord"> | string | null
+    equipment?: StringNullableListFilter<"FertilizerRecord">
     labourType?: StringNullableFilter<"FertilizerRecord"> | string | null
     numberOfWorkers?: IntNullableFilter<"FertilizerRecord"> | number | null
     labourCost?: FloatNullableFilter<"FertilizerRecord"> | number | null
@@ -71583,11 +71579,11 @@ export namespace Prisma {
     applicationDate?: SortOrderInput | SortOrder
     applicationMethod?: SortOrderInput | SortOrder
     applicationTiming?: SortOrderInput | SortOrder
-    dosage?: SortOrderInput | SortOrder
-    dosageUnit?: SortOrder
-    coverage?: SortOrderInput | SortOrder
-    coverageUnit?: SortOrder
-    equipment?: SortOrderInput | SortOrder
+    quantity?: SortOrderInput | SortOrder
+    quantityUnit?: SortOrderInput | SortOrder
+    areaApplied?: SortOrderInput | SortOrder
+    areaUnit?: SortOrderInput | SortOrder
+    equipment?: SortOrder
     labourType?: SortOrderInput | SortOrder
     numberOfWorkers?: SortOrderInput | SortOrder
     labourCost?: SortOrderInput | SortOrder
@@ -71611,11 +71607,11 @@ export namespace Prisma {
     applicationDate?: DateTimeNullableFilter<"FertilizerRecord"> | Date | string | null
     applicationMethod?: StringNullableFilter<"FertilizerRecord"> | string | null
     applicationTiming?: StringNullableFilter<"FertilizerRecord"> | string | null
-    dosage?: FloatNullableFilter<"FertilizerRecord"> | number | null
-    dosageUnit?: StringFilter<"FertilizerRecord"> | string
-    coverage?: FloatNullableFilter<"FertilizerRecord"> | number | null
-    coverageUnit?: StringFilter<"FertilizerRecord"> | string
-    equipment?: StringNullableFilter<"FertilizerRecord"> | string | null
+    quantity?: FloatNullableFilter<"FertilizerRecord"> | number | null
+    quantityUnit?: StringNullableFilter<"FertilizerRecord"> | string | null
+    areaApplied?: FloatNullableFilter<"FertilizerRecord"> | number | null
+    areaUnit?: StringNullableFilter<"FertilizerRecord"> | string | null
+    equipment?: StringNullableListFilter<"FertilizerRecord">
     labourType?: StringNullableFilter<"FertilizerRecord"> | string | null
     numberOfWorkers?: IntNullableFilter<"FertilizerRecord"> | number | null
     labourCost?: FloatNullableFilter<"FertilizerRecord"> | number | null
@@ -71636,11 +71632,11 @@ export namespace Prisma {
     applicationDate?: SortOrderInput | SortOrder
     applicationMethod?: SortOrderInput | SortOrder
     applicationTiming?: SortOrderInput | SortOrder
-    dosage?: SortOrderInput | SortOrder
-    dosageUnit?: SortOrder
-    coverage?: SortOrderInput | SortOrder
-    coverageUnit?: SortOrder
-    equipment?: SortOrderInput | SortOrder
+    quantity?: SortOrderInput | SortOrder
+    quantityUnit?: SortOrderInput | SortOrder
+    areaApplied?: SortOrderInput | SortOrder
+    areaUnit?: SortOrderInput | SortOrder
+    equipment?: SortOrder
     labourType?: SortOrderInput | SortOrder
     numberOfWorkers?: SortOrderInput | SortOrder
     labourCost?: SortOrderInput | SortOrder
@@ -71668,11 +71664,11 @@ export namespace Prisma {
     applicationDate?: DateTimeNullableWithAggregatesFilter<"FertilizerRecord"> | Date | string | null
     applicationMethod?: StringNullableWithAggregatesFilter<"FertilizerRecord"> | string | null
     applicationTiming?: StringNullableWithAggregatesFilter<"FertilizerRecord"> | string | null
-    dosage?: FloatNullableWithAggregatesFilter<"FertilizerRecord"> | number | null
-    dosageUnit?: StringWithAggregatesFilter<"FertilizerRecord"> | string
-    coverage?: FloatNullableWithAggregatesFilter<"FertilizerRecord"> | number | null
-    coverageUnit?: StringWithAggregatesFilter<"FertilizerRecord"> | string
-    equipment?: StringNullableWithAggregatesFilter<"FertilizerRecord"> | string | null
+    quantity?: FloatNullableWithAggregatesFilter<"FertilizerRecord"> | number | null
+    quantityUnit?: StringNullableWithAggregatesFilter<"FertilizerRecord"> | string | null
+    areaApplied?: FloatNullableWithAggregatesFilter<"FertilizerRecord"> | number | null
+    areaUnit?: StringNullableWithAggregatesFilter<"FertilizerRecord"> | string | null
+    equipment?: StringNullableListFilter<"FertilizerRecord">
     labourType?: StringNullableWithAggregatesFilter<"FertilizerRecord"> | string | null
     numberOfWorkers?: IntNullableWithAggregatesFilter<"FertilizerRecord"> | number | null
     labourCost?: FloatNullableWithAggregatesFilter<"FertilizerRecord"> | number | null
@@ -77561,11 +77557,11 @@ export namespace Prisma {
     applicationDate?: Date | string | null
     applicationMethod?: string | null
     applicationTiming?: string | null
-    dosage?: number | null
-    dosageUnit?: string
-    coverage?: number | null
-    coverageUnit?: string
-    equipment?: string | null
+    quantity?: number | null
+    quantityUnit?: string | null
+    areaApplied?: number | null
+    areaUnit?: string | null
+    equipment?: FertilizerRecordCreateequipmentInput | string[]
     labourType?: string | null
     numberOfWorkers?: number | null
     labourCost?: number | null
@@ -77586,11 +77582,11 @@ export namespace Prisma {
     applicationDate?: Date | string | null
     applicationMethod?: string | null
     applicationTiming?: string | null
-    dosage?: number | null
-    dosageUnit?: string
-    coverage?: number | null
-    coverageUnit?: string
-    equipment?: string | null
+    quantity?: number | null
+    quantityUnit?: string | null
+    areaApplied?: number | null
+    areaUnit?: string | null
+    equipment?: FertilizerRecordCreateequipmentInput | string[]
     labourType?: string | null
     numberOfWorkers?: number | null
     labourCost?: number | null
@@ -77609,11 +77605,11 @@ export namespace Prisma {
     applicationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     applicationTiming?: NullableStringFieldUpdateOperationsInput | string | null
-    dosage?: NullableFloatFieldUpdateOperationsInput | number | null
-    dosageUnit?: StringFieldUpdateOperationsInput | string
-    coverage?: NullableFloatFieldUpdateOperationsInput | number | null
-    coverageUnit?: StringFieldUpdateOperationsInput | string
-    equipment?: NullableStringFieldUpdateOperationsInput | string | null
+    quantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    quantityUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    areaApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    areaUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    equipment?: FertilizerRecordUpdateequipmentInput | string[]
     labourType?: NullableStringFieldUpdateOperationsInput | string | null
     numberOfWorkers?: NullableIntFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
@@ -77634,11 +77630,11 @@ export namespace Prisma {
     applicationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     applicationTiming?: NullableStringFieldUpdateOperationsInput | string | null
-    dosage?: NullableFloatFieldUpdateOperationsInput | number | null
-    dosageUnit?: StringFieldUpdateOperationsInput | string
-    coverage?: NullableFloatFieldUpdateOperationsInput | number | null
-    coverageUnit?: StringFieldUpdateOperationsInput | string
-    equipment?: NullableStringFieldUpdateOperationsInput | string | null
+    quantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    quantityUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    areaApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    areaUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    equipment?: FertilizerRecordUpdateequipmentInput | string[]
     labourType?: NullableStringFieldUpdateOperationsInput | string | null
     numberOfWorkers?: NullableIntFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
@@ -77658,11 +77654,11 @@ export namespace Prisma {
     applicationDate?: Date | string | null
     applicationMethod?: string | null
     applicationTiming?: string | null
-    dosage?: number | null
-    dosageUnit?: string
-    coverage?: number | null
-    coverageUnit?: string
-    equipment?: string | null
+    quantity?: number | null
+    quantityUnit?: string | null
+    areaApplied?: number | null
+    areaUnit?: string | null
+    equipment?: FertilizerRecordCreateequipmentInput | string[]
     labourType?: string | null
     numberOfWorkers?: number | null
     labourCost?: number | null
@@ -77681,11 +77677,11 @@ export namespace Prisma {
     applicationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     applicationTiming?: NullableStringFieldUpdateOperationsInput | string | null
-    dosage?: NullableFloatFieldUpdateOperationsInput | number | null
-    dosageUnit?: StringFieldUpdateOperationsInput | string
-    coverage?: NullableFloatFieldUpdateOperationsInput | number | null
-    coverageUnit?: StringFieldUpdateOperationsInput | string
-    equipment?: NullableStringFieldUpdateOperationsInput | string | null
+    quantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    quantityUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    areaApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    areaUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    equipment?: FertilizerRecordUpdateequipmentInput | string[]
     labourType?: NullableStringFieldUpdateOperationsInput | string | null
     numberOfWorkers?: NullableIntFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
@@ -77705,11 +77701,11 @@ export namespace Prisma {
     applicationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     applicationTiming?: NullableStringFieldUpdateOperationsInput | string | null
-    dosage?: NullableFloatFieldUpdateOperationsInput | number | null
-    dosageUnit?: StringFieldUpdateOperationsInput | string
-    coverage?: NullableFloatFieldUpdateOperationsInput | number | null
-    coverageUnit?: StringFieldUpdateOperationsInput | string
-    equipment?: NullableStringFieldUpdateOperationsInput | string | null
+    quantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    quantityUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    areaApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    areaUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    equipment?: FertilizerRecordUpdateequipmentInput | string[]
     labourType?: NullableStringFieldUpdateOperationsInput | string | null
     numberOfWorkers?: NullableIntFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
@@ -82065,10 +82061,10 @@ export namespace Prisma {
     applicationDate?: SortOrder
     applicationMethod?: SortOrder
     applicationTiming?: SortOrder
-    dosage?: SortOrder
-    dosageUnit?: SortOrder
-    coverage?: SortOrder
-    coverageUnit?: SortOrder
+    quantity?: SortOrder
+    quantityUnit?: SortOrder
+    areaApplied?: SortOrder
+    areaUnit?: SortOrder
     equipment?: SortOrder
     labourType?: SortOrder
     numberOfWorkers?: SortOrder
@@ -82079,8 +82075,8 @@ export namespace Prisma {
   }
 
   export type FertilizerRecordAvgOrderByAggregateInput = {
-    dosage?: SortOrder
-    coverage?: SortOrder
+    quantity?: SortOrder
+    areaApplied?: SortOrder
     numberOfWorkers?: SortOrder
     labourCost?: SortOrder
   }
@@ -82096,11 +82092,10 @@ export namespace Prisma {
     applicationDate?: SortOrder
     applicationMethod?: SortOrder
     applicationTiming?: SortOrder
-    dosage?: SortOrder
-    dosageUnit?: SortOrder
-    coverage?: SortOrder
-    coverageUnit?: SortOrder
-    equipment?: SortOrder
+    quantity?: SortOrder
+    quantityUnit?: SortOrder
+    areaApplied?: SortOrder
+    areaUnit?: SortOrder
     labourType?: SortOrder
     numberOfWorkers?: SortOrder
     labourCost?: SortOrder
@@ -82120,11 +82115,10 @@ export namespace Prisma {
     applicationDate?: SortOrder
     applicationMethod?: SortOrder
     applicationTiming?: SortOrder
-    dosage?: SortOrder
-    dosageUnit?: SortOrder
-    coverage?: SortOrder
-    coverageUnit?: SortOrder
-    equipment?: SortOrder
+    quantity?: SortOrder
+    quantityUnit?: SortOrder
+    areaApplied?: SortOrder
+    areaUnit?: SortOrder
     labourType?: SortOrder
     numberOfWorkers?: SortOrder
     labourCost?: SortOrder
@@ -82134,8 +82128,8 @@ export namespace Prisma {
   }
 
   export type FertilizerRecordSumOrderByAggregateInput = {
-    dosage?: SortOrder
-    coverage?: SortOrder
+    quantity?: SortOrder
+    areaApplied?: SortOrder
     numberOfWorkers?: SortOrder
     labourCost?: SortOrder
   }
@@ -86337,10 +86331,19 @@ export namespace Prisma {
     update?: XOR<XOR<CropUpdateToOneWithWhereWithoutWeatherDataRecordsInput, CropUpdateWithoutWeatherDataRecordsInput>, CropUncheckedUpdateWithoutWeatherDataRecordsInput>
   }
 
+  export type FertilizerRecordCreateequipmentInput = {
+    set: string[]
+  }
+
   export type CropCreateNestedOneWithoutFertilizerRecordsInput = {
     create?: XOR<CropCreateWithoutFertilizerRecordsInput, CropUncheckedCreateWithoutFertilizerRecordsInput>
     connectOrCreate?: CropCreateOrConnectWithoutFertilizerRecordsInput
     connect?: CropWhereUniqueInput
+  }
+
+  export type FertilizerRecordUpdateequipmentInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type CropUpdateOneRequiredWithoutFertilizerRecordsNestedInput = {
@@ -95530,11 +95533,11 @@ export namespace Prisma {
     applicationDate?: Date | string | null
     applicationMethod?: string | null
     applicationTiming?: string | null
-    dosage?: number | null
-    dosageUnit?: string
-    coverage?: number | null
-    coverageUnit?: string
-    equipment?: string | null
+    quantity?: number | null
+    quantityUnit?: string | null
+    areaApplied?: number | null
+    areaUnit?: string | null
+    equipment?: FertilizerRecordCreateequipmentInput | string[]
     labourType?: string | null
     numberOfWorkers?: number | null
     labourCost?: number | null
@@ -95553,11 +95556,11 @@ export namespace Prisma {
     applicationDate?: Date | string | null
     applicationMethod?: string | null
     applicationTiming?: string | null
-    dosage?: number | null
-    dosageUnit?: string
-    coverage?: number | null
-    coverageUnit?: string
-    equipment?: string | null
+    quantity?: number | null
+    quantityUnit?: string | null
+    areaApplied?: number | null
+    areaUnit?: string | null
+    equipment?: FertilizerRecordCreateequipmentInput | string[]
     labourType?: string | null
     numberOfWorkers?: number | null
     labourCost?: number | null
@@ -96337,11 +96340,11 @@ export namespace Prisma {
     applicationDate?: DateTimeNullableFilter<"FertilizerRecord"> | Date | string | null
     applicationMethod?: StringNullableFilter<"FertilizerRecord"> | string | null
     applicationTiming?: StringNullableFilter<"FertilizerRecord"> | string | null
-    dosage?: FloatNullableFilter<"FertilizerRecord"> | number | null
-    dosageUnit?: StringFilter<"FertilizerRecord"> | string
-    coverage?: FloatNullableFilter<"FertilizerRecord"> | number | null
-    coverageUnit?: StringFilter<"FertilizerRecord"> | string
-    equipment?: StringNullableFilter<"FertilizerRecord"> | string | null
+    quantity?: FloatNullableFilter<"FertilizerRecord"> | number | null
+    quantityUnit?: StringNullableFilter<"FertilizerRecord"> | string | null
+    areaApplied?: FloatNullableFilter<"FertilizerRecord"> | number | null
+    areaUnit?: StringNullableFilter<"FertilizerRecord"> | string | null
+    equipment?: StringNullableListFilter<"FertilizerRecord">
     labourType?: StringNullableFilter<"FertilizerRecord"> | string | null
     numberOfWorkers?: IntNullableFilter<"FertilizerRecord"> | number | null
     labourCost?: FloatNullableFilter<"FertilizerRecord"> | number | null
@@ -102558,11 +102561,11 @@ export namespace Prisma {
     applicationDate?: Date | string | null
     applicationMethod?: string | null
     applicationTiming?: string | null
-    dosage?: number | null
-    dosageUnit?: string
-    coverage?: number | null
-    coverageUnit?: string
-    equipment?: string | null
+    quantity?: number | null
+    quantityUnit?: string | null
+    areaApplied?: number | null
+    areaUnit?: string | null
+    equipment?: FertilizerRecordCreateequipmentInput | string[]
     labourType?: string | null
     numberOfWorkers?: number | null
     labourCost?: number | null
@@ -103067,11 +103070,11 @@ export namespace Prisma {
     applicationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     applicationTiming?: NullableStringFieldUpdateOperationsInput | string | null
-    dosage?: NullableFloatFieldUpdateOperationsInput | number | null
-    dosageUnit?: StringFieldUpdateOperationsInput | string
-    coverage?: NullableFloatFieldUpdateOperationsInput | number | null
-    coverageUnit?: StringFieldUpdateOperationsInput | string
-    equipment?: NullableStringFieldUpdateOperationsInput | string | null
+    quantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    quantityUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    areaApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    areaUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    equipment?: FertilizerRecordUpdateequipmentInput | string[]
     labourType?: NullableStringFieldUpdateOperationsInput | string | null
     numberOfWorkers?: NullableIntFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
@@ -103090,11 +103093,11 @@ export namespace Prisma {
     applicationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     applicationTiming?: NullableStringFieldUpdateOperationsInput | string | null
-    dosage?: NullableFloatFieldUpdateOperationsInput | number | null
-    dosageUnit?: StringFieldUpdateOperationsInput | string
-    coverage?: NullableFloatFieldUpdateOperationsInput | number | null
-    coverageUnit?: StringFieldUpdateOperationsInput | string
-    equipment?: NullableStringFieldUpdateOperationsInput | string | null
+    quantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    quantityUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    areaApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    areaUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    equipment?: FertilizerRecordUpdateequipmentInput | string[]
     labourType?: NullableStringFieldUpdateOperationsInput | string | null
     numberOfWorkers?: NullableIntFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
@@ -103113,11 +103116,11 @@ export namespace Prisma {
     applicationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     applicationTiming?: NullableStringFieldUpdateOperationsInput | string | null
-    dosage?: NullableFloatFieldUpdateOperationsInput | number | null
-    dosageUnit?: StringFieldUpdateOperationsInput | string
-    coverage?: NullableFloatFieldUpdateOperationsInput | number | null
-    coverageUnit?: StringFieldUpdateOperationsInput | string
-    equipment?: NullableStringFieldUpdateOperationsInput | string | null
+    quantity?: NullableFloatFieldUpdateOperationsInput | number | null
+    quantityUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    areaApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    areaUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    equipment?: FertilizerRecordUpdateequipmentInput | string[]
     labourType?: NullableStringFieldUpdateOperationsInput | string | null
     numberOfWorkers?: NullableIntFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null

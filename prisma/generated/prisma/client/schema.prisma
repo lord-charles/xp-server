@@ -860,13 +860,13 @@ model FertilizerRecord {
   fertilizerSource  String?
   mode              String // basal | top-dressing | foliar | fertigation
   applicationDate   DateTime?
-  applicationMethod String?
-  applicationTiming String?
-  dosage            Float?
-  dosageUnit        String    @default("kg")
-  coverage          Float?
-  coverageUnit      String    @default("acres")
-  equipment         String?
+  applicationMethod String? // broadcast | placement | spray | injection | drip
+  applicationTiming String? // pre-sowing | at-sowing | post-sowing | vegetative | flowering | fruiting
+  quantity          Float?
+  quantityUnit      String? // kg | bags | liters | tons
+  areaApplied       Float?
+  areaUnit          String? // acres | hectares
+  equipment         String[]  @default([]) // Array of equipment used
   labourType        String?
   numberOfWorkers   Int?
   labourCost        Float?
