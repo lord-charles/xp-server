@@ -229,6 +229,11 @@ export type DiseaseRecord = $Result.DefaultSelection<Prisma.$DiseaseRecordPayloa
  */
 export type PestRecord = $Result.DefaultSelection<Prisma.$PestRecordPayload>
 /**
+ * Model PesticideRecord
+ * 
+ */
+export type PesticideRecord = $Result.DefaultSelection<Prisma.$PesticideRecordPayload>
+/**
  * Model HarvestingRecord
  * 
  */
@@ -810,6 +815,16 @@ export class PrismaClient<
   get pestRecord(): Prisma.PestRecordDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.pesticideRecord`: Exposes CRUD operations for the **PesticideRecord** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PesticideRecords
+    * const pesticideRecords = await prisma.pesticideRecord.findMany()
+    * ```
+    */
+  get pesticideRecord(): Prisma.PesticideRecordDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.harvestingRecord`: Exposes CRUD operations for the **HarvestingRecord** model.
     * Example usage:
     * ```ts
@@ -1341,6 +1356,7 @@ export namespace Prisma {
     ChemicalRecord: 'ChemicalRecord',
     DiseaseRecord: 'DiseaseRecord',
     PestRecord: 'PestRecord',
+    PesticideRecord: 'PesticideRecord',
     HarvestingRecord: 'HarvestingRecord',
     ProcessingRecord: 'ProcessingRecord',
     LossRecord: 'LossRecord',
@@ -1364,7 +1380,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "farm" | "employee" | "employeeFarm" | "employeeBenefit" | "livestock" | "mammal" | "poultry" | "mortality" | "healthEvent" | "transfer" | "sale" | "breedingRecord" | "offspring" | "feedingProgram" | "feedDetails" | "inventory" | "goodsInStock" | "machinery" | "utility" | "water" | "power" | "allergyRecord" | "boosterRecord" | "vaccinationRecord" | "dewormingRecord" | "geneticDisorderRecord" | "treatmentRecord" | "saleListing" | "cropCycle" | "crop" | "soilPrepRecord" | "tillageRecord" | "plantingRecord" | "soilDataRecord" | "fieldConditionRecord" | "weatherDataRecord" | "fertilizerRecord" | "irrigationRecord" | "weedingRecord" | "chemicalRecord" | "diseaseRecord" | "pestRecord" | "harvestingRecord" | "processingRecord" | "lossRecord" | "cropSaleRecord" | "cropAlert"
+      modelProps: "user" | "farm" | "employee" | "employeeFarm" | "employeeBenefit" | "livestock" | "mammal" | "poultry" | "mortality" | "healthEvent" | "transfer" | "sale" | "breedingRecord" | "offspring" | "feedingProgram" | "feedDetails" | "inventory" | "goodsInStock" | "machinery" | "utility" | "water" | "power" | "allergyRecord" | "boosterRecord" | "vaccinationRecord" | "dewormingRecord" | "geneticDisorderRecord" | "treatmentRecord" | "saleListing" | "cropCycle" | "crop" | "soilPrepRecord" | "tillageRecord" | "plantingRecord" | "soilDataRecord" | "fieldConditionRecord" | "weatherDataRecord" | "fertilizerRecord" | "irrigationRecord" | "weedingRecord" | "chemicalRecord" | "diseaseRecord" | "pestRecord" | "pesticideRecord" | "harvestingRecord" | "processingRecord" | "lossRecord" | "cropSaleRecord" | "cropAlert"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -4550,6 +4566,80 @@ export namespace Prisma {
           }
         }
       }
+      PesticideRecord: {
+        payload: Prisma.$PesticideRecordPayload<ExtArgs>
+        fields: Prisma.PesticideRecordFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PesticideRecordFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PesticideRecordPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PesticideRecordFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PesticideRecordPayload>
+          }
+          findFirst: {
+            args: Prisma.PesticideRecordFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PesticideRecordPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PesticideRecordFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PesticideRecordPayload>
+          }
+          findMany: {
+            args: Prisma.PesticideRecordFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PesticideRecordPayload>[]
+          }
+          create: {
+            args: Prisma.PesticideRecordCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PesticideRecordPayload>
+          }
+          createMany: {
+            args: Prisma.PesticideRecordCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PesticideRecordCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PesticideRecordPayload>[]
+          }
+          delete: {
+            args: Prisma.PesticideRecordDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PesticideRecordPayload>
+          }
+          update: {
+            args: Prisma.PesticideRecordUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PesticideRecordPayload>
+          }
+          deleteMany: {
+            args: Prisma.PesticideRecordDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PesticideRecordUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PesticideRecordUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PesticideRecordPayload>[]
+          }
+          upsert: {
+            args: Prisma.PesticideRecordUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PesticideRecordPayload>
+          }
+          aggregate: {
+            args: Prisma.PesticideRecordAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePesticideRecord>
+          }
+          groupBy: {
+            args: Prisma.PesticideRecordGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PesticideRecordGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PesticideRecordCountArgs<ExtArgs>
+            result: $Utils.Optional<PesticideRecordCountAggregateOutputType> | number
+          }
+        }
+      }
       HarvestingRecord: {
         payload: Prisma.$HarvestingRecordPayload<ExtArgs>
         fields: Prisma.HarvestingRecordFieldRefs
@@ -5047,6 +5137,7 @@ export namespace Prisma {
     chemicalRecord?: ChemicalRecordOmit
     diseaseRecord?: DiseaseRecordOmit
     pestRecord?: PestRecordOmit
+    pesticideRecord?: PesticideRecordOmit
     harvestingRecord?: HarvestingRecordOmit
     processingRecord?: ProcessingRecordOmit
     lossRecord?: LossRecordOmit
@@ -5712,6 +5803,7 @@ export namespace Prisma {
     chemicalRecords: number
     diseaseRecords: number
     pestRecords: number
+    pesticideRecords: number
     harvestingRecords: number
     processingRecords: number
     lossRecords: number
@@ -5732,6 +5824,7 @@ export namespace Prisma {
     chemicalRecords?: boolean | CropCountOutputTypeCountChemicalRecordsArgs
     diseaseRecords?: boolean | CropCountOutputTypeCountDiseaseRecordsArgs
     pestRecords?: boolean | CropCountOutputTypeCountPestRecordsArgs
+    pesticideRecords?: boolean | CropCountOutputTypeCountPesticideRecordsArgs
     harvestingRecords?: boolean | CropCountOutputTypeCountHarvestingRecordsArgs
     processingRecords?: boolean | CropCountOutputTypeCountProcessingRecordsArgs
     lossRecords?: boolean | CropCountOutputTypeCountLossRecordsArgs
@@ -5832,6 +5925,13 @@ export namespace Prisma {
    */
   export type CropCountOutputTypeCountPestRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PestRecordWhereInput
+  }
+
+  /**
+   * CropCountOutputType without action
+   */
+  export type CropCountOutputTypeCountPesticideRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PesticideRecordWhereInput
   }
 
   /**
@@ -43856,6 +43956,7 @@ export namespace Prisma {
     chemicalRecords?: boolean | Crop$chemicalRecordsArgs<ExtArgs>
     diseaseRecords?: boolean | Crop$diseaseRecordsArgs<ExtArgs>
     pestRecords?: boolean | Crop$pestRecordsArgs<ExtArgs>
+    pesticideRecords?: boolean | Crop$pesticideRecordsArgs<ExtArgs>
     harvestingRecords?: boolean | Crop$harvestingRecordsArgs<ExtArgs>
     processingRecords?: boolean | Crop$processingRecordsArgs<ExtArgs>
     lossRecords?: boolean | Crop$lossRecordsArgs<ExtArgs>
@@ -43944,6 +44045,7 @@ export namespace Prisma {
     chemicalRecords?: boolean | Crop$chemicalRecordsArgs<ExtArgs>
     diseaseRecords?: boolean | Crop$diseaseRecordsArgs<ExtArgs>
     pestRecords?: boolean | Crop$pestRecordsArgs<ExtArgs>
+    pesticideRecords?: boolean | Crop$pesticideRecordsArgs<ExtArgs>
     harvestingRecords?: boolean | Crop$harvestingRecordsArgs<ExtArgs>
     processingRecords?: boolean | Crop$processingRecordsArgs<ExtArgs>
     lossRecords?: boolean | Crop$lossRecordsArgs<ExtArgs>
@@ -43974,6 +44076,7 @@ export namespace Prisma {
       chemicalRecords: Prisma.$ChemicalRecordPayload<ExtArgs>[]
       diseaseRecords: Prisma.$DiseaseRecordPayload<ExtArgs>[]
       pestRecords: Prisma.$PestRecordPayload<ExtArgs>[]
+      pesticideRecords: Prisma.$PesticideRecordPayload<ExtArgs>[]
       harvestingRecords: Prisma.$HarvestingRecordPayload<ExtArgs>[]
       processingRecords: Prisma.$ProcessingRecordPayload<ExtArgs>[]
       lossRecords: Prisma.$LossRecordPayload<ExtArgs>[]
@@ -44406,6 +44509,7 @@ export namespace Prisma {
     chemicalRecords<T extends Crop$chemicalRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$chemicalRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ChemicalRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     diseaseRecords<T extends Crop$diseaseRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$diseaseRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiseaseRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     pestRecords<T extends Crop$pestRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$pestRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PestRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    pesticideRecords<T extends Crop$pesticideRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$pesticideRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PesticideRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     harvestingRecords<T extends Crop$harvestingRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$harvestingRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HarvestingRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     processingRecords<T extends Crop$processingRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$processingRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProcessingRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     lossRecords<T extends Crop$lossRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$lossRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LossRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -45139,6 +45243,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: PestRecordScalarFieldEnum | PestRecordScalarFieldEnum[]
+  }
+
+  /**
+   * Crop.pesticideRecords
+   */
+  export type Crop$pesticideRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PesticideRecord
+     */
+    select?: PesticideRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PesticideRecord
+     */
+    omit?: PesticideRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PesticideRecordInclude<ExtArgs> | null
+    where?: PesticideRecordWhereInput
+    orderBy?: PesticideRecordOrderByWithRelationInput | PesticideRecordOrderByWithRelationInput[]
+    cursor?: PesticideRecordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PesticideRecordScalarFieldEnum | PesticideRecordScalarFieldEnum[]
   }
 
   /**
@@ -55178,12 +55306,18 @@ export namespace Prisma {
   }
 
   export type WeedingRecordAvgAggregateOutputType = {
+    quantityPurchased: number | null
+    purchasePrice: number | null
+    amountApplied: number | null
     dosage: number | null
     numberOfWorkers: number | null
     labourCost: number | null
   }
 
   export type WeedingRecordSumAggregateOutputType = {
+    quantityPurchased: number | null
+    purchasePrice: number | null
+    amountApplied: number | null
     dosage: number | null
     numberOfWorkers: number | null
     labourCost: number | null
@@ -55195,10 +55329,21 @@ export namespace Prisma {
     farmId: string | null
     date: Date | null
     weedingType: string | null
+    selectedWeeds: string | null
+    toolsUsed: string | null
+    herbicideType: string | null
     herbicideName: string | null
+    herbicideSource: string | null
+    purchaseDate: Date | null
+    seller: string | null
+    quantityPurchased: number | null
+    purchasePrice: number | null
+    dilutionRatio: string | null
+    amountApplied: number | null
+    amountUnit: string | null
+    applicationMethod: string | null
     dosage: number | null
     dosageUnit: string | null
-    applicationMethod: string | null
     labourType: string | null
     numberOfWorkers: number | null
     labourCost: number | null
@@ -55213,10 +55358,21 @@ export namespace Prisma {
     farmId: string | null
     date: Date | null
     weedingType: string | null
+    selectedWeeds: string | null
+    toolsUsed: string | null
+    herbicideType: string | null
     herbicideName: string | null
+    herbicideSource: string | null
+    purchaseDate: Date | null
+    seller: string | null
+    quantityPurchased: number | null
+    purchasePrice: number | null
+    dilutionRatio: string | null
+    amountApplied: number | null
+    amountUnit: string | null
+    applicationMethod: string | null
     dosage: number | null
     dosageUnit: string | null
-    applicationMethod: string | null
     labourType: string | null
     numberOfWorkers: number | null
     labourCost: number | null
@@ -55231,10 +55387,21 @@ export namespace Prisma {
     farmId: number
     date: number
     weedingType: number
+    selectedWeeds: number
+    toolsUsed: number
+    herbicideType: number
     herbicideName: number
+    herbicideSource: number
+    purchaseDate: number
+    seller: number
+    quantityPurchased: number
+    purchasePrice: number
+    dilutionRatio: number
+    amountApplied: number
+    amountUnit: number
+    applicationMethod: number
     dosage: number
     dosageUnit: number
-    applicationMethod: number
     labourType: number
     numberOfWorkers: number
     labourCost: number
@@ -55246,12 +55413,18 @@ export namespace Prisma {
 
 
   export type WeedingRecordAvgAggregateInputType = {
+    quantityPurchased?: true
+    purchasePrice?: true
+    amountApplied?: true
     dosage?: true
     numberOfWorkers?: true
     labourCost?: true
   }
 
   export type WeedingRecordSumAggregateInputType = {
+    quantityPurchased?: true
+    purchasePrice?: true
+    amountApplied?: true
     dosage?: true
     numberOfWorkers?: true
     labourCost?: true
@@ -55263,10 +55436,21 @@ export namespace Prisma {
     farmId?: true
     date?: true
     weedingType?: true
+    selectedWeeds?: true
+    toolsUsed?: true
+    herbicideType?: true
     herbicideName?: true
+    herbicideSource?: true
+    purchaseDate?: true
+    seller?: true
+    quantityPurchased?: true
+    purchasePrice?: true
+    dilutionRatio?: true
+    amountApplied?: true
+    amountUnit?: true
+    applicationMethod?: true
     dosage?: true
     dosageUnit?: true
-    applicationMethod?: true
     labourType?: true
     numberOfWorkers?: true
     labourCost?: true
@@ -55281,10 +55465,21 @@ export namespace Prisma {
     farmId?: true
     date?: true
     weedingType?: true
+    selectedWeeds?: true
+    toolsUsed?: true
+    herbicideType?: true
     herbicideName?: true
+    herbicideSource?: true
+    purchaseDate?: true
+    seller?: true
+    quantityPurchased?: true
+    purchasePrice?: true
+    dilutionRatio?: true
+    amountApplied?: true
+    amountUnit?: true
+    applicationMethod?: true
     dosage?: true
     dosageUnit?: true
-    applicationMethod?: true
     labourType?: true
     numberOfWorkers?: true
     labourCost?: true
@@ -55299,10 +55494,21 @@ export namespace Prisma {
     farmId?: true
     date?: true
     weedingType?: true
+    selectedWeeds?: true
+    toolsUsed?: true
+    herbicideType?: true
     herbicideName?: true
+    herbicideSource?: true
+    purchaseDate?: true
+    seller?: true
+    quantityPurchased?: true
+    purchasePrice?: true
+    dilutionRatio?: true
+    amountApplied?: true
+    amountUnit?: true
+    applicationMethod?: true
     dosage?: true
     dosageUnit?: true
-    applicationMethod?: true
     labourType?: true
     numberOfWorkers?: true
     labourCost?: true
@@ -55404,10 +55610,21 @@ export namespace Prisma {
     farmId: string
     date: Date
     weedingType: string
+    selectedWeeds: string | null
+    toolsUsed: string | null
+    herbicideType: string | null
     herbicideName: string | null
+    herbicideSource: string | null
+    purchaseDate: Date | null
+    seller: string | null
+    quantityPurchased: number | null
+    purchasePrice: number | null
+    dilutionRatio: string | null
+    amountApplied: number | null
+    amountUnit: string | null
+    applicationMethod: string | null
     dosage: number | null
     dosageUnit: string
-    applicationMethod: string | null
     labourType: string | null
     numberOfWorkers: number | null
     labourCost: number | null
@@ -55441,10 +55658,21 @@ export namespace Prisma {
     farmId?: boolean
     date?: boolean
     weedingType?: boolean
+    selectedWeeds?: boolean
+    toolsUsed?: boolean
+    herbicideType?: boolean
     herbicideName?: boolean
+    herbicideSource?: boolean
+    purchaseDate?: boolean
+    seller?: boolean
+    quantityPurchased?: boolean
+    purchasePrice?: boolean
+    dilutionRatio?: boolean
+    amountApplied?: boolean
+    amountUnit?: boolean
+    applicationMethod?: boolean
     dosage?: boolean
     dosageUnit?: boolean
-    applicationMethod?: boolean
     labourType?: boolean
     numberOfWorkers?: boolean
     labourCost?: boolean
@@ -55460,10 +55688,21 @@ export namespace Prisma {
     farmId?: boolean
     date?: boolean
     weedingType?: boolean
+    selectedWeeds?: boolean
+    toolsUsed?: boolean
+    herbicideType?: boolean
     herbicideName?: boolean
+    herbicideSource?: boolean
+    purchaseDate?: boolean
+    seller?: boolean
+    quantityPurchased?: boolean
+    purchasePrice?: boolean
+    dilutionRatio?: boolean
+    amountApplied?: boolean
+    amountUnit?: boolean
+    applicationMethod?: boolean
     dosage?: boolean
     dosageUnit?: boolean
-    applicationMethod?: boolean
     labourType?: boolean
     numberOfWorkers?: boolean
     labourCost?: boolean
@@ -55479,10 +55718,21 @@ export namespace Prisma {
     farmId?: boolean
     date?: boolean
     weedingType?: boolean
+    selectedWeeds?: boolean
+    toolsUsed?: boolean
+    herbicideType?: boolean
     herbicideName?: boolean
+    herbicideSource?: boolean
+    purchaseDate?: boolean
+    seller?: boolean
+    quantityPurchased?: boolean
+    purchasePrice?: boolean
+    dilutionRatio?: boolean
+    amountApplied?: boolean
+    amountUnit?: boolean
+    applicationMethod?: boolean
     dosage?: boolean
     dosageUnit?: boolean
-    applicationMethod?: boolean
     labourType?: boolean
     numberOfWorkers?: boolean
     labourCost?: boolean
@@ -55498,10 +55748,21 @@ export namespace Prisma {
     farmId?: boolean
     date?: boolean
     weedingType?: boolean
+    selectedWeeds?: boolean
+    toolsUsed?: boolean
+    herbicideType?: boolean
     herbicideName?: boolean
+    herbicideSource?: boolean
+    purchaseDate?: boolean
+    seller?: boolean
+    quantityPurchased?: boolean
+    purchasePrice?: boolean
+    dilutionRatio?: boolean
+    amountApplied?: boolean
+    amountUnit?: boolean
+    applicationMethod?: boolean
     dosage?: boolean
     dosageUnit?: boolean
-    applicationMethod?: boolean
     labourType?: boolean
     numberOfWorkers?: boolean
     labourCost?: boolean
@@ -55510,7 +55771,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type WeedingRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cropId" | "farmId" | "date" | "weedingType" | "herbicideName" | "dosage" | "dosageUnit" | "applicationMethod" | "labourType" | "numberOfWorkers" | "labourCost" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["weedingRecord"]>
+  export type WeedingRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cropId" | "farmId" | "date" | "weedingType" | "selectedWeeds" | "toolsUsed" | "herbicideType" | "herbicideName" | "herbicideSource" | "purchaseDate" | "seller" | "quantityPurchased" | "purchasePrice" | "dilutionRatio" | "amountApplied" | "amountUnit" | "applicationMethod" | "dosage" | "dosageUnit" | "labourType" | "numberOfWorkers" | "labourCost" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["weedingRecord"]>
   export type WeedingRecordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     crop?: boolean | CropDefaultArgs<ExtArgs>
   }
@@ -55532,10 +55793,21 @@ export namespace Prisma {
       farmId: string
       date: Date
       weedingType: string
+      selectedWeeds: string | null
+      toolsUsed: string | null
+      herbicideType: string | null
       herbicideName: string | null
+      herbicideSource: string | null
+      purchaseDate: Date | null
+      seller: string | null
+      quantityPurchased: number | null
+      purchasePrice: number | null
+      dilutionRatio: string | null
+      amountApplied: number | null
+      amountUnit: string | null
+      applicationMethod: string | null
       dosage: number | null
       dosageUnit: string
-      applicationMethod: string | null
       labourType: string | null
       numberOfWorkers: number | null
       labourCost: number | null
@@ -55971,10 +56243,21 @@ export namespace Prisma {
     readonly farmId: FieldRef<"WeedingRecord", 'String'>
     readonly date: FieldRef<"WeedingRecord", 'DateTime'>
     readonly weedingType: FieldRef<"WeedingRecord", 'String'>
+    readonly selectedWeeds: FieldRef<"WeedingRecord", 'String'>
+    readonly toolsUsed: FieldRef<"WeedingRecord", 'String'>
+    readonly herbicideType: FieldRef<"WeedingRecord", 'String'>
     readonly herbicideName: FieldRef<"WeedingRecord", 'String'>
+    readonly herbicideSource: FieldRef<"WeedingRecord", 'String'>
+    readonly purchaseDate: FieldRef<"WeedingRecord", 'DateTime'>
+    readonly seller: FieldRef<"WeedingRecord", 'String'>
+    readonly quantityPurchased: FieldRef<"WeedingRecord", 'Float'>
+    readonly purchasePrice: FieldRef<"WeedingRecord", 'Float'>
+    readonly dilutionRatio: FieldRef<"WeedingRecord", 'String'>
+    readonly amountApplied: FieldRef<"WeedingRecord", 'Float'>
+    readonly amountUnit: FieldRef<"WeedingRecord", 'String'>
+    readonly applicationMethod: FieldRef<"WeedingRecord", 'String'>
     readonly dosage: FieldRef<"WeedingRecord", 'Float'>
     readonly dosageUnit: FieldRef<"WeedingRecord", 'String'>
-    readonly applicationMethod: FieldRef<"WeedingRecord", 'String'>
     readonly labourType: FieldRef<"WeedingRecord", 'String'>
     readonly numberOfWorkers: FieldRef<"WeedingRecord", 'Int'>
     readonly labourCost: FieldRef<"WeedingRecord", 'Float'>
@@ -58865,6 +59148,11 @@ export namespace Prisma {
     cropId: string | null
     farmId: string | null
     date: Date | null
+    selectedPests: string | null
+    infestationLevel: string | null
+    controlMethod: string | null
+    specificTechnique: string | null
+    toolsUsed: string | null
     pestName: string | null
     methodOfControl: string | null
     dateOfControl: Date | null
@@ -58882,6 +59170,11 @@ export namespace Prisma {
     cropId: string | null
     farmId: string | null
     date: Date | null
+    selectedPests: string | null
+    infestationLevel: string | null
+    controlMethod: string | null
+    specificTechnique: string | null
+    toolsUsed: string | null
     pestName: string | null
     methodOfControl: string | null
     dateOfControl: Date | null
@@ -58899,6 +59192,11 @@ export namespace Prisma {
     cropId: number
     farmId: number
     date: number
+    selectedPests: number
+    infestationLevel: number
+    controlMethod: number
+    specificTechnique: number
+    toolsUsed: number
     pestName: number
     methodOfControl: number
     dateOfControl: number
@@ -58928,6 +59226,11 @@ export namespace Prisma {
     cropId?: true
     farmId?: true
     date?: true
+    selectedPests?: true
+    infestationLevel?: true
+    controlMethod?: true
+    specificTechnique?: true
+    toolsUsed?: true
     pestName?: true
     methodOfControl?: true
     dateOfControl?: true
@@ -58945,6 +59248,11 @@ export namespace Prisma {
     cropId?: true
     farmId?: true
     date?: true
+    selectedPests?: true
+    infestationLevel?: true
+    controlMethod?: true
+    specificTechnique?: true
+    toolsUsed?: true
     pestName?: true
     methodOfControl?: true
     dateOfControl?: true
@@ -58962,6 +59270,11 @@ export namespace Prisma {
     cropId?: true
     farmId?: true
     date?: true
+    selectedPests?: true
+    infestationLevel?: true
+    controlMethod?: true
+    specificTechnique?: true
+    toolsUsed?: true
     pestName?: true
     methodOfControl?: true
     dateOfControl?: true
@@ -59066,6 +59379,11 @@ export namespace Prisma {
     cropId: string
     farmId: string
     date: Date
+    selectedPests: string | null
+    infestationLevel: string | null
+    controlMethod: string | null
+    specificTechnique: string | null
+    toolsUsed: string | null
     pestName: string
     methodOfControl: string
     dateOfControl: Date | null
@@ -59102,6 +59420,11 @@ export namespace Prisma {
     cropId?: boolean
     farmId?: boolean
     date?: boolean
+    selectedPests?: boolean
+    infestationLevel?: boolean
+    controlMethod?: boolean
+    specificTechnique?: boolean
+    toolsUsed?: boolean
     pestName?: boolean
     methodOfControl?: boolean
     dateOfControl?: boolean
@@ -59120,6 +59443,11 @@ export namespace Prisma {
     cropId?: boolean
     farmId?: boolean
     date?: boolean
+    selectedPests?: boolean
+    infestationLevel?: boolean
+    controlMethod?: boolean
+    specificTechnique?: boolean
+    toolsUsed?: boolean
     pestName?: boolean
     methodOfControl?: boolean
     dateOfControl?: boolean
@@ -59138,6 +59466,11 @@ export namespace Prisma {
     cropId?: boolean
     farmId?: boolean
     date?: boolean
+    selectedPests?: boolean
+    infestationLevel?: boolean
+    controlMethod?: boolean
+    specificTechnique?: boolean
+    toolsUsed?: boolean
     pestName?: boolean
     methodOfControl?: boolean
     dateOfControl?: boolean
@@ -59156,6 +59489,11 @@ export namespace Prisma {
     cropId?: boolean
     farmId?: boolean
     date?: boolean
+    selectedPests?: boolean
+    infestationLevel?: boolean
+    controlMethod?: boolean
+    specificTechnique?: boolean
+    toolsUsed?: boolean
     pestName?: boolean
     methodOfControl?: boolean
     dateOfControl?: boolean
@@ -59168,7 +59506,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type PestRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cropId" | "farmId" | "date" | "pestName" | "methodOfControl" | "dateOfControl" | "methodDetail" | "labourType" | "numberOfWorkers" | "labourCost" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["pestRecord"]>
+  export type PestRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cropId" | "farmId" | "date" | "selectedPests" | "infestationLevel" | "controlMethod" | "specificTechnique" | "toolsUsed" | "pestName" | "methodOfControl" | "dateOfControl" | "methodDetail" | "labourType" | "numberOfWorkers" | "labourCost" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["pestRecord"]>
   export type PestRecordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     crop?: boolean | CropDefaultArgs<ExtArgs>
   }
@@ -59189,6 +59527,11 @@ export namespace Prisma {
       cropId: string
       farmId: string
       date: Date
+      selectedPests: string | null
+      infestationLevel: string | null
+      controlMethod: string | null
+      specificTechnique: string | null
+      toolsUsed: string | null
       pestName: string
       methodOfControl: string
       dateOfControl: Date | null
@@ -59627,6 +59970,11 @@ export namespace Prisma {
     readonly cropId: FieldRef<"PestRecord", 'String'>
     readonly farmId: FieldRef<"PestRecord", 'String'>
     readonly date: FieldRef<"PestRecord", 'DateTime'>
+    readonly selectedPests: FieldRef<"PestRecord", 'String'>
+    readonly infestationLevel: FieldRef<"PestRecord", 'String'>
+    readonly controlMethod: FieldRef<"PestRecord", 'String'>
+    readonly specificTechnique: FieldRef<"PestRecord", 'String'>
+    readonly toolsUsed: FieldRef<"PestRecord", 'String'>
     readonly pestName: FieldRef<"PestRecord", 'String'>
     readonly methodOfControl: FieldRef<"PestRecord", 'String'>
     readonly dateOfControl: FieldRef<"PestRecord", 'DateTime'>
@@ -60048,6 +60396,1378 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: PestRecordInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PesticideRecord
+   */
+
+  export type AggregatePesticideRecord = {
+    _count: PesticideRecordCountAggregateOutputType | null
+    _avg: PesticideRecordAvgAggregateOutputType | null
+    _sum: PesticideRecordSumAggregateOutputType | null
+    _min: PesticideRecordMinAggregateOutputType | null
+    _max: PesticideRecordMaxAggregateOutputType | null
+  }
+
+  export type PesticideRecordAvgAggregateOutputType = {
+    quantityPurchased: number | null
+    purchasePrice: number | null
+    transportCost: number | null
+    amountApplied: number | null
+    timeWorked: number | null
+    labourCost: number | null
+  }
+
+  export type PesticideRecordSumAggregateOutputType = {
+    quantityPurchased: number | null
+    purchasePrice: number | null
+    transportCost: number | null
+    amountApplied: number | null
+    timeWorked: number | null
+    labourCost: number | null
+  }
+
+  export type PesticideRecordMinAggregateOutputType = {
+    id: string | null
+    cropId: string | null
+    farmId: string | null
+    selectedPests: string | null
+    pesticideType: string | null
+    source: string | null
+    purchaseDate: Date | null
+    seller: string | null
+    quantityPurchased: number | null
+    purchasePrice: number | null
+    transportCost: number | null
+    pesticideName: string | null
+    date: Date | null
+    applicationMethod: string | null
+    equipment: string | null
+    dilutionRatio: string | null
+    amountApplied: number | null
+    amountUnit: string | null
+    labour: string | null
+    workerName: string | null
+    timeWorked: number | null
+    labourCost: number | null
+    notes: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PesticideRecordMaxAggregateOutputType = {
+    id: string | null
+    cropId: string | null
+    farmId: string | null
+    selectedPests: string | null
+    pesticideType: string | null
+    source: string | null
+    purchaseDate: Date | null
+    seller: string | null
+    quantityPurchased: number | null
+    purchasePrice: number | null
+    transportCost: number | null
+    pesticideName: string | null
+    date: Date | null
+    applicationMethod: string | null
+    equipment: string | null
+    dilutionRatio: string | null
+    amountApplied: number | null
+    amountUnit: string | null
+    labour: string | null
+    workerName: string | null
+    timeWorked: number | null
+    labourCost: number | null
+    notes: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PesticideRecordCountAggregateOutputType = {
+    id: number
+    cropId: number
+    farmId: number
+    selectedPests: number
+    pesticideType: number
+    source: number
+    purchaseDate: number
+    seller: number
+    quantityPurchased: number
+    purchasePrice: number
+    transportCost: number
+    pesticideName: number
+    date: number
+    applicationMethod: number
+    equipment: number
+    dilutionRatio: number
+    amountApplied: number
+    amountUnit: number
+    labour: number
+    workerName: number
+    timeWorked: number
+    labourCost: number
+    notes: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type PesticideRecordAvgAggregateInputType = {
+    quantityPurchased?: true
+    purchasePrice?: true
+    transportCost?: true
+    amountApplied?: true
+    timeWorked?: true
+    labourCost?: true
+  }
+
+  export type PesticideRecordSumAggregateInputType = {
+    quantityPurchased?: true
+    purchasePrice?: true
+    transportCost?: true
+    amountApplied?: true
+    timeWorked?: true
+    labourCost?: true
+  }
+
+  export type PesticideRecordMinAggregateInputType = {
+    id?: true
+    cropId?: true
+    farmId?: true
+    selectedPests?: true
+    pesticideType?: true
+    source?: true
+    purchaseDate?: true
+    seller?: true
+    quantityPurchased?: true
+    purchasePrice?: true
+    transportCost?: true
+    pesticideName?: true
+    date?: true
+    applicationMethod?: true
+    equipment?: true
+    dilutionRatio?: true
+    amountApplied?: true
+    amountUnit?: true
+    labour?: true
+    workerName?: true
+    timeWorked?: true
+    labourCost?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PesticideRecordMaxAggregateInputType = {
+    id?: true
+    cropId?: true
+    farmId?: true
+    selectedPests?: true
+    pesticideType?: true
+    source?: true
+    purchaseDate?: true
+    seller?: true
+    quantityPurchased?: true
+    purchasePrice?: true
+    transportCost?: true
+    pesticideName?: true
+    date?: true
+    applicationMethod?: true
+    equipment?: true
+    dilutionRatio?: true
+    amountApplied?: true
+    amountUnit?: true
+    labour?: true
+    workerName?: true
+    timeWorked?: true
+    labourCost?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PesticideRecordCountAggregateInputType = {
+    id?: true
+    cropId?: true
+    farmId?: true
+    selectedPests?: true
+    pesticideType?: true
+    source?: true
+    purchaseDate?: true
+    seller?: true
+    quantityPurchased?: true
+    purchasePrice?: true
+    transportCost?: true
+    pesticideName?: true
+    date?: true
+    applicationMethod?: true
+    equipment?: true
+    dilutionRatio?: true
+    amountApplied?: true
+    amountUnit?: true
+    labour?: true
+    workerName?: true
+    timeWorked?: true
+    labourCost?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type PesticideRecordAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PesticideRecord to aggregate.
+     */
+    where?: PesticideRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PesticideRecords to fetch.
+     */
+    orderBy?: PesticideRecordOrderByWithRelationInput | PesticideRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PesticideRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PesticideRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PesticideRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PesticideRecords
+    **/
+    _count?: true | PesticideRecordCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PesticideRecordAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PesticideRecordSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PesticideRecordMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PesticideRecordMaxAggregateInputType
+  }
+
+  export type GetPesticideRecordAggregateType<T extends PesticideRecordAggregateArgs> = {
+        [P in keyof T & keyof AggregatePesticideRecord]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePesticideRecord[P]>
+      : GetScalarType<T[P], AggregatePesticideRecord[P]>
+  }
+
+
+
+
+  export type PesticideRecordGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PesticideRecordWhereInput
+    orderBy?: PesticideRecordOrderByWithAggregationInput | PesticideRecordOrderByWithAggregationInput[]
+    by: PesticideRecordScalarFieldEnum[] | PesticideRecordScalarFieldEnum
+    having?: PesticideRecordScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PesticideRecordCountAggregateInputType | true
+    _avg?: PesticideRecordAvgAggregateInputType
+    _sum?: PesticideRecordSumAggregateInputType
+    _min?: PesticideRecordMinAggregateInputType
+    _max?: PesticideRecordMaxAggregateInputType
+  }
+
+  export type PesticideRecordGroupByOutputType = {
+    id: string
+    cropId: string
+    farmId: string
+    selectedPests: string | null
+    pesticideType: string | null
+    source: string | null
+    purchaseDate: Date | null
+    seller: string | null
+    quantityPurchased: number | null
+    purchasePrice: number | null
+    transportCost: number | null
+    pesticideName: string
+    date: Date
+    applicationMethod: string | null
+    equipment: string | null
+    dilutionRatio: string | null
+    amountApplied: number | null
+    amountUnit: string | null
+    labour: string | null
+    workerName: string | null
+    timeWorked: number | null
+    labourCost: number | null
+    notes: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: PesticideRecordCountAggregateOutputType | null
+    _avg: PesticideRecordAvgAggregateOutputType | null
+    _sum: PesticideRecordSumAggregateOutputType | null
+    _min: PesticideRecordMinAggregateOutputType | null
+    _max: PesticideRecordMaxAggregateOutputType | null
+  }
+
+  type GetPesticideRecordGroupByPayload<T extends PesticideRecordGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PesticideRecordGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PesticideRecordGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PesticideRecordGroupByOutputType[P]>
+            : GetScalarType<T[P], PesticideRecordGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PesticideRecordSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    selectedPests?: boolean
+    pesticideType?: boolean
+    source?: boolean
+    purchaseDate?: boolean
+    seller?: boolean
+    quantityPurchased?: boolean
+    purchasePrice?: boolean
+    transportCost?: boolean
+    pesticideName?: boolean
+    date?: boolean
+    applicationMethod?: boolean
+    equipment?: boolean
+    dilutionRatio?: boolean
+    amountApplied?: boolean
+    amountUnit?: boolean
+    labour?: boolean
+    workerName?: boolean
+    timeWorked?: boolean
+    labourCost?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pesticideRecord"]>
+
+  export type PesticideRecordSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    selectedPests?: boolean
+    pesticideType?: boolean
+    source?: boolean
+    purchaseDate?: boolean
+    seller?: boolean
+    quantityPurchased?: boolean
+    purchasePrice?: boolean
+    transportCost?: boolean
+    pesticideName?: boolean
+    date?: boolean
+    applicationMethod?: boolean
+    equipment?: boolean
+    dilutionRatio?: boolean
+    amountApplied?: boolean
+    amountUnit?: boolean
+    labour?: boolean
+    workerName?: boolean
+    timeWorked?: boolean
+    labourCost?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pesticideRecord"]>
+
+  export type PesticideRecordSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    selectedPests?: boolean
+    pesticideType?: boolean
+    source?: boolean
+    purchaseDate?: boolean
+    seller?: boolean
+    quantityPurchased?: boolean
+    purchasePrice?: boolean
+    transportCost?: boolean
+    pesticideName?: boolean
+    date?: boolean
+    applicationMethod?: boolean
+    equipment?: boolean
+    dilutionRatio?: boolean
+    amountApplied?: boolean
+    amountUnit?: boolean
+    labour?: boolean
+    workerName?: boolean
+    timeWorked?: boolean
+    labourCost?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pesticideRecord"]>
+
+  export type PesticideRecordSelectScalar = {
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    selectedPests?: boolean
+    pesticideType?: boolean
+    source?: boolean
+    purchaseDate?: boolean
+    seller?: boolean
+    quantityPurchased?: boolean
+    purchasePrice?: boolean
+    transportCost?: boolean
+    pesticideName?: boolean
+    date?: boolean
+    applicationMethod?: boolean
+    equipment?: boolean
+    dilutionRatio?: boolean
+    amountApplied?: boolean
+    amountUnit?: boolean
+    labour?: boolean
+    workerName?: boolean
+    timeWorked?: boolean
+    labourCost?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type PesticideRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cropId" | "farmId" | "selectedPests" | "pesticideType" | "source" | "purchaseDate" | "seller" | "quantityPurchased" | "purchasePrice" | "transportCost" | "pesticideName" | "date" | "applicationMethod" | "equipment" | "dilutionRatio" | "amountApplied" | "amountUnit" | "labour" | "workerName" | "timeWorked" | "labourCost" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["pesticideRecord"]>
+  export type PesticideRecordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }
+  export type PesticideRecordIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }
+  export type PesticideRecordIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }
+
+  export type $PesticideRecordPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PesticideRecord"
+    objects: {
+      crop: Prisma.$CropPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      cropId: string
+      farmId: string
+      selectedPests: string | null
+      pesticideType: string | null
+      source: string | null
+      purchaseDate: Date | null
+      seller: string | null
+      quantityPurchased: number | null
+      purchasePrice: number | null
+      transportCost: number | null
+      pesticideName: string
+      date: Date
+      applicationMethod: string | null
+      equipment: string | null
+      dilutionRatio: string | null
+      amountApplied: number | null
+      amountUnit: string | null
+      labour: string | null
+      workerName: string | null
+      timeWorked: number | null
+      labourCost: number | null
+      notes: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["pesticideRecord"]>
+    composites: {}
+  }
+
+  type PesticideRecordGetPayload<S extends boolean | null | undefined | PesticideRecordDefaultArgs> = $Result.GetResult<Prisma.$PesticideRecordPayload, S>
+
+  type PesticideRecordCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PesticideRecordFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PesticideRecordCountAggregateInputType | true
+    }
+
+  export interface PesticideRecordDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PesticideRecord'], meta: { name: 'PesticideRecord' } }
+    /**
+     * Find zero or one PesticideRecord that matches the filter.
+     * @param {PesticideRecordFindUniqueArgs} args - Arguments to find a PesticideRecord
+     * @example
+     * // Get one PesticideRecord
+     * const pesticideRecord = await prisma.pesticideRecord.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PesticideRecordFindUniqueArgs>(args: SelectSubset<T, PesticideRecordFindUniqueArgs<ExtArgs>>): Prisma__PesticideRecordClient<$Result.GetResult<Prisma.$PesticideRecordPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one PesticideRecord that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PesticideRecordFindUniqueOrThrowArgs} args - Arguments to find a PesticideRecord
+     * @example
+     * // Get one PesticideRecord
+     * const pesticideRecord = await prisma.pesticideRecord.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PesticideRecordFindUniqueOrThrowArgs>(args: SelectSubset<T, PesticideRecordFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PesticideRecordClient<$Result.GetResult<Prisma.$PesticideRecordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PesticideRecord that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PesticideRecordFindFirstArgs} args - Arguments to find a PesticideRecord
+     * @example
+     * // Get one PesticideRecord
+     * const pesticideRecord = await prisma.pesticideRecord.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PesticideRecordFindFirstArgs>(args?: SelectSubset<T, PesticideRecordFindFirstArgs<ExtArgs>>): Prisma__PesticideRecordClient<$Result.GetResult<Prisma.$PesticideRecordPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PesticideRecord that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PesticideRecordFindFirstOrThrowArgs} args - Arguments to find a PesticideRecord
+     * @example
+     * // Get one PesticideRecord
+     * const pesticideRecord = await prisma.pesticideRecord.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PesticideRecordFindFirstOrThrowArgs>(args?: SelectSubset<T, PesticideRecordFindFirstOrThrowArgs<ExtArgs>>): Prisma__PesticideRecordClient<$Result.GetResult<Prisma.$PesticideRecordPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more PesticideRecords that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PesticideRecordFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PesticideRecords
+     * const pesticideRecords = await prisma.pesticideRecord.findMany()
+     * 
+     * // Get first 10 PesticideRecords
+     * const pesticideRecords = await prisma.pesticideRecord.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const pesticideRecordWithIdOnly = await prisma.pesticideRecord.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PesticideRecordFindManyArgs>(args?: SelectSubset<T, PesticideRecordFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PesticideRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a PesticideRecord.
+     * @param {PesticideRecordCreateArgs} args - Arguments to create a PesticideRecord.
+     * @example
+     * // Create one PesticideRecord
+     * const PesticideRecord = await prisma.pesticideRecord.create({
+     *   data: {
+     *     // ... data to create a PesticideRecord
+     *   }
+     * })
+     * 
+     */
+    create<T extends PesticideRecordCreateArgs>(args: SelectSubset<T, PesticideRecordCreateArgs<ExtArgs>>): Prisma__PesticideRecordClient<$Result.GetResult<Prisma.$PesticideRecordPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many PesticideRecords.
+     * @param {PesticideRecordCreateManyArgs} args - Arguments to create many PesticideRecords.
+     * @example
+     * // Create many PesticideRecords
+     * const pesticideRecord = await prisma.pesticideRecord.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PesticideRecordCreateManyArgs>(args?: SelectSubset<T, PesticideRecordCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PesticideRecords and returns the data saved in the database.
+     * @param {PesticideRecordCreateManyAndReturnArgs} args - Arguments to create many PesticideRecords.
+     * @example
+     * // Create many PesticideRecords
+     * const pesticideRecord = await prisma.pesticideRecord.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PesticideRecords and only return the `id`
+     * const pesticideRecordWithIdOnly = await prisma.pesticideRecord.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PesticideRecordCreateManyAndReturnArgs>(args?: SelectSubset<T, PesticideRecordCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PesticideRecordPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a PesticideRecord.
+     * @param {PesticideRecordDeleteArgs} args - Arguments to delete one PesticideRecord.
+     * @example
+     * // Delete one PesticideRecord
+     * const PesticideRecord = await prisma.pesticideRecord.delete({
+     *   where: {
+     *     // ... filter to delete one PesticideRecord
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PesticideRecordDeleteArgs>(args: SelectSubset<T, PesticideRecordDeleteArgs<ExtArgs>>): Prisma__PesticideRecordClient<$Result.GetResult<Prisma.$PesticideRecordPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one PesticideRecord.
+     * @param {PesticideRecordUpdateArgs} args - Arguments to update one PesticideRecord.
+     * @example
+     * // Update one PesticideRecord
+     * const pesticideRecord = await prisma.pesticideRecord.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PesticideRecordUpdateArgs>(args: SelectSubset<T, PesticideRecordUpdateArgs<ExtArgs>>): Prisma__PesticideRecordClient<$Result.GetResult<Prisma.$PesticideRecordPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more PesticideRecords.
+     * @param {PesticideRecordDeleteManyArgs} args - Arguments to filter PesticideRecords to delete.
+     * @example
+     * // Delete a few PesticideRecords
+     * const { count } = await prisma.pesticideRecord.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PesticideRecordDeleteManyArgs>(args?: SelectSubset<T, PesticideRecordDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PesticideRecords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PesticideRecordUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PesticideRecords
+     * const pesticideRecord = await prisma.pesticideRecord.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PesticideRecordUpdateManyArgs>(args: SelectSubset<T, PesticideRecordUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PesticideRecords and returns the data updated in the database.
+     * @param {PesticideRecordUpdateManyAndReturnArgs} args - Arguments to update many PesticideRecords.
+     * @example
+     * // Update many PesticideRecords
+     * const pesticideRecord = await prisma.pesticideRecord.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PesticideRecords and only return the `id`
+     * const pesticideRecordWithIdOnly = await prisma.pesticideRecord.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PesticideRecordUpdateManyAndReturnArgs>(args: SelectSubset<T, PesticideRecordUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PesticideRecordPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one PesticideRecord.
+     * @param {PesticideRecordUpsertArgs} args - Arguments to update or create a PesticideRecord.
+     * @example
+     * // Update or create a PesticideRecord
+     * const pesticideRecord = await prisma.pesticideRecord.upsert({
+     *   create: {
+     *     // ... data to create a PesticideRecord
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PesticideRecord we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PesticideRecordUpsertArgs>(args: SelectSubset<T, PesticideRecordUpsertArgs<ExtArgs>>): Prisma__PesticideRecordClient<$Result.GetResult<Prisma.$PesticideRecordPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of PesticideRecords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PesticideRecordCountArgs} args - Arguments to filter PesticideRecords to count.
+     * @example
+     * // Count the number of PesticideRecords
+     * const count = await prisma.pesticideRecord.count({
+     *   where: {
+     *     // ... the filter for the PesticideRecords we want to count
+     *   }
+     * })
+    **/
+    count<T extends PesticideRecordCountArgs>(
+      args?: Subset<T, PesticideRecordCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PesticideRecordCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PesticideRecord.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PesticideRecordAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PesticideRecordAggregateArgs>(args: Subset<T, PesticideRecordAggregateArgs>): Prisma.PrismaPromise<GetPesticideRecordAggregateType<T>>
+
+    /**
+     * Group by PesticideRecord.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PesticideRecordGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PesticideRecordGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PesticideRecordGroupByArgs['orderBy'] }
+        : { orderBy?: PesticideRecordGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PesticideRecordGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPesticideRecordGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PesticideRecord model
+   */
+  readonly fields: PesticideRecordFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PesticideRecord.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PesticideRecordClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    crop<T extends CropDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CropDefaultArgs<ExtArgs>>): Prisma__CropClient<$Result.GetResult<Prisma.$CropPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PesticideRecord model
+   */
+  interface PesticideRecordFieldRefs {
+    readonly id: FieldRef<"PesticideRecord", 'String'>
+    readonly cropId: FieldRef<"PesticideRecord", 'String'>
+    readonly farmId: FieldRef<"PesticideRecord", 'String'>
+    readonly selectedPests: FieldRef<"PesticideRecord", 'String'>
+    readonly pesticideType: FieldRef<"PesticideRecord", 'String'>
+    readonly source: FieldRef<"PesticideRecord", 'String'>
+    readonly purchaseDate: FieldRef<"PesticideRecord", 'DateTime'>
+    readonly seller: FieldRef<"PesticideRecord", 'String'>
+    readonly quantityPurchased: FieldRef<"PesticideRecord", 'Float'>
+    readonly purchasePrice: FieldRef<"PesticideRecord", 'Float'>
+    readonly transportCost: FieldRef<"PesticideRecord", 'Float'>
+    readonly pesticideName: FieldRef<"PesticideRecord", 'String'>
+    readonly date: FieldRef<"PesticideRecord", 'DateTime'>
+    readonly applicationMethod: FieldRef<"PesticideRecord", 'String'>
+    readonly equipment: FieldRef<"PesticideRecord", 'String'>
+    readonly dilutionRatio: FieldRef<"PesticideRecord", 'String'>
+    readonly amountApplied: FieldRef<"PesticideRecord", 'Float'>
+    readonly amountUnit: FieldRef<"PesticideRecord", 'String'>
+    readonly labour: FieldRef<"PesticideRecord", 'String'>
+    readonly workerName: FieldRef<"PesticideRecord", 'String'>
+    readonly timeWorked: FieldRef<"PesticideRecord", 'Float'>
+    readonly labourCost: FieldRef<"PesticideRecord", 'Float'>
+    readonly notes: FieldRef<"PesticideRecord", 'String'>
+    readonly createdAt: FieldRef<"PesticideRecord", 'DateTime'>
+    readonly updatedAt: FieldRef<"PesticideRecord", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PesticideRecord findUnique
+   */
+  export type PesticideRecordFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PesticideRecord
+     */
+    select?: PesticideRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PesticideRecord
+     */
+    omit?: PesticideRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PesticideRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which PesticideRecord to fetch.
+     */
+    where: PesticideRecordWhereUniqueInput
+  }
+
+  /**
+   * PesticideRecord findUniqueOrThrow
+   */
+  export type PesticideRecordFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PesticideRecord
+     */
+    select?: PesticideRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PesticideRecord
+     */
+    omit?: PesticideRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PesticideRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which PesticideRecord to fetch.
+     */
+    where: PesticideRecordWhereUniqueInput
+  }
+
+  /**
+   * PesticideRecord findFirst
+   */
+  export type PesticideRecordFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PesticideRecord
+     */
+    select?: PesticideRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PesticideRecord
+     */
+    omit?: PesticideRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PesticideRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which PesticideRecord to fetch.
+     */
+    where?: PesticideRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PesticideRecords to fetch.
+     */
+    orderBy?: PesticideRecordOrderByWithRelationInput | PesticideRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PesticideRecords.
+     */
+    cursor?: PesticideRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PesticideRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PesticideRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PesticideRecords.
+     */
+    distinct?: PesticideRecordScalarFieldEnum | PesticideRecordScalarFieldEnum[]
+  }
+
+  /**
+   * PesticideRecord findFirstOrThrow
+   */
+  export type PesticideRecordFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PesticideRecord
+     */
+    select?: PesticideRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PesticideRecord
+     */
+    omit?: PesticideRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PesticideRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which PesticideRecord to fetch.
+     */
+    where?: PesticideRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PesticideRecords to fetch.
+     */
+    orderBy?: PesticideRecordOrderByWithRelationInput | PesticideRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PesticideRecords.
+     */
+    cursor?: PesticideRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PesticideRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PesticideRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PesticideRecords.
+     */
+    distinct?: PesticideRecordScalarFieldEnum | PesticideRecordScalarFieldEnum[]
+  }
+
+  /**
+   * PesticideRecord findMany
+   */
+  export type PesticideRecordFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PesticideRecord
+     */
+    select?: PesticideRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PesticideRecord
+     */
+    omit?: PesticideRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PesticideRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which PesticideRecords to fetch.
+     */
+    where?: PesticideRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PesticideRecords to fetch.
+     */
+    orderBy?: PesticideRecordOrderByWithRelationInput | PesticideRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PesticideRecords.
+     */
+    cursor?: PesticideRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PesticideRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PesticideRecords.
+     */
+    skip?: number
+    distinct?: PesticideRecordScalarFieldEnum | PesticideRecordScalarFieldEnum[]
+  }
+
+  /**
+   * PesticideRecord create
+   */
+  export type PesticideRecordCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PesticideRecord
+     */
+    select?: PesticideRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PesticideRecord
+     */
+    omit?: PesticideRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PesticideRecordInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PesticideRecord.
+     */
+    data: XOR<PesticideRecordCreateInput, PesticideRecordUncheckedCreateInput>
+  }
+
+  /**
+   * PesticideRecord createMany
+   */
+  export type PesticideRecordCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PesticideRecords.
+     */
+    data: PesticideRecordCreateManyInput | PesticideRecordCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PesticideRecord createManyAndReturn
+   */
+  export type PesticideRecordCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PesticideRecord
+     */
+    select?: PesticideRecordSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PesticideRecord
+     */
+    omit?: PesticideRecordOmit<ExtArgs> | null
+    /**
+     * The data used to create many PesticideRecords.
+     */
+    data: PesticideRecordCreateManyInput | PesticideRecordCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PesticideRecordIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PesticideRecord update
+   */
+  export type PesticideRecordUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PesticideRecord
+     */
+    select?: PesticideRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PesticideRecord
+     */
+    omit?: PesticideRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PesticideRecordInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PesticideRecord.
+     */
+    data: XOR<PesticideRecordUpdateInput, PesticideRecordUncheckedUpdateInput>
+    /**
+     * Choose, which PesticideRecord to update.
+     */
+    where: PesticideRecordWhereUniqueInput
+  }
+
+  /**
+   * PesticideRecord updateMany
+   */
+  export type PesticideRecordUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PesticideRecords.
+     */
+    data: XOR<PesticideRecordUpdateManyMutationInput, PesticideRecordUncheckedUpdateManyInput>
+    /**
+     * Filter which PesticideRecords to update
+     */
+    where?: PesticideRecordWhereInput
+    /**
+     * Limit how many PesticideRecords to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PesticideRecord updateManyAndReturn
+   */
+  export type PesticideRecordUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PesticideRecord
+     */
+    select?: PesticideRecordSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PesticideRecord
+     */
+    omit?: PesticideRecordOmit<ExtArgs> | null
+    /**
+     * The data used to update PesticideRecords.
+     */
+    data: XOR<PesticideRecordUpdateManyMutationInput, PesticideRecordUncheckedUpdateManyInput>
+    /**
+     * Filter which PesticideRecords to update
+     */
+    where?: PesticideRecordWhereInput
+    /**
+     * Limit how many PesticideRecords to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PesticideRecordIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PesticideRecord upsert
+   */
+  export type PesticideRecordUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PesticideRecord
+     */
+    select?: PesticideRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PesticideRecord
+     */
+    omit?: PesticideRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PesticideRecordInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PesticideRecord to update in case it exists.
+     */
+    where: PesticideRecordWhereUniqueInput
+    /**
+     * In case the PesticideRecord found by the `where` argument doesn't exist, create a new PesticideRecord with this data.
+     */
+    create: XOR<PesticideRecordCreateInput, PesticideRecordUncheckedCreateInput>
+    /**
+     * In case the PesticideRecord was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PesticideRecordUpdateInput, PesticideRecordUncheckedUpdateInput>
+  }
+
+  /**
+   * PesticideRecord delete
+   */
+  export type PesticideRecordDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PesticideRecord
+     */
+    select?: PesticideRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PesticideRecord
+     */
+    omit?: PesticideRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PesticideRecordInclude<ExtArgs> | null
+    /**
+     * Filter which PesticideRecord to delete.
+     */
+    where: PesticideRecordWhereUniqueInput
+  }
+
+  /**
+   * PesticideRecord deleteMany
+   */
+  export type PesticideRecordDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PesticideRecords to delete
+     */
+    where?: PesticideRecordWhereInput
+    /**
+     * Limit how many PesticideRecords to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PesticideRecord without action
+   */
+  export type PesticideRecordDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PesticideRecord
+     */
+    select?: PesticideRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PesticideRecord
+     */
+    omit?: PesticideRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PesticideRecordInclude<ExtArgs> | null
   }
 
 
@@ -67174,10 +68894,21 @@ export namespace Prisma {
     farmId: 'farmId',
     date: 'date',
     weedingType: 'weedingType',
+    selectedWeeds: 'selectedWeeds',
+    toolsUsed: 'toolsUsed',
+    herbicideType: 'herbicideType',
     herbicideName: 'herbicideName',
+    herbicideSource: 'herbicideSource',
+    purchaseDate: 'purchaseDate',
+    seller: 'seller',
+    quantityPurchased: 'quantityPurchased',
+    purchasePrice: 'purchasePrice',
+    dilutionRatio: 'dilutionRatio',
+    amountApplied: 'amountApplied',
+    amountUnit: 'amountUnit',
+    applicationMethod: 'applicationMethod',
     dosage: 'dosage',
     dosageUnit: 'dosageUnit',
-    applicationMethod: 'applicationMethod',
     labourType: 'labourType',
     numberOfWorkers: 'numberOfWorkers',
     labourCost: 'labourCost',
@@ -67235,6 +68966,11 @@ export namespace Prisma {
     cropId: 'cropId',
     farmId: 'farmId',
     date: 'date',
+    selectedPests: 'selectedPests',
+    infestationLevel: 'infestationLevel',
+    controlMethod: 'controlMethod',
+    specificTechnique: 'specificTechnique',
+    toolsUsed: 'toolsUsed',
     pestName: 'pestName',
     methodOfControl: 'methodOfControl',
     dateOfControl: 'dateOfControl',
@@ -67248,6 +68984,37 @@ export namespace Prisma {
   };
 
   export type PestRecordScalarFieldEnum = (typeof PestRecordScalarFieldEnum)[keyof typeof PestRecordScalarFieldEnum]
+
+
+  export const PesticideRecordScalarFieldEnum: {
+    id: 'id',
+    cropId: 'cropId',
+    farmId: 'farmId',
+    selectedPests: 'selectedPests',
+    pesticideType: 'pesticideType',
+    source: 'source',
+    purchaseDate: 'purchaseDate',
+    seller: 'seller',
+    quantityPurchased: 'quantityPurchased',
+    purchasePrice: 'purchasePrice',
+    transportCost: 'transportCost',
+    pesticideName: 'pesticideName',
+    date: 'date',
+    applicationMethod: 'applicationMethod',
+    equipment: 'equipment',
+    dilutionRatio: 'dilutionRatio',
+    amountApplied: 'amountApplied',
+    amountUnit: 'amountUnit',
+    labour: 'labour',
+    workerName: 'workerName',
+    timeWorked: 'timeWorked',
+    labourCost: 'labourCost',
+    notes: 'notes',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type PesticideRecordScalarFieldEnum = (typeof PesticideRecordScalarFieldEnum)[keyof typeof PesticideRecordScalarFieldEnum]
 
 
   export const HarvestingRecordScalarFieldEnum: {
@@ -70774,6 +72541,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordListRelationFilter
     diseaseRecords?: DiseaseRecordListRelationFilter
     pestRecords?: PestRecordListRelationFilter
+    pesticideRecords?: PesticideRecordListRelationFilter
     harvestingRecords?: HarvestingRecordListRelationFilter
     processingRecords?: ProcessingRecordListRelationFilter
     lossRecords?: LossRecordListRelationFilter
@@ -70813,6 +72581,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordOrderByRelationAggregateInput
     diseaseRecords?: DiseaseRecordOrderByRelationAggregateInput
     pestRecords?: PestRecordOrderByRelationAggregateInput
+    pesticideRecords?: PesticideRecordOrderByRelationAggregateInput
     harvestingRecords?: HarvestingRecordOrderByRelationAggregateInput
     processingRecords?: ProcessingRecordOrderByRelationAggregateInput
     lossRecords?: LossRecordOrderByRelationAggregateInput
@@ -70855,6 +72624,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordListRelationFilter
     diseaseRecords?: DiseaseRecordListRelationFilter
     pestRecords?: PestRecordListRelationFilter
+    pesticideRecords?: PesticideRecordListRelationFilter
     harvestingRecords?: HarvestingRecordListRelationFilter
     processingRecords?: ProcessingRecordListRelationFilter
     lossRecords?: LossRecordListRelationFilter
@@ -71818,10 +73588,21 @@ export namespace Prisma {
     farmId?: StringFilter<"WeedingRecord"> | string
     date?: DateTimeFilter<"WeedingRecord"> | Date | string
     weedingType?: StringFilter<"WeedingRecord"> | string
+    selectedWeeds?: StringNullableFilter<"WeedingRecord"> | string | null
+    toolsUsed?: StringNullableFilter<"WeedingRecord"> | string | null
+    herbicideType?: StringNullableFilter<"WeedingRecord"> | string | null
     herbicideName?: StringNullableFilter<"WeedingRecord"> | string | null
+    herbicideSource?: StringNullableFilter<"WeedingRecord"> | string | null
+    purchaseDate?: DateTimeNullableFilter<"WeedingRecord"> | Date | string | null
+    seller?: StringNullableFilter<"WeedingRecord"> | string | null
+    quantityPurchased?: FloatNullableFilter<"WeedingRecord"> | number | null
+    purchasePrice?: FloatNullableFilter<"WeedingRecord"> | number | null
+    dilutionRatio?: StringNullableFilter<"WeedingRecord"> | string | null
+    amountApplied?: FloatNullableFilter<"WeedingRecord"> | number | null
+    amountUnit?: StringNullableFilter<"WeedingRecord"> | string | null
+    applicationMethod?: StringNullableFilter<"WeedingRecord"> | string | null
     dosage?: FloatNullableFilter<"WeedingRecord"> | number | null
     dosageUnit?: StringFilter<"WeedingRecord"> | string
-    applicationMethod?: StringNullableFilter<"WeedingRecord"> | string | null
     labourType?: StringNullableFilter<"WeedingRecord"> | string | null
     numberOfWorkers?: IntNullableFilter<"WeedingRecord"> | number | null
     labourCost?: FloatNullableFilter<"WeedingRecord"> | number | null
@@ -71837,10 +73618,21 @@ export namespace Prisma {
     farmId?: SortOrder
     date?: SortOrder
     weedingType?: SortOrder
+    selectedWeeds?: SortOrderInput | SortOrder
+    toolsUsed?: SortOrderInput | SortOrder
+    herbicideType?: SortOrderInput | SortOrder
     herbicideName?: SortOrderInput | SortOrder
+    herbicideSource?: SortOrderInput | SortOrder
+    purchaseDate?: SortOrderInput | SortOrder
+    seller?: SortOrderInput | SortOrder
+    quantityPurchased?: SortOrderInput | SortOrder
+    purchasePrice?: SortOrderInput | SortOrder
+    dilutionRatio?: SortOrderInput | SortOrder
+    amountApplied?: SortOrderInput | SortOrder
+    amountUnit?: SortOrderInput | SortOrder
+    applicationMethod?: SortOrderInput | SortOrder
     dosage?: SortOrderInput | SortOrder
     dosageUnit?: SortOrder
-    applicationMethod?: SortOrderInput | SortOrder
     labourType?: SortOrderInput | SortOrder
     numberOfWorkers?: SortOrderInput | SortOrder
     labourCost?: SortOrderInput | SortOrder
@@ -71859,10 +73651,21 @@ export namespace Prisma {
     farmId?: StringFilter<"WeedingRecord"> | string
     date?: DateTimeFilter<"WeedingRecord"> | Date | string
     weedingType?: StringFilter<"WeedingRecord"> | string
+    selectedWeeds?: StringNullableFilter<"WeedingRecord"> | string | null
+    toolsUsed?: StringNullableFilter<"WeedingRecord"> | string | null
+    herbicideType?: StringNullableFilter<"WeedingRecord"> | string | null
     herbicideName?: StringNullableFilter<"WeedingRecord"> | string | null
+    herbicideSource?: StringNullableFilter<"WeedingRecord"> | string | null
+    purchaseDate?: DateTimeNullableFilter<"WeedingRecord"> | Date | string | null
+    seller?: StringNullableFilter<"WeedingRecord"> | string | null
+    quantityPurchased?: FloatNullableFilter<"WeedingRecord"> | number | null
+    purchasePrice?: FloatNullableFilter<"WeedingRecord"> | number | null
+    dilutionRatio?: StringNullableFilter<"WeedingRecord"> | string | null
+    amountApplied?: FloatNullableFilter<"WeedingRecord"> | number | null
+    amountUnit?: StringNullableFilter<"WeedingRecord"> | string | null
+    applicationMethod?: StringNullableFilter<"WeedingRecord"> | string | null
     dosage?: FloatNullableFilter<"WeedingRecord"> | number | null
     dosageUnit?: StringFilter<"WeedingRecord"> | string
-    applicationMethod?: StringNullableFilter<"WeedingRecord"> | string | null
     labourType?: StringNullableFilter<"WeedingRecord"> | string | null
     numberOfWorkers?: IntNullableFilter<"WeedingRecord"> | number | null
     labourCost?: FloatNullableFilter<"WeedingRecord"> | number | null
@@ -71878,10 +73681,21 @@ export namespace Prisma {
     farmId?: SortOrder
     date?: SortOrder
     weedingType?: SortOrder
+    selectedWeeds?: SortOrderInput | SortOrder
+    toolsUsed?: SortOrderInput | SortOrder
+    herbicideType?: SortOrderInput | SortOrder
     herbicideName?: SortOrderInput | SortOrder
+    herbicideSource?: SortOrderInput | SortOrder
+    purchaseDate?: SortOrderInput | SortOrder
+    seller?: SortOrderInput | SortOrder
+    quantityPurchased?: SortOrderInput | SortOrder
+    purchasePrice?: SortOrderInput | SortOrder
+    dilutionRatio?: SortOrderInput | SortOrder
+    amountApplied?: SortOrderInput | SortOrder
+    amountUnit?: SortOrderInput | SortOrder
+    applicationMethod?: SortOrderInput | SortOrder
     dosage?: SortOrderInput | SortOrder
     dosageUnit?: SortOrder
-    applicationMethod?: SortOrderInput | SortOrder
     labourType?: SortOrderInput | SortOrder
     numberOfWorkers?: SortOrderInput | SortOrder
     labourCost?: SortOrderInput | SortOrder
@@ -71904,10 +73718,21 @@ export namespace Prisma {
     farmId?: StringWithAggregatesFilter<"WeedingRecord"> | string
     date?: DateTimeWithAggregatesFilter<"WeedingRecord"> | Date | string
     weedingType?: StringWithAggregatesFilter<"WeedingRecord"> | string
+    selectedWeeds?: StringNullableWithAggregatesFilter<"WeedingRecord"> | string | null
+    toolsUsed?: StringNullableWithAggregatesFilter<"WeedingRecord"> | string | null
+    herbicideType?: StringNullableWithAggregatesFilter<"WeedingRecord"> | string | null
     herbicideName?: StringNullableWithAggregatesFilter<"WeedingRecord"> | string | null
+    herbicideSource?: StringNullableWithAggregatesFilter<"WeedingRecord"> | string | null
+    purchaseDate?: DateTimeNullableWithAggregatesFilter<"WeedingRecord"> | Date | string | null
+    seller?: StringNullableWithAggregatesFilter<"WeedingRecord"> | string | null
+    quantityPurchased?: FloatNullableWithAggregatesFilter<"WeedingRecord"> | number | null
+    purchasePrice?: FloatNullableWithAggregatesFilter<"WeedingRecord"> | number | null
+    dilutionRatio?: StringNullableWithAggregatesFilter<"WeedingRecord"> | string | null
+    amountApplied?: FloatNullableWithAggregatesFilter<"WeedingRecord"> | number | null
+    amountUnit?: StringNullableWithAggregatesFilter<"WeedingRecord"> | string | null
+    applicationMethod?: StringNullableWithAggregatesFilter<"WeedingRecord"> | string | null
     dosage?: FloatNullableWithAggregatesFilter<"WeedingRecord"> | number | null
     dosageUnit?: StringWithAggregatesFilter<"WeedingRecord"> | string
-    applicationMethod?: StringNullableWithAggregatesFilter<"WeedingRecord"> | string | null
     labourType?: StringNullableWithAggregatesFilter<"WeedingRecord"> | string | null
     numberOfWorkers?: IntNullableWithAggregatesFilter<"WeedingRecord"> | number | null
     labourCost?: FloatNullableWithAggregatesFilter<"WeedingRecord"> | number | null
@@ -72133,6 +73958,11 @@ export namespace Prisma {
     cropId?: StringFilter<"PestRecord"> | string
     farmId?: StringFilter<"PestRecord"> | string
     date?: DateTimeFilter<"PestRecord"> | Date | string
+    selectedPests?: StringNullableFilter<"PestRecord"> | string | null
+    infestationLevel?: StringNullableFilter<"PestRecord"> | string | null
+    controlMethod?: StringNullableFilter<"PestRecord"> | string | null
+    specificTechnique?: StringNullableFilter<"PestRecord"> | string | null
+    toolsUsed?: StringNullableFilter<"PestRecord"> | string | null
     pestName?: StringFilter<"PestRecord"> | string
     methodOfControl?: StringFilter<"PestRecord"> | string
     dateOfControl?: DateTimeNullableFilter<"PestRecord"> | Date | string | null
@@ -72151,6 +73981,11 @@ export namespace Prisma {
     cropId?: SortOrder
     farmId?: SortOrder
     date?: SortOrder
+    selectedPests?: SortOrderInput | SortOrder
+    infestationLevel?: SortOrderInput | SortOrder
+    controlMethod?: SortOrderInput | SortOrder
+    specificTechnique?: SortOrderInput | SortOrder
+    toolsUsed?: SortOrderInput | SortOrder
     pestName?: SortOrder
     methodOfControl?: SortOrder
     dateOfControl?: SortOrderInput | SortOrder
@@ -72172,6 +74007,11 @@ export namespace Prisma {
     cropId?: StringFilter<"PestRecord"> | string
     farmId?: StringFilter<"PestRecord"> | string
     date?: DateTimeFilter<"PestRecord"> | Date | string
+    selectedPests?: StringNullableFilter<"PestRecord"> | string | null
+    infestationLevel?: StringNullableFilter<"PestRecord"> | string | null
+    controlMethod?: StringNullableFilter<"PestRecord"> | string | null
+    specificTechnique?: StringNullableFilter<"PestRecord"> | string | null
+    toolsUsed?: StringNullableFilter<"PestRecord"> | string | null
     pestName?: StringFilter<"PestRecord"> | string
     methodOfControl?: StringFilter<"PestRecord"> | string
     dateOfControl?: DateTimeNullableFilter<"PestRecord"> | Date | string | null
@@ -72190,6 +74030,11 @@ export namespace Prisma {
     cropId?: SortOrder
     farmId?: SortOrder
     date?: SortOrder
+    selectedPests?: SortOrderInput | SortOrder
+    infestationLevel?: SortOrderInput | SortOrder
+    controlMethod?: SortOrderInput | SortOrder
+    specificTechnique?: SortOrderInput | SortOrder
+    toolsUsed?: SortOrderInput | SortOrder
     pestName?: SortOrder
     methodOfControl?: SortOrder
     dateOfControl?: SortOrderInput | SortOrder
@@ -72215,6 +74060,11 @@ export namespace Prisma {
     cropId?: StringWithAggregatesFilter<"PestRecord"> | string
     farmId?: StringWithAggregatesFilter<"PestRecord"> | string
     date?: DateTimeWithAggregatesFilter<"PestRecord"> | Date | string
+    selectedPests?: StringNullableWithAggregatesFilter<"PestRecord"> | string | null
+    infestationLevel?: StringNullableWithAggregatesFilter<"PestRecord"> | string | null
+    controlMethod?: StringNullableWithAggregatesFilter<"PestRecord"> | string | null
+    specificTechnique?: StringNullableWithAggregatesFilter<"PestRecord"> | string | null
+    toolsUsed?: StringNullableWithAggregatesFilter<"PestRecord"> | string | null
     pestName?: StringWithAggregatesFilter<"PestRecord"> | string
     methodOfControl?: StringWithAggregatesFilter<"PestRecord"> | string
     dateOfControl?: DateTimeNullableWithAggregatesFilter<"PestRecord"> | Date | string | null
@@ -72225,6 +74075,163 @@ export namespace Prisma {
     notes?: StringNullableWithAggregatesFilter<"PestRecord"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"PestRecord"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"PestRecord"> | Date | string
+  }
+
+  export type PesticideRecordWhereInput = {
+    AND?: PesticideRecordWhereInput | PesticideRecordWhereInput[]
+    OR?: PesticideRecordWhereInput[]
+    NOT?: PesticideRecordWhereInput | PesticideRecordWhereInput[]
+    id?: StringFilter<"PesticideRecord"> | string
+    cropId?: StringFilter<"PesticideRecord"> | string
+    farmId?: StringFilter<"PesticideRecord"> | string
+    selectedPests?: StringNullableFilter<"PesticideRecord"> | string | null
+    pesticideType?: StringNullableFilter<"PesticideRecord"> | string | null
+    source?: StringNullableFilter<"PesticideRecord"> | string | null
+    purchaseDate?: DateTimeNullableFilter<"PesticideRecord"> | Date | string | null
+    seller?: StringNullableFilter<"PesticideRecord"> | string | null
+    quantityPurchased?: FloatNullableFilter<"PesticideRecord"> | number | null
+    purchasePrice?: FloatNullableFilter<"PesticideRecord"> | number | null
+    transportCost?: FloatNullableFilter<"PesticideRecord"> | number | null
+    pesticideName?: StringFilter<"PesticideRecord"> | string
+    date?: DateTimeFilter<"PesticideRecord"> | Date | string
+    applicationMethod?: StringNullableFilter<"PesticideRecord"> | string | null
+    equipment?: StringNullableFilter<"PesticideRecord"> | string | null
+    dilutionRatio?: StringNullableFilter<"PesticideRecord"> | string | null
+    amountApplied?: FloatNullableFilter<"PesticideRecord"> | number | null
+    amountUnit?: StringNullableFilter<"PesticideRecord"> | string | null
+    labour?: StringNullableFilter<"PesticideRecord"> | string | null
+    workerName?: StringNullableFilter<"PesticideRecord"> | string | null
+    timeWorked?: FloatNullableFilter<"PesticideRecord"> | number | null
+    labourCost?: FloatNullableFilter<"PesticideRecord"> | number | null
+    notes?: StringNullableFilter<"PesticideRecord"> | string | null
+    createdAt?: DateTimeFilter<"PesticideRecord"> | Date | string
+    updatedAt?: DateTimeFilter<"PesticideRecord"> | Date | string
+    crop?: XOR<CropScalarRelationFilter, CropWhereInput>
+  }
+
+  export type PesticideRecordOrderByWithRelationInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    selectedPests?: SortOrderInput | SortOrder
+    pesticideType?: SortOrderInput | SortOrder
+    source?: SortOrderInput | SortOrder
+    purchaseDate?: SortOrderInput | SortOrder
+    seller?: SortOrderInput | SortOrder
+    quantityPurchased?: SortOrderInput | SortOrder
+    purchasePrice?: SortOrderInput | SortOrder
+    transportCost?: SortOrderInput | SortOrder
+    pesticideName?: SortOrder
+    date?: SortOrder
+    applicationMethod?: SortOrderInput | SortOrder
+    equipment?: SortOrderInput | SortOrder
+    dilutionRatio?: SortOrderInput | SortOrder
+    amountApplied?: SortOrderInput | SortOrder
+    amountUnit?: SortOrderInput | SortOrder
+    labour?: SortOrderInput | SortOrder
+    workerName?: SortOrderInput | SortOrder
+    timeWorked?: SortOrderInput | SortOrder
+    labourCost?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    crop?: CropOrderByWithRelationInput
+  }
+
+  export type PesticideRecordWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: PesticideRecordWhereInput | PesticideRecordWhereInput[]
+    OR?: PesticideRecordWhereInput[]
+    NOT?: PesticideRecordWhereInput | PesticideRecordWhereInput[]
+    cropId?: StringFilter<"PesticideRecord"> | string
+    farmId?: StringFilter<"PesticideRecord"> | string
+    selectedPests?: StringNullableFilter<"PesticideRecord"> | string | null
+    pesticideType?: StringNullableFilter<"PesticideRecord"> | string | null
+    source?: StringNullableFilter<"PesticideRecord"> | string | null
+    purchaseDate?: DateTimeNullableFilter<"PesticideRecord"> | Date | string | null
+    seller?: StringNullableFilter<"PesticideRecord"> | string | null
+    quantityPurchased?: FloatNullableFilter<"PesticideRecord"> | number | null
+    purchasePrice?: FloatNullableFilter<"PesticideRecord"> | number | null
+    transportCost?: FloatNullableFilter<"PesticideRecord"> | number | null
+    pesticideName?: StringFilter<"PesticideRecord"> | string
+    date?: DateTimeFilter<"PesticideRecord"> | Date | string
+    applicationMethod?: StringNullableFilter<"PesticideRecord"> | string | null
+    equipment?: StringNullableFilter<"PesticideRecord"> | string | null
+    dilutionRatio?: StringNullableFilter<"PesticideRecord"> | string | null
+    amountApplied?: FloatNullableFilter<"PesticideRecord"> | number | null
+    amountUnit?: StringNullableFilter<"PesticideRecord"> | string | null
+    labour?: StringNullableFilter<"PesticideRecord"> | string | null
+    workerName?: StringNullableFilter<"PesticideRecord"> | string | null
+    timeWorked?: FloatNullableFilter<"PesticideRecord"> | number | null
+    labourCost?: FloatNullableFilter<"PesticideRecord"> | number | null
+    notes?: StringNullableFilter<"PesticideRecord"> | string | null
+    createdAt?: DateTimeFilter<"PesticideRecord"> | Date | string
+    updatedAt?: DateTimeFilter<"PesticideRecord"> | Date | string
+    crop?: XOR<CropScalarRelationFilter, CropWhereInput>
+  }, "id">
+
+  export type PesticideRecordOrderByWithAggregationInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    selectedPests?: SortOrderInput | SortOrder
+    pesticideType?: SortOrderInput | SortOrder
+    source?: SortOrderInput | SortOrder
+    purchaseDate?: SortOrderInput | SortOrder
+    seller?: SortOrderInput | SortOrder
+    quantityPurchased?: SortOrderInput | SortOrder
+    purchasePrice?: SortOrderInput | SortOrder
+    transportCost?: SortOrderInput | SortOrder
+    pesticideName?: SortOrder
+    date?: SortOrder
+    applicationMethod?: SortOrderInput | SortOrder
+    equipment?: SortOrderInput | SortOrder
+    dilutionRatio?: SortOrderInput | SortOrder
+    amountApplied?: SortOrderInput | SortOrder
+    amountUnit?: SortOrderInput | SortOrder
+    labour?: SortOrderInput | SortOrder
+    workerName?: SortOrderInput | SortOrder
+    timeWorked?: SortOrderInput | SortOrder
+    labourCost?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: PesticideRecordCountOrderByAggregateInput
+    _avg?: PesticideRecordAvgOrderByAggregateInput
+    _max?: PesticideRecordMaxOrderByAggregateInput
+    _min?: PesticideRecordMinOrderByAggregateInput
+    _sum?: PesticideRecordSumOrderByAggregateInput
+  }
+
+  export type PesticideRecordScalarWhereWithAggregatesInput = {
+    AND?: PesticideRecordScalarWhereWithAggregatesInput | PesticideRecordScalarWhereWithAggregatesInput[]
+    OR?: PesticideRecordScalarWhereWithAggregatesInput[]
+    NOT?: PesticideRecordScalarWhereWithAggregatesInput | PesticideRecordScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PesticideRecord"> | string
+    cropId?: StringWithAggregatesFilter<"PesticideRecord"> | string
+    farmId?: StringWithAggregatesFilter<"PesticideRecord"> | string
+    selectedPests?: StringNullableWithAggregatesFilter<"PesticideRecord"> | string | null
+    pesticideType?: StringNullableWithAggregatesFilter<"PesticideRecord"> | string | null
+    source?: StringNullableWithAggregatesFilter<"PesticideRecord"> | string | null
+    purchaseDate?: DateTimeNullableWithAggregatesFilter<"PesticideRecord"> | Date | string | null
+    seller?: StringNullableWithAggregatesFilter<"PesticideRecord"> | string | null
+    quantityPurchased?: FloatNullableWithAggregatesFilter<"PesticideRecord"> | number | null
+    purchasePrice?: FloatNullableWithAggregatesFilter<"PesticideRecord"> | number | null
+    transportCost?: FloatNullableWithAggregatesFilter<"PesticideRecord"> | number | null
+    pesticideName?: StringWithAggregatesFilter<"PesticideRecord"> | string
+    date?: DateTimeWithAggregatesFilter<"PesticideRecord"> | Date | string
+    applicationMethod?: StringNullableWithAggregatesFilter<"PesticideRecord"> | string | null
+    equipment?: StringNullableWithAggregatesFilter<"PesticideRecord"> | string | null
+    dilutionRatio?: StringNullableWithAggregatesFilter<"PesticideRecord"> | string | null
+    amountApplied?: FloatNullableWithAggregatesFilter<"PesticideRecord"> | number | null
+    amountUnit?: StringNullableWithAggregatesFilter<"PesticideRecord"> | string | null
+    labour?: StringNullableWithAggregatesFilter<"PesticideRecord"> | string | null
+    workerName?: StringNullableWithAggregatesFilter<"PesticideRecord"> | string | null
+    timeWorked?: FloatNullableWithAggregatesFilter<"PesticideRecord"> | number | null
+    labourCost?: FloatNullableWithAggregatesFilter<"PesticideRecord"> | number | null
+    notes?: StringNullableWithAggregatesFilter<"PesticideRecord"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"PesticideRecord"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"PesticideRecord"> | Date | string
   }
 
   export type HarvestingRecordWhereInput = {
@@ -76628,6 +78635,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -76666,6 +78674,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -76704,6 +78713,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -76742,6 +78752,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -77879,10 +79890,21 @@ export namespace Prisma {
     farmId: string
     date: Date | string
     weedingType: string
+    selectedWeeds?: string | null
+    toolsUsed?: string | null
+    herbicideType?: string | null
     herbicideName?: string | null
+    herbicideSource?: string | null
+    purchaseDate?: Date | string | null
+    seller?: string | null
+    quantityPurchased?: number | null
+    purchasePrice?: number | null
+    dilutionRatio?: string | null
+    amountApplied?: number | null
+    amountUnit?: string | null
+    applicationMethod?: string | null
     dosage?: number | null
     dosageUnit?: string
-    applicationMethod?: string | null
     labourType?: string | null
     numberOfWorkers?: number | null
     labourCost?: number | null
@@ -77898,10 +79920,21 @@ export namespace Prisma {
     farmId: string
     date: Date | string
     weedingType: string
+    selectedWeeds?: string | null
+    toolsUsed?: string | null
+    herbicideType?: string | null
     herbicideName?: string | null
+    herbicideSource?: string | null
+    purchaseDate?: Date | string | null
+    seller?: string | null
+    quantityPurchased?: number | null
+    purchasePrice?: number | null
+    dilutionRatio?: string | null
+    amountApplied?: number | null
+    amountUnit?: string | null
+    applicationMethod?: string | null
     dosage?: number | null
     dosageUnit?: string
-    applicationMethod?: string | null
     labourType?: string | null
     numberOfWorkers?: number | null
     labourCost?: number | null
@@ -77915,10 +79948,21 @@ export namespace Prisma {
     farmId?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     weedingType?: StringFieldUpdateOperationsInput | string
+    selectedWeeds?: NullableStringFieldUpdateOperationsInput | string | null
+    toolsUsed?: NullableStringFieldUpdateOperationsInput | string | null
+    herbicideType?: NullableStringFieldUpdateOperationsInput | string | null
     herbicideName?: NullableStringFieldUpdateOperationsInput | string | null
+    herbicideSource?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    dilutionRatio?: NullableStringFieldUpdateOperationsInput | string | null
+    amountApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    amountUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     dosage?: NullableFloatFieldUpdateOperationsInput | number | null
     dosageUnit?: StringFieldUpdateOperationsInput | string
-    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     labourType?: NullableStringFieldUpdateOperationsInput | string | null
     numberOfWorkers?: NullableIntFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
@@ -77934,10 +79978,21 @@ export namespace Prisma {
     farmId?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     weedingType?: StringFieldUpdateOperationsInput | string
+    selectedWeeds?: NullableStringFieldUpdateOperationsInput | string | null
+    toolsUsed?: NullableStringFieldUpdateOperationsInput | string | null
+    herbicideType?: NullableStringFieldUpdateOperationsInput | string | null
     herbicideName?: NullableStringFieldUpdateOperationsInput | string | null
+    herbicideSource?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    dilutionRatio?: NullableStringFieldUpdateOperationsInput | string | null
+    amountApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    amountUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     dosage?: NullableFloatFieldUpdateOperationsInput | number | null
     dosageUnit?: StringFieldUpdateOperationsInput | string
-    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     labourType?: NullableStringFieldUpdateOperationsInput | string | null
     numberOfWorkers?: NullableIntFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
@@ -77952,10 +80007,21 @@ export namespace Prisma {
     farmId: string
     date: Date | string
     weedingType: string
+    selectedWeeds?: string | null
+    toolsUsed?: string | null
+    herbicideType?: string | null
     herbicideName?: string | null
+    herbicideSource?: string | null
+    purchaseDate?: Date | string | null
+    seller?: string | null
+    quantityPurchased?: number | null
+    purchasePrice?: number | null
+    dilutionRatio?: string | null
+    amountApplied?: number | null
+    amountUnit?: string | null
+    applicationMethod?: string | null
     dosage?: number | null
     dosageUnit?: string
-    applicationMethod?: string | null
     labourType?: string | null
     numberOfWorkers?: number | null
     labourCost?: number | null
@@ -77969,10 +80035,21 @@ export namespace Prisma {
     farmId?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     weedingType?: StringFieldUpdateOperationsInput | string
+    selectedWeeds?: NullableStringFieldUpdateOperationsInput | string | null
+    toolsUsed?: NullableStringFieldUpdateOperationsInput | string | null
+    herbicideType?: NullableStringFieldUpdateOperationsInput | string | null
     herbicideName?: NullableStringFieldUpdateOperationsInput | string | null
+    herbicideSource?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    dilutionRatio?: NullableStringFieldUpdateOperationsInput | string | null
+    amountApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    amountUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     dosage?: NullableFloatFieldUpdateOperationsInput | number | null
     dosageUnit?: StringFieldUpdateOperationsInput | string
-    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     labourType?: NullableStringFieldUpdateOperationsInput | string | null
     numberOfWorkers?: NullableIntFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
@@ -77987,10 +80064,21 @@ export namespace Prisma {
     farmId?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     weedingType?: StringFieldUpdateOperationsInput | string
+    selectedWeeds?: NullableStringFieldUpdateOperationsInput | string | null
+    toolsUsed?: NullableStringFieldUpdateOperationsInput | string | null
+    herbicideType?: NullableStringFieldUpdateOperationsInput | string | null
     herbicideName?: NullableStringFieldUpdateOperationsInput | string | null
+    herbicideSource?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    dilutionRatio?: NullableStringFieldUpdateOperationsInput | string | null
+    amountApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    amountUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     dosage?: NullableFloatFieldUpdateOperationsInput | number | null
     dosageUnit?: StringFieldUpdateOperationsInput | string
-    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     labourType?: NullableStringFieldUpdateOperationsInput | string | null
     numberOfWorkers?: NullableIntFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
@@ -78246,6 +80334,11 @@ export namespace Prisma {
     id?: string
     farmId: string
     date: Date | string
+    selectedPests?: string | null
+    infestationLevel?: string | null
+    controlMethod?: string | null
+    specificTechnique?: string | null
+    toolsUsed?: string | null
     pestName: string
     methodOfControl: string
     dateOfControl?: Date | string | null
@@ -78264,6 +80357,11 @@ export namespace Prisma {
     cropId: string
     farmId: string
     date: Date | string
+    selectedPests?: string | null
+    infestationLevel?: string | null
+    controlMethod?: string | null
+    specificTechnique?: string | null
+    toolsUsed?: string | null
     pestName: string
     methodOfControl: string
     dateOfControl?: Date | string | null
@@ -78280,6 +80378,11 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     farmId?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    selectedPests?: NullableStringFieldUpdateOperationsInput | string | null
+    infestationLevel?: NullableStringFieldUpdateOperationsInput | string | null
+    controlMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    specificTechnique?: NullableStringFieldUpdateOperationsInput | string | null
+    toolsUsed?: NullableStringFieldUpdateOperationsInput | string | null
     pestName?: StringFieldUpdateOperationsInput | string
     methodOfControl?: StringFieldUpdateOperationsInput | string
     dateOfControl?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -78298,6 +80401,11 @@ export namespace Prisma {
     cropId?: StringFieldUpdateOperationsInput | string
     farmId?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    selectedPests?: NullableStringFieldUpdateOperationsInput | string | null
+    infestationLevel?: NullableStringFieldUpdateOperationsInput | string | null
+    controlMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    specificTechnique?: NullableStringFieldUpdateOperationsInput | string | null
+    toolsUsed?: NullableStringFieldUpdateOperationsInput | string | null
     pestName?: StringFieldUpdateOperationsInput | string
     methodOfControl?: StringFieldUpdateOperationsInput | string
     dateOfControl?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -78315,6 +80423,11 @@ export namespace Prisma {
     cropId: string
     farmId: string
     date: Date | string
+    selectedPests?: string | null
+    infestationLevel?: string | null
+    controlMethod?: string | null
+    specificTechnique?: string | null
+    toolsUsed?: string | null
     pestName: string
     methodOfControl: string
     dateOfControl?: Date | string | null
@@ -78331,6 +80444,11 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     farmId?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    selectedPests?: NullableStringFieldUpdateOperationsInput | string | null
+    infestationLevel?: NullableStringFieldUpdateOperationsInput | string | null
+    controlMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    specificTechnique?: NullableStringFieldUpdateOperationsInput | string | null
+    toolsUsed?: NullableStringFieldUpdateOperationsInput | string | null
     pestName?: StringFieldUpdateOperationsInput | string
     methodOfControl?: StringFieldUpdateOperationsInput | string
     dateOfControl?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -78348,12 +80466,212 @@ export namespace Prisma {
     cropId?: StringFieldUpdateOperationsInput | string
     farmId?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    selectedPests?: NullableStringFieldUpdateOperationsInput | string | null
+    infestationLevel?: NullableStringFieldUpdateOperationsInput | string | null
+    controlMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    specificTechnique?: NullableStringFieldUpdateOperationsInput | string | null
+    toolsUsed?: NullableStringFieldUpdateOperationsInput | string | null
     pestName?: StringFieldUpdateOperationsInput | string
     methodOfControl?: StringFieldUpdateOperationsInput | string
     dateOfControl?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     methodDetail?: NullableStringFieldUpdateOperationsInput | string | null
     labourType?: NullableStringFieldUpdateOperationsInput | string | null
     numberOfWorkers?: NullableIntFieldUpdateOperationsInput | number | null
+    labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PesticideRecordCreateInput = {
+    id?: string
+    farmId: string
+    selectedPests?: string | null
+    pesticideType?: string | null
+    source?: string | null
+    purchaseDate?: Date | string | null
+    seller?: string | null
+    quantityPurchased?: number | null
+    purchasePrice?: number | null
+    transportCost?: number | null
+    pesticideName: string
+    date: Date | string
+    applicationMethod?: string | null
+    equipment?: string | null
+    dilutionRatio?: string | null
+    amountApplied?: number | null
+    amountUnit?: string | null
+    labour?: string | null
+    workerName?: string | null
+    timeWorked?: number | null
+    labourCost?: number | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    crop: CropCreateNestedOneWithoutPesticideRecordsInput
+  }
+
+  export type PesticideRecordUncheckedCreateInput = {
+    id?: string
+    cropId: string
+    farmId: string
+    selectedPests?: string | null
+    pesticideType?: string | null
+    source?: string | null
+    purchaseDate?: Date | string | null
+    seller?: string | null
+    quantityPurchased?: number | null
+    purchasePrice?: number | null
+    transportCost?: number | null
+    pesticideName: string
+    date: Date | string
+    applicationMethod?: string | null
+    equipment?: string | null
+    dilutionRatio?: string | null
+    amountApplied?: number | null
+    amountUnit?: string | null
+    labour?: string | null
+    workerName?: string | null
+    timeWorked?: number | null
+    labourCost?: number | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PesticideRecordUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    selectedPests?: NullableStringFieldUpdateOperationsInput | string | null
+    pesticideType?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    pesticideName?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    equipment?: NullableStringFieldUpdateOperationsInput | string | null
+    dilutionRatio?: NullableStringFieldUpdateOperationsInput | string | null
+    amountApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    amountUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    labour?: NullableStringFieldUpdateOperationsInput | string | null
+    workerName?: NullableStringFieldUpdateOperationsInput | string | null
+    timeWorked?: NullableFloatFieldUpdateOperationsInput | number | null
+    labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    crop?: CropUpdateOneRequiredWithoutPesticideRecordsNestedInput
+  }
+
+  export type PesticideRecordUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cropId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    selectedPests?: NullableStringFieldUpdateOperationsInput | string | null
+    pesticideType?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    pesticideName?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    equipment?: NullableStringFieldUpdateOperationsInput | string | null
+    dilutionRatio?: NullableStringFieldUpdateOperationsInput | string | null
+    amountApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    amountUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    labour?: NullableStringFieldUpdateOperationsInput | string | null
+    workerName?: NullableStringFieldUpdateOperationsInput | string | null
+    timeWorked?: NullableFloatFieldUpdateOperationsInput | number | null
+    labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PesticideRecordCreateManyInput = {
+    id?: string
+    cropId: string
+    farmId: string
+    selectedPests?: string | null
+    pesticideType?: string | null
+    source?: string | null
+    purchaseDate?: Date | string | null
+    seller?: string | null
+    quantityPurchased?: number | null
+    purchasePrice?: number | null
+    transportCost?: number | null
+    pesticideName: string
+    date: Date | string
+    applicationMethod?: string | null
+    equipment?: string | null
+    dilutionRatio?: string | null
+    amountApplied?: number | null
+    amountUnit?: string | null
+    labour?: string | null
+    workerName?: string | null
+    timeWorked?: number | null
+    labourCost?: number | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PesticideRecordUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    selectedPests?: NullableStringFieldUpdateOperationsInput | string | null
+    pesticideType?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    pesticideName?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    equipment?: NullableStringFieldUpdateOperationsInput | string | null
+    dilutionRatio?: NullableStringFieldUpdateOperationsInput | string | null
+    amountApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    amountUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    labour?: NullableStringFieldUpdateOperationsInput | string | null
+    workerName?: NullableStringFieldUpdateOperationsInput | string | null
+    timeWorked?: NullableFloatFieldUpdateOperationsInput | number | null
+    labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PesticideRecordUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cropId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    selectedPests?: NullableStringFieldUpdateOperationsInput | string | null
+    pesticideType?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    pesticideName?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    equipment?: NullableStringFieldUpdateOperationsInput | string | null
+    dilutionRatio?: NullableStringFieldUpdateOperationsInput | string | null
+    amountApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    amountUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    labour?: NullableStringFieldUpdateOperationsInput | string | null
+    workerName?: NullableStringFieldUpdateOperationsInput | string | null
+    timeWorked?: NullableFloatFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -81510,6 +83828,12 @@ export namespace Prisma {
     none?: PestRecordWhereInput
   }
 
+  export type PesticideRecordListRelationFilter = {
+    every?: PesticideRecordWhereInput
+    some?: PesticideRecordWhereInput
+    none?: PesticideRecordWhereInput
+  }
+
   export type HarvestingRecordListRelationFilter = {
     every?: HarvestingRecordWhereInput
     some?: HarvestingRecordWhereInput
@@ -81585,6 +83909,10 @@ export namespace Prisma {
   }
 
   export type PestRecordOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PesticideRecordOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -82229,10 +84557,21 @@ export namespace Prisma {
     farmId?: SortOrder
     date?: SortOrder
     weedingType?: SortOrder
+    selectedWeeds?: SortOrder
+    toolsUsed?: SortOrder
+    herbicideType?: SortOrder
     herbicideName?: SortOrder
+    herbicideSource?: SortOrder
+    purchaseDate?: SortOrder
+    seller?: SortOrder
+    quantityPurchased?: SortOrder
+    purchasePrice?: SortOrder
+    dilutionRatio?: SortOrder
+    amountApplied?: SortOrder
+    amountUnit?: SortOrder
+    applicationMethod?: SortOrder
     dosage?: SortOrder
     dosageUnit?: SortOrder
-    applicationMethod?: SortOrder
     labourType?: SortOrder
     numberOfWorkers?: SortOrder
     labourCost?: SortOrder
@@ -82242,6 +84581,9 @@ export namespace Prisma {
   }
 
   export type WeedingRecordAvgOrderByAggregateInput = {
+    quantityPurchased?: SortOrder
+    purchasePrice?: SortOrder
+    amountApplied?: SortOrder
     dosage?: SortOrder
     numberOfWorkers?: SortOrder
     labourCost?: SortOrder
@@ -82253,10 +84595,21 @@ export namespace Prisma {
     farmId?: SortOrder
     date?: SortOrder
     weedingType?: SortOrder
+    selectedWeeds?: SortOrder
+    toolsUsed?: SortOrder
+    herbicideType?: SortOrder
     herbicideName?: SortOrder
+    herbicideSource?: SortOrder
+    purchaseDate?: SortOrder
+    seller?: SortOrder
+    quantityPurchased?: SortOrder
+    purchasePrice?: SortOrder
+    dilutionRatio?: SortOrder
+    amountApplied?: SortOrder
+    amountUnit?: SortOrder
+    applicationMethod?: SortOrder
     dosage?: SortOrder
     dosageUnit?: SortOrder
-    applicationMethod?: SortOrder
     labourType?: SortOrder
     numberOfWorkers?: SortOrder
     labourCost?: SortOrder
@@ -82271,10 +84624,21 @@ export namespace Prisma {
     farmId?: SortOrder
     date?: SortOrder
     weedingType?: SortOrder
+    selectedWeeds?: SortOrder
+    toolsUsed?: SortOrder
+    herbicideType?: SortOrder
     herbicideName?: SortOrder
+    herbicideSource?: SortOrder
+    purchaseDate?: SortOrder
+    seller?: SortOrder
+    quantityPurchased?: SortOrder
+    purchasePrice?: SortOrder
+    dilutionRatio?: SortOrder
+    amountApplied?: SortOrder
+    amountUnit?: SortOrder
+    applicationMethod?: SortOrder
     dosage?: SortOrder
     dosageUnit?: SortOrder
-    applicationMethod?: SortOrder
     labourType?: SortOrder
     numberOfWorkers?: SortOrder
     labourCost?: SortOrder
@@ -82284,6 +84648,9 @@ export namespace Prisma {
   }
 
   export type WeedingRecordSumOrderByAggregateInput = {
+    quantityPurchased?: SortOrder
+    purchasePrice?: SortOrder
+    amountApplied?: SortOrder
     dosage?: SortOrder
     numberOfWorkers?: SortOrder
     labourCost?: SortOrder
@@ -82421,6 +84788,11 @@ export namespace Prisma {
     cropId?: SortOrder
     farmId?: SortOrder
     date?: SortOrder
+    selectedPests?: SortOrder
+    infestationLevel?: SortOrder
+    controlMethod?: SortOrder
+    specificTechnique?: SortOrder
+    toolsUsed?: SortOrder
     pestName?: SortOrder
     methodOfControl?: SortOrder
     dateOfControl?: SortOrder
@@ -82443,6 +84815,11 @@ export namespace Prisma {
     cropId?: SortOrder
     farmId?: SortOrder
     date?: SortOrder
+    selectedPests?: SortOrder
+    infestationLevel?: SortOrder
+    controlMethod?: SortOrder
+    specificTechnique?: SortOrder
+    toolsUsed?: SortOrder
     pestName?: SortOrder
     methodOfControl?: SortOrder
     dateOfControl?: SortOrder
@@ -82460,6 +84837,11 @@ export namespace Prisma {
     cropId?: SortOrder
     farmId?: SortOrder
     date?: SortOrder
+    selectedPests?: SortOrder
+    infestationLevel?: SortOrder
+    controlMethod?: SortOrder
+    specificTechnique?: SortOrder
+    toolsUsed?: SortOrder
     pestName?: SortOrder
     methodOfControl?: SortOrder
     dateOfControl?: SortOrder
@@ -82474,6 +84856,108 @@ export namespace Prisma {
 
   export type PestRecordSumOrderByAggregateInput = {
     numberOfWorkers?: SortOrder
+    labourCost?: SortOrder
+  }
+
+  export type PesticideRecordCountOrderByAggregateInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    selectedPests?: SortOrder
+    pesticideType?: SortOrder
+    source?: SortOrder
+    purchaseDate?: SortOrder
+    seller?: SortOrder
+    quantityPurchased?: SortOrder
+    purchasePrice?: SortOrder
+    transportCost?: SortOrder
+    pesticideName?: SortOrder
+    date?: SortOrder
+    applicationMethod?: SortOrder
+    equipment?: SortOrder
+    dilutionRatio?: SortOrder
+    amountApplied?: SortOrder
+    amountUnit?: SortOrder
+    labour?: SortOrder
+    workerName?: SortOrder
+    timeWorked?: SortOrder
+    labourCost?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PesticideRecordAvgOrderByAggregateInput = {
+    quantityPurchased?: SortOrder
+    purchasePrice?: SortOrder
+    transportCost?: SortOrder
+    amountApplied?: SortOrder
+    timeWorked?: SortOrder
+    labourCost?: SortOrder
+  }
+
+  export type PesticideRecordMaxOrderByAggregateInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    selectedPests?: SortOrder
+    pesticideType?: SortOrder
+    source?: SortOrder
+    purchaseDate?: SortOrder
+    seller?: SortOrder
+    quantityPurchased?: SortOrder
+    purchasePrice?: SortOrder
+    transportCost?: SortOrder
+    pesticideName?: SortOrder
+    date?: SortOrder
+    applicationMethod?: SortOrder
+    equipment?: SortOrder
+    dilutionRatio?: SortOrder
+    amountApplied?: SortOrder
+    amountUnit?: SortOrder
+    labour?: SortOrder
+    workerName?: SortOrder
+    timeWorked?: SortOrder
+    labourCost?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PesticideRecordMinOrderByAggregateInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    selectedPests?: SortOrder
+    pesticideType?: SortOrder
+    source?: SortOrder
+    purchaseDate?: SortOrder
+    seller?: SortOrder
+    quantityPurchased?: SortOrder
+    purchasePrice?: SortOrder
+    transportCost?: SortOrder
+    pesticideName?: SortOrder
+    date?: SortOrder
+    applicationMethod?: SortOrder
+    equipment?: SortOrder
+    dilutionRatio?: SortOrder
+    amountApplied?: SortOrder
+    amountUnit?: SortOrder
+    labour?: SortOrder
+    workerName?: SortOrder
+    timeWorked?: SortOrder
+    labourCost?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PesticideRecordSumOrderByAggregateInput = {
+    quantityPurchased?: SortOrder
+    purchasePrice?: SortOrder
+    transportCost?: SortOrder
+    amountApplied?: SortOrder
+    timeWorked?: SortOrder
     labourCost?: SortOrder
   }
 
@@ -85609,6 +88093,13 @@ export namespace Prisma {
     connect?: PestRecordWhereUniqueInput | PestRecordWhereUniqueInput[]
   }
 
+  export type PesticideRecordCreateNestedManyWithoutCropInput = {
+    create?: XOR<PesticideRecordCreateWithoutCropInput, PesticideRecordUncheckedCreateWithoutCropInput> | PesticideRecordCreateWithoutCropInput[] | PesticideRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: PesticideRecordCreateOrConnectWithoutCropInput | PesticideRecordCreateOrConnectWithoutCropInput[]
+    createMany?: PesticideRecordCreateManyCropInputEnvelope
+    connect?: PesticideRecordWhereUniqueInput | PesticideRecordWhereUniqueInput[]
+  }
+
   export type HarvestingRecordCreateNestedManyWithoutCropInput = {
     create?: XOR<HarvestingRecordCreateWithoutCropInput, HarvestingRecordUncheckedCreateWithoutCropInput> | HarvestingRecordCreateWithoutCropInput[] | HarvestingRecordUncheckedCreateWithoutCropInput[]
     connectOrCreate?: HarvestingRecordCreateOrConnectWithoutCropInput | HarvestingRecordCreateOrConnectWithoutCropInput[]
@@ -85726,6 +88217,13 @@ export namespace Prisma {
     connectOrCreate?: PestRecordCreateOrConnectWithoutCropInput | PestRecordCreateOrConnectWithoutCropInput[]
     createMany?: PestRecordCreateManyCropInputEnvelope
     connect?: PestRecordWhereUniqueInput | PestRecordWhereUniqueInput[]
+  }
+
+  export type PesticideRecordUncheckedCreateNestedManyWithoutCropInput = {
+    create?: XOR<PesticideRecordCreateWithoutCropInput, PesticideRecordUncheckedCreateWithoutCropInput> | PesticideRecordCreateWithoutCropInput[] | PesticideRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: PesticideRecordCreateOrConnectWithoutCropInput | PesticideRecordCreateOrConnectWithoutCropInput[]
+    createMany?: PesticideRecordCreateManyCropInputEnvelope
+    connect?: PesticideRecordWhereUniqueInput | PesticideRecordWhereUniqueInput[]
   }
 
   export type HarvestingRecordUncheckedCreateNestedManyWithoutCropInput = {
@@ -85937,6 +88435,20 @@ export namespace Prisma {
     update?: PestRecordUpdateWithWhereUniqueWithoutCropInput | PestRecordUpdateWithWhereUniqueWithoutCropInput[]
     updateMany?: PestRecordUpdateManyWithWhereWithoutCropInput | PestRecordUpdateManyWithWhereWithoutCropInput[]
     deleteMany?: PestRecordScalarWhereInput | PestRecordScalarWhereInput[]
+  }
+
+  export type PesticideRecordUpdateManyWithoutCropNestedInput = {
+    create?: XOR<PesticideRecordCreateWithoutCropInput, PesticideRecordUncheckedCreateWithoutCropInput> | PesticideRecordCreateWithoutCropInput[] | PesticideRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: PesticideRecordCreateOrConnectWithoutCropInput | PesticideRecordCreateOrConnectWithoutCropInput[]
+    upsert?: PesticideRecordUpsertWithWhereUniqueWithoutCropInput | PesticideRecordUpsertWithWhereUniqueWithoutCropInput[]
+    createMany?: PesticideRecordCreateManyCropInputEnvelope
+    set?: PesticideRecordWhereUniqueInput | PesticideRecordWhereUniqueInput[]
+    disconnect?: PesticideRecordWhereUniqueInput | PesticideRecordWhereUniqueInput[]
+    delete?: PesticideRecordWhereUniqueInput | PesticideRecordWhereUniqueInput[]
+    connect?: PesticideRecordWhereUniqueInput | PesticideRecordWhereUniqueInput[]
+    update?: PesticideRecordUpdateWithWhereUniqueWithoutCropInput | PesticideRecordUpdateWithWhereUniqueWithoutCropInput[]
+    updateMany?: PesticideRecordUpdateManyWithWhereWithoutCropInput | PesticideRecordUpdateManyWithWhereWithoutCropInput[]
+    deleteMany?: PesticideRecordScalarWhereInput | PesticideRecordScalarWhereInput[]
   }
 
   export type HarvestingRecordUpdateManyWithoutCropNestedInput = {
@@ -86175,6 +88687,20 @@ export namespace Prisma {
     update?: PestRecordUpdateWithWhereUniqueWithoutCropInput | PestRecordUpdateWithWhereUniqueWithoutCropInput[]
     updateMany?: PestRecordUpdateManyWithWhereWithoutCropInput | PestRecordUpdateManyWithWhereWithoutCropInput[]
     deleteMany?: PestRecordScalarWhereInput | PestRecordScalarWhereInput[]
+  }
+
+  export type PesticideRecordUncheckedUpdateManyWithoutCropNestedInput = {
+    create?: XOR<PesticideRecordCreateWithoutCropInput, PesticideRecordUncheckedCreateWithoutCropInput> | PesticideRecordCreateWithoutCropInput[] | PesticideRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: PesticideRecordCreateOrConnectWithoutCropInput | PesticideRecordCreateOrConnectWithoutCropInput[]
+    upsert?: PesticideRecordUpsertWithWhereUniqueWithoutCropInput | PesticideRecordUpsertWithWhereUniqueWithoutCropInput[]
+    createMany?: PesticideRecordCreateManyCropInputEnvelope
+    set?: PesticideRecordWhereUniqueInput | PesticideRecordWhereUniqueInput[]
+    disconnect?: PesticideRecordWhereUniqueInput | PesticideRecordWhereUniqueInput[]
+    delete?: PesticideRecordWhereUniqueInput | PesticideRecordWhereUniqueInput[]
+    connect?: PesticideRecordWhereUniqueInput | PesticideRecordWhereUniqueInput[]
+    update?: PesticideRecordUpdateWithWhereUniqueWithoutCropInput | PesticideRecordUpdateWithWhereUniqueWithoutCropInput[]
+    updateMany?: PesticideRecordUpdateManyWithWhereWithoutCropInput | PesticideRecordUpdateManyWithWhereWithoutCropInput[]
+    deleteMany?: PesticideRecordScalarWhereInput | PesticideRecordScalarWhereInput[]
   }
 
   export type HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput = {
@@ -86422,6 +88948,20 @@ export namespace Prisma {
     upsert?: CropUpsertWithoutPestRecordsInput
     connect?: CropWhereUniqueInput
     update?: XOR<XOR<CropUpdateToOneWithWhereWithoutPestRecordsInput, CropUpdateWithoutPestRecordsInput>, CropUncheckedUpdateWithoutPestRecordsInput>
+  }
+
+  export type CropCreateNestedOneWithoutPesticideRecordsInput = {
+    create?: XOR<CropCreateWithoutPesticideRecordsInput, CropUncheckedCreateWithoutPesticideRecordsInput>
+    connectOrCreate?: CropCreateOrConnectWithoutPesticideRecordsInput
+    connect?: CropWhereUniqueInput
+  }
+
+  export type CropUpdateOneRequiredWithoutPesticideRecordsNestedInput = {
+    create?: XOR<CropCreateWithoutPesticideRecordsInput, CropUncheckedCreateWithoutPesticideRecordsInput>
+    connectOrCreate?: CropCreateOrConnectWithoutPesticideRecordsInput
+    upsert?: CropUpsertWithoutPesticideRecordsInput
+    connect?: CropWhereUniqueInput
+    update?: XOR<XOR<CropUpdateToOneWithWhereWithoutPesticideRecordsInput, CropUpdateWithoutPesticideRecordsInput>, CropUncheckedUpdateWithoutPesticideRecordsInput>
   }
 
   export type CropCreateNestedOneWithoutHarvestingRecordsInput = {
@@ -95075,6 +97615,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -95112,6 +97653,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -95638,10 +98180,21 @@ export namespace Prisma {
     farmId: string
     date: Date | string
     weedingType: string
+    selectedWeeds?: string | null
+    toolsUsed?: string | null
+    herbicideType?: string | null
     herbicideName?: string | null
+    herbicideSource?: string | null
+    purchaseDate?: Date | string | null
+    seller?: string | null
+    quantityPurchased?: number | null
+    purchasePrice?: number | null
+    dilutionRatio?: string | null
+    amountApplied?: number | null
+    amountUnit?: string | null
+    applicationMethod?: string | null
     dosage?: number | null
     dosageUnit?: string
-    applicationMethod?: string | null
     labourType?: string | null
     numberOfWorkers?: number | null
     labourCost?: number | null
@@ -95655,10 +98208,21 @@ export namespace Prisma {
     farmId: string
     date: Date | string
     weedingType: string
+    selectedWeeds?: string | null
+    toolsUsed?: string | null
+    herbicideType?: string | null
     herbicideName?: string | null
+    herbicideSource?: string | null
+    purchaseDate?: Date | string | null
+    seller?: string | null
+    quantityPurchased?: number | null
+    purchasePrice?: number | null
+    dilutionRatio?: string | null
+    amountApplied?: number | null
+    amountUnit?: string | null
+    applicationMethod?: string | null
     dosage?: number | null
     dosageUnit?: string
-    applicationMethod?: string | null
     labourType?: string | null
     numberOfWorkers?: number | null
     labourCost?: number | null
@@ -95767,6 +98331,11 @@ export namespace Prisma {
     id?: string
     farmId: string
     date: Date | string
+    selectedPests?: string | null
+    infestationLevel?: string | null
+    controlMethod?: string | null
+    specificTechnique?: string | null
+    toolsUsed?: string | null
     pestName: string
     methodOfControl: string
     dateOfControl?: Date | string | null
@@ -95783,6 +98352,11 @@ export namespace Prisma {
     id?: string
     farmId: string
     date: Date | string
+    selectedPests?: string | null
+    infestationLevel?: string | null
+    controlMethod?: string | null
+    specificTechnique?: string | null
+    toolsUsed?: string | null
     pestName: string
     methodOfControl: string
     dateOfControl?: Date | string | null
@@ -95802,6 +98376,70 @@ export namespace Prisma {
 
   export type PestRecordCreateManyCropInputEnvelope = {
     data: PestRecordCreateManyCropInput | PestRecordCreateManyCropInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PesticideRecordCreateWithoutCropInput = {
+    id?: string
+    farmId: string
+    selectedPests?: string | null
+    pesticideType?: string | null
+    source?: string | null
+    purchaseDate?: Date | string | null
+    seller?: string | null
+    quantityPurchased?: number | null
+    purchasePrice?: number | null
+    transportCost?: number | null
+    pesticideName: string
+    date: Date | string
+    applicationMethod?: string | null
+    equipment?: string | null
+    dilutionRatio?: string | null
+    amountApplied?: number | null
+    amountUnit?: string | null
+    labour?: string | null
+    workerName?: string | null
+    timeWorked?: number | null
+    labourCost?: number | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PesticideRecordUncheckedCreateWithoutCropInput = {
+    id?: string
+    farmId: string
+    selectedPests?: string | null
+    pesticideType?: string | null
+    source?: string | null
+    purchaseDate?: Date | string | null
+    seller?: string | null
+    quantityPurchased?: number | null
+    purchasePrice?: number | null
+    transportCost?: number | null
+    pesticideName: string
+    date: Date | string
+    applicationMethod?: string | null
+    equipment?: string | null
+    dilutionRatio?: string | null
+    amountApplied?: number | null
+    amountUnit?: string | null
+    labour?: string | null
+    workerName?: string | null
+    timeWorked?: number | null
+    labourCost?: number | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PesticideRecordCreateOrConnectWithoutCropInput = {
+    where: PesticideRecordWhereUniqueInput
+    create: XOR<PesticideRecordCreateWithoutCropInput, PesticideRecordUncheckedCreateWithoutCropInput>
+  }
+
+  export type PesticideRecordCreateManyCropInputEnvelope = {
+    data: PesticideRecordCreateManyCropInput | PesticideRecordCreateManyCropInput[]
     skipDuplicates?: boolean
   }
 
@@ -96420,10 +99058,21 @@ export namespace Prisma {
     farmId?: StringFilter<"WeedingRecord"> | string
     date?: DateTimeFilter<"WeedingRecord"> | Date | string
     weedingType?: StringFilter<"WeedingRecord"> | string
+    selectedWeeds?: StringNullableFilter<"WeedingRecord"> | string | null
+    toolsUsed?: StringNullableFilter<"WeedingRecord"> | string | null
+    herbicideType?: StringNullableFilter<"WeedingRecord"> | string | null
     herbicideName?: StringNullableFilter<"WeedingRecord"> | string | null
+    herbicideSource?: StringNullableFilter<"WeedingRecord"> | string | null
+    purchaseDate?: DateTimeNullableFilter<"WeedingRecord"> | Date | string | null
+    seller?: StringNullableFilter<"WeedingRecord"> | string | null
+    quantityPurchased?: FloatNullableFilter<"WeedingRecord"> | number | null
+    purchasePrice?: FloatNullableFilter<"WeedingRecord"> | number | null
+    dilutionRatio?: StringNullableFilter<"WeedingRecord"> | string | null
+    amountApplied?: FloatNullableFilter<"WeedingRecord"> | number | null
+    amountUnit?: StringNullableFilter<"WeedingRecord"> | string | null
+    applicationMethod?: StringNullableFilter<"WeedingRecord"> | string | null
     dosage?: FloatNullableFilter<"WeedingRecord"> | number | null
     dosageUnit?: StringFilter<"WeedingRecord"> | string
-    applicationMethod?: StringNullableFilter<"WeedingRecord"> | string | null
     labourType?: StringNullableFilter<"WeedingRecord"> | string | null
     numberOfWorkers?: IntNullableFilter<"WeedingRecord"> | number | null
     labourCost?: FloatNullableFilter<"WeedingRecord"> | number | null
@@ -96529,6 +99178,11 @@ export namespace Prisma {
     cropId?: StringFilter<"PestRecord"> | string
     farmId?: StringFilter<"PestRecord"> | string
     date?: DateTimeFilter<"PestRecord"> | Date | string
+    selectedPests?: StringNullableFilter<"PestRecord"> | string | null
+    infestationLevel?: StringNullableFilter<"PestRecord"> | string | null
+    controlMethod?: StringNullableFilter<"PestRecord"> | string | null
+    specificTechnique?: StringNullableFilter<"PestRecord"> | string | null
+    toolsUsed?: StringNullableFilter<"PestRecord"> | string | null
     pestName?: StringFilter<"PestRecord"> | string
     methodOfControl?: StringFilter<"PestRecord"> | string
     dateOfControl?: DateTimeNullableFilter<"PestRecord"> | Date | string | null
@@ -96539,6 +99193,53 @@ export namespace Prisma {
     notes?: StringNullableFilter<"PestRecord"> | string | null
     createdAt?: DateTimeFilter<"PestRecord"> | Date | string
     updatedAt?: DateTimeFilter<"PestRecord"> | Date | string
+  }
+
+  export type PesticideRecordUpsertWithWhereUniqueWithoutCropInput = {
+    where: PesticideRecordWhereUniqueInput
+    update: XOR<PesticideRecordUpdateWithoutCropInput, PesticideRecordUncheckedUpdateWithoutCropInput>
+    create: XOR<PesticideRecordCreateWithoutCropInput, PesticideRecordUncheckedCreateWithoutCropInput>
+  }
+
+  export type PesticideRecordUpdateWithWhereUniqueWithoutCropInput = {
+    where: PesticideRecordWhereUniqueInput
+    data: XOR<PesticideRecordUpdateWithoutCropInput, PesticideRecordUncheckedUpdateWithoutCropInput>
+  }
+
+  export type PesticideRecordUpdateManyWithWhereWithoutCropInput = {
+    where: PesticideRecordScalarWhereInput
+    data: XOR<PesticideRecordUpdateManyMutationInput, PesticideRecordUncheckedUpdateManyWithoutCropInput>
+  }
+
+  export type PesticideRecordScalarWhereInput = {
+    AND?: PesticideRecordScalarWhereInput | PesticideRecordScalarWhereInput[]
+    OR?: PesticideRecordScalarWhereInput[]
+    NOT?: PesticideRecordScalarWhereInput | PesticideRecordScalarWhereInput[]
+    id?: StringFilter<"PesticideRecord"> | string
+    cropId?: StringFilter<"PesticideRecord"> | string
+    farmId?: StringFilter<"PesticideRecord"> | string
+    selectedPests?: StringNullableFilter<"PesticideRecord"> | string | null
+    pesticideType?: StringNullableFilter<"PesticideRecord"> | string | null
+    source?: StringNullableFilter<"PesticideRecord"> | string | null
+    purchaseDate?: DateTimeNullableFilter<"PesticideRecord"> | Date | string | null
+    seller?: StringNullableFilter<"PesticideRecord"> | string | null
+    quantityPurchased?: FloatNullableFilter<"PesticideRecord"> | number | null
+    purchasePrice?: FloatNullableFilter<"PesticideRecord"> | number | null
+    transportCost?: FloatNullableFilter<"PesticideRecord"> | number | null
+    pesticideName?: StringFilter<"PesticideRecord"> | string
+    date?: DateTimeFilter<"PesticideRecord"> | Date | string
+    applicationMethod?: StringNullableFilter<"PesticideRecord"> | string | null
+    equipment?: StringNullableFilter<"PesticideRecord"> | string | null
+    dilutionRatio?: StringNullableFilter<"PesticideRecord"> | string | null
+    amountApplied?: FloatNullableFilter<"PesticideRecord"> | number | null
+    amountUnit?: StringNullableFilter<"PesticideRecord"> | string | null
+    labour?: StringNullableFilter<"PesticideRecord"> | string | null
+    workerName?: StringNullableFilter<"PesticideRecord"> | string | null
+    timeWorked?: FloatNullableFilter<"PesticideRecord"> | number | null
+    labourCost?: FloatNullableFilter<"PesticideRecord"> | number | null
+    notes?: StringNullableFilter<"PesticideRecord"> | string | null
+    createdAt?: DateTimeFilter<"PesticideRecord"> | Date | string
+    updatedAt?: DateTimeFilter<"PesticideRecord"> | Date | string
   }
 
   export type HarvestingRecordUpsertWithWhereUniqueWithoutCropInput = {
@@ -96769,6 +99470,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -96806,6 +99508,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -96859,6 +99562,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -96896,6 +99600,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -96933,6 +99638,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -96970,6 +99676,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -97023,6 +99730,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -97060,6 +99768,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -97097,6 +99806,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -97134,6 +99844,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -97187,6 +99898,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -97224,6 +99936,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -97261,6 +99974,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -97298,6 +100012,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -97351,6 +100066,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -97388,6 +100104,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -97425,6 +100142,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -97462,6 +100180,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -97515,6 +100234,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -97552,6 +100272,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -97589,6 +100310,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -97626,6 +100348,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -97679,6 +100402,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -97716,6 +100440,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -97753,6 +100478,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -97790,6 +100516,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -97843,6 +100570,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -97880,6 +100608,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -97917,6 +100646,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -97954,6 +100684,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -98007,6 +100738,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -98044,6 +100776,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -98081,6 +100814,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -98118,6 +100852,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -98171,6 +100906,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -98208,6 +100944,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -98245,6 +100982,7 @@ export namespace Prisma {
     weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -98282,6 +101020,7 @@ export namespace Prisma {
     weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -98335,6 +101074,7 @@ export namespace Prisma {
     weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -98372,6 +101112,7 @@ export namespace Prisma {
     weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -98409,6 +101150,7 @@ export namespace Prisma {
     weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -98446,6 +101188,7 @@ export namespace Prisma {
     weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -98499,6 +101242,7 @@ export namespace Prisma {
     weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -98536,6 +101280,7 @@ export namespace Prisma {
     weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -98573,6 +101318,7 @@ export namespace Prisma {
     weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -98610,6 +101356,7 @@ export namespace Prisma {
     weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -98663,6 +101410,7 @@ export namespace Prisma {
     weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -98700,6 +101448,175 @@ export namespace Prisma {
     weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
+    processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
+    lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
+    saleRecords?: CropSaleRecordUncheckedUpdateManyWithoutCropNestedInput
+    alerts?: CropAlertUncheckedUpdateManyWithoutCropNestedInput
+  }
+
+  export type CropCreateWithoutPesticideRecordsInput = {
+    id?: string
+    farmId: string
+    cropName: string
+    category?: string | null
+    variety?: string | null
+    areaSize: number
+    areaUnit?: string
+    plantingDate: string
+    expectedHarvestDate: string
+    status?: string
+    progress?: number
+    currentActivity?: string | null
+    icon?: string | null
+    color?: string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cycle: CropCycleCreateNestedOneWithoutCropsInput
+    soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
+    tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
+    plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
+    fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
+    irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
+    weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
+    chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
+    diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
+    pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
+    processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
+    lossRecords?: LossRecordCreateNestedManyWithoutCropInput
+    saleRecords?: CropSaleRecordCreateNestedManyWithoutCropInput
+    alerts?: CropAlertCreateNestedManyWithoutCropInput
+  }
+
+  export type CropUncheckedCreateWithoutPesticideRecordsInput = {
+    id?: string
+    cycleId: string
+    farmId: string
+    cropName: string
+    category?: string | null
+    variety?: string | null
+    areaSize: number
+    areaUnit?: string
+    plantingDate: string
+    expectedHarvestDate: string
+    status?: string
+    progress?: number
+    currentActivity?: string | null
+    icon?: string | null
+    color?: string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
+    tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
+    plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
+    irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
+    weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
+    chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
+    diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
+    pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
+    processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
+    lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
+    saleRecords?: CropSaleRecordUncheckedCreateNestedManyWithoutCropInput
+    alerts?: CropAlertUncheckedCreateNestedManyWithoutCropInput
+  }
+
+  export type CropCreateOrConnectWithoutPesticideRecordsInput = {
+    where: CropWhereUniqueInput
+    create: XOR<CropCreateWithoutPesticideRecordsInput, CropUncheckedCreateWithoutPesticideRecordsInput>
+  }
+
+  export type CropUpsertWithoutPesticideRecordsInput = {
+    update: XOR<CropUpdateWithoutPesticideRecordsInput, CropUncheckedUpdateWithoutPesticideRecordsInput>
+    create: XOR<CropCreateWithoutPesticideRecordsInput, CropUncheckedCreateWithoutPesticideRecordsInput>
+    where?: CropWhereInput
+  }
+
+  export type CropUpdateToOneWithWhereWithoutPesticideRecordsInput = {
+    where?: CropWhereInput
+    data: XOR<CropUpdateWithoutPesticideRecordsInput, CropUncheckedUpdateWithoutPesticideRecordsInput>
+  }
+
+  export type CropUpdateWithoutPesticideRecordsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    cropName?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    variety?: NullableStringFieldUpdateOperationsInput | string | null
+    areaSize?: FloatFieldUpdateOperationsInput | number
+    areaUnit?: StringFieldUpdateOperationsInput | string
+    plantingDate?: StringFieldUpdateOperationsInput | string
+    expectedHarvestDate?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    progress?: IntFieldUpdateOperationsInput | number
+    currentActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cycle?: CropCycleUpdateOneRequiredWithoutCropsNestedInput
+    soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
+    tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
+    plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
+    fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
+    irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
+    weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
+    chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
+    diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
+    pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
+    processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
+    lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
+    saleRecords?: CropSaleRecordUpdateManyWithoutCropNestedInput
+    alerts?: CropAlertUpdateManyWithoutCropNestedInput
+  }
+
+  export type CropUncheckedUpdateWithoutPesticideRecordsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cycleId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    cropName?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    variety?: NullableStringFieldUpdateOperationsInput | string | null
+    areaSize?: FloatFieldUpdateOperationsInput | number
+    areaUnit?: StringFieldUpdateOperationsInput | string
+    plantingDate?: StringFieldUpdateOperationsInput | string
+    expectedHarvestDate?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    progress?: IntFieldUpdateOperationsInput | number
+    currentActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
+    tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
+    plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
+    irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
+    weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
+    chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
+    diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
+    pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -98738,6 +101655,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
     saleRecords?: CropSaleRecordCreateNestedManyWithoutCropInput
@@ -98775,6 +101693,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
     saleRecords?: CropSaleRecordUncheckedCreateNestedManyWithoutCropInput
@@ -98828,6 +101747,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
     saleRecords?: CropSaleRecordUpdateManyWithoutCropNestedInput
@@ -98865,6 +101785,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
     saleRecords?: CropSaleRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -98902,6 +101823,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
     saleRecords?: CropSaleRecordCreateNestedManyWithoutCropInput
@@ -98939,6 +101861,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
     saleRecords?: CropSaleRecordUncheckedCreateNestedManyWithoutCropInput
@@ -98992,6 +101915,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
     saleRecords?: CropSaleRecordUpdateManyWithoutCropNestedInput
@@ -99029,6 +101953,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
     saleRecords?: CropSaleRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -99066,6 +101991,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     saleRecords?: CropSaleRecordCreateNestedManyWithoutCropInput
@@ -99103,6 +102029,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     saleRecords?: CropSaleRecordUncheckedCreateNestedManyWithoutCropInput
@@ -99156,6 +102083,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     saleRecords?: CropSaleRecordUpdateManyWithoutCropNestedInput
@@ -99193,6 +102121,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     saleRecords?: CropSaleRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -99230,6 +102159,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -99267,6 +102197,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -99320,6 +102251,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -99357,6 +102289,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -99394,6 +102327,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -99431,6 +102365,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -99484,6 +102419,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -99521,6 +102457,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -102387,6 +105324,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -102424,6 +105362,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -102601,10 +105540,21 @@ export namespace Prisma {
     farmId: string
     date: Date | string
     weedingType: string
+    selectedWeeds?: string | null
+    toolsUsed?: string | null
+    herbicideType?: string | null
     herbicideName?: string | null
+    herbicideSource?: string | null
+    purchaseDate?: Date | string | null
+    seller?: string | null
+    quantityPurchased?: number | null
+    purchasePrice?: number | null
+    dilutionRatio?: string | null
+    amountApplied?: number | null
+    amountUnit?: string | null
+    applicationMethod?: string | null
     dosage?: number | null
     dosageUnit?: string
-    applicationMethod?: string | null
     labourType?: string | null
     numberOfWorkers?: number | null
     labourCost?: number | null
@@ -102650,12 +105600,44 @@ export namespace Prisma {
     id?: string
     farmId: string
     date: Date | string
+    selectedPests?: string | null
+    infestationLevel?: string | null
+    controlMethod?: string | null
+    specificTechnique?: string | null
+    toolsUsed?: string | null
     pestName: string
     methodOfControl: string
     dateOfControl?: Date | string | null
     methodDetail?: string | null
     labourType?: string | null
     numberOfWorkers?: number | null
+    labourCost?: number | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PesticideRecordCreateManyCropInput = {
+    id?: string
+    farmId: string
+    selectedPests?: string | null
+    pesticideType?: string | null
+    source?: string | null
+    purchaseDate?: Date | string | null
+    seller?: string | null
+    quantityPurchased?: number | null
+    purchasePrice?: number | null
+    transportCost?: number | null
+    pesticideName: string
+    date: Date | string
+    applicationMethod?: string | null
+    equipment?: string | null
+    dilutionRatio?: string | null
+    amountApplied?: number | null
+    amountUnit?: string | null
+    labour?: string | null
+    workerName?: string | null
+    timeWorked?: number | null
     labourCost?: number | null
     notes?: string | null
     createdAt?: Date | string
@@ -103200,10 +106182,21 @@ export namespace Prisma {
     farmId?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     weedingType?: StringFieldUpdateOperationsInput | string
+    selectedWeeds?: NullableStringFieldUpdateOperationsInput | string | null
+    toolsUsed?: NullableStringFieldUpdateOperationsInput | string | null
+    herbicideType?: NullableStringFieldUpdateOperationsInput | string | null
     herbicideName?: NullableStringFieldUpdateOperationsInput | string | null
+    herbicideSource?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    dilutionRatio?: NullableStringFieldUpdateOperationsInput | string | null
+    amountApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    amountUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     dosage?: NullableFloatFieldUpdateOperationsInput | number | null
     dosageUnit?: StringFieldUpdateOperationsInput | string
-    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     labourType?: NullableStringFieldUpdateOperationsInput | string | null
     numberOfWorkers?: NullableIntFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
@@ -103217,10 +106210,21 @@ export namespace Prisma {
     farmId?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     weedingType?: StringFieldUpdateOperationsInput | string
+    selectedWeeds?: NullableStringFieldUpdateOperationsInput | string | null
+    toolsUsed?: NullableStringFieldUpdateOperationsInput | string | null
+    herbicideType?: NullableStringFieldUpdateOperationsInput | string | null
     herbicideName?: NullableStringFieldUpdateOperationsInput | string | null
+    herbicideSource?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    dilutionRatio?: NullableStringFieldUpdateOperationsInput | string | null
+    amountApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    amountUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     dosage?: NullableFloatFieldUpdateOperationsInput | number | null
     dosageUnit?: StringFieldUpdateOperationsInput | string
-    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     labourType?: NullableStringFieldUpdateOperationsInput | string | null
     numberOfWorkers?: NullableIntFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
@@ -103234,10 +106238,21 @@ export namespace Prisma {
     farmId?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     weedingType?: StringFieldUpdateOperationsInput | string
+    selectedWeeds?: NullableStringFieldUpdateOperationsInput | string | null
+    toolsUsed?: NullableStringFieldUpdateOperationsInput | string | null
+    herbicideType?: NullableStringFieldUpdateOperationsInput | string | null
     herbicideName?: NullableStringFieldUpdateOperationsInput | string | null
+    herbicideSource?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    dilutionRatio?: NullableStringFieldUpdateOperationsInput | string | null
+    amountApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    amountUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     dosage?: NullableFloatFieldUpdateOperationsInput | number | null
     dosageUnit?: StringFieldUpdateOperationsInput | string
-    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
     labourType?: NullableStringFieldUpdateOperationsInput | string | null
     numberOfWorkers?: NullableIntFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
@@ -103349,6 +106364,11 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     farmId?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    selectedPests?: NullableStringFieldUpdateOperationsInput | string | null
+    infestationLevel?: NullableStringFieldUpdateOperationsInput | string | null
+    controlMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    specificTechnique?: NullableStringFieldUpdateOperationsInput | string | null
+    toolsUsed?: NullableStringFieldUpdateOperationsInput | string | null
     pestName?: StringFieldUpdateOperationsInput | string
     methodOfControl?: StringFieldUpdateOperationsInput | string
     dateOfControl?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -103365,6 +106385,11 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     farmId?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    selectedPests?: NullableStringFieldUpdateOperationsInput | string | null
+    infestationLevel?: NullableStringFieldUpdateOperationsInput | string | null
+    controlMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    specificTechnique?: NullableStringFieldUpdateOperationsInput | string | null
+    toolsUsed?: NullableStringFieldUpdateOperationsInput | string | null
     pestName?: StringFieldUpdateOperationsInput | string
     methodOfControl?: StringFieldUpdateOperationsInput | string
     dateOfControl?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -103381,12 +106406,98 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     farmId?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    selectedPests?: NullableStringFieldUpdateOperationsInput | string | null
+    infestationLevel?: NullableStringFieldUpdateOperationsInput | string | null
+    controlMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    specificTechnique?: NullableStringFieldUpdateOperationsInput | string | null
+    toolsUsed?: NullableStringFieldUpdateOperationsInput | string | null
     pestName?: StringFieldUpdateOperationsInput | string
     methodOfControl?: StringFieldUpdateOperationsInput | string
     dateOfControl?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     methodDetail?: NullableStringFieldUpdateOperationsInput | string | null
     labourType?: NullableStringFieldUpdateOperationsInput | string | null
     numberOfWorkers?: NullableIntFieldUpdateOperationsInput | number | null
+    labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PesticideRecordUpdateWithoutCropInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    selectedPests?: NullableStringFieldUpdateOperationsInput | string | null
+    pesticideType?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    pesticideName?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    equipment?: NullableStringFieldUpdateOperationsInput | string | null
+    dilutionRatio?: NullableStringFieldUpdateOperationsInput | string | null
+    amountApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    amountUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    labour?: NullableStringFieldUpdateOperationsInput | string | null
+    workerName?: NullableStringFieldUpdateOperationsInput | string | null
+    timeWorked?: NullableFloatFieldUpdateOperationsInput | number | null
+    labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PesticideRecordUncheckedUpdateWithoutCropInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    selectedPests?: NullableStringFieldUpdateOperationsInput | string | null
+    pesticideType?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    pesticideName?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    equipment?: NullableStringFieldUpdateOperationsInput | string | null
+    dilutionRatio?: NullableStringFieldUpdateOperationsInput | string | null
+    amountApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    amountUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    labour?: NullableStringFieldUpdateOperationsInput | string | null
+    workerName?: NullableStringFieldUpdateOperationsInput | string | null
+    timeWorked?: NullableFloatFieldUpdateOperationsInput | number | null
+    labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PesticideRecordUncheckedUpdateManyWithoutCropInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    selectedPests?: NullableStringFieldUpdateOperationsInput | string | null
+    pesticideType?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    seller?: NullableStringFieldUpdateOperationsInput | string | null
+    quantityPurchased?: NullableFloatFieldUpdateOperationsInput | number | null
+    purchasePrice?: NullableFloatFieldUpdateOperationsInput | number | null
+    transportCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    pesticideName?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    applicationMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    equipment?: NullableStringFieldUpdateOperationsInput | string | null
+    dilutionRatio?: NullableStringFieldUpdateOperationsInput | string | null
+    amountApplied?: NullableFloatFieldUpdateOperationsInput | number | null
+    amountUnit?: NullableStringFieldUpdateOperationsInput | string | null
+    labour?: NullableStringFieldUpdateOperationsInput | string | null
+    workerName?: NullableStringFieldUpdateOperationsInput | string | null
+    timeWorked?: NullableFloatFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string

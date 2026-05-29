@@ -6,10 +6,9 @@ import {
   IsNumber,
   IsDateString,
   IsIn,
-  IsArray,
 } from 'class-validator';
 
-export class CreateWeedingDto {
+export class CreatePesticideDto {
   @ApiProperty({ example: 'clx2def' })
   @IsString()
   @IsNotEmpty()
@@ -20,49 +19,21 @@ export class CreateWeedingDto {
   @IsNotEmpty()
   farmId: string;
 
-  @ApiProperty({
-    example: '2026-02-15T00:00:00.000Z',
-    description: 'Date of weeding',
-  })
-  @IsDateString()
-  date: string;
-
-  @ApiProperty({
-    example: 'manual',
-    enum: ['manual', 'mechanical', 'chemical'],
-  })
-  @IsIn(['manual', 'mechanical', 'chemical'])
-  weedingType: string;
-
   @ApiPropertyOptional({
     example: '["1", "2", "3"]',
-    description: 'JSON array of selected weed IDs',
+    description: 'JSON array of selected pest IDs',
   })
   @IsString()
   @IsOptional()
-  selectedWeeds?: string;
+  selectedPests?: string;
 
   @ApiPropertyOptional({
-    example: '["Jembes", "Hoes"]',
-    description: 'JSON array of tools used',
+    example: 'contact',
+    enum: ['contact', 'systemic', 'biological', 'residual'],
   })
-  @IsString()
+  @IsIn(['contact', 'systemic', 'biological', 'residual'])
   @IsOptional()
-  toolsUsed?: string;
-
-  // Herbicide-specific fields
-  @ApiPropertyOptional({
-    example: 'pre-emergent',
-    enum: ['pre-emergent', 'post-emergent', 'selective', 'non-selective'],
-  })
-  @IsIn(['pre-emergent', 'post-emergent', 'selective', 'non-selective'])
-  @IsOptional()
-  herbicideType?: string;
-
-  @ApiPropertyOptional({ example: 'Glyphosate' })
-  @IsString()
-  @IsOptional()
-  herbicideName?: string;
+  pesticideType?: string;
 
   @ApiPropertyOptional({
     example: 'newly-purchased',
@@ -70,7 +41,7 @@ export class CreateWeedingDto {
   })
   @IsIn(['newly-purchased', 'existing'])
   @IsOptional()
-  herbicideSource?: string;
+  source?: string;
 
   @ApiPropertyOptional({
     example: '2026-02-10T00:00:00.000Z',
@@ -95,6 +66,33 @@ export class CreateWeedingDto {
   @IsOptional()
   purchasePrice?: number;
 
+  @ApiPropertyOptional({ example: 500 })
+  @IsNumber()
+  @IsOptional()
+  transportCost?: number;
+
+  @ApiProperty({ example: 'Cypermethrin' })
+  @IsString()
+  @IsNotEmpty()
+  pesticideName: string;
+
+  @ApiProperty({
+    example: '2026-02-15T00:00:00.000Z',
+    description: 'Date of application',
+  })
+  @IsDateString()
+  date: string;
+
+  @ApiPropertyOptional({ example: 'Spraying' })
+  @IsString()
+  @IsOptional()
+  applicationMethod?: string;
+
+  @ApiPropertyOptional({ example: 'Knapsack Sprayer' })
+  @IsString()
+  @IsOptional()
+  equipment?: string;
+
   @ApiPropertyOptional({ example: '1:200' })
   @IsString()
   @IsOptional()
@@ -113,37 +111,25 @@ export class CreateWeedingDto {
   @IsOptional()
   amountUnit?: string;
 
-  // Application fields
-  @ApiPropertyOptional({ example: 'Spraying' })
-  @IsString()
-  @IsOptional()
-  applicationMethod?: string;
-
-  @ApiPropertyOptional({ example: 2 })
-  @IsNumber()
-  @IsOptional()
-  dosage?: number;
-
-  @ApiPropertyOptional({ example: 'liters' })
-  @IsString()
-  @IsOptional()
-  dosageUnit?: string;
-
-  // Labour fields
   @ApiPropertyOptional({
     example: 'human',
-    enum: ['machine', 'human', 'animal'],
+    enum: ['machine', 'animal', 'human'],
   })
-  @IsIn(['machine', 'human', 'animal'])
+  @IsIn(['machine', 'animal', 'human'])
   @IsOptional()
-  labourType?: string;
+  labour?: string;
 
-  @ApiPropertyOptional({ example: 5 })
+  @ApiPropertyOptional({ example: 'John Doe' })
+  @IsString()
+  @IsOptional()
+  workerName?: string;
+
+  @ApiPropertyOptional({ example: 4 })
   @IsNumber()
   @IsOptional()
-  numberOfWorkers?: number;
+  timeWorked?: number;
 
-  @ApiPropertyOptional({ example: 4000 })
+  @ApiPropertyOptional({ example: 2000 })
   @IsNumber()
   @IsOptional()
   labourCost?: number;

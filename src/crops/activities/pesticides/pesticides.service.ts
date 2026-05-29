@@ -1,38 +1,37 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
-import { CreateWeedingDto } from './dto/create-weeding.dto';
-import { UpdateWeedingDto } from './dto/update-weeding.dto';
+import { CreatePesticideDto } from './dto/create-pesticide.dto';
+import { UpdatePesticideDto } from './dto/update-pesticide.dto';
 
 @Injectable()
-export class WeedingService {
+export class PesticidesService {
   constructor(private prisma: PrismaService) {}
 
-  async create(dto: CreateWeedingDto) {
+  async create(dto: CreatePesticideDto) {
     await this._assertCropExists(dto.cropId);
 
-    const record = await this.prisma.weedingRecord.create({
+    const record = await this.prisma.pesticideRecord.create({
       data: {
         cropId: dto.cropId,
         farmId: dto.farmId,
-        date: new Date(dto.date),
-        weedingType: dto.weedingType,
-        selectedWeeds: dto.selectedWeeds,
-        toolsUsed: dto.toolsUsed,
-        herbicideType: dto.herbicideType,
-        herbicideName: dto.herbicideName,
-        herbicideSource: dto.herbicideSource,
+        selectedPests: dto.selectedPests,
+        pesticideType: dto.pesticideType,
+        source: dto.source,
         purchaseDate: dto.purchaseDate ? new Date(dto.purchaseDate) : null,
         seller: dto.seller,
         quantityPurchased: dto.quantityPurchased,
         purchasePrice: dto.purchasePrice,
+        transportCost: dto.transportCost,
+        pesticideName: dto.pesticideName,
+        date: new Date(dto.date),
+        applicationMethod: dto.applicationMethod,
+        equipment: dto.equipment,
         dilutionRatio: dto.dilutionRatio,
         amountApplied: dto.amountApplied,
         amountUnit: dto.amountUnit,
-        applicationMethod: dto.applicationMethod,
-        dosage: dto.dosage,
-        dosageUnit: dto.dosageUnit || 'liters',
-        labourType: dto.labourType,
-        numberOfWorkers: dto.numberOfWorkers,
+        labour: dto.labour,
+        workerName: dto.workerName,
+        timeWorked: dto.timeWorked,
         labourCost: dto.labourCost,
         notes: dto.notes,
       },
@@ -42,7 +41,7 @@ export class WeedingService {
     await this.prisma.crop.update({
       where: { id: dto.cropId },
       data: {
-        currentActivity: 'Weeding',
+        currentActivity: 'Pesticide Application',
         progress: Math.min(
           100,
           (await this._calculateProgress(dto.cropId)) + 5,
@@ -56,13 +55,17 @@ export class WeedingService {
   async findAll(cropId: string) {
     await this._assertCropExists(cropId);
 
-    const records = await this.prisma.weedingRecord.findMany({
+    const records = await this.prisma.pesticideRecord.findMany({
       where: { cropId },
       orderBy: { date: 'desc' },
     });
 
     const totalLabourCost = records.reduce(
       (s, r) => s + (r.labourCost ?? 0),
+      0,
+    );
+    const totalCost = records.reduce(
+      (s, r) => s + (r.purchasePrice ?? 0) + (r.transportCost ?? 0),
       0,
     );
     const lastRecord = records[0];
@@ -72,6 +75,7 @@ export class WeedingService {
       stats: {
         count: records.length,
         totalLabourCost,
+        totalCost,
         lastDate: lastRecord ? lastRecord.date : null,
       },
     };
@@ -81,30 +85,29 @@ export class WeedingService {
     return this._findOrFail(id);
   }
 
-  async update(id: string, dto: UpdateWeedingDto) {
+  async update(id: string, dto: UpdatePesticideDto) {
     await this._findOrFail(id);
-    return this.prisma.weedingRecord.update({
+    return this.prisma.pesticideRecord.update({
       where: { id },
       data: {
-        date: dto.date ? new Date(dto.date) : undefined,
-        weedingType: dto.weedingType,
-        selectedWeeds: dto.selectedWeeds,
-        toolsUsed: dto.toolsUsed,
-        herbicideType: dto.herbicideType,
-        herbicideName: dto.herbicideName,
-        herbicideSource: dto.herbicideSource,
+        selectedPests: dto.selectedPests,
+        pesticideType: dto.pesticideType,
+        source: dto.source,
         purchaseDate: dto.purchaseDate ? new Date(dto.purchaseDate) : undefined,
         seller: dto.seller,
         quantityPurchased: dto.quantityPurchased,
         purchasePrice: dto.purchasePrice,
+        transportCost: dto.transportCost,
+        pesticideName: dto.pesticideName,
+        date: dto.date ? new Date(dto.date) : undefined,
+        applicationMethod: dto.applicationMethod,
+        equipment: dto.equipment,
         dilutionRatio: dto.dilutionRatio,
         amountApplied: dto.amountApplied,
         amountUnit: dto.amountUnit,
-        applicationMethod: dto.applicationMethod,
-        dosage: dto.dosage,
-        dosageUnit: dto.dosageUnit,
-        labourType: dto.labourType,
-        numberOfWorkers: dto.numberOfWorkers,
+        labour: dto.labour,
+        workerName: dto.workerName,
+        timeWorked: dto.timeWorked,
         labourCost: dto.labourCost,
         notes: dto.notes,
       },
@@ -113,17 +116,18 @@ export class WeedingService {
 
   async remove(id: string) {
     await this._findOrFail(id);
-    await this.prisma.weedingRecord.delete({ where: { id } });
-    return { message: 'Weeding record deleted successfully' };
+    await this.prisma.pesticideRecord.delete({ where: { id } });
+    return { message: 'Pesticide record deleted successfully' };
   }
 
   // ── helpers ──────────────────────────────────────────────────────────────
 
   private async _findOrFail(id: string) {
-    const record = await this.prisma.weedingRecord.findUnique({
+    const record = await this.prisma.pesticideRecord.findUnique({
       where: { id },
     });
-    if (!record) throw new NotFoundException(`Weeding record ${id} not found`);
+    if (!record)
+      throw new NotFoundException(`Pesticide record ${id} not found`);
     return record;
   }
 

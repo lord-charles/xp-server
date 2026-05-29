@@ -704,6 +704,7 @@ model Crop {
   chemicalRecords       ChemicalRecord[]
   diseaseRecords        DiseaseRecord[]
   pestRecords           PestRecord[]
+  pesticideRecords      PesticideRecord[]
   harvestingRecords     HarvestingRecord[]
   processingRecords     ProcessingRecord[]
   lossRecords           LossRecord[]
@@ -906,22 +907,40 @@ model IrrigationRecord {
 }
 
 model WeedingRecord {
-  id                String   @id @default(cuid())
-  cropId            String
-  crop              Crop     @relation(fields: [cropId], references: [id], onDelete: Cascade)
-  farmId            String
-  date              DateTime
-  weedingType       String // manual | mechanical | chemical
+  id            String   @id @default(cuid())
+  cropId        String
+  crop          Crop     @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId        String
+  date          DateTime
+  weedingType   String // manual | mechanical | chemical
+  selectedWeeds String? // JSON array of weed IDs
+  toolsUsed     String? // JSON array of tools (Jembes, Hoes, By Hand)
+
+  // Herbicide-specific fields
+  herbicideType     String? // pre-emergent | post-emergent | selective | non-selective
   herbicideName     String?
-  dosage            Float?
-  dosageUnit        String   @default("liters")
+  herbicideSource   String? // newly-purchased | existing
+  purchaseDate      DateTime?
+  seller            String?
+  quantityPurchased Float?
+  purchasePrice     Float?
+  dilutionRatio     String?
+  amountApplied     Float?
+  amountUnit        String? // L | mL | kg
+
+  // Application fields
   applicationMethod String?
-  labourType        String?
-  numberOfWorkers   Int?
-  labourCost        Float?
-  notes             String?
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
+  dosage            Float?
+  dosageUnit        String  @default("liters")
+
+  // Labour fields
+  labourType      String?
+  numberOfWorkers Int?
+  labourCost      Float?
+
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([cropId])
   @@index([farmId])
@@ -973,21 +992,58 @@ model DiseaseRecord {
 }
 
 model PestRecord {
-  id              String    @id @default(cuid())
-  cropId          String
-  crop            Crop      @relation(fields: [cropId], references: [id], onDelete: Cascade)
-  farmId          String
-  date            DateTime
-  pestName        String
-  methodOfControl String
-  dateOfControl   DateTime?
-  methodDetail    String?
-  labourType      String?
-  numberOfWorkers Int?
-  labourCost      Float?
-  notes           String?
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
+  id                String    @id @default(cuid())
+  cropId            String
+  crop              Crop      @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId            String
+  date              DateTime
+  selectedPests     String? // JSON array of pest IDs
+  infestationLevel  String? // low | medium | high
+  controlMethod     String? // physical | mechanical | chemical | biological
+  specificTechnique String?
+  toolsUsed         String? // JSON array of tools
+  pestName          String
+  methodOfControl   String
+  dateOfControl     DateTime?
+  methodDetail      String?
+  labourType        String?
+  numberOfWorkers   Int?
+  labourCost        Float?
+  notes             String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  @@index([cropId])
+  @@index([farmId])
+}
+
+model PesticideRecord {
+  id                String    @id @default(cuid())
+  cropId            String
+  crop              Crop      @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId            String
+  selectedPests     String? // JSON array of pest IDs
+  pesticideType     String? // contact | systemic | biological | residual
+  source            String? // newly-purchased | existing
+  purchaseDate      DateTime?
+  seller            String?
+  quantityPurchased Float?
+  purchasePrice     Float?
+  transportCost     Float?
+  pesticideName     String
+  date              DateTime
+  applicationMethod String?
+  equipment         String?
+  dilutionRatio     String?
+  amountApplied     Float?
+  amountUnit        String? // L | mL | kg
+  labour            String? // machine | animal | human
+  workerName        String?
+  timeWorked        Float?
+  labourCost        Float?
+  notes             String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
 
   @@index([cropId])
   @@index([farmId])

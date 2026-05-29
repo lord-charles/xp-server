@@ -38,6 +38,8 @@ import { DiseasesController } from './activities/diseases/diseases.controller';
 import { DiseasesService } from './activities/diseases/diseases.service';
 import { PestsController } from './activities/pests/pests.controller';
 import { PestsService } from './activities/pests/pests.service';
+import { PesticidesController } from './activities/pesticides/pesticides.controller';
+import { PesticidesService } from './activities/pesticides/pesticides.service';
 import { HarvestingController } from './activities/harvesting/harvesting.controller';
 import { HarvestingService } from './activities/harvesting/harvesting.service';
 import { ProcessingController } from './activities/processing/processing.controller';
@@ -73,6 +75,7 @@ import { CropAlertsService } from './activities/crop-alerts/crop-alerts.service'
     // Phase 4
     DiseasesController,
     PestsController,
+    PesticidesController,
     HarvestingController,
     ProcessingController,
     // Phase 5
@@ -100,6 +103,7 @@ import { CropAlertsService } from './activities/crop-alerts/crop-alerts.service'
     // Phase 4
     DiseasesService,
     PestsService,
+    PesticidesService,
     HarvestingService,
     ProcessingService,
     // Phase 5

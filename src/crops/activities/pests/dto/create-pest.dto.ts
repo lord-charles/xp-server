@@ -26,6 +26,43 @@ export class CreatePestDto {
   @IsDateString()
   date: string;
 
+  @ApiPropertyOptional({
+    example: '["1", "2", "3"]',
+    description: 'JSON array of selected pest IDs',
+  })
+  @IsString()
+  @IsOptional()
+  selectedPests?: string;
+
+  @ApiPropertyOptional({
+    example: 'low',
+    enum: ['low', 'medium', 'high'],
+  })
+  @IsIn(['low', 'medium', 'high'])
+  @IsOptional()
+  infestationLevel?: string;
+
+  @ApiPropertyOptional({
+    example: 'physical',
+    enum: ['physical', 'mechanical', 'chemical', 'biological'],
+  })
+  @IsIn(['physical', 'mechanical', 'chemical', 'biological'])
+  @IsOptional()
+  controlMethod?: string;
+
+  @ApiPropertyOptional({ example: 'Hand Picking' })
+  @IsString()
+  @IsOptional()
+  specificTechnique?: string;
+
+  @ApiPropertyOptional({
+    example: '["Sprayer", "Traps"]',
+    description: 'JSON array of tools used',
+  })
+  @IsString()
+  @IsOptional()
+  toolsUsed?: string;
+
   @ApiProperty({ example: 'Armyworm' })
   @IsString()
   @IsNotEmpty()

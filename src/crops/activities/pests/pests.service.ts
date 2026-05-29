@@ -15,6 +15,11 @@ export class PestsService {
         cropId: dto.cropId,
         farmId: dto.farmId,
         date: new Date(dto.date),
+        selectedPests: dto.selectedPests,
+        infestationLevel: dto.infestationLevel,
+        controlMethod: dto.controlMethod,
+        specificTechnique: dto.specificTechnique,
+        toolsUsed: dto.toolsUsed,
         pestName: dto.pestName,
         methodOfControl: dto.methodOfControl,
         dateOfControl: dto.dateOfControl ? new Date(dto.dateOfControl) : null,
@@ -75,6 +80,11 @@ export class PestsService {
       where: { id },
       data: {
         date: dto.date ? new Date(dto.date) : undefined,
+        selectedPests: dto.selectedPests,
+        infestationLevel: dto.infestationLevel,
+        controlMethod: dto.controlMethod,
+        specificTechnique: dto.specificTechnique,
+        toolsUsed: dto.toolsUsed,
         pestName: dto.pestName,
         methodOfControl: dto.methodOfControl,
         dateOfControl: dto.dateOfControl
