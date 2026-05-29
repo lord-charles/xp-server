@@ -26,7 +26,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "vercel-build": "yarn install && prisma generate && prisma migrate deploy && yarn build && tsc --noEmit && nest build",
-    "postinstall": "prisma generate && prisma db push --skip-generate"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
