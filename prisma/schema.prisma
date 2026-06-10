@@ -671,6 +671,39 @@ model CropCycle {
   @@index([farmId])
 }
 
+model LabourRecord {
+  id                       String   @id @default(cuid())
+  cropId                   String
+  crop                     Crop     @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  farmId                   String
+  date                     DateTime
+  activityName             String
+  selectedLabourCategories String? // JSON array of selected categories: ["machine", "animal", "human"]
+
+  // Machine labour fields
+  machineSupplier String?
+  machineHours    Float?
+  machineFee      Float?
+
+  // Animal labour fields
+  animalEquipmentName String?
+  animalCount         Int?
+  animalHours         Float?
+  animalFee           Float?
+
+  // Human labour fields
+  humanCount Int?
+  humanHours Float?
+  humanFee   Float?
+
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([cropId])
+  @@index([farmId])
+}
+
 model Crop {
   id                  String    @id @default(cuid())
   cycleId             String
@@ -705,6 +738,7 @@ model Crop {
   diseaseRecords        DiseaseRecord[]
   pestRecords           PestRecord[]
   pesticideRecords      PesticideRecord[]
+  labourRecords         LabourRecord[]
   harvestingRecords     HarvestingRecord[]
   processingRecords     ProcessingRecord[]
   lossRecords           LossRecord[]

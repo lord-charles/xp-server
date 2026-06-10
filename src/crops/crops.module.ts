@@ -33,6 +33,10 @@ import { WeedingService } from './activities/weeding/weeding.service';
 import { ChemicalsController } from './activities/chemicals/chemicals.controller';
 import { ChemicalsService } from './activities/chemicals/chemicals.service';
 
+// Labour
+import { LabourController } from './activities/labour/labour.controller';
+import { LabourService } from './activities/labour/labour.service';
+
 // Phase 4
 import { DiseasesController } from './activities/diseases/diseases.controller';
 import { DiseasesService } from './activities/diseases/diseases.service';
@@ -72,6 +76,8 @@ import { CropAlertsService } from './activities/crop-alerts/crop-alerts.service'
     IrrigationController,
     WeedingController,
     ChemicalsController,
+    // Labour
+    LabourController,
     // Phase 4
     DiseasesController,
     PestsController,
@@ -100,6 +106,8 @@ import { CropAlertsService } from './activities/crop-alerts/crop-alerts.service'
     IrrigationService,
     WeedingService,
     ChemicalsService,
+    // Labour
+    LabourService,
     // Phase 4
     DiseasesService,
     PestsService,
