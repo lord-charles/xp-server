@@ -44,24 +44,25 @@ export class CreateCropDto {
   @IsOptional()
   variety?: string;
 
-  @ApiProperty({ example: 2.5, description: 'Area planted' })
+  @ApiPropertyOptional({ example: 2.5, description: 'Area planted' })
   @IsNumber()
-  areaSize: number;
+  @IsOptional()
+  areaSize?: number;
 
   @ApiPropertyOptional({ example: 'acres', default: 'acres' })
   @IsString()
   @IsOptional()
   areaUnit?: string;
 
-  @ApiProperty({ example: '15/02/2026', description: 'DD/MM/YYYY' })
+  @ApiPropertyOptional({ example: '15/02/2026', description: 'DD/MM/YYYY' })
   @IsString()
-  @IsNotEmpty()
-  plantingDate: string;
+  @IsOptional()
+  plantingDate?: string;
 
-  @ApiProperty({ example: '15/06/2026', description: 'DD/MM/YYYY' })
+  @ApiPropertyOptional({ example: '15/06/2026', description: 'DD/MM/YYYY' })
   @IsString()
-  @IsNotEmpty()
-  expectedHarvestDate: string;
+  @IsOptional()
+  expectedHarvestDate?: string;
 
   @ApiPropertyOptional({ example: '🌽' })
   @IsString()
