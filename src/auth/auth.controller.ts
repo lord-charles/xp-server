@@ -1,4 +1,4 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, Req } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
@@ -190,5 +190,26 @@ export class AuthController {
   @ApiResponse({ status: 401, description: 'Invalid reset code' })
   async resetPassword(@Body() dto: ResetPasswordDto) {
     return this.authService.resetPassword(dto);
+  }
+
+  @Post('delete-account')
+  @ApiOperation({
+    summary: 'Delete user account',
+    description: 'Delete the authenticated user account (compliant with Apple requirements). Requires JWT authentication.',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Account deleted successfully',
+    schema: {
+      type: 'object',
+      example: {
+        message: 'Account deleted successfully',
+      },
+    },
+  })
+  @ApiResponse({ status: 401, description: 'Unauthorized - Invalid or missing token' })
+  @ApiResponse({ status: 404, description: 'User not found' })
+  async deleteAccount(@Req() req: any) {
+    return this.authService.deleteAccount(req.user.sub);
   }
 }

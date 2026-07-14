@@ -2,6 +2,7 @@ import {
   Injectable,
   UnauthorizedException,
   BadRequestException,
+  NotFoundException,
 } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { RegisterDto } from './dto/register.dto';
@@ -445,5 +446,34 @@ export class AuthService {
     });
 
     return { message: 'Password reset successful' };
+  }
+
+  async deleteAccount(userId: string): Promise<{ message: string }> {
+    // Try to find and delete user
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+    });
+
+    if (user) {
+      await this.prisma.user.delete({
+        where: { id: userId },
+      });
+      return { message: 'Account deleted successfully' };
+    }
+
+    // If not a user, try to find and delete employee
+    const employee = await this.prisma.employee.findUnique({
+      where: { id: userId },
+    });
+
+    if (!employee) {
+      throw new NotFoundException('User not found');
+    }
+
+    await this.prisma.employee.delete({
+      where: { id: userId },
+    });
+
+    return { message: 'Account deleted successfully' };
   }
 }

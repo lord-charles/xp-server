@@ -164,6 +164,11 @@ export type SaleListing = $Result.DefaultSelection<Prisma.$SaleListingPayload>
  */
 export type CropCycle = $Result.DefaultSelection<Prisma.$CropCyclePayload>
 /**
+ * Model LabourRecord
+ * 
+ */
+export type LabourRecord = $Result.DefaultSelection<Prisma.$LabourRecordPayload>
+/**
  * Model Crop
  * 
  */
@@ -683,6 +688,16 @@ export class PrismaClient<
     * ```
     */
   get cropCycle(): Prisma.CropCycleDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.labourRecord`: Exposes CRUD operations for the **LabourRecord** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LabourRecords
+    * const labourRecords = await prisma.labourRecord.findMany()
+    * ```
+    */
+  get labourRecord(): Prisma.LabourRecordDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.crop`: Exposes CRUD operations for the **Crop** model.
@@ -1343,6 +1358,7 @@ export namespace Prisma {
     TreatmentRecord: 'TreatmentRecord',
     SaleListing: 'SaleListing',
     CropCycle: 'CropCycle',
+    LabourRecord: 'LabourRecord',
     Crop: 'Crop',
     SoilPrepRecord: 'SoilPrepRecord',
     TillageRecord: 'TillageRecord',
@@ -1380,7 +1396,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "farm" | "employee" | "employeeFarm" | "employeeBenefit" | "livestock" | "mammal" | "poultry" | "mortality" | "healthEvent" | "transfer" | "sale" | "breedingRecord" | "offspring" | "feedingProgram" | "feedDetails" | "inventory" | "goodsInStock" | "machinery" | "utility" | "water" | "power" | "allergyRecord" | "boosterRecord" | "vaccinationRecord" | "dewormingRecord" | "geneticDisorderRecord" | "treatmentRecord" | "saleListing" | "cropCycle" | "crop" | "soilPrepRecord" | "tillageRecord" | "plantingRecord" | "soilDataRecord" | "fieldConditionRecord" | "weatherDataRecord" | "fertilizerRecord" | "irrigationRecord" | "weedingRecord" | "chemicalRecord" | "diseaseRecord" | "pestRecord" | "pesticideRecord" | "harvestingRecord" | "processingRecord" | "lossRecord" | "cropSaleRecord" | "cropAlert"
+      modelProps: "user" | "farm" | "employee" | "employeeFarm" | "employeeBenefit" | "livestock" | "mammal" | "poultry" | "mortality" | "healthEvent" | "transfer" | "sale" | "breedingRecord" | "offspring" | "feedingProgram" | "feedDetails" | "inventory" | "goodsInStock" | "machinery" | "utility" | "water" | "power" | "allergyRecord" | "boosterRecord" | "vaccinationRecord" | "dewormingRecord" | "geneticDisorderRecord" | "treatmentRecord" | "saleListing" | "cropCycle" | "labourRecord" | "crop" | "soilPrepRecord" | "tillageRecord" | "plantingRecord" | "soilDataRecord" | "fieldConditionRecord" | "weatherDataRecord" | "fertilizerRecord" | "irrigationRecord" | "weedingRecord" | "chemicalRecord" | "diseaseRecord" | "pestRecord" | "pesticideRecord" | "harvestingRecord" | "processingRecord" | "lossRecord" | "cropSaleRecord" | "cropAlert"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -3604,6 +3620,80 @@ export namespace Prisma {
           }
         }
       }
+      LabourRecord: {
+        payload: Prisma.$LabourRecordPayload<ExtArgs>
+        fields: Prisma.LabourRecordFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LabourRecordFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LabourRecordPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LabourRecordFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LabourRecordPayload>
+          }
+          findFirst: {
+            args: Prisma.LabourRecordFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LabourRecordPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LabourRecordFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LabourRecordPayload>
+          }
+          findMany: {
+            args: Prisma.LabourRecordFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LabourRecordPayload>[]
+          }
+          create: {
+            args: Prisma.LabourRecordCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LabourRecordPayload>
+          }
+          createMany: {
+            args: Prisma.LabourRecordCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LabourRecordCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LabourRecordPayload>[]
+          }
+          delete: {
+            args: Prisma.LabourRecordDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LabourRecordPayload>
+          }
+          update: {
+            args: Prisma.LabourRecordUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LabourRecordPayload>
+          }
+          deleteMany: {
+            args: Prisma.LabourRecordDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LabourRecordUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LabourRecordUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LabourRecordPayload>[]
+          }
+          upsert: {
+            args: Prisma.LabourRecordUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LabourRecordPayload>
+          }
+          aggregate: {
+            args: Prisma.LabourRecordAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLabourRecord>
+          }
+          groupBy: {
+            args: Prisma.LabourRecordGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LabourRecordGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LabourRecordCountArgs<ExtArgs>
+            result: $Utils.Optional<LabourRecordCountAggregateOutputType> | number
+          }
+        }
+      }
       Crop: {
         payload: Prisma.$CropPayload<ExtArgs>
         fields: Prisma.CropFieldRefs
@@ -5124,6 +5214,7 @@ export namespace Prisma {
     treatmentRecord?: TreatmentRecordOmit
     saleListing?: SaleListingOmit
     cropCycle?: CropCycleOmit
+    labourRecord?: LabourRecordOmit
     crop?: CropOmit
     soilPrepRecord?: SoilPrepRecordOmit
     tillageRecord?: TillageRecordOmit
@@ -5804,6 +5895,7 @@ export namespace Prisma {
     diseaseRecords: number
     pestRecords: number
     pesticideRecords: number
+    labourRecords: number
     harvestingRecords: number
     processingRecords: number
     lossRecords: number
@@ -5825,6 +5917,7 @@ export namespace Prisma {
     diseaseRecords?: boolean | CropCountOutputTypeCountDiseaseRecordsArgs
     pestRecords?: boolean | CropCountOutputTypeCountPestRecordsArgs
     pesticideRecords?: boolean | CropCountOutputTypeCountPesticideRecordsArgs
+    labourRecords?: boolean | CropCountOutputTypeCountLabourRecordsArgs
     harvestingRecords?: boolean | CropCountOutputTypeCountHarvestingRecordsArgs
     processingRecords?: boolean | CropCountOutputTypeCountProcessingRecordsArgs
     lossRecords?: boolean | CropCountOutputTypeCountLossRecordsArgs
@@ -5932,6 +6025,13 @@ export namespace Prisma {
    */
   export type CropCountOutputTypeCountPesticideRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PesticideRecordWhereInput
+  }
+
+  /**
+   * CropCountOutputType without action
+   */
+  export type CropCountOutputTypeCountLabourRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LabourRecordWhereInput
   }
 
   /**
@@ -43638,6 +43738,1308 @@ export namespace Prisma {
 
 
   /**
+   * Model LabourRecord
+   */
+
+  export type AggregateLabourRecord = {
+    _count: LabourRecordCountAggregateOutputType | null
+    _avg: LabourRecordAvgAggregateOutputType | null
+    _sum: LabourRecordSumAggregateOutputType | null
+    _min: LabourRecordMinAggregateOutputType | null
+    _max: LabourRecordMaxAggregateOutputType | null
+  }
+
+  export type LabourRecordAvgAggregateOutputType = {
+    machineHours: number | null
+    machineFee: number | null
+    animalCount: number | null
+    animalHours: number | null
+    animalFee: number | null
+    humanCount: number | null
+    humanHours: number | null
+    humanFee: number | null
+  }
+
+  export type LabourRecordSumAggregateOutputType = {
+    machineHours: number | null
+    machineFee: number | null
+    animalCount: number | null
+    animalHours: number | null
+    animalFee: number | null
+    humanCount: number | null
+    humanHours: number | null
+    humanFee: number | null
+  }
+
+  export type LabourRecordMinAggregateOutputType = {
+    id: string | null
+    cropId: string | null
+    farmId: string | null
+    date: Date | null
+    activityName: string | null
+    selectedLabourCategories: string | null
+    machineSupplier: string | null
+    machineHours: number | null
+    machineFee: number | null
+    animalEquipmentName: string | null
+    animalCount: number | null
+    animalHours: number | null
+    animalFee: number | null
+    humanCount: number | null
+    humanHours: number | null
+    humanFee: number | null
+    notes: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type LabourRecordMaxAggregateOutputType = {
+    id: string | null
+    cropId: string | null
+    farmId: string | null
+    date: Date | null
+    activityName: string | null
+    selectedLabourCategories: string | null
+    machineSupplier: string | null
+    machineHours: number | null
+    machineFee: number | null
+    animalEquipmentName: string | null
+    animalCount: number | null
+    animalHours: number | null
+    animalFee: number | null
+    humanCount: number | null
+    humanHours: number | null
+    humanFee: number | null
+    notes: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type LabourRecordCountAggregateOutputType = {
+    id: number
+    cropId: number
+    farmId: number
+    date: number
+    activityName: number
+    selectedLabourCategories: number
+    machineSupplier: number
+    machineHours: number
+    machineFee: number
+    animalEquipmentName: number
+    animalCount: number
+    animalHours: number
+    animalFee: number
+    humanCount: number
+    humanHours: number
+    humanFee: number
+    notes: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type LabourRecordAvgAggregateInputType = {
+    machineHours?: true
+    machineFee?: true
+    animalCount?: true
+    animalHours?: true
+    animalFee?: true
+    humanCount?: true
+    humanHours?: true
+    humanFee?: true
+  }
+
+  export type LabourRecordSumAggregateInputType = {
+    machineHours?: true
+    machineFee?: true
+    animalCount?: true
+    animalHours?: true
+    animalFee?: true
+    humanCount?: true
+    humanHours?: true
+    humanFee?: true
+  }
+
+  export type LabourRecordMinAggregateInputType = {
+    id?: true
+    cropId?: true
+    farmId?: true
+    date?: true
+    activityName?: true
+    selectedLabourCategories?: true
+    machineSupplier?: true
+    machineHours?: true
+    machineFee?: true
+    animalEquipmentName?: true
+    animalCount?: true
+    animalHours?: true
+    animalFee?: true
+    humanCount?: true
+    humanHours?: true
+    humanFee?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type LabourRecordMaxAggregateInputType = {
+    id?: true
+    cropId?: true
+    farmId?: true
+    date?: true
+    activityName?: true
+    selectedLabourCategories?: true
+    machineSupplier?: true
+    machineHours?: true
+    machineFee?: true
+    animalEquipmentName?: true
+    animalCount?: true
+    animalHours?: true
+    animalFee?: true
+    humanCount?: true
+    humanHours?: true
+    humanFee?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type LabourRecordCountAggregateInputType = {
+    id?: true
+    cropId?: true
+    farmId?: true
+    date?: true
+    activityName?: true
+    selectedLabourCategories?: true
+    machineSupplier?: true
+    machineHours?: true
+    machineFee?: true
+    animalEquipmentName?: true
+    animalCount?: true
+    animalHours?: true
+    animalFee?: true
+    humanCount?: true
+    humanHours?: true
+    humanFee?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type LabourRecordAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LabourRecord to aggregate.
+     */
+    where?: LabourRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LabourRecords to fetch.
+     */
+    orderBy?: LabourRecordOrderByWithRelationInput | LabourRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LabourRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LabourRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LabourRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LabourRecords
+    **/
+    _count?: true | LabourRecordCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LabourRecordAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LabourRecordSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LabourRecordMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LabourRecordMaxAggregateInputType
+  }
+
+  export type GetLabourRecordAggregateType<T extends LabourRecordAggregateArgs> = {
+        [P in keyof T & keyof AggregateLabourRecord]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLabourRecord[P]>
+      : GetScalarType<T[P], AggregateLabourRecord[P]>
+  }
+
+
+
+
+  export type LabourRecordGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LabourRecordWhereInput
+    orderBy?: LabourRecordOrderByWithAggregationInput | LabourRecordOrderByWithAggregationInput[]
+    by: LabourRecordScalarFieldEnum[] | LabourRecordScalarFieldEnum
+    having?: LabourRecordScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LabourRecordCountAggregateInputType | true
+    _avg?: LabourRecordAvgAggregateInputType
+    _sum?: LabourRecordSumAggregateInputType
+    _min?: LabourRecordMinAggregateInputType
+    _max?: LabourRecordMaxAggregateInputType
+  }
+
+  export type LabourRecordGroupByOutputType = {
+    id: string
+    cropId: string
+    farmId: string
+    date: Date
+    activityName: string
+    selectedLabourCategories: string | null
+    machineSupplier: string | null
+    machineHours: number | null
+    machineFee: number | null
+    animalEquipmentName: string | null
+    animalCount: number | null
+    animalHours: number | null
+    animalFee: number | null
+    humanCount: number | null
+    humanHours: number | null
+    humanFee: number | null
+    notes: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: LabourRecordCountAggregateOutputType | null
+    _avg: LabourRecordAvgAggregateOutputType | null
+    _sum: LabourRecordSumAggregateOutputType | null
+    _min: LabourRecordMinAggregateOutputType | null
+    _max: LabourRecordMaxAggregateOutputType | null
+  }
+
+  type GetLabourRecordGroupByPayload<T extends LabourRecordGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LabourRecordGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LabourRecordGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LabourRecordGroupByOutputType[P]>
+            : GetScalarType<T[P], LabourRecordGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LabourRecordSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    date?: boolean
+    activityName?: boolean
+    selectedLabourCategories?: boolean
+    machineSupplier?: boolean
+    machineHours?: boolean
+    machineFee?: boolean
+    animalEquipmentName?: boolean
+    animalCount?: boolean
+    animalHours?: boolean
+    animalFee?: boolean
+    humanCount?: boolean
+    humanHours?: boolean
+    humanFee?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["labourRecord"]>
+
+  export type LabourRecordSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    date?: boolean
+    activityName?: boolean
+    selectedLabourCategories?: boolean
+    machineSupplier?: boolean
+    machineHours?: boolean
+    machineFee?: boolean
+    animalEquipmentName?: boolean
+    animalCount?: boolean
+    animalHours?: boolean
+    animalFee?: boolean
+    humanCount?: boolean
+    humanHours?: boolean
+    humanFee?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["labourRecord"]>
+
+  export type LabourRecordSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    date?: boolean
+    activityName?: boolean
+    selectedLabourCategories?: boolean
+    machineSupplier?: boolean
+    machineHours?: boolean
+    machineFee?: boolean
+    animalEquipmentName?: boolean
+    animalCount?: boolean
+    animalHours?: boolean
+    animalFee?: boolean
+    humanCount?: boolean
+    humanHours?: boolean
+    humanFee?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["labourRecord"]>
+
+  export type LabourRecordSelectScalar = {
+    id?: boolean
+    cropId?: boolean
+    farmId?: boolean
+    date?: boolean
+    activityName?: boolean
+    selectedLabourCategories?: boolean
+    machineSupplier?: boolean
+    machineHours?: boolean
+    machineFee?: boolean
+    animalEquipmentName?: boolean
+    animalCount?: boolean
+    animalHours?: boolean
+    animalFee?: boolean
+    humanCount?: boolean
+    humanHours?: boolean
+    humanFee?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type LabourRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cropId" | "farmId" | "date" | "activityName" | "selectedLabourCategories" | "machineSupplier" | "machineHours" | "machineFee" | "animalEquipmentName" | "animalCount" | "animalHours" | "animalFee" | "humanCount" | "humanHours" | "humanFee" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["labourRecord"]>
+  export type LabourRecordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }
+  export type LabourRecordIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }
+  export type LabourRecordIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    crop?: boolean | CropDefaultArgs<ExtArgs>
+  }
+
+  export type $LabourRecordPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LabourRecord"
+    objects: {
+      crop: Prisma.$CropPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      cropId: string
+      farmId: string
+      date: Date
+      activityName: string
+      selectedLabourCategories: string | null
+      machineSupplier: string | null
+      machineHours: number | null
+      machineFee: number | null
+      animalEquipmentName: string | null
+      animalCount: number | null
+      animalHours: number | null
+      animalFee: number | null
+      humanCount: number | null
+      humanHours: number | null
+      humanFee: number | null
+      notes: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["labourRecord"]>
+    composites: {}
+  }
+
+  type LabourRecordGetPayload<S extends boolean | null | undefined | LabourRecordDefaultArgs> = $Result.GetResult<Prisma.$LabourRecordPayload, S>
+
+  type LabourRecordCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LabourRecordFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LabourRecordCountAggregateInputType | true
+    }
+
+  export interface LabourRecordDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LabourRecord'], meta: { name: 'LabourRecord' } }
+    /**
+     * Find zero or one LabourRecord that matches the filter.
+     * @param {LabourRecordFindUniqueArgs} args - Arguments to find a LabourRecord
+     * @example
+     * // Get one LabourRecord
+     * const labourRecord = await prisma.labourRecord.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LabourRecordFindUniqueArgs>(args: SelectSubset<T, LabourRecordFindUniqueArgs<ExtArgs>>): Prisma__LabourRecordClient<$Result.GetResult<Prisma.$LabourRecordPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LabourRecord that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LabourRecordFindUniqueOrThrowArgs} args - Arguments to find a LabourRecord
+     * @example
+     * // Get one LabourRecord
+     * const labourRecord = await prisma.labourRecord.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LabourRecordFindUniqueOrThrowArgs>(args: SelectSubset<T, LabourRecordFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LabourRecordClient<$Result.GetResult<Prisma.$LabourRecordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LabourRecord that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LabourRecordFindFirstArgs} args - Arguments to find a LabourRecord
+     * @example
+     * // Get one LabourRecord
+     * const labourRecord = await prisma.labourRecord.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LabourRecordFindFirstArgs>(args?: SelectSubset<T, LabourRecordFindFirstArgs<ExtArgs>>): Prisma__LabourRecordClient<$Result.GetResult<Prisma.$LabourRecordPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LabourRecord that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LabourRecordFindFirstOrThrowArgs} args - Arguments to find a LabourRecord
+     * @example
+     * // Get one LabourRecord
+     * const labourRecord = await prisma.labourRecord.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LabourRecordFindFirstOrThrowArgs>(args?: SelectSubset<T, LabourRecordFindFirstOrThrowArgs<ExtArgs>>): Prisma__LabourRecordClient<$Result.GetResult<Prisma.$LabourRecordPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LabourRecords that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LabourRecordFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LabourRecords
+     * const labourRecords = await prisma.labourRecord.findMany()
+     * 
+     * // Get first 10 LabourRecords
+     * const labourRecords = await prisma.labourRecord.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const labourRecordWithIdOnly = await prisma.labourRecord.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LabourRecordFindManyArgs>(args?: SelectSubset<T, LabourRecordFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LabourRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LabourRecord.
+     * @param {LabourRecordCreateArgs} args - Arguments to create a LabourRecord.
+     * @example
+     * // Create one LabourRecord
+     * const LabourRecord = await prisma.labourRecord.create({
+     *   data: {
+     *     // ... data to create a LabourRecord
+     *   }
+     * })
+     * 
+     */
+    create<T extends LabourRecordCreateArgs>(args: SelectSubset<T, LabourRecordCreateArgs<ExtArgs>>): Prisma__LabourRecordClient<$Result.GetResult<Prisma.$LabourRecordPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LabourRecords.
+     * @param {LabourRecordCreateManyArgs} args - Arguments to create many LabourRecords.
+     * @example
+     * // Create many LabourRecords
+     * const labourRecord = await prisma.labourRecord.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LabourRecordCreateManyArgs>(args?: SelectSubset<T, LabourRecordCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LabourRecords and returns the data saved in the database.
+     * @param {LabourRecordCreateManyAndReturnArgs} args - Arguments to create many LabourRecords.
+     * @example
+     * // Create many LabourRecords
+     * const labourRecord = await prisma.labourRecord.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many LabourRecords and only return the `id`
+     * const labourRecordWithIdOnly = await prisma.labourRecord.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LabourRecordCreateManyAndReturnArgs>(args?: SelectSubset<T, LabourRecordCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LabourRecordPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a LabourRecord.
+     * @param {LabourRecordDeleteArgs} args - Arguments to delete one LabourRecord.
+     * @example
+     * // Delete one LabourRecord
+     * const LabourRecord = await prisma.labourRecord.delete({
+     *   where: {
+     *     // ... filter to delete one LabourRecord
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LabourRecordDeleteArgs>(args: SelectSubset<T, LabourRecordDeleteArgs<ExtArgs>>): Prisma__LabourRecordClient<$Result.GetResult<Prisma.$LabourRecordPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LabourRecord.
+     * @param {LabourRecordUpdateArgs} args - Arguments to update one LabourRecord.
+     * @example
+     * // Update one LabourRecord
+     * const labourRecord = await prisma.labourRecord.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LabourRecordUpdateArgs>(args: SelectSubset<T, LabourRecordUpdateArgs<ExtArgs>>): Prisma__LabourRecordClient<$Result.GetResult<Prisma.$LabourRecordPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LabourRecords.
+     * @param {LabourRecordDeleteManyArgs} args - Arguments to filter LabourRecords to delete.
+     * @example
+     * // Delete a few LabourRecords
+     * const { count } = await prisma.labourRecord.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LabourRecordDeleteManyArgs>(args?: SelectSubset<T, LabourRecordDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LabourRecords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LabourRecordUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LabourRecords
+     * const labourRecord = await prisma.labourRecord.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LabourRecordUpdateManyArgs>(args: SelectSubset<T, LabourRecordUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LabourRecords and returns the data updated in the database.
+     * @param {LabourRecordUpdateManyAndReturnArgs} args - Arguments to update many LabourRecords.
+     * @example
+     * // Update many LabourRecords
+     * const labourRecord = await prisma.labourRecord.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more LabourRecords and only return the `id`
+     * const labourRecordWithIdOnly = await prisma.labourRecord.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LabourRecordUpdateManyAndReturnArgs>(args: SelectSubset<T, LabourRecordUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LabourRecordPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one LabourRecord.
+     * @param {LabourRecordUpsertArgs} args - Arguments to update or create a LabourRecord.
+     * @example
+     * // Update or create a LabourRecord
+     * const labourRecord = await prisma.labourRecord.upsert({
+     *   create: {
+     *     // ... data to create a LabourRecord
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LabourRecord we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LabourRecordUpsertArgs>(args: SelectSubset<T, LabourRecordUpsertArgs<ExtArgs>>): Prisma__LabourRecordClient<$Result.GetResult<Prisma.$LabourRecordPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of LabourRecords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LabourRecordCountArgs} args - Arguments to filter LabourRecords to count.
+     * @example
+     * // Count the number of LabourRecords
+     * const count = await prisma.labourRecord.count({
+     *   where: {
+     *     // ... the filter for the LabourRecords we want to count
+     *   }
+     * })
+    **/
+    count<T extends LabourRecordCountArgs>(
+      args?: Subset<T, LabourRecordCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LabourRecordCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LabourRecord.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LabourRecordAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LabourRecordAggregateArgs>(args: Subset<T, LabourRecordAggregateArgs>): Prisma.PrismaPromise<GetLabourRecordAggregateType<T>>
+
+    /**
+     * Group by LabourRecord.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LabourRecordGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LabourRecordGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LabourRecordGroupByArgs['orderBy'] }
+        : { orderBy?: LabourRecordGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LabourRecordGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLabourRecordGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LabourRecord model
+   */
+  readonly fields: LabourRecordFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LabourRecord.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LabourRecordClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    crop<T extends CropDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CropDefaultArgs<ExtArgs>>): Prisma__CropClient<$Result.GetResult<Prisma.$CropPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LabourRecord model
+   */
+  interface LabourRecordFieldRefs {
+    readonly id: FieldRef<"LabourRecord", 'String'>
+    readonly cropId: FieldRef<"LabourRecord", 'String'>
+    readonly farmId: FieldRef<"LabourRecord", 'String'>
+    readonly date: FieldRef<"LabourRecord", 'DateTime'>
+    readonly activityName: FieldRef<"LabourRecord", 'String'>
+    readonly selectedLabourCategories: FieldRef<"LabourRecord", 'String'>
+    readonly machineSupplier: FieldRef<"LabourRecord", 'String'>
+    readonly machineHours: FieldRef<"LabourRecord", 'Float'>
+    readonly machineFee: FieldRef<"LabourRecord", 'Float'>
+    readonly animalEquipmentName: FieldRef<"LabourRecord", 'String'>
+    readonly animalCount: FieldRef<"LabourRecord", 'Int'>
+    readonly animalHours: FieldRef<"LabourRecord", 'Float'>
+    readonly animalFee: FieldRef<"LabourRecord", 'Float'>
+    readonly humanCount: FieldRef<"LabourRecord", 'Int'>
+    readonly humanHours: FieldRef<"LabourRecord", 'Float'>
+    readonly humanFee: FieldRef<"LabourRecord", 'Float'>
+    readonly notes: FieldRef<"LabourRecord", 'String'>
+    readonly createdAt: FieldRef<"LabourRecord", 'DateTime'>
+    readonly updatedAt: FieldRef<"LabourRecord", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LabourRecord findUnique
+   */
+  export type LabourRecordFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LabourRecord
+     */
+    select?: LabourRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LabourRecord
+     */
+    omit?: LabourRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LabourRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which LabourRecord to fetch.
+     */
+    where: LabourRecordWhereUniqueInput
+  }
+
+  /**
+   * LabourRecord findUniqueOrThrow
+   */
+  export type LabourRecordFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LabourRecord
+     */
+    select?: LabourRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LabourRecord
+     */
+    omit?: LabourRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LabourRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which LabourRecord to fetch.
+     */
+    where: LabourRecordWhereUniqueInput
+  }
+
+  /**
+   * LabourRecord findFirst
+   */
+  export type LabourRecordFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LabourRecord
+     */
+    select?: LabourRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LabourRecord
+     */
+    omit?: LabourRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LabourRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which LabourRecord to fetch.
+     */
+    where?: LabourRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LabourRecords to fetch.
+     */
+    orderBy?: LabourRecordOrderByWithRelationInput | LabourRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LabourRecords.
+     */
+    cursor?: LabourRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LabourRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LabourRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LabourRecords.
+     */
+    distinct?: LabourRecordScalarFieldEnum | LabourRecordScalarFieldEnum[]
+  }
+
+  /**
+   * LabourRecord findFirstOrThrow
+   */
+  export type LabourRecordFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LabourRecord
+     */
+    select?: LabourRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LabourRecord
+     */
+    omit?: LabourRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LabourRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which LabourRecord to fetch.
+     */
+    where?: LabourRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LabourRecords to fetch.
+     */
+    orderBy?: LabourRecordOrderByWithRelationInput | LabourRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LabourRecords.
+     */
+    cursor?: LabourRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LabourRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LabourRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LabourRecords.
+     */
+    distinct?: LabourRecordScalarFieldEnum | LabourRecordScalarFieldEnum[]
+  }
+
+  /**
+   * LabourRecord findMany
+   */
+  export type LabourRecordFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LabourRecord
+     */
+    select?: LabourRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LabourRecord
+     */
+    omit?: LabourRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LabourRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which LabourRecords to fetch.
+     */
+    where?: LabourRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LabourRecords to fetch.
+     */
+    orderBy?: LabourRecordOrderByWithRelationInput | LabourRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LabourRecords.
+     */
+    cursor?: LabourRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LabourRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LabourRecords.
+     */
+    skip?: number
+    distinct?: LabourRecordScalarFieldEnum | LabourRecordScalarFieldEnum[]
+  }
+
+  /**
+   * LabourRecord create
+   */
+  export type LabourRecordCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LabourRecord
+     */
+    select?: LabourRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LabourRecord
+     */
+    omit?: LabourRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LabourRecordInclude<ExtArgs> | null
+    /**
+     * The data needed to create a LabourRecord.
+     */
+    data: XOR<LabourRecordCreateInput, LabourRecordUncheckedCreateInput>
+  }
+
+  /**
+   * LabourRecord createMany
+   */
+  export type LabourRecordCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LabourRecords.
+     */
+    data: LabourRecordCreateManyInput | LabourRecordCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LabourRecord createManyAndReturn
+   */
+  export type LabourRecordCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LabourRecord
+     */
+    select?: LabourRecordSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LabourRecord
+     */
+    omit?: LabourRecordOmit<ExtArgs> | null
+    /**
+     * The data used to create many LabourRecords.
+     */
+    data: LabourRecordCreateManyInput | LabourRecordCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LabourRecordIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LabourRecord update
+   */
+  export type LabourRecordUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LabourRecord
+     */
+    select?: LabourRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LabourRecord
+     */
+    omit?: LabourRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LabourRecordInclude<ExtArgs> | null
+    /**
+     * The data needed to update a LabourRecord.
+     */
+    data: XOR<LabourRecordUpdateInput, LabourRecordUncheckedUpdateInput>
+    /**
+     * Choose, which LabourRecord to update.
+     */
+    where: LabourRecordWhereUniqueInput
+  }
+
+  /**
+   * LabourRecord updateMany
+   */
+  export type LabourRecordUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LabourRecords.
+     */
+    data: XOR<LabourRecordUpdateManyMutationInput, LabourRecordUncheckedUpdateManyInput>
+    /**
+     * Filter which LabourRecords to update
+     */
+    where?: LabourRecordWhereInput
+    /**
+     * Limit how many LabourRecords to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LabourRecord updateManyAndReturn
+   */
+  export type LabourRecordUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LabourRecord
+     */
+    select?: LabourRecordSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LabourRecord
+     */
+    omit?: LabourRecordOmit<ExtArgs> | null
+    /**
+     * The data used to update LabourRecords.
+     */
+    data: XOR<LabourRecordUpdateManyMutationInput, LabourRecordUncheckedUpdateManyInput>
+    /**
+     * Filter which LabourRecords to update
+     */
+    where?: LabourRecordWhereInput
+    /**
+     * Limit how many LabourRecords to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LabourRecordIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LabourRecord upsert
+   */
+  export type LabourRecordUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LabourRecord
+     */
+    select?: LabourRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LabourRecord
+     */
+    omit?: LabourRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LabourRecordInclude<ExtArgs> | null
+    /**
+     * The filter to search for the LabourRecord to update in case it exists.
+     */
+    where: LabourRecordWhereUniqueInput
+    /**
+     * In case the LabourRecord found by the `where` argument doesn't exist, create a new LabourRecord with this data.
+     */
+    create: XOR<LabourRecordCreateInput, LabourRecordUncheckedCreateInput>
+    /**
+     * In case the LabourRecord was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LabourRecordUpdateInput, LabourRecordUncheckedUpdateInput>
+  }
+
+  /**
+   * LabourRecord delete
+   */
+  export type LabourRecordDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LabourRecord
+     */
+    select?: LabourRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LabourRecord
+     */
+    omit?: LabourRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LabourRecordInclude<ExtArgs> | null
+    /**
+     * Filter which LabourRecord to delete.
+     */
+    where: LabourRecordWhereUniqueInput
+  }
+
+  /**
+   * LabourRecord deleteMany
+   */
+  export type LabourRecordDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LabourRecords to delete
+     */
+    where?: LabourRecordWhereInput
+    /**
+     * Limit how many LabourRecords to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * LabourRecord without action
+   */
+  export type LabourRecordDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LabourRecord
+     */
+    select?: LabourRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LabourRecord
+     */
+    omit?: LabourRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LabourRecordInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model Crop
    */
 
@@ -43957,6 +45359,7 @@ export namespace Prisma {
     diseaseRecords?: boolean | Crop$diseaseRecordsArgs<ExtArgs>
     pestRecords?: boolean | Crop$pestRecordsArgs<ExtArgs>
     pesticideRecords?: boolean | Crop$pesticideRecordsArgs<ExtArgs>
+    labourRecords?: boolean | Crop$labourRecordsArgs<ExtArgs>
     harvestingRecords?: boolean | Crop$harvestingRecordsArgs<ExtArgs>
     processingRecords?: boolean | Crop$processingRecordsArgs<ExtArgs>
     lossRecords?: boolean | Crop$lossRecordsArgs<ExtArgs>
@@ -44046,6 +45449,7 @@ export namespace Prisma {
     diseaseRecords?: boolean | Crop$diseaseRecordsArgs<ExtArgs>
     pestRecords?: boolean | Crop$pestRecordsArgs<ExtArgs>
     pesticideRecords?: boolean | Crop$pesticideRecordsArgs<ExtArgs>
+    labourRecords?: boolean | Crop$labourRecordsArgs<ExtArgs>
     harvestingRecords?: boolean | Crop$harvestingRecordsArgs<ExtArgs>
     processingRecords?: boolean | Crop$processingRecordsArgs<ExtArgs>
     lossRecords?: boolean | Crop$lossRecordsArgs<ExtArgs>
@@ -44077,6 +45481,7 @@ export namespace Prisma {
       diseaseRecords: Prisma.$DiseaseRecordPayload<ExtArgs>[]
       pestRecords: Prisma.$PestRecordPayload<ExtArgs>[]
       pesticideRecords: Prisma.$PesticideRecordPayload<ExtArgs>[]
+      labourRecords: Prisma.$LabourRecordPayload<ExtArgs>[]
       harvestingRecords: Prisma.$HarvestingRecordPayload<ExtArgs>[]
       processingRecords: Prisma.$ProcessingRecordPayload<ExtArgs>[]
       lossRecords: Prisma.$LossRecordPayload<ExtArgs>[]
@@ -44510,6 +45915,7 @@ export namespace Prisma {
     diseaseRecords<T extends Crop$diseaseRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$diseaseRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiseaseRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     pestRecords<T extends Crop$pestRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$pestRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PestRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     pesticideRecords<T extends Crop$pesticideRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$pesticideRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PesticideRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    labourRecords<T extends Crop$labourRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$labourRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LabourRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     harvestingRecords<T extends Crop$harvestingRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$harvestingRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HarvestingRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     processingRecords<T extends Crop$processingRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$processingRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProcessingRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     lossRecords<T extends Crop$lossRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Crop$lossRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LossRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -45267,6 +46673,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: PesticideRecordScalarFieldEnum | PesticideRecordScalarFieldEnum[]
+  }
+
+  /**
+   * Crop.labourRecords
+   */
+  export type Crop$labourRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LabourRecord
+     */
+    select?: LabourRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LabourRecord
+     */
+    omit?: LabourRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LabourRecordInclude<ExtArgs> | null
+    where?: LabourRecordWhereInput
+    orderBy?: LabourRecordOrderByWithRelationInput | LabourRecordOrderByWithRelationInput[]
+    cursor?: LabourRecordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LabourRecordScalarFieldEnum | LabourRecordScalarFieldEnum[]
   }
 
   /**
@@ -68687,6 +70117,31 @@ export namespace Prisma {
   export type CropCycleScalarFieldEnum = (typeof CropCycleScalarFieldEnum)[keyof typeof CropCycleScalarFieldEnum]
 
 
+  export const LabourRecordScalarFieldEnum: {
+    id: 'id',
+    cropId: 'cropId',
+    farmId: 'farmId',
+    date: 'date',
+    activityName: 'activityName',
+    selectedLabourCategories: 'selectedLabourCategories',
+    machineSupplier: 'machineSupplier',
+    machineHours: 'machineHours',
+    machineFee: 'machineFee',
+    animalEquipmentName: 'animalEquipmentName',
+    animalCount: 'animalCount',
+    animalHours: 'animalHours',
+    animalFee: 'animalFee',
+    humanCount: 'humanCount',
+    humanHours: 'humanHours',
+    humanFee: 'humanFee',
+    notes: 'notes',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type LabourRecordScalarFieldEnum = (typeof LabourRecordScalarFieldEnum)[keyof typeof LabourRecordScalarFieldEnum]
+
+
   export const CropScalarFieldEnum: {
     id: 'id',
     cycleId: 'cycleId',
@@ -72506,6 +73961,133 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"CropCycle"> | Date | string
   }
 
+  export type LabourRecordWhereInput = {
+    AND?: LabourRecordWhereInput | LabourRecordWhereInput[]
+    OR?: LabourRecordWhereInput[]
+    NOT?: LabourRecordWhereInput | LabourRecordWhereInput[]
+    id?: StringFilter<"LabourRecord"> | string
+    cropId?: StringFilter<"LabourRecord"> | string
+    farmId?: StringFilter<"LabourRecord"> | string
+    date?: DateTimeFilter<"LabourRecord"> | Date | string
+    activityName?: StringFilter<"LabourRecord"> | string
+    selectedLabourCategories?: StringNullableFilter<"LabourRecord"> | string | null
+    machineSupplier?: StringNullableFilter<"LabourRecord"> | string | null
+    machineHours?: FloatNullableFilter<"LabourRecord"> | number | null
+    machineFee?: FloatNullableFilter<"LabourRecord"> | number | null
+    animalEquipmentName?: StringNullableFilter<"LabourRecord"> | string | null
+    animalCount?: IntNullableFilter<"LabourRecord"> | number | null
+    animalHours?: FloatNullableFilter<"LabourRecord"> | number | null
+    animalFee?: FloatNullableFilter<"LabourRecord"> | number | null
+    humanCount?: IntNullableFilter<"LabourRecord"> | number | null
+    humanHours?: FloatNullableFilter<"LabourRecord"> | number | null
+    humanFee?: FloatNullableFilter<"LabourRecord"> | number | null
+    notes?: StringNullableFilter<"LabourRecord"> | string | null
+    createdAt?: DateTimeFilter<"LabourRecord"> | Date | string
+    updatedAt?: DateTimeFilter<"LabourRecord"> | Date | string
+    crop?: XOR<CropScalarRelationFilter, CropWhereInput>
+  }
+
+  export type LabourRecordOrderByWithRelationInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    activityName?: SortOrder
+    selectedLabourCategories?: SortOrderInput | SortOrder
+    machineSupplier?: SortOrderInput | SortOrder
+    machineHours?: SortOrderInput | SortOrder
+    machineFee?: SortOrderInput | SortOrder
+    animalEquipmentName?: SortOrderInput | SortOrder
+    animalCount?: SortOrderInput | SortOrder
+    animalHours?: SortOrderInput | SortOrder
+    animalFee?: SortOrderInput | SortOrder
+    humanCount?: SortOrderInput | SortOrder
+    humanHours?: SortOrderInput | SortOrder
+    humanFee?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    crop?: CropOrderByWithRelationInput
+  }
+
+  export type LabourRecordWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: LabourRecordWhereInput | LabourRecordWhereInput[]
+    OR?: LabourRecordWhereInput[]
+    NOT?: LabourRecordWhereInput | LabourRecordWhereInput[]
+    cropId?: StringFilter<"LabourRecord"> | string
+    farmId?: StringFilter<"LabourRecord"> | string
+    date?: DateTimeFilter<"LabourRecord"> | Date | string
+    activityName?: StringFilter<"LabourRecord"> | string
+    selectedLabourCategories?: StringNullableFilter<"LabourRecord"> | string | null
+    machineSupplier?: StringNullableFilter<"LabourRecord"> | string | null
+    machineHours?: FloatNullableFilter<"LabourRecord"> | number | null
+    machineFee?: FloatNullableFilter<"LabourRecord"> | number | null
+    animalEquipmentName?: StringNullableFilter<"LabourRecord"> | string | null
+    animalCount?: IntNullableFilter<"LabourRecord"> | number | null
+    animalHours?: FloatNullableFilter<"LabourRecord"> | number | null
+    animalFee?: FloatNullableFilter<"LabourRecord"> | number | null
+    humanCount?: IntNullableFilter<"LabourRecord"> | number | null
+    humanHours?: FloatNullableFilter<"LabourRecord"> | number | null
+    humanFee?: FloatNullableFilter<"LabourRecord"> | number | null
+    notes?: StringNullableFilter<"LabourRecord"> | string | null
+    createdAt?: DateTimeFilter<"LabourRecord"> | Date | string
+    updatedAt?: DateTimeFilter<"LabourRecord"> | Date | string
+    crop?: XOR<CropScalarRelationFilter, CropWhereInput>
+  }, "id">
+
+  export type LabourRecordOrderByWithAggregationInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    activityName?: SortOrder
+    selectedLabourCategories?: SortOrderInput | SortOrder
+    machineSupplier?: SortOrderInput | SortOrder
+    machineHours?: SortOrderInput | SortOrder
+    machineFee?: SortOrderInput | SortOrder
+    animalEquipmentName?: SortOrderInput | SortOrder
+    animalCount?: SortOrderInput | SortOrder
+    animalHours?: SortOrderInput | SortOrder
+    animalFee?: SortOrderInput | SortOrder
+    humanCount?: SortOrderInput | SortOrder
+    humanHours?: SortOrderInput | SortOrder
+    humanFee?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: LabourRecordCountOrderByAggregateInput
+    _avg?: LabourRecordAvgOrderByAggregateInput
+    _max?: LabourRecordMaxOrderByAggregateInput
+    _min?: LabourRecordMinOrderByAggregateInput
+    _sum?: LabourRecordSumOrderByAggregateInput
+  }
+
+  export type LabourRecordScalarWhereWithAggregatesInput = {
+    AND?: LabourRecordScalarWhereWithAggregatesInput | LabourRecordScalarWhereWithAggregatesInput[]
+    OR?: LabourRecordScalarWhereWithAggregatesInput[]
+    NOT?: LabourRecordScalarWhereWithAggregatesInput | LabourRecordScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"LabourRecord"> | string
+    cropId?: StringWithAggregatesFilter<"LabourRecord"> | string
+    farmId?: StringWithAggregatesFilter<"LabourRecord"> | string
+    date?: DateTimeWithAggregatesFilter<"LabourRecord"> | Date | string
+    activityName?: StringWithAggregatesFilter<"LabourRecord"> | string
+    selectedLabourCategories?: StringNullableWithAggregatesFilter<"LabourRecord"> | string | null
+    machineSupplier?: StringNullableWithAggregatesFilter<"LabourRecord"> | string | null
+    machineHours?: FloatNullableWithAggregatesFilter<"LabourRecord"> | number | null
+    machineFee?: FloatNullableWithAggregatesFilter<"LabourRecord"> | number | null
+    animalEquipmentName?: StringNullableWithAggregatesFilter<"LabourRecord"> | string | null
+    animalCount?: IntNullableWithAggregatesFilter<"LabourRecord"> | number | null
+    animalHours?: FloatNullableWithAggregatesFilter<"LabourRecord"> | number | null
+    animalFee?: FloatNullableWithAggregatesFilter<"LabourRecord"> | number | null
+    humanCount?: IntNullableWithAggregatesFilter<"LabourRecord"> | number | null
+    humanHours?: FloatNullableWithAggregatesFilter<"LabourRecord"> | number | null
+    humanFee?: FloatNullableWithAggregatesFilter<"LabourRecord"> | number | null
+    notes?: StringNullableWithAggregatesFilter<"LabourRecord"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"LabourRecord"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"LabourRecord"> | Date | string
+  }
+
   export type CropWhereInput = {
     AND?: CropWhereInput | CropWhereInput[]
     OR?: CropWhereInput[]
@@ -72542,6 +74124,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordListRelationFilter
     pestRecords?: PestRecordListRelationFilter
     pesticideRecords?: PesticideRecordListRelationFilter
+    labourRecords?: LabourRecordListRelationFilter
     harvestingRecords?: HarvestingRecordListRelationFilter
     processingRecords?: ProcessingRecordListRelationFilter
     lossRecords?: LossRecordListRelationFilter
@@ -72582,6 +74165,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordOrderByRelationAggregateInput
     pestRecords?: PestRecordOrderByRelationAggregateInput
     pesticideRecords?: PesticideRecordOrderByRelationAggregateInput
+    labourRecords?: LabourRecordOrderByRelationAggregateInput
     harvestingRecords?: HarvestingRecordOrderByRelationAggregateInput
     processingRecords?: ProcessingRecordOrderByRelationAggregateInput
     lossRecords?: LossRecordOrderByRelationAggregateInput
@@ -72625,6 +74209,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordListRelationFilter
     pestRecords?: PestRecordListRelationFilter
     pesticideRecords?: PesticideRecordListRelationFilter
+    labourRecords?: LabourRecordListRelationFilter
     harvestingRecords?: HarvestingRecordListRelationFilter
     processingRecords?: ProcessingRecordListRelationFilter
     lossRecords?: LossRecordListRelationFilter
@@ -78604,6 +80189,159 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type LabourRecordCreateInput = {
+    id?: string
+    farmId: string
+    date: Date | string
+    activityName: string
+    selectedLabourCategories?: string | null
+    machineSupplier?: string | null
+    machineHours?: number | null
+    machineFee?: number | null
+    animalEquipmentName?: string | null
+    animalCount?: number | null
+    animalHours?: number | null
+    animalFee?: number | null
+    humanCount?: number | null
+    humanHours?: number | null
+    humanFee?: number | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    crop: CropCreateNestedOneWithoutLabourRecordsInput
+  }
+
+  export type LabourRecordUncheckedCreateInput = {
+    id?: string
+    cropId: string
+    farmId: string
+    date: Date | string
+    activityName: string
+    selectedLabourCategories?: string | null
+    machineSupplier?: string | null
+    machineHours?: number | null
+    machineFee?: number | null
+    animalEquipmentName?: string | null
+    animalCount?: number | null
+    animalHours?: number | null
+    animalFee?: number | null
+    humanCount?: number | null
+    humanHours?: number | null
+    humanFee?: number | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LabourRecordUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    selectedLabourCategories?: NullableStringFieldUpdateOperationsInput | string | null
+    machineSupplier?: NullableStringFieldUpdateOperationsInput | string | null
+    machineHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    machineFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    animalEquipmentName?: NullableStringFieldUpdateOperationsInput | string | null
+    animalCount?: NullableIntFieldUpdateOperationsInput | number | null
+    animalHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    animalFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    humanCount?: NullableIntFieldUpdateOperationsInput | number | null
+    humanHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    humanFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    crop?: CropUpdateOneRequiredWithoutLabourRecordsNestedInput
+  }
+
+  export type LabourRecordUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cropId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    selectedLabourCategories?: NullableStringFieldUpdateOperationsInput | string | null
+    machineSupplier?: NullableStringFieldUpdateOperationsInput | string | null
+    machineHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    machineFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    animalEquipmentName?: NullableStringFieldUpdateOperationsInput | string | null
+    animalCount?: NullableIntFieldUpdateOperationsInput | number | null
+    animalHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    animalFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    humanCount?: NullableIntFieldUpdateOperationsInput | number | null
+    humanHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    humanFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LabourRecordCreateManyInput = {
+    id?: string
+    cropId: string
+    farmId: string
+    date: Date | string
+    activityName: string
+    selectedLabourCategories?: string | null
+    machineSupplier?: string | null
+    machineHours?: number | null
+    machineFee?: number | null
+    animalEquipmentName?: string | null
+    animalCount?: number | null
+    animalHours?: number | null
+    animalFee?: number | null
+    humanCount?: number | null
+    humanHours?: number | null
+    humanFee?: number | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LabourRecordUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    selectedLabourCategories?: NullableStringFieldUpdateOperationsInput | string | null
+    machineSupplier?: NullableStringFieldUpdateOperationsInput | string | null
+    machineHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    machineFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    animalEquipmentName?: NullableStringFieldUpdateOperationsInput | string | null
+    animalCount?: NullableIntFieldUpdateOperationsInput | number | null
+    animalHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    animalFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    humanCount?: NullableIntFieldUpdateOperationsInput | number | null
+    humanHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    humanFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LabourRecordUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cropId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    selectedLabourCategories?: NullableStringFieldUpdateOperationsInput | string | null
+    machineSupplier?: NullableStringFieldUpdateOperationsInput | string | null
+    machineHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    machineFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    animalEquipmentName?: NullableStringFieldUpdateOperationsInput | string | null
+    animalCount?: NullableIntFieldUpdateOperationsInput | number | null
+    animalHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    animalFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    humanCount?: NullableIntFieldUpdateOperationsInput | number | null
+    humanHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    humanFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type CropCreateInput = {
     id?: string
     farmId: string
@@ -78636,6 +80374,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -78675,6 +80414,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -78714,6 +80454,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -78753,6 +80494,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -83751,6 +85493,99 @@ export namespace Prisma {
     landSize?: SortOrder
   }
 
+  export type CropScalarRelationFilter = {
+    is?: CropWhereInput
+    isNot?: CropWhereInput
+  }
+
+  export type LabourRecordCountOrderByAggregateInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    activityName?: SortOrder
+    selectedLabourCategories?: SortOrder
+    machineSupplier?: SortOrder
+    machineHours?: SortOrder
+    machineFee?: SortOrder
+    animalEquipmentName?: SortOrder
+    animalCount?: SortOrder
+    animalHours?: SortOrder
+    animalFee?: SortOrder
+    humanCount?: SortOrder
+    humanHours?: SortOrder
+    humanFee?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LabourRecordAvgOrderByAggregateInput = {
+    machineHours?: SortOrder
+    machineFee?: SortOrder
+    animalCount?: SortOrder
+    animalHours?: SortOrder
+    animalFee?: SortOrder
+    humanCount?: SortOrder
+    humanHours?: SortOrder
+    humanFee?: SortOrder
+  }
+
+  export type LabourRecordMaxOrderByAggregateInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    activityName?: SortOrder
+    selectedLabourCategories?: SortOrder
+    machineSupplier?: SortOrder
+    machineHours?: SortOrder
+    machineFee?: SortOrder
+    animalEquipmentName?: SortOrder
+    animalCount?: SortOrder
+    animalHours?: SortOrder
+    animalFee?: SortOrder
+    humanCount?: SortOrder
+    humanHours?: SortOrder
+    humanFee?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LabourRecordMinOrderByAggregateInput = {
+    id?: SortOrder
+    cropId?: SortOrder
+    farmId?: SortOrder
+    date?: SortOrder
+    activityName?: SortOrder
+    selectedLabourCategories?: SortOrder
+    machineSupplier?: SortOrder
+    machineHours?: SortOrder
+    machineFee?: SortOrder
+    animalEquipmentName?: SortOrder
+    animalCount?: SortOrder
+    animalHours?: SortOrder
+    animalFee?: SortOrder
+    humanCount?: SortOrder
+    humanHours?: SortOrder
+    humanFee?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LabourRecordSumOrderByAggregateInput = {
+    machineHours?: SortOrder
+    machineFee?: SortOrder
+    animalCount?: SortOrder
+    animalHours?: SortOrder
+    animalFee?: SortOrder
+    humanCount?: SortOrder
+    humanHours?: SortOrder
+    humanFee?: SortOrder
+  }
+
   export type CropCycleScalarRelationFilter = {
     is?: CropCycleWhereInput
     isNot?: CropCycleWhereInput
@@ -83834,6 +85669,12 @@ export namespace Prisma {
     none?: PesticideRecordWhereInput
   }
 
+  export type LabourRecordListRelationFilter = {
+    every?: LabourRecordWhereInput
+    some?: LabourRecordWhereInput
+    none?: LabourRecordWhereInput
+  }
+
   export type HarvestingRecordListRelationFilter = {
     every?: HarvestingRecordWhereInput
     some?: HarvestingRecordWhereInput
@@ -83913,6 +85754,10 @@ export namespace Prisma {
   }
 
   export type PesticideRecordOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LabourRecordOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -84007,11 +85852,6 @@ export namespace Prisma {
   export type CropSumOrderByAggregateInput = {
     areaSize?: SortOrder
     progress?: SortOrder
-  }
-
-  export type CropScalarRelationFilter = {
-    is?: CropWhereInput
-    isNot?: CropWhereInput
   }
 
   export type SoilPrepRecordCountOrderByAggregateInput = {
@@ -88003,6 +89843,20 @@ export namespace Prisma {
     deleteMany?: CropScalarWhereInput | CropScalarWhereInput[]
   }
 
+  export type CropCreateNestedOneWithoutLabourRecordsInput = {
+    create?: XOR<CropCreateWithoutLabourRecordsInput, CropUncheckedCreateWithoutLabourRecordsInput>
+    connectOrCreate?: CropCreateOrConnectWithoutLabourRecordsInput
+    connect?: CropWhereUniqueInput
+  }
+
+  export type CropUpdateOneRequiredWithoutLabourRecordsNestedInput = {
+    create?: XOR<CropCreateWithoutLabourRecordsInput, CropUncheckedCreateWithoutLabourRecordsInput>
+    connectOrCreate?: CropCreateOrConnectWithoutLabourRecordsInput
+    upsert?: CropUpsertWithoutLabourRecordsInput
+    connect?: CropWhereUniqueInput
+    update?: XOR<XOR<CropUpdateToOneWithWhereWithoutLabourRecordsInput, CropUpdateWithoutLabourRecordsInput>, CropUncheckedUpdateWithoutLabourRecordsInput>
+  }
+
   export type CropCycleCreateNestedOneWithoutCropsInput = {
     create?: XOR<CropCycleCreateWithoutCropsInput, CropCycleUncheckedCreateWithoutCropsInput>
     connectOrCreate?: CropCycleCreateOrConnectWithoutCropsInput
@@ -88098,6 +89952,13 @@ export namespace Prisma {
     connectOrCreate?: PesticideRecordCreateOrConnectWithoutCropInput | PesticideRecordCreateOrConnectWithoutCropInput[]
     createMany?: PesticideRecordCreateManyCropInputEnvelope
     connect?: PesticideRecordWhereUniqueInput | PesticideRecordWhereUniqueInput[]
+  }
+
+  export type LabourRecordCreateNestedManyWithoutCropInput = {
+    create?: XOR<LabourRecordCreateWithoutCropInput, LabourRecordUncheckedCreateWithoutCropInput> | LabourRecordCreateWithoutCropInput[] | LabourRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: LabourRecordCreateOrConnectWithoutCropInput | LabourRecordCreateOrConnectWithoutCropInput[]
+    createMany?: LabourRecordCreateManyCropInputEnvelope
+    connect?: LabourRecordWhereUniqueInput | LabourRecordWhereUniqueInput[]
   }
 
   export type HarvestingRecordCreateNestedManyWithoutCropInput = {
@@ -88224,6 +90085,13 @@ export namespace Prisma {
     connectOrCreate?: PesticideRecordCreateOrConnectWithoutCropInput | PesticideRecordCreateOrConnectWithoutCropInput[]
     createMany?: PesticideRecordCreateManyCropInputEnvelope
     connect?: PesticideRecordWhereUniqueInput | PesticideRecordWhereUniqueInput[]
+  }
+
+  export type LabourRecordUncheckedCreateNestedManyWithoutCropInput = {
+    create?: XOR<LabourRecordCreateWithoutCropInput, LabourRecordUncheckedCreateWithoutCropInput> | LabourRecordCreateWithoutCropInput[] | LabourRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: LabourRecordCreateOrConnectWithoutCropInput | LabourRecordCreateOrConnectWithoutCropInput[]
+    createMany?: LabourRecordCreateManyCropInputEnvelope
+    connect?: LabourRecordWhereUniqueInput | LabourRecordWhereUniqueInput[]
   }
 
   export type HarvestingRecordUncheckedCreateNestedManyWithoutCropInput = {
@@ -88449,6 +90317,20 @@ export namespace Prisma {
     update?: PesticideRecordUpdateWithWhereUniqueWithoutCropInput | PesticideRecordUpdateWithWhereUniqueWithoutCropInput[]
     updateMany?: PesticideRecordUpdateManyWithWhereWithoutCropInput | PesticideRecordUpdateManyWithWhereWithoutCropInput[]
     deleteMany?: PesticideRecordScalarWhereInput | PesticideRecordScalarWhereInput[]
+  }
+
+  export type LabourRecordUpdateManyWithoutCropNestedInput = {
+    create?: XOR<LabourRecordCreateWithoutCropInput, LabourRecordUncheckedCreateWithoutCropInput> | LabourRecordCreateWithoutCropInput[] | LabourRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: LabourRecordCreateOrConnectWithoutCropInput | LabourRecordCreateOrConnectWithoutCropInput[]
+    upsert?: LabourRecordUpsertWithWhereUniqueWithoutCropInput | LabourRecordUpsertWithWhereUniqueWithoutCropInput[]
+    createMany?: LabourRecordCreateManyCropInputEnvelope
+    set?: LabourRecordWhereUniqueInput | LabourRecordWhereUniqueInput[]
+    disconnect?: LabourRecordWhereUniqueInput | LabourRecordWhereUniqueInput[]
+    delete?: LabourRecordWhereUniqueInput | LabourRecordWhereUniqueInput[]
+    connect?: LabourRecordWhereUniqueInput | LabourRecordWhereUniqueInput[]
+    update?: LabourRecordUpdateWithWhereUniqueWithoutCropInput | LabourRecordUpdateWithWhereUniqueWithoutCropInput[]
+    updateMany?: LabourRecordUpdateManyWithWhereWithoutCropInput | LabourRecordUpdateManyWithWhereWithoutCropInput[]
+    deleteMany?: LabourRecordScalarWhereInput | LabourRecordScalarWhereInput[]
   }
 
   export type HarvestingRecordUpdateManyWithoutCropNestedInput = {
@@ -88701,6 +90583,20 @@ export namespace Prisma {
     update?: PesticideRecordUpdateWithWhereUniqueWithoutCropInput | PesticideRecordUpdateWithWhereUniqueWithoutCropInput[]
     updateMany?: PesticideRecordUpdateManyWithWhereWithoutCropInput | PesticideRecordUpdateManyWithWhereWithoutCropInput[]
     deleteMany?: PesticideRecordScalarWhereInput | PesticideRecordScalarWhereInput[]
+  }
+
+  export type LabourRecordUncheckedUpdateManyWithoutCropNestedInput = {
+    create?: XOR<LabourRecordCreateWithoutCropInput, LabourRecordUncheckedCreateWithoutCropInput> | LabourRecordCreateWithoutCropInput[] | LabourRecordUncheckedCreateWithoutCropInput[]
+    connectOrCreate?: LabourRecordCreateOrConnectWithoutCropInput | LabourRecordCreateOrConnectWithoutCropInput[]
+    upsert?: LabourRecordUpsertWithWhereUniqueWithoutCropInput | LabourRecordUpsertWithWhereUniqueWithoutCropInput[]
+    createMany?: LabourRecordCreateManyCropInputEnvelope
+    set?: LabourRecordWhereUniqueInput | LabourRecordWhereUniqueInput[]
+    disconnect?: LabourRecordWhereUniqueInput | LabourRecordWhereUniqueInput[]
+    delete?: LabourRecordWhereUniqueInput | LabourRecordWhereUniqueInput[]
+    connect?: LabourRecordWhereUniqueInput | LabourRecordWhereUniqueInput[]
+    update?: LabourRecordUpdateWithWhereUniqueWithoutCropInput | LabourRecordUpdateWithWhereUniqueWithoutCropInput[]
+    updateMany?: LabourRecordUpdateManyWithWhereWithoutCropInput | LabourRecordUpdateManyWithWhereWithoutCropInput[]
+    deleteMany?: LabourRecordScalarWhereInput | LabourRecordScalarWhereInput[]
   }
 
   export type HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput = {
@@ -97616,6 +99512,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -97654,6 +99551,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -97770,6 +99668,178 @@ export namespace Prisma {
     notes?: StringNullableFilter<"Crop"> | string | null
     createdAt?: DateTimeFilter<"Crop"> | Date | string
     updatedAt?: DateTimeFilter<"Crop"> | Date | string
+  }
+
+  export type CropCreateWithoutLabourRecordsInput = {
+    id?: string
+    farmId: string
+    cropName: string
+    category?: string | null
+    variety?: string | null
+    areaSize: number
+    areaUnit?: string
+    plantingDate: string
+    expectedHarvestDate: string
+    status?: string
+    progress?: number
+    currentActivity?: string | null
+    icon?: string | null
+    color?: string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cycle: CropCycleCreateNestedOneWithoutCropsInput
+    soilPrepRecords?: SoilPrepRecordCreateNestedManyWithoutCropInput
+    tillageRecords?: TillageRecordCreateNestedManyWithoutCropInput
+    plantingRecords?: PlantingRecordCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordCreateNestedManyWithoutCropInput
+    fertilizerRecords?: FertilizerRecordCreateNestedManyWithoutCropInput
+    irrigationRecords?: IrrigationRecordCreateNestedManyWithoutCropInput
+    weedingRecords?: WeedingRecordCreateNestedManyWithoutCropInput
+    chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
+    diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
+    pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
+    processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
+    lossRecords?: LossRecordCreateNestedManyWithoutCropInput
+    saleRecords?: CropSaleRecordCreateNestedManyWithoutCropInput
+    alerts?: CropAlertCreateNestedManyWithoutCropInput
+  }
+
+  export type CropUncheckedCreateWithoutLabourRecordsInput = {
+    id?: string
+    cycleId: string
+    farmId: string
+    cropName: string
+    category?: string | null
+    variety?: string | null
+    areaSize: number
+    areaUnit?: string
+    plantingDate: string
+    expectedHarvestDate: string
+    status?: string
+    progress?: number
+    currentActivity?: string | null
+    icon?: string | null
+    color?: string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    soilPrepRecords?: SoilPrepRecordUncheckedCreateNestedManyWithoutCropInput
+    tillageRecords?: TillageRecordUncheckedCreateNestedManyWithoutCropInput
+    plantingRecords?: PlantingRecordUncheckedCreateNestedManyWithoutCropInput
+    soilDataRecords?: SoilDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedCreateNestedManyWithoutCropInput
+    weatherDataRecords?: WeatherDataRecordUncheckedCreateNestedManyWithoutCropInput
+    fertilizerRecords?: FertilizerRecordUncheckedCreateNestedManyWithoutCropInput
+    irrigationRecords?: IrrigationRecordUncheckedCreateNestedManyWithoutCropInput
+    weedingRecords?: WeedingRecordUncheckedCreateNestedManyWithoutCropInput
+    chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
+    diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
+    pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
+    processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
+    lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
+    saleRecords?: CropSaleRecordUncheckedCreateNestedManyWithoutCropInput
+    alerts?: CropAlertUncheckedCreateNestedManyWithoutCropInput
+  }
+
+  export type CropCreateOrConnectWithoutLabourRecordsInput = {
+    where: CropWhereUniqueInput
+    create: XOR<CropCreateWithoutLabourRecordsInput, CropUncheckedCreateWithoutLabourRecordsInput>
+  }
+
+  export type CropUpsertWithoutLabourRecordsInput = {
+    update: XOR<CropUpdateWithoutLabourRecordsInput, CropUncheckedUpdateWithoutLabourRecordsInput>
+    create: XOR<CropCreateWithoutLabourRecordsInput, CropUncheckedCreateWithoutLabourRecordsInput>
+    where?: CropWhereInput
+  }
+
+  export type CropUpdateToOneWithWhereWithoutLabourRecordsInput = {
+    where?: CropWhereInput
+    data: XOR<CropUpdateWithoutLabourRecordsInput, CropUncheckedUpdateWithoutLabourRecordsInput>
+  }
+
+  export type CropUpdateWithoutLabourRecordsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    cropName?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    variety?: NullableStringFieldUpdateOperationsInput | string | null
+    areaSize?: FloatFieldUpdateOperationsInput | number
+    areaUnit?: StringFieldUpdateOperationsInput | string
+    plantingDate?: StringFieldUpdateOperationsInput | string
+    expectedHarvestDate?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    progress?: IntFieldUpdateOperationsInput | number
+    currentActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cycle?: CropCycleUpdateOneRequiredWithoutCropsNestedInput
+    soilPrepRecords?: SoilPrepRecordUpdateManyWithoutCropNestedInput
+    tillageRecords?: TillageRecordUpdateManyWithoutCropNestedInput
+    plantingRecords?: PlantingRecordUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUpdateManyWithoutCropNestedInput
+    fertilizerRecords?: FertilizerRecordUpdateManyWithoutCropNestedInput
+    irrigationRecords?: IrrigationRecordUpdateManyWithoutCropNestedInput
+    weedingRecords?: WeedingRecordUpdateManyWithoutCropNestedInput
+    chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
+    diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
+    pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
+    processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
+    lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
+    saleRecords?: CropSaleRecordUpdateManyWithoutCropNestedInput
+    alerts?: CropAlertUpdateManyWithoutCropNestedInput
+  }
+
+  export type CropUncheckedUpdateWithoutLabourRecordsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cycleId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    cropName?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    variety?: NullableStringFieldUpdateOperationsInput | string | null
+    areaSize?: FloatFieldUpdateOperationsInput | number
+    areaUnit?: StringFieldUpdateOperationsInput | string
+    plantingDate?: StringFieldUpdateOperationsInput | string
+    expectedHarvestDate?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    progress?: IntFieldUpdateOperationsInput | number
+    currentActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    soilPrepRecords?: SoilPrepRecordUncheckedUpdateManyWithoutCropNestedInput
+    tillageRecords?: TillageRecordUncheckedUpdateManyWithoutCropNestedInput
+    plantingRecords?: PlantingRecordUncheckedUpdateManyWithoutCropNestedInput
+    soilDataRecords?: SoilDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fieldConditionRecords?: FieldConditionRecordUncheckedUpdateManyWithoutCropNestedInput
+    weatherDataRecords?: WeatherDataRecordUncheckedUpdateManyWithoutCropNestedInput
+    fertilizerRecords?: FertilizerRecordUncheckedUpdateManyWithoutCropNestedInput
+    irrigationRecords?: IrrigationRecordUncheckedUpdateManyWithoutCropNestedInput
+    weedingRecords?: WeedingRecordUncheckedUpdateManyWithoutCropNestedInput
+    chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
+    diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
+    pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
+    processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
+    lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
+    saleRecords?: CropSaleRecordUncheckedUpdateManyWithoutCropNestedInput
+    alerts?: CropAlertUncheckedUpdateManyWithoutCropNestedInput
   }
 
   export type CropCycleCreateWithoutCropsInput = {
@@ -98440,6 +100510,58 @@ export namespace Prisma {
 
   export type PesticideRecordCreateManyCropInputEnvelope = {
     data: PesticideRecordCreateManyCropInput | PesticideRecordCreateManyCropInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LabourRecordCreateWithoutCropInput = {
+    id?: string
+    farmId: string
+    date: Date | string
+    activityName: string
+    selectedLabourCategories?: string | null
+    machineSupplier?: string | null
+    machineHours?: number | null
+    machineFee?: number | null
+    animalEquipmentName?: string | null
+    animalCount?: number | null
+    animalHours?: number | null
+    animalFee?: number | null
+    humanCount?: number | null
+    humanHours?: number | null
+    humanFee?: number | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LabourRecordUncheckedCreateWithoutCropInput = {
+    id?: string
+    farmId: string
+    date: Date | string
+    activityName: string
+    selectedLabourCategories?: string | null
+    machineSupplier?: string | null
+    machineHours?: number | null
+    machineFee?: number | null
+    animalEquipmentName?: string | null
+    animalCount?: number | null
+    animalHours?: number | null
+    animalFee?: number | null
+    humanCount?: number | null
+    humanHours?: number | null
+    humanFee?: number | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LabourRecordCreateOrConnectWithoutCropInput = {
+    where: LabourRecordWhereUniqueInput
+    create: XOR<LabourRecordCreateWithoutCropInput, LabourRecordUncheckedCreateWithoutCropInput>
+  }
+
+  export type LabourRecordCreateManyCropInputEnvelope = {
+    data: LabourRecordCreateManyCropInput | LabourRecordCreateManyCropInput[]
     skipDuplicates?: boolean
   }
 
@@ -99242,6 +101364,47 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"PesticideRecord"> | Date | string
   }
 
+  export type LabourRecordUpsertWithWhereUniqueWithoutCropInput = {
+    where: LabourRecordWhereUniqueInput
+    update: XOR<LabourRecordUpdateWithoutCropInput, LabourRecordUncheckedUpdateWithoutCropInput>
+    create: XOR<LabourRecordCreateWithoutCropInput, LabourRecordUncheckedCreateWithoutCropInput>
+  }
+
+  export type LabourRecordUpdateWithWhereUniqueWithoutCropInput = {
+    where: LabourRecordWhereUniqueInput
+    data: XOR<LabourRecordUpdateWithoutCropInput, LabourRecordUncheckedUpdateWithoutCropInput>
+  }
+
+  export type LabourRecordUpdateManyWithWhereWithoutCropInput = {
+    where: LabourRecordScalarWhereInput
+    data: XOR<LabourRecordUpdateManyMutationInput, LabourRecordUncheckedUpdateManyWithoutCropInput>
+  }
+
+  export type LabourRecordScalarWhereInput = {
+    AND?: LabourRecordScalarWhereInput | LabourRecordScalarWhereInput[]
+    OR?: LabourRecordScalarWhereInput[]
+    NOT?: LabourRecordScalarWhereInput | LabourRecordScalarWhereInput[]
+    id?: StringFilter<"LabourRecord"> | string
+    cropId?: StringFilter<"LabourRecord"> | string
+    farmId?: StringFilter<"LabourRecord"> | string
+    date?: DateTimeFilter<"LabourRecord"> | Date | string
+    activityName?: StringFilter<"LabourRecord"> | string
+    selectedLabourCategories?: StringNullableFilter<"LabourRecord"> | string | null
+    machineSupplier?: StringNullableFilter<"LabourRecord"> | string | null
+    machineHours?: FloatNullableFilter<"LabourRecord"> | number | null
+    machineFee?: FloatNullableFilter<"LabourRecord"> | number | null
+    animalEquipmentName?: StringNullableFilter<"LabourRecord"> | string | null
+    animalCount?: IntNullableFilter<"LabourRecord"> | number | null
+    animalHours?: FloatNullableFilter<"LabourRecord"> | number | null
+    animalFee?: FloatNullableFilter<"LabourRecord"> | number | null
+    humanCount?: IntNullableFilter<"LabourRecord"> | number | null
+    humanHours?: FloatNullableFilter<"LabourRecord"> | number | null
+    humanFee?: FloatNullableFilter<"LabourRecord"> | number | null
+    notes?: StringNullableFilter<"LabourRecord"> | string | null
+    createdAt?: DateTimeFilter<"LabourRecord"> | Date | string
+    updatedAt?: DateTimeFilter<"LabourRecord"> | Date | string
+  }
+
   export type HarvestingRecordUpsertWithWhereUniqueWithoutCropInput = {
     where: HarvestingRecordWhereUniqueInput
     update: XOR<HarvestingRecordUpdateWithoutCropInput, HarvestingRecordUncheckedUpdateWithoutCropInput>
@@ -99471,6 +101634,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -99509,6 +101673,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -99563,6 +101728,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -99601,6 +101767,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -99639,6 +101806,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -99677,6 +101845,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -99731,6 +101900,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -99769,6 +101939,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -99807,6 +101978,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -99845,6 +102017,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -99899,6 +102072,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -99937,6 +102111,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -99975,6 +102150,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -100013,6 +102189,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -100067,6 +102244,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -100105,6 +102283,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -100143,6 +102322,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -100181,6 +102361,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -100235,6 +102416,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -100273,6 +102455,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -100311,6 +102494,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -100349,6 +102533,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -100403,6 +102588,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -100441,6 +102627,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -100479,6 +102666,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -100517,6 +102705,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -100571,6 +102760,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -100609,6 +102799,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -100647,6 +102838,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -100685,6 +102877,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -100739,6 +102932,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -100777,6 +102971,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -100815,6 +103010,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -100853,6 +103049,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -100907,6 +103104,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -100945,6 +103143,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -100983,6 +103182,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -101021,6 +103221,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -101075,6 +103276,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -101113,6 +103315,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -101151,6 +103354,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -101189,6 +103393,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -101243,6 +103448,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -101281,6 +103487,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -101319,6 +103526,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -101357,6 +103565,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -101411,6 +103620,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -101449,6 +103659,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -101487,6 +103698,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -101525,6 +103737,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedCreateNestedManyWithoutCropInput
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -101579,6 +103792,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -101617,6 +103831,7 @@ export namespace Prisma {
     chemicalRecords?: ChemicalRecordUncheckedUpdateManyWithoutCropNestedInput
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -101656,6 +103871,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
     saleRecords?: CropSaleRecordCreateNestedManyWithoutCropInput
@@ -101694,6 +103910,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
     saleRecords?: CropSaleRecordUncheckedCreateNestedManyWithoutCropInput
@@ -101748,6 +103965,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
     saleRecords?: CropSaleRecordUpdateManyWithoutCropNestedInput
@@ -101786,6 +104004,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
     saleRecords?: CropSaleRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -101824,6 +104043,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
     saleRecords?: CropSaleRecordCreateNestedManyWithoutCropInput
@@ -101862,6 +104082,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
     saleRecords?: CropSaleRecordUncheckedCreateNestedManyWithoutCropInput
@@ -101916,6 +104137,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
     saleRecords?: CropSaleRecordUpdateManyWithoutCropNestedInput
@@ -101954,6 +104176,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
     saleRecords?: CropSaleRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -101992,6 +104215,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     saleRecords?: CropSaleRecordCreateNestedManyWithoutCropInput
@@ -102030,6 +104254,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     saleRecords?: CropSaleRecordUncheckedCreateNestedManyWithoutCropInput
@@ -102084,6 +104309,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     saleRecords?: CropSaleRecordUpdateManyWithoutCropNestedInput
@@ -102122,6 +104348,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     saleRecords?: CropSaleRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -102160,6 +104387,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -102198,6 +104426,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -102252,6 +104481,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -102290,6 +104520,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -102328,6 +104559,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordCreateNestedManyWithoutCropInput
@@ -102366,6 +104598,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutCropInput
     pestRecords?: PestRecordUncheckedCreateNestedManyWithoutCropInput
     pesticideRecords?: PesticideRecordUncheckedCreateNestedManyWithoutCropInput
+    labourRecords?: LabourRecordUncheckedCreateNestedManyWithoutCropInput
     harvestingRecords?: HarvestingRecordUncheckedCreateNestedManyWithoutCropInput
     processingRecords?: ProcessingRecordUncheckedCreateNestedManyWithoutCropInput
     lossRecords?: LossRecordUncheckedCreateNestedManyWithoutCropInput
@@ -102420,6 +104653,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -102458,6 +104692,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -105325,6 +107560,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUpdateManyWithoutCropNestedInput
@@ -105363,6 +107599,7 @@ export namespace Prisma {
     diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutCropNestedInput
     pestRecords?: PestRecordUncheckedUpdateManyWithoutCropNestedInput
     pesticideRecords?: PesticideRecordUncheckedUpdateManyWithoutCropNestedInput
+    labourRecords?: LabourRecordUncheckedUpdateManyWithoutCropNestedInput
     harvestingRecords?: HarvestingRecordUncheckedUpdateManyWithoutCropNestedInput
     processingRecords?: ProcessingRecordUncheckedUpdateManyWithoutCropNestedInput
     lossRecords?: LossRecordUncheckedUpdateManyWithoutCropNestedInput
@@ -105639,6 +107876,27 @@ export namespace Prisma {
     workerName?: string | null
     timeWorked?: number | null
     labourCost?: number | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LabourRecordCreateManyCropInput = {
+    id?: string
+    farmId: string
+    date: Date | string
+    activityName: string
+    selectedLabourCategories?: string | null
+    machineSupplier?: string | null
+    machineHours?: number | null
+    machineFee?: number | null
+    animalEquipmentName?: string | null
+    animalCount?: number | null
+    animalHours?: number | null
+    animalFee?: number | null
+    humanCount?: number | null
+    humanHours?: number | null
+    humanFee?: number | null
     notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -106499,6 +108757,69 @@ export namespace Prisma {
     workerName?: NullableStringFieldUpdateOperationsInput | string | null
     timeWorked?: NullableFloatFieldUpdateOperationsInput | number | null
     labourCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LabourRecordUpdateWithoutCropInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    selectedLabourCategories?: NullableStringFieldUpdateOperationsInput | string | null
+    machineSupplier?: NullableStringFieldUpdateOperationsInput | string | null
+    machineHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    machineFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    animalEquipmentName?: NullableStringFieldUpdateOperationsInput | string | null
+    animalCount?: NullableIntFieldUpdateOperationsInput | number | null
+    animalHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    animalFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    humanCount?: NullableIntFieldUpdateOperationsInput | number | null
+    humanHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    humanFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LabourRecordUncheckedUpdateWithoutCropInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    selectedLabourCategories?: NullableStringFieldUpdateOperationsInput | string | null
+    machineSupplier?: NullableStringFieldUpdateOperationsInput | string | null
+    machineHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    machineFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    animalEquipmentName?: NullableStringFieldUpdateOperationsInput | string | null
+    animalCount?: NullableIntFieldUpdateOperationsInput | number | null
+    animalHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    animalFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    humanCount?: NullableIntFieldUpdateOperationsInput | number | null
+    humanHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    humanFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LabourRecordUncheckedUpdateManyWithoutCropInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    selectedLabourCategories?: NullableStringFieldUpdateOperationsInput | string | null
+    machineSupplier?: NullableStringFieldUpdateOperationsInput | string | null
+    machineHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    machineFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    animalEquipmentName?: NullableStringFieldUpdateOperationsInput | string | null
+    animalCount?: NullableIntFieldUpdateOperationsInput | number | null
+    animalHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    animalFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    humanCount?: NullableIntFieldUpdateOperationsInput | number | null
+    humanHours?: NullableFloatFieldUpdateOperationsInput | number | null
+    humanFee?: NullableFloatFieldUpdateOperationsInput | number | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string

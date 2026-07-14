@@ -639,6 +639,28 @@ exports.Prisma.CropCycleScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.LabourRecordScalarFieldEnum = {
+  id: 'id',
+  cropId: 'cropId',
+  farmId: 'farmId',
+  date: 'date',
+  activityName: 'activityName',
+  selectedLabourCategories: 'selectedLabourCategories',
+  machineSupplier: 'machineSupplier',
+  machineHours: 'machineHours',
+  machineFee: 'machineFee',
+  animalEquipmentName: 'animalEquipmentName',
+  animalCount: 'animalCount',
+  animalHours: 'animalHours',
+  animalFee: 'animalFee',
+  humanCount: 'humanCount',
+  humanHours: 'humanHours',
+  humanFee: 'humanFee',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.CropScalarFieldEnum = {
   id: 'id',
   cycleId: 'cycleId',
@@ -1077,6 +1099,7 @@ exports.Prisma.ModelName = {
   TreatmentRecord: 'TreatmentRecord',
   SaleListing: 'SaleListing',
   CropCycle: 'CropCycle',
+  LabourRecord: 'LabourRecord',
   Crop: 'Crop',
   SoilPrepRecord: 'SoilPrepRecord',
   TillageRecord: 'TillageRecord',
