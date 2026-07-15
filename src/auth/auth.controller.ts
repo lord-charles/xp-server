@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Req } from '@nestjs/common';
+import { Controller, Post, Body, Req, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
@@ -7,11 +7,10 @@ import {
   ResetPasswordDto,
   VerifyOtpDto,
 } from './dto/reset-password.dto';
-import { ApiTags, ApiOperation, ApiResponse, ApiBody } from '@nestjs/swagger';
+import { ApiTags, ApiOperation, ApiResponse, ApiBody, ApiBearerAuth } from '@nestjs/swagger';
 import { UserWithoutPin } from './types/user.type';
 import { Public } from './decorators/public.decorator';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
-import { UseGuards } from '@nestjs/common';
 
 @ApiTags('auth')
 @UseGuards(JwtAuthGuard)
@@ -193,6 +192,8 @@ export class AuthController {
   }
 
   @Post('delete-account')
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
   @ApiOperation({
     summary: 'Delete user account',
     description: 'Delete the authenticated user account (compliant with Apple requirements). Requires JWT authentication.',
