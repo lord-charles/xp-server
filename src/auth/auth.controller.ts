@@ -211,6 +211,6 @@ export class AuthController {
   @ApiResponse({ status: 401, description: 'Unauthorized - Invalid or missing token' })
   @ApiResponse({ status: 404, description: 'User not found' })
   async deleteAccount(@Req() req: any) {
-    return this.authService.deleteAccount(req.user.sub);
+    return this.authService.deleteAccount(req.user.id);
   }
 }
