@@ -18,6 +18,8 @@ import { User, UserWithoutPin } from './types/user.type';
 import { Employee, EmployeeWithoutPin } from './types/employee.type';
 import * as bcrypt from 'bcrypt';
 import { Prisma } from '../../prisma/generated/prisma/client';
+import { BillingService } from '../billing/billing.service';
+import { AdminLoginDto, CreateAdminDto } from './dto/admin.dto';
 
 @Injectable()
 export class AuthService {
@@ -25,6 +27,7 @@ export class AuthService {
     private prisma: PrismaService,
     private jwtService: JwtService,
     private notificationsService: NotificationsService,
+    private billingService: BillingService,
   ) {}
 
   async register(
@@ -101,6 +104,11 @@ export class AuthService {
       },
     })) as User;
 
+    // Every confirmed setup gets a billing identity and an invoice with the
+    // configured trial due date. The billing seed is create-only and never
+    // overwrites admin changes.
+    await this.billingService.createAccountForUser(user.id, user.farms[0].id);
+
     const { pin, ...result } = user;
 
     // Send OTP via SMS
@@ -136,6 +144,11 @@ export class AuthService {
     });
 
     if (user) {
+      // Check if user is soft deleted
+      if (user.deletedAt) {
+        throw new UnauthorizedException('This account has been deleted');
+      }
+
       const isValidPin = await bcrypt.compare(dto.pin, user.pin);
       if (!isValidPin) {
         throw new UnauthorizedException('Invalid credentials');
@@ -185,6 +198,11 @@ export class AuthService {
       throw new UnauthorizedException('Invalid credentials');
     }
 
+    // Check if employee is soft deleted
+    if (employee.deletedAt) {
+      throw new UnauthorizedException('This account has been deleted');
+    }
+
     const isValidPin = await bcrypt.compare(dto.pin, employee.pin);
     if (!isValidPin) {
       throw new UnauthorizedException('Invalid credentials');
@@ -219,9 +237,24 @@ export class AuthService {
 
   private async generateToken(
     userId: string,
-    userType: 'user' | 'employee',
+    userType: 'user' | 'employee' | 'admin',
   ): Promise<string> {
     return this.jwtService.signAsync({ sub: userId, userType });
+  }
+
+  async createAdmin(dto: CreateAdminDto) {
+    const existing = await this.prisma.admin.findFirst({ where: { OR: [{ email: dto.email }, ...(dto.phoneNumber ? [{ phoneNumber: dto.phoneNumber }] : [])] } });
+    if (existing) throw new BadRequestException('An administrator with these details already exists');
+    const admin = await this.prisma.admin.create({ data: { firstName: dto.firstName, lastName: dto.lastName, email: dto.email.toLowerCase(), phoneNumber: dto.phoneNumber, passwordHash: await bcrypt.hash(dto.password, 12) } });
+    return { id: admin.id, firstName: admin.firstName, lastName: admin.lastName, email: admin.email, phoneNumber: admin.phoneNumber, role: 'ADMIN' };
+  }
+
+  async loginAdmin(dto: AdminLoginDto) {
+    const identifier = dto.identifier.toLowerCase();
+    const admin = await this.prisma.admin.findFirst({ where: { isActive: true, OR: [{ email: identifier }, { phoneNumber: dto.identifier }] } });
+    if (!admin || !(await bcrypt.compare(dto.password, admin.passwordHash))) throw new UnauthorizedException('Invalid administrator credentials');
+    await this.prisma.admin.update({ where: { id: admin.id }, data: { lastLoginAt: new Date() } });
+    return { user: { id: admin.id, firstName: admin.firstName, lastName: admin.lastName, email: admin.email, phoneNumber: admin.phoneNumber, role: 'ADMIN' }, userType: 'admin', token: await this.generateToken(admin.id, 'admin') };
   }
 
   async requestPasswordReset(
@@ -449,19 +482,20 @@ export class AuthService {
   }
 
   async deleteAccount(userId: string): Promise<{ message: string }> {
-    // Try to find and delete user
+    // Try to find and soft delete user
     const user = await this.prisma.user.findUnique({
       where: { id: userId },
     });
 
     if (user) {
-      await this.prisma.user.delete({
+      await this.prisma.user.update({
         where: { id: userId },
+        data: { deletedAt: new Date() },
       });
       return { message: 'Account deleted successfully' };
     }
 
-    // If not a user, try to find and delete employee
+    // If not a user, try to find and soft delete employee
     const employee = await this.prisma.employee.findUnique({
       where: { id: userId },
     });
@@ -470,8 +504,9 @@ export class AuthService {
       throw new NotFoundException('User not found');
     }
 
-    await this.prisma.employee.delete({
+    await this.prisma.employee.update({
       where: { id: userId },
+      data: { deletedAt: new Date() },
     });
 
     return { message: 'Account deleted successfully' };

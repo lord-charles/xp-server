@@ -21,7 +21,9 @@ export class NotificationsService {
         {
           SenderId: this.senderId,
           IsUnicode: true,
-          IsFlash: true,
+          // Billing notices must remain in the customer's inbox. Flash SMS is
+          // disruptive and disappears before a user can act on payment details.
+          IsFlash: this.configService.get('ONFON_IS_FLASH') === 'true',
           MessageParameters: [
             {
               Number: phoneNumber.startsWith('254') ? phoneNumber : `254${phoneNumber.substring(1)}`,

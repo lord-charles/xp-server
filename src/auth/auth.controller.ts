@@ -7,10 +7,19 @@ import {
   ResetPasswordDto,
   VerifyOtpDto,
 } from './dto/reset-password.dto';
-import { ApiTags, ApiOperation, ApiResponse, ApiBody, ApiBearerAuth } from '@nestjs/swagger';
+import {
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiBody,
+  ApiBearerAuth,
+  ApiHeader,
+} from '@nestjs/swagger';
 import { UserWithoutPin } from './types/user.type';
 import { Public } from './decorators/public.decorator';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
+import { AdminLoginDto, CreateAdminDto } from './dto/admin.dto';
+import { BootstrapOrAdminGuard } from './guards/bootstrap-or-admin.guard';
 
 @ApiTags('auth')
 @UseGuards(JwtAuthGuard)
@@ -129,6 +138,64 @@ export class AuthController {
   }
 
   @Public()
+  @Post('admin/login')
+  @ApiOperation({
+    summary: 'Log in to the XpertFarmer administration dashboard',
+  })
+  @ApiBody({ type: AdminLoginDto })
+  @ApiResponse({
+    status: 201,
+    schema: {
+      example: {
+        user: {
+          id: 'cm1admin',
+          firstName: 'Jane',
+          lastName: 'Admin',
+          email: 'jane.admin@xpertfarmer.com',
+          role: 'ADMIN',
+        },
+        userType: 'admin',
+        token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...',
+      },
+    },
+  })
+  async adminLogin(@Body() dto: AdminLoginDto) {
+    return this.authService.loginAdmin(dto);
+  }
+
+  @Public()
+  @UseGuards(BootstrapOrAdminGuard)
+  @Post('admins')
+  @ApiOperation({
+    summary:
+      'Create an administrator. The first administrator requires ADMIN_BOOTSTRAP_TOKEN.',
+  })
+  @ApiHeader({
+    name: 'x-admin-bootstrap-token',
+    required: true,
+    description:
+      'Required only while creating the first admin. Must exactly match ADMIN_BOOTSTRAP_TOKEN in the server environment.',
+    example: 'your-one-time-bootstrap-secret',
+  })
+  @ApiBody({ type: CreateAdminDto })
+  @ApiResponse({
+    status: 201,
+    schema: {
+      example: {
+        id: 'cm1admin',
+        firstName: 'Jane',
+        lastName: 'Admin',
+        email: 'jane.admin@xpertfarmer.com',
+        phoneNumber: '254712345678',
+        role: 'ADMIN',
+      },
+    },
+  })
+  async createAdmin(@Body() dto: CreateAdminDto) {
+    return this.authService.createAdmin(dto);
+  }
+
+  @Public()
   @Post('request-reset')
   @ApiOperation({ summary: 'Request password reset' })
   @ApiBody({
@@ -196,7 +263,8 @@ export class AuthController {
   @UseGuards(JwtAuthGuard)
   @ApiOperation({
     summary: 'Delete user account',
-    description: 'Delete the authenticated user account (compliant with Apple requirements). Requires JWT authentication.',
+    description:
+      'Delete the authenticated user account (compliant with Apple requirements). Requires JWT authentication.',
   })
   @ApiResponse({
     status: 200,
@@ -208,7 +276,10 @@ export class AuthController {
       },
     },
   })
-  @ApiResponse({ status: 401, description: 'Unauthorized - Invalid or missing token' })
+  @ApiResponse({
+    status: 401,
+    description: 'Unauthorized - Invalid or missing token',
+  })
   @ApiResponse({ status: 404, description: 'User not found' })
   async deleteAccount(@Req() req: any) {
     return this.authService.deleteAccount(req.user.id);

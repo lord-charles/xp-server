@@ -2,10 +2,11 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { UpdateFarmDto } from './dto/update-farm.dto';
 import { CreateFarmDto } from './dto/create-farm.dto';
+import { BillingService } from '../billing/billing.service';
 
 @Injectable()
 export class FarmsService {
-  constructor(private prisma: PrismaService) { }
+  constructor(private prisma: PrismaService, private billing: BillingService) { }
 
   async findAll(page = 1, limit = 10, search?: string) {
     page = Number(page) > 0 ? Number(page) : 1;
@@ -123,12 +124,10 @@ export class FarmsService {
   }
 
   async create(createFarmDto: CreateFarmDto) {
-    console.log(createFarmDto);
     const user = await this.prisma.user.findUnique({
       where: { id: createFarmDto.userId },
     });
 
-    console.log(user);
     if (!user) {
       throw new NotFoundException(`User with ID ${createFarmDto.userId} not found`);
     }
@@ -146,7 +145,10 @@ export class FarmsService {
         },
       },
     });
+    // The pricing terms treat every additional farm as a separately billed
+    // entity, while retaining one payer account for the farmer.
+    const account = await this.prisma.billingAccount.findUnique({ where: { userId: user.id } });
+    if (account) await this.billing.ensureSubscription(account.id, farm.id);
     return farm;
   }
 }
-

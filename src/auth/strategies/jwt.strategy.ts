@@ -25,6 +25,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
           lastName: true,
           email: true,
           phoneNumber: true,
+          deletedAt: true,
         },
       });
 
@@ -32,7 +33,12 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         throw new UnauthorizedException('User not found');
       }
 
-      return { ...user, userType: 'user' };
+      if (user.deletedAt) {
+        throw new UnauthorizedException('This account has been deleted');
+      }
+
+      const { deletedAt, ...userWithoutDeletedAt } = user;
+      return { ...userWithoutDeletedAt, userType: 'user' };
     } else if (userType === 'employee') {
       const employee = await this.prisma.employee.findUnique({
         where: { id: payload.sub },
@@ -43,6 +49,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
           phone: true,
           role: true,
           employeeType: true,
+          deletedAt: true,
         },
       });
 
@@ -50,7 +57,16 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         throw new UnauthorizedException('Employee not found');
       }
 
-      return { ...employee, userType: 'employee' };
+      if (employee.deletedAt) {
+        throw new UnauthorizedException('This account has been deleted');
+      }
+
+      const { deletedAt, ...employeeWithoutDeletedAt } = employee;
+      return { ...employeeWithoutDeletedAt, userType: 'employee' };
+    } else if (userType === 'admin') {
+      const admin = await this.prisma.admin.findUnique({ where: { id: payload.sub }, select: { id: true, firstName: true, lastName: true, email: true, isActive: true } });
+      if (!admin || !admin.isActive) throw new UnauthorizedException('Administrator not found or inactive');
+      return { id: admin.id, firstName: admin.firstName, lastName: admin.lastName, email: admin.email, userType: 'admin', roles: ['ADMIN'] };
     }
 
     throw new UnauthorizedException('Invalid user type');

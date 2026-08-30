@@ -140,6 +140,7 @@ exports.Prisma.UserScalarFieldEnum = {
   otp: 'otp',
   otpExpiry: 'otpExpiry',
   isVerified: 'isVerified',
+  deletedAt: 'deletedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -153,6 +154,146 @@ exports.Prisma.FarmScalarFieldEnum = {
   ownership: 'ownership',
   farmingTypes: 'farmingTypes',
   userId: 'userId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.AdminScalarFieldEnum = {
+  id: 'id',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  email: 'email',
+  phoneNumber: 'phoneNumber',
+  passwordHash: 'passwordHash',
+  isActive: 'isActive',
+  lastLoginAt: 'lastLoginAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BillingAccountScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  accountNumber: 'accountNumber',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BillingPlanScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  name: 'name',
+  metric: 'metric',
+  minValue: 'minValue',
+  maxValue: 'maxValue',
+  monthlyAmount: 'monthlyAmount',
+  currency: 'currency',
+  isActive: 'isActive',
+  isSystemSeed: 'isSystemSeed',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BillingSettingScalarFieldEnum = {
+  id: 'id',
+  key: 'key',
+  value: 'value',
+  description: 'description',
+  isSystemSeed: 'isSystemSeed',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SubscriptionScalarFieldEnum = {
+  id: 'id',
+  billingAccountId: 'billingAccountId',
+  farmId: 'farmId',
+  billingCycle: 'billingCycle',
+  status: 'status',
+  startedAt: 'startedAt',
+  trialEndsAt: 'trialEndsAt',
+  currentPeriodStartAt: 'currentPeriodStartAt',
+  currentPeriodEndAt: 'currentPeriodEndAt',
+  graceEndsAt: 'graceEndsAt',
+  suspendedAt: 'suspendedAt',
+  terminatedAt: 'terminatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.InvoiceScalarFieldEnum = {
+  id: 'id',
+  invoiceNumber: 'invoiceNumber',
+  billingAccountId: 'billingAccountId',
+  subscriptionId: 'subscriptionId',
+  status: 'status',
+  currency: 'currency',
+  issuedAt: 'issuedAt',
+  dueAt: 'dueAt',
+  periodStartAt: 'periodStartAt',
+  periodEndAt: 'periodEndAt',
+  totalAmount: 'totalAmount',
+  amountPaid: 'amountPaid',
+  balanceDue: 'balanceDue',
+  billingSnapshot: 'billingSnapshot',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.InvoiceLineScalarFieldEnum = {
+  id: 'id',
+  invoiceId: 'invoiceId',
+  billingPlanId: 'billingPlanId',
+  description: 'description',
+  quantity: 'quantity',
+  unitAmount: 'unitAmount',
+  lineAmount: 'lineAmount',
+  pricingSnapshot: 'pricingSnapshot',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.PaymentScalarFieldEnum = {
+  id: 'id',
+  billingAccountId: 'billingAccountId',
+  provider: 'provider',
+  status: 'status',
+  amount: 'amount',
+  currency: 'currency',
+  payerPhone: 'payerPhone',
+  accountReference: 'accountReference',
+  merchantRequestId: 'merchantRequestId',
+  checkoutRequestId: 'checkoutRequestId',
+  mpesaReceiptNumber: 'mpesaReceiptNumber',
+  providerTransaction: 'providerTransaction',
+  providerPayload: 'providerPayload',
+  failureReason: 'failureReason',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PaymentAllocationScalarFieldEnum = {
+  id: 'id',
+  paymentId: 'paymentId',
+  invoiceId: 'invoiceId',
+  amount: 'amount',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.BillingNotificationScalarFieldEnum = {
+  id: 'id',
+  invoiceId: 'invoiceId',
+  billingAccountId: 'billingAccountId',
+  eventType: 'eventType',
+  channel: 'channel',
+  recipient: 'recipient',
+  message: 'message',
+  status: 'status',
+  providerMessageId: 'providerMessageId',
+  sentAt: 'sentAt',
+  failedAt: 'failedAt',
+  failureReason: 'failureReason',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -179,6 +320,7 @@ exports.Prisma.EmployeeScalarFieldEnum = {
   otp: 'otp',
   otpExpiry: 'otpExpiry',
   isVerified: 'isVerified',
+  deletedAt: 'deletedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -1057,6 +1199,15 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
+exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
+};
+
+exports.Prisma.NullableJsonNullValueInput = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull
+};
+
 exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
@@ -1067,10 +1218,26 @@ exports.Prisma.NullsOrder = {
   last: 'last'
 };
 
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
+
 
 exports.Prisma.ModelName = {
   User: 'User',
   Farm: 'Farm',
+  Admin: 'Admin',
+  BillingAccount: 'BillingAccount',
+  BillingPlan: 'BillingPlan',
+  BillingSetting: 'BillingSetting',
+  Subscription: 'Subscription',
+  Invoice: 'Invoice',
+  InvoiceLine: 'InvoiceLine',
+  Payment: 'Payment',
+  PaymentAllocation: 'PaymentAllocation',
+  BillingNotification: 'BillingNotification',
   Employee: 'Employee',
   EmployeeFarm: 'EmployeeFarm',
   EmployeeBenefit: 'EmployeeBenefit',

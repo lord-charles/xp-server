@@ -42,6 +42,9 @@ lerna-debug.log*
 .env.production.local
 .env.local
 
+# Database exports can contain production customer data
+*.dump
+
 # temp directory
 .temp
 .tmp
