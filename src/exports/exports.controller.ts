@@ -1,4 +1,5 @@
-import { Controller, Get, Param, Query, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, Query, Res, UseGuards } from '@nestjs/common';
+import { Response } from 'express';
 import { ApiBearerAuth, ApiOperation, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
@@ -16,6 +17,19 @@ export class ExportsController {
   @Get('catalog')
   @ApiOperation({ summary: 'List datasets available for administrator export' })
   catalog() { return this.exportsService.catalog(); }
+
+  @Get('all')
+  @ApiOperation({ summary: 'Download all export datasets in one Excel workbook' })
+  @ApiQuery({ name: 'from', required: false, type: String })
+  @ApiQuery({ name: 'to', required: false, type: String })
+  async all(@Query('from') from: string | undefined, @Query('to') to: string | undefined, @Res() response: Response) {
+    const workbook = await this.exportsService.buildAllWorkbook(from, to);
+    response.set({
+      'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      'Content-Disposition': `attachment; filename="xpert-farmer-all-data-${new Date().toISOString().slice(0, 10)}.xlsx"`,
+    });
+    response.send(workbook);
+  }
 
   @Get(':dataset')
   @ApiOperation({ summary: 'Export a paginated administrator dataset' })

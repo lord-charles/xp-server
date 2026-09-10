@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
+import ExcelJS from 'exceljs';
 
 type DatasetDefinition = { label: string; model: string; dateField?: string };
 
@@ -65,7 +66,7 @@ const DATASETS: Record<string, DatasetDefinition> = {
   cropAlerts: { label: 'Crop alerts', model: 'cropAlert', dateField: 'createdAt' },
 };
 
-const SENSITIVE = new Set(['pin', 'password', 'otp', 'otpExpiry', 'accessToken', 'refreshToken', 'secret']);
+const SENSITIVE = new Set(['pin', 'password', 'passwordHash', 'otp', 'otpExpiry', 'accessToken', 'refreshToken', 'secret']);
 
 function safeValue(value: unknown): unknown {
   if (value instanceof Date) return value.toISOString();
@@ -106,5 +107,73 @@ export class ExportsService {
     ]);
     const pages = Math.ceil(total / safeLimit);
     return { data: rows.map(safeValue), meta: { total, page: safePage, pages, hasNextPage: safePage < pages, hasPrevPage: safePage > 1 } };
+  }
+
+  async buildAllWorkbook(from?: string, to?: string): Promise<Buffer> {
+    const entries = Object.entries(DATASETS);
+    const result = await Promise.all(entries.map(async ([key, definition]) => {
+      const delegate = (this.prisma as any)[definition.model];
+      const where: Record<string, unknown> = {};
+      if (definition.dateField && (from || to)) {
+        const range: Record<string, Date> = {};
+        if (from) range.gte = new Date(from);
+        if (to) { const end = new Date(to); end.setUTCHours(23, 59, 59, 999); range.lte = end; }
+        where[definition.dateField] = range;
+      }
+      const rows = await delegate.findMany({ where, orderBy: { [definition.dateField ?? 'id']: 'desc' } });
+      return { key, label: definition.label, rows: rows.map(safeValue) as Record<string, unknown>[] };
+    }));
+
+    const byKey = new Map(result.map((item) => [item.key, item.rows]));
+    const farms = new Map((byKey.get('farms') ?? []).map((row: any) => [String(row.id), row]));
+    const users = new Map((byKey.get('users') ?? []).map((row: any) => [String(row.id), row]));
+    const employees = new Map((byKey.get('employees') ?? []).map((row: any) => [String(row.id), row]));
+    const livestock = new Map((byKey.get('livestock') ?? []).map((row: any) => [String(row.id), row]));
+    const crops = new Map((byKey.get('crops') ?? []).map((row: any) => [String(row.id), row]));
+    const cycles = new Map((byKey.get('cropCycles') ?? []).map((row: any) => [String(row.id), row]));
+    const billingAccounts = new Map((byKey.get('billingAccounts') ?? []).map((row: any) => [String(row.id), row]));
+
+    const enriched = (row: Record<string, unknown>) => {
+      const farmId = String(row.farmId ??
+        (row.cropId ? crops.get(String(row.cropId))?.farmId : undefined) ??
+        (row.cycleId ? cycles.get(String(row.cycleId))?.farmId : undefined) ??
+        (row.livestockId ? livestock.get(String(row.livestockId))?.farmId : undefined) ?? '');
+      const farm: any = farmId ? farms.get(farmId) : undefined;
+      const employee: any = row.employeeId ? employees.get(String(row.employeeId)) : undefined;
+      const account: any = row.billingAccountId ? billingAccounts.get(String(row.billingAccountId)) : undefined;
+      const userId = String(row.userId ?? farm?.userId ?? account?.userId ?? '');
+      const owner: any = userId ? users.get(userId) : undefined;
+      const output: Record<string, unknown> = { ...row };
+      if (farm) {
+        output['Farm name'] = farm.name ?? '';
+        output['Farm county'] = farm.county ?? '';
+      }
+      if (employee && !farm && row.employeeId) output['Employee name'] = `${employee.firstName ?? ''} ${employee.lastName ?? ''}`.trim();
+      if (owner) {
+        output['Owner ID'] = owner.id;
+        output['Owner name'] = `${owner.firstName ?? ''} ${owner.lastName ?? ''}`.trim();
+        output['Owner phone'] = owner.phoneNumber ?? '';
+        output['Owner email'] = owner.email ?? '';
+      }
+      return output;
+    };
+
+    const workbook = new ExcelJS.Workbook();
+    workbook.creator = 'XpertFarmer Admin';
+    workbook.created = new Date();
+    for (const item of result) {
+      const sheet = workbook.addWorksheet(item.label.slice(0, 31));
+      const rows = item.rows.map(enriched);
+      const columns = Array.from(new Set(rows.flatMap((row) => Object.keys(row))));
+      if (columns.length) {
+        sheet.columns = columns.map((key) => ({ header: key, key, width: Math.min(Math.max(key.length + 2, 14), 36) }));
+        for (const row of rows) sheet.addRow(Object.fromEntries(columns.map((key) => [key, typeof row[key] === 'object' ? JSON.stringify(row[key]) : row[key]])));
+        sheet.getRow(1).font = { bold: true, color: { argb: 'FFFFFFFF' } };
+        sheet.getRow(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF166534' } };
+        sheet.autoFilter = { from: 'A1', to: `${String.fromCharCode(64 + Math.min(columns.length, 26))}1` };
+        sheet.views = [{ state: 'frozen', ySplit: 1 }];
+      }
+    }
+    return Buffer.from(await workbook.xlsx.writeBuffer());
   }
 }
