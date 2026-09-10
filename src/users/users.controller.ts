@@ -19,6 +19,8 @@ export class UsersController {
   @ApiQuery({ name: 'page', required: false, type: Number, description: 'Page number (default: 1)' })
   @ApiQuery({ name: 'limit', required: false, type: Number, description: 'Items per page (default: 10)' })
   @ApiQuery({ name: 'search', required: false, type: String, description: 'Search term for name, email, or phone' })
+  @ApiQuery({ name: 'createdFrom', required: false, type: String, description: 'Created date from (YYYY-MM-DD)' })
+  @ApiQuery({ name: 'createdTo', required: false, type: String, description: 'Created date to (YYYY-MM-DD)' })
   @ApiResponse({
     status: 200,
     description: 'Successfully retrieved farmers',
@@ -74,8 +76,10 @@ export class UsersController {
     @Query('page') page?: number,
     @Query('limit') limit?: number,
     @Query('search') search?: string,
+    @Query('createdFrom') createdFrom?: string,
+    @Query('createdTo') createdTo?: string,
   ) {
-    return this.usersService.findAll(page, limit, search);
+    return this.usersService.findAll(page, limit, search, createdFrom, createdTo);
   }
 
   @Get(':id')

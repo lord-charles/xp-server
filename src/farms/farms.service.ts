@@ -8,18 +8,28 @@ import { BillingService } from '../billing/billing.service';
 export class FarmsService {
   constructor(private prisma: PrismaService, private billing: BillingService) { }
 
-  async findAll(page = 1, limit = 10, search?: string) {
+  async findAll(page = 1, limit = 10, search?: string, createdFrom?: string, createdTo?: string) {
     page = Number(page) > 0 ? Number(page) : 1;
     limit = Number(limit) > 0 ? Number(limit) : 10;
     const skip = (page - 1) * limit;
 
-    const where = search ? {
-      OR: [
+    const where: any = {};
+    if (search) {
+      where.OR = [
         { name: { contains: search, mode: 'insensitive' as const } },
         { county: { contains: search, mode: 'insensitive' as const } },
         { administrativeLocation: { contains: search, mode: 'insensitive' as const } },
-      ],
-    } : {};
+      ];
+    }
+    if (createdFrom || createdTo) {
+      where.createdAt = {};
+      if (createdFrom) where.createdAt.gte = new Date(createdFrom);
+      if (createdTo) {
+        const end = new Date(createdTo);
+        end.setUTCHours(23, 59, 59, 999);
+        where.createdAt.lte = end;
+      }
+    }
 
     const [farms, total] = await Promise.all([
       this.prisma.farm.findMany({

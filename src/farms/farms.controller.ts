@@ -73,6 +73,8 @@ export class FarmsController {
   @ApiQuery({ name: 'page', required: false, type: Number, description: 'Page number (default: 1)' })
   @ApiQuery({ name: 'limit', required: false, type: Number, description: 'Items per page (default: 10)' })
   @ApiQuery({ name: 'search', required: false, type: String, description: 'Search term for farm name, county, or location' })
+  @ApiQuery({ name: 'createdFrom', required: false, type: String, description: 'Created date from (YYYY-MM-DD)' })
+  @ApiQuery({ name: 'createdTo', required: false, type: String, description: 'Created date to (YYYY-MM-DD)' })
   @ApiResponse({
     status: 200,
     description: 'Successfully retrieved farms',
@@ -121,8 +123,10 @@ export class FarmsController {
     @Query('page') page?: number,
     @Query('limit') limit?: number,
     @Query('search') search?: string,
+    @Query('createdFrom') createdFrom?: string,
+    @Query('createdTo') createdTo?: string,
   ) {
-    return this.farmsService.findAll(page, limit, search);
+    return this.farmsService.findAll(page, limit, search, createdFrom, createdTo);
   }
 
   @Get(':id')
