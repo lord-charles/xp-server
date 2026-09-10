@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
-import ExcelJS from 'exceljs';
+import * as ExcelJS from 'exceljs';
 
 type DatasetDefinition = { label: string; model: string; dateField?: string };
 
