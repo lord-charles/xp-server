@@ -9,7 +9,6 @@ const DATASETS: Record<string, DatasetDefinition> = {
   admins: { label: 'Admins', model: 'admin', dateField: 'createdAt' },
   billingAccounts: { label: 'Billing accounts', model: 'billingAccount', dateField: 'createdAt' },
   billingPlans: { label: 'Billing plans', model: 'billingPlan', dateField: 'createdAt' },
-  billingSettings: { label: 'Billing settings', model: 'billingSetting', dateField: 'createdAt' },
   subscriptions: { label: 'Subscriptions', model: 'subscription', dateField: 'createdAt' },
   invoices: { label: 'Invoices', model: 'invoice', dateField: 'createdAt' },
   invoiceLines: { label: 'Invoice lines', model: 'invoiceLine', dateField: 'createdAt' },
