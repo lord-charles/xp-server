@@ -17,6 +17,7 @@ import { HomeModule } from './home/home.module';
 import { CommonModule } from './common/common.module';
 import { CropsModule } from './crops/crops.module';
 import { BillingModule } from './billing/billing.module';
+import { ExportsModule } from './exports/exports.module';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { BillingModule } from './billing/billing.module';
     HomeModule,
     CropsModule,
     BillingModule,
+    ExportsModule,
   ],
   controllers: [],
   providers: [],
