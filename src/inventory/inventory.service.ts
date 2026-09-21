@@ -2,10 +2,31 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateInventoryDto } from './dto/create-inventory.dto';
 import { UpdateInventoryDto } from './dto/update-inventory.dto';
+import { BadRequestException, ForbiddenException } from '@nestjs/common';
 
 @Injectable()
 export class InventoryService {
   constructor(private prisma: PrismaService) {}
+
+  async consumeGoods(goodsId: string, amount: number, userId: string) {
+    if (!Number.isFinite(amount) || amount <= 0) {
+      throw new BadRequestException('Amount must be greater than zero');
+    }
+    return this.prisma.$transaction(async (tx) => {
+      const item = await tx.goodsInStock.findUnique({
+        where: { id: goodsId },
+        include: { inventory: { include: { farm: { select: { userId: true } } } } },
+      });
+      if (!item) throw new NotFoundException(`GoodsInStock with ID ${goodsId} not found`);
+      if (item.inventory.farm.userId !== userId) throw new ForbiddenException('You do not have access to this stock item');
+      if (item.quantity < amount) throw new BadRequestException(`Insufficient stock. Available quantity: ${item.quantity}`);
+      const updated = await tx.goodsInStock.update({
+        where: { id: goodsId },
+        data: { quantity: { decrement: amount } },
+      });
+      return { id: updated.id, quantity: updated.quantity, unit: updated.unit, amountConsumed: amount };
+    }, { isolationLevel: 'Serializable' });
+  }
 
   async create(createInventoryDto: CreateInventoryDto) {
     const { farmId, goodsInStock, machinery, utility, water, power } =

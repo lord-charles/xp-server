@@ -8,6 +8,7 @@ import {
   Delete,
   UseGuards,
   Query,
+  Req,
 } from '@nestjs/common';
 import { InventoryService } from './inventory.service';
 import { CreateInventoryDto } from './dto/create-inventory.dto';
@@ -16,6 +17,7 @@ import { UpdateMachineryDto } from './dto/update-machinery.dto';
 import { UpdateUtilityDto } from './dto/update-utility.dto';
 import { UpdateWaterDto } from './dto/update-water.dto';
 import { UpdatePowerDto } from './dto/update-power.dto';
+import { ConsumeGoodsDto } from './dto/consume-goods.dto';
 import {
   ApiTags,
   ApiBearerAuth,
@@ -48,6 +50,12 @@ export class InventoryController {
   @ApiOperation({ summary: 'Get a specific inventory record' })
   findOne(@Param('id') id: string) {
     return this.inventoryService.findOne(id);
+  }
+
+  @Post('goods/:id/consume')
+  @ApiOperation({ summary: 'Atomically consume goods from stock' })
+  async consumeGoods(@Param('id') id: string, @Body() dto: ConsumeGoodsDto, @Req() req: any) {
+    return this.inventoryService.consumeGoods(id, dto.amount, req.user.id);
   }
 
   @Patch('goods/:id')
