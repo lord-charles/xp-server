@@ -1,4 +1,9 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  ForbiddenException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import {
   AnalyticsQueryDto,
@@ -11,10 +16,236 @@ import {
   FinancialTrendsQueryDto,
   KPIQueryDto,
 } from './dto/specialized-analytics.dto';
+import { LandPreparationAnalyticsQueryDto } from './dto/land-preparation-analytics.dto';
 
 @Injectable()
 export class AnalyticsService {
   constructor(private prisma: PrismaService) {}
+
+  /**
+   * A deliberately read-only adapter for the mobile land-preparation dashboard.
+   * Activity CRUD endpoints retain their original response shapes; this method
+   * keeps chart-facing labels and filters in one stable, efficient response.
+   */
+  async getLandPreparationAnalytics(
+    query: LandPreparationAnalyticsQueryDto,
+    user: { id: string; userType?: string },
+  ) {
+    const { farmId, cycleId, cropId, startDate, endDate } = query;
+    const start = startDate ? this.toStartOfDay(startDate) : undefined;
+    const end = endDate ? this.toEndOfDay(endDate) : undefined;
+
+    if (start && end && start > end) {
+      throw new BadRequestException('startDate must be on or before endDate');
+    }
+
+    const farm = await this.prisma.farm.findUnique({
+      where: { id: farmId },
+      select: { id: true, userId: true },
+    });
+    if (!farm) throw new NotFoundException('Farm not found');
+
+    await this.assertFarmAccess(farm, user);
+
+    if (cycleId) {
+      const cycle = await this.prisma.cropCycle.findFirst({
+        where: { id: cycleId, farmId },
+        select: { id: true },
+      });
+      if (!cycle)
+        throw new NotFoundException('Crop cycle not found for this farm');
+    }
+
+    if (cropId) {
+      const crop = await this.prisma.crop.findFirst({
+        where: {
+          id: cropId,
+          farmId,
+          ...(cycleId ? { cycleId } : {}),
+        },
+        select: { id: true },
+      });
+      if (!crop)
+        throw new NotFoundException('Crop not found for this farm or cycle');
+    }
+
+    const cropScope = {
+      farmId,
+      ...(cropId ? { id: cropId } : {}),
+      ...(cycleId ? { cycleId } : {}),
+    };
+    const dateScope =
+      start || end
+        ? { ...(start ? { gte: start } : {}), ...(end ? { lte: end } : {}) }
+        : undefined;
+    const recordWhere = {
+      farmId,
+      ...(dateScope ? { date: dateScope } : {}),
+      crop: cropScope,
+    };
+    const cropSelect = {
+      crop: { select: { cropName: true, cycleId: true } },
+    } as const;
+
+    const [tillageRecords, soilRecords, fieldRecords, soilPreparationRecords] =
+      await Promise.all([
+        this.prisma.tillageRecord.findMany({
+          where: recordWhere,
+          include: cropSelect,
+          orderBy: { date: 'asc' },
+        }),
+        this.prisma.soilDataRecord.findMany({
+          where: recordWhere,
+          include: cropSelect,
+          orderBy: { date: 'asc' },
+        }),
+        this.prisma.fieldConditionRecord.findMany({
+          where: recordWhere,
+          include: cropSelect,
+          orderBy: { date: 'asc' },
+        }),
+        this.prisma.soilPrepRecord.findMany({
+          where: recordWhere,
+          include: cropSelect,
+          orderBy: { date: 'asc' },
+        }),
+      ]);
+
+    const tillage = tillageRecords.map((record) => ({
+      id: record.id,
+      cropId: record.cropId,
+      cropName: record.crop.cropName,
+      cycleId: record.crop.cycleId,
+      date: record.date,
+      system: this.titleCase(record.system),
+      type: this.titleCaseList(record.type),
+      equipment: record.equipment,
+      area: record.area,
+      areaUnit: record.areaUnit,
+      cost: record.cost ?? 0,
+      notes: record.notes,
+    }));
+
+    const soil = soilRecords.map((record) => ({
+      id: record.id,
+      cropId: record.cropId,
+      cropName: record.crop.cropName,
+      cycleId: record.crop.cycleId,
+      date: record.date,
+      soilType: this.titleCase(record.soilType),
+      ph: this.titleCase(record.soilPH),
+      moisture: this.titleCase(record.moistureContent),
+      organicMatter: this.titleCase(record.organicMatter),
+      nitrogen: record.nitrogen,
+      phosphorus: record.phosphorus,
+      potassium: record.potassium,
+    }));
+
+    const field = fieldRecords.map((record) => ({
+      id: record.id,
+      cropId: record.cropId,
+      cropName: record.crop.cropName,
+      cycleId: record.crop.cycleId,
+      date: record.date,
+      topography: this.titleCase(record.topography),
+      drainage: this.titleCase(record.drainage),
+      residue: this.titleCase(record.previousCropResidue),
+    }));
+
+    const soilPreparation = soilPreparationRecords.map((record) => ({
+      id: record.id,
+      cropId: record.cropId,
+      cropName: record.crop.cropName,
+      cycleId: record.crop.cycleId,
+      date: record.date,
+      tillageType: this.titleCase(record.tillageType),
+      area: record.area,
+      areaUnit: record.areaUnit,
+      labourType: record.labourType,
+      labourCost: record.labourCost ?? 0,
+      notes: record.notes,
+    }));
+
+    return {
+      filters: {
+        farmId,
+        cycleId: cycleId ?? null,
+        cropId: cropId ?? null,
+        startDate: startDate ?? null,
+        endDate: endDate ?? null,
+      },
+      summary: {
+        totalTillageCost: this.round(
+          tillage.reduce((sum, record) => sum + record.cost, 0),
+        ),
+        totalTillageArea: this.round(
+          tillage.reduce((sum, record) => sum + record.area, 0),
+        ),
+        tillageRecords: tillage.length,
+        soilTests: soil.length,
+        fieldAssessments: field.length,
+        soilPreparationRecords: soilPreparation.length,
+      },
+      tillage,
+      soil,
+      field,
+      soilPreparation,
+    };
+  }
+
+  private async assertFarmAccess(
+    farm: { id: string; userId: string },
+    user: { id: string; userType?: string },
+  ) {
+    if (user.userType === 'admin') return;
+    if (user.userType === 'user' && farm.userId === user.id) return;
+
+    if (user.userType === 'employee') {
+      const assignment = await this.prisma.employeeFarm.findUnique({
+        where: { employeeId_farmId: { employeeId: user.id, farmId: farm.id } },
+        select: { id: true },
+      });
+      if (assignment) return;
+    }
+
+    throw new ForbiddenException('You do not have access to this farm');
+  }
+
+  private toStartOfDay(value: string) {
+    const date = new Date(value);
+    date.setUTCHours(0, 0, 0, 0);
+    return date;
+  }
+
+  private toEndOfDay(value: string) {
+    const date = new Date(value);
+    date.setUTCHours(23, 59, 59, 999);
+    return date;
+  }
+
+  private titleCase(value: string) {
+    return value
+      .split(/[-_\s]+/)
+      .filter(Boolean)
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
+  }
+
+  private titleCaseList(value: string) {
+    return value
+      .split('|')
+      .map((part) =>
+        part
+          .split(',')
+          .map((entry) => this.titleCase(entry.trim()))
+          .join(', '),
+      )
+      .join(' | ');
+  }
+
+  private round(value: number) {
+    return Number(value.toFixed(2));
+  }
 
   private getDateRange(
     period: AnalyticsPeriod,

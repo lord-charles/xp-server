@@ -1,4 +1,12 @@
-import { Controller, Get, Query, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Query,
+  Req,
+  UseGuards,
+  UsePipes,
+  ValidationPipe,
+} from '@nestjs/common';
 import { AnalyticsService } from './analytics.service';
 import {
   AnalyticsQueryDto,
@@ -10,6 +18,7 @@ import {
   FinancialTrendsQueryDto,
   KPIQueryDto,
 } from './dto/specialized-analytics.dto';
+import { LandPreparationAnalyticsQueryDto } from './dto/land-preparation-analytics.dto';
 import {
   ApiTags,
   ApiOperation,
@@ -24,6 +33,103 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 @Controller('analytics')
 export class AnalyticsController {
   constructor(private readonly analyticsService: AnalyticsService) {}
+
+  @Get('land-preparation')
+  @UsePipes(
+    new ValidationPipe({
+      transform: true,
+      whitelist: true,
+      forbidNonWhitelisted: true,
+    }),
+  )
+  @ApiOperation({
+    summary: 'Get land preparation analytics for a farm',
+    description:
+      'Returns normalized tillage, soil and field-condition records in one request. The caller must own, be assigned to, or be an administrator of the requested farm.',
+  })
+  @ApiResponse({
+    status: 200,
+    description:
+      'Normalized records and summary for the Land Prep Analytics screen',
+    schema: {
+      example: {
+        filters: {
+          farmId: 'cmub9guig000kq9lc9ymtzkia',
+          cycleId: 'cmub9guig000lq9lcwxy12345',
+          cropId: null,
+          startDate: '2026-01-01',
+          endDate: '2026-12-31',
+        },
+        summary: {
+          totalTillageCost: 3500,
+          totalTillageArea: 2.5,
+          tillageRecords: 1,
+          soilTests: 1,
+          fieldAssessments: 1,
+          soilPreparationRecords: 0,
+        },
+        tillage: [
+          {
+            id: 'cmexampletillage',
+            cropId: 'cmexamplecrop',
+            cropName: 'Maize',
+            cycleId: 'cmexamplecycle',
+            date: '2026-02-10T00:00:00.000Z',
+            system: 'Contour',
+            type: 'Moldboard',
+            equipment: 'Moldboard plough',
+            area: 2.5,
+            areaUnit: 'acres',
+            cost: 3500,
+            notes: null,
+          },
+        ],
+        soil: [
+          {
+            id: 'cmexamplesoil',
+            cropId: 'cmexamplecrop',
+            cropName: 'Maize',
+            cycleId: 'cmexamplecycle',
+            date: '2026-02-10T00:00:00.000Z',
+            soilType: 'Loamy',
+            ph: 'Neutral',
+            moisture: 'Moist',
+            organicMatter: 'Medium',
+            nitrogen: true,
+            phosphorus: true,
+            potassium: false,
+          },
+        ],
+        field: [
+          {
+            id: 'cmexamplefield',
+            cropId: 'cmexamplecrop',
+            cropName: 'Maize',
+            cycleId: 'cmexamplecycle',
+            date: '2026-02-10T00:00:00.000Z',
+            topography: 'Sloped',
+            drainage: 'Well Drained',
+            residue: 'Medium',
+          },
+        ],
+        soilPreparation: [],
+      },
+    },
+  })
+  @ApiResponse({
+    status: 403,
+    description: 'The caller cannot access this farm',
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'Farm, crop cycle, or crop was not found',
+  })
+  async getLandPreparationAnalytics(
+    @Query() query: LandPreparationAnalyticsQueryDto,
+    @Req() req: any,
+  ) {
+    return this.analyticsService.getLandPreparationAnalytics(query, req.user);
+  }
 
   @Get('business-overview')
   @ApiOperation({
