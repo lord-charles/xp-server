@@ -84,7 +84,14 @@ export class AnalyticsService {
       crop: cropScope,
     };
     const cropSelect = {
-      crop: { select: { cropName: true, cycleId: true } },
+      crop: {
+        select: {
+          cropName: true,
+          cycleId: true,
+          areaSize: true,
+          areaUnit: true,
+        },
+      },
     } as const;
 
     const [tillageRecords, soilRecords, fieldRecords, soilPreparationRecords] =
@@ -141,7 +148,17 @@ export class AnalyticsService {
       potassium: record.potassium,
     }));
 
-    const field = fieldRecords.map((record) => ({
+    // Field conditions are point-in-time snapshots. The chart should use one
+    // current condition per crop rather than summing every historical
+    // assessment and overstating the farm's acreage.
+    const latestFieldRecordsByCrop = new Map<
+      string,
+      (typeof fieldRecords)[number]
+    >();
+    for (const record of fieldRecords) {
+      latestFieldRecordsByCrop.set(record.cropId, record);
+    }
+    const field = [...latestFieldRecordsByCrop.values()].map((record) => ({
       id: record.id,
       cropId: record.cropId,
       cropName: record.crop.cropName,
@@ -150,6 +167,9 @@ export class AnalyticsService {
       topography: this.titleCase(record.topography),
       drainage: this.titleCase(record.drainage),
       residue: this.titleCase(record.previousCropResidue),
+      area: record.crop.areaSize,
+      areaUnit: record.crop.areaUnit,
+      acres: this.toAcres(record.crop.areaSize, record.crop.areaUnit),
     }));
 
     const soilPreparation = soilPreparationRecords.map((record) => ({
@@ -183,7 +203,8 @@ export class AnalyticsService {
         ),
         tillageRecords: tillage.length,
         soilTests: soil.length,
-        fieldAssessments: field.length,
+        fieldAssessments: fieldRecords.length,
+        currentFieldConditions: field.length,
         soilPreparationRecords: soilPreparation.length,
       },
       tillage,
@@ -245,6 +266,18 @@ export class AnalyticsService {
 
   private round(value: number) {
     return Number(value.toFixed(2));
+  }
+
+  private toAcres(area: number, unit: string) {
+    const normalizedUnit = unit.trim().toLowerCase();
+    if (
+      normalizedUnit === 'hectare' ||
+      normalizedUnit === 'hectares' ||
+      normalizedUnit === 'ha'
+    ) {
+      return this.round(area * 2.47105);
+    }
+    return area;
   }
 
   private getDateRange(

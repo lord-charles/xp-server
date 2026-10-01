@@ -66,6 +66,7 @@ export class AnalyticsController {
           tillageRecords: 1,
           soilTests: 1,
           fieldAssessments: 1,
+          currentFieldConditions: 1,
           soilPreparationRecords: 0,
         },
         tillage: [
@@ -110,6 +111,9 @@ export class AnalyticsController {
             topography: 'Sloped',
             drainage: 'Well Drained',
             residue: 'Medium',
+            area: 2.5,
+            areaUnit: 'acres',
+            acres: 2.5,
           },
         ],
         soilPreparation: [],

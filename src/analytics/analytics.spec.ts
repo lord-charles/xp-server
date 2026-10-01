@@ -52,7 +52,12 @@ describe('AnalyticsModule', () => {
   });
 
   it('returns normalized land preparation data and summary for the farm owner', async () => {
-    const crop = { cropName: 'Maize', cycleId: 'cycle-1' };
+    const crop = {
+      cropName: 'Maize',
+      cycleId: 'cycle-1',
+      areaSize: 2.5,
+      areaUnit: 'acres',
+    };
     prisma.farm.findUnique.mockResolvedValue({
       id: 'farm-1',
       userId: 'user-1',
@@ -111,6 +116,7 @@ describe('AnalyticsModule', () => {
       tillageRecords: 1,
       soilTests: 1,
       fieldAssessments: 1,
+      currentFieldConditions: 1,
       soilPreparationRecords: 0,
     });
     expect(result.tillage[0]).toMatchObject({
@@ -123,6 +129,9 @@ describe('AnalyticsModule', () => {
       ph: 'Neutral',
       moisture: 'Moist',
     });
-    expect(result.field[0]).toMatchObject({ drainage: 'Well Drained' });
+    expect(result.field[0]).toMatchObject({
+      drainage: 'Well Drained',
+      acres: 2.5,
+    });
   });
 });
